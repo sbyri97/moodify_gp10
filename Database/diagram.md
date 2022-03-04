@@ -23,9 +23,16 @@ Table Library {
 Table Playlists {
   id integer [pk, increment, not null]
   user_id integer [ref: > Users.id]
-  library_id integer [ref: > Library.id]
   name varchar(100)
   mood_id integer [ref: > Moods.id]
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table PlaylistSongs {
+  id integer [pk, increment, not null]
+  library_id integer [ref: > Library.id]
+  playlist_id integer [ref: > Playlists.id]
   createdAt timestamp
   updatedAt timestamp
 }
