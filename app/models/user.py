@@ -14,8 +14,8 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.now)
-    updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
     playlists = db.relationship("Playlist", back_populates="user")
     followers = db.relationship(

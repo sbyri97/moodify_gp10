@@ -11,7 +11,7 @@ class Library(db.Model):
   album_name = db.Column(db.String(100))
   song_title = db.Column(db.String(100), nullable=False)
   song_url = db.Column(db.String(255), nullable=False)
-  created_at = db.Column(db.DateTime, default=datetime.now)
-  updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+  created_at = db.Column(db.DateTime, default=datetime.now())
+  updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
   playlists = db.relationship("Playlist", back_populates="library", secondary=playlist_songs)

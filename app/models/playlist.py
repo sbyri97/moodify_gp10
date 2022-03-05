@@ -9,8 +9,8 @@ class Playlist(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
   mood_id = db.Column(db.Integer, db.ForeignKey("moods.id"))
   name = db.Column(db.String(100), nullable=False)
-  created_at = db.Column(db.DateTime, default=datetime.now)
-  updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+  created_at = db.Column(db.DateTime, default=datetime.now())
+  updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
   user = db.relationship("User", back_populates="playlists")
   mood = db.relationship("Mood", back_populates="playlists")
