@@ -2,6 +2,7 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
+from .follows import follows
 
 
 class User(db.Model, UserMixin):
@@ -17,8 +18,14 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
     playlists = db.relationship("Playlist", back_populates="user")
-    following = db.relationship("Follows", back_populates="user_following")
-    followed = db.relationship("Follows", back_populates="user_followed")
+    followers = db.relationship(
+        "User",
+        secondary=follows,
+        primaryjoin=(follows.c.follower_id == id),
+        secondaryjoin=(follows.c.followed_id == id),
+        backref=db.backref("following", lazy="dynamic"),
+        lazy="dynamic"
+    )
 
     @property
     def password(self):

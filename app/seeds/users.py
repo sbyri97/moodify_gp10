@@ -1,14 +1,15 @@
 from app.models import db, User
+from datetime import datetime
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password')
+        username='Demo', email='demo@aa.io', password='password', first_name="Doug", last_name="Demo", created_at=datetime.now, updated_at=datetime.now)
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
+        username='marnie', email='marnie@aa.io', password='password', first_name="Marnie", last_name="Smith", created_at=datetime.now, updated_at=datetime.now)
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        username='bobbie', email='bobbie@aa.io', password='password', first_name="Bobbie", last_name="Flay", created_at=datetime.now, updated_at=datetime.now)
 
     db.session.add(demo)
     db.session.add(marnie)
