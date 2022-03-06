@@ -15,9 +15,16 @@ from app.models import db, Playlist
 # all user_id 1 for our built in playlists
 
 def seed_playlists():
+
   one = Playlist(user_id=1, name="Happy Time", mood_id=1, created_at=datetime.now(), updated_at=datetime.now())
   two = Playlist(user_id=1, name="Party Playlist", mood_id=1, created_at=datetime.now(), updated_at=datetime.now())
   three = Playlist(user_id=1, name="Celebration!", mood_id=1, created_at=datetime.now(), updated_at=datetime.now())
+  sixteen = Playlist(user_id=1, name="Live In Harmony", mood_id=4, created_at=datetime.now(), updated_at=datetime.now())
+  seventeen = Playlist(user_id=1, name="Cool Off Time", mood_id=4, created_at=datetime.now(), updated_at=datetime.now())
+  eighteen = Playlist(user_id=1, name="Know Your Serene", mood_id=4, created_at=datetime.now(), updated_at=datetime.now())
+  nineteen = Playlist(user_id=1, name="Light Hits", mood_id=5, created_at=datetime.now(), updated_at=datetime.now())
+  twenty = Playlist(user_id=1, name="Chilled Souls", mood_id=5, created_at=datetime.now(), updated_at=datetime.now())
+  twentyone = Playlist(user_id=1, name="Wake Up Early", mood_id=5, created_at=datetime.now(), updated_at=datetime.now())
 
   a22 = Playlist(user_id=1, name="Passion", mood_id=3, created_at=datetime.now(), updated_at=datetime.now())
   a23 = Playlist(user_id=1, name="Infatuation", mood_id=3, created_at=datetime.now(), updated_at=datetime.now())
@@ -33,6 +40,14 @@ def seed_playlists():
   # after last playlist instance
   db.session.add(one)
   db.session.add(two)
+  db.session.add(three)
+
+  db.session.add(sixteen)
+  db.session.add(seventeen)
+  db.session.add(eighteen)
+  db.session.add(nineteen)
+  db.session.add(twenty)
+  db.session.add(twentyone)
 
   db.session.add(a22)
   db.session.add(a23)
