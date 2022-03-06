@@ -1,25 +1,45 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { signUp } from '../../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
-  const user = useSelector(state => state.session.user);
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+    if (password === confirmPassword) {
+      setErrors([]);
+      const data = await dispatch(signUp(username, email, password, confirmPassword, firstName, lastName));
+      console.log('this is the data', data);
       if (data) {
         setErrors(data)
       }
+      return null;
     }
+    return setErrors(['Both Passwords Must Match'])
+  }
+  //     return(dispatch(signUp(username, email, password)))
+  //       .catch(async(res) => {
+  //         const data = await res
+  //         if(data) setErrors(data)
+  //       })
+  //   }
+  //   return setErrors(['Both passwords must match'])
+  // }
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
   };
 
   const updateUsername = (e) => {
@@ -34,11 +54,11 @@ const SignUpForm = () => {
     setPassword(e.target.value);
   };
 
-  const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
+  const updateConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
   };
 
-  if (user) {
+  if (sessionUser) {
     return <Redirect to='/' />;
   }
 
@@ -48,6 +68,24 @@ const SignUpForm = () => {
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
+      </div>
+      <div>
+        <label>First Name</label>
+        <input
+          type='text'
+          name='firstName'
+          onChange={updateFirstName}
+          value={firstName}
+        ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type='text'
+          name='last_name'
+          onChange={updateLastName}
+          value={lastName}
+        ></input>
       </div>
       <div>
         <label>User Name</label>
@@ -77,12 +115,12 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label>Confirm Password</label>
         <input
           type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
+          name='confirm_password'
+          onChange={updateConfirmPassword}
+          value={confirmPassword}
           required={true}
         ></input>
       </div>

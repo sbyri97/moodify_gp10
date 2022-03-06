@@ -1,3 +1,4 @@
+from asyncio import constants
 from flask import Blueprint, jsonify, session, request
 from app.models import User, db
 from app.forms import LoginForm
@@ -61,11 +62,16 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('this is form data::::::',form.data)
     if form.validate_on_submit():
         user = User(
             username=form.data['username'],
             email=form.data['email'],
-            password=form.data['password']
+            password=form.data['password'],
+            # confirm_password=form.data['confirm_password'],
+            first_name=form.data['first_name'],
+            last_name=form.data['last_name'],
+            # hashed_password=form.data['hashed_password']
         )
         db.session.add(user)
         db.session.commit()
