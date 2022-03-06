@@ -11,6 +11,7 @@ import Home from './components/Home/home';
 
 import { authenticate } from './store/session';
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
