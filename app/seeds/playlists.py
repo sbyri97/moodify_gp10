@@ -16,9 +16,17 @@ from app.models import db, Playlist
 
 def seed_playlists():
 
-  one = Playlist(user_id=1, name="Happy Time", mood_id=1, created_at=datetime.now(), updated_at=datetime.now())
-  two = Playlist(user_id=1, name="Party Playlist", mood_id=1, created_at=datetime.now(), updated_at=datetime.now())
-  three = Playlist(user_id=1, name="Celebration!", mood_id=1, created_at=datetime.now(), updated_at=datetime.now())
+
+  one = Playlist(user_id=1, name="Happy Hits", mood_id=1, created_at=datetime.now(), updated_at=datetime.now())
+  two = Playlist(user_id=1, name="Good Vibe Oldies", mood_id=1, created_at=datetime.now(), updated_at=datetime.now())
+  three = Playlist(user_id=1, name="Party Playlist", mood_id=1, created_at=datetime.now(), updated_at=datetime.now())
+  four = Playlist(user_id=1, name="All the Feels", mood_id=6, created_at=datetime.now(), updated_at=datetime.now())
+  five = Playlist(user_id=1, name="reminisce.", mood_id=6, created_at=datetime.now(), updated_at=datetime.now())
+  six = Playlist(user_id=1, name="gray day", mood_id=6, created_at=datetime.now(), updated_at=datetime.now())
+  seven = Playlist(user_id=1, name="!!!!!", mood_id=7, created_at=datetime.now(), updated_at=datetime.now())
+  eight = Playlist(user_id=1, name="Grunge & Angst", mood_id=7, created_at=datetime.now(), updated_at=datetime.now())
+  nine = Playlist(user_id=1, name="Fight Back", mood_id=7, created_at=datetime.now(), updated_at=datetime.now())
+
   sixteen = Playlist(user_id=1, name="Live In Harmony", mood_id=4, created_at=datetime.now(), updated_at=datetime.now())
   seventeen = Playlist(user_id=1, name="Cool Off Time", mood_id=4, created_at=datetime.now(), updated_at=datetime.now())
   eighteen = Playlist(user_id=1, name="Know Your Serene", mood_id=4, created_at=datetime.now(), updated_at=datetime.now())
@@ -41,6 +49,12 @@ def seed_playlists():
   db.session.add(one)
   db.session.add(two)
   db.session.add(three)
+  db.session.add(four)
+  db.session.add(five)
+  db.session.add(six)
+  db.session.add(seven)
+  db.session.add(eight)
+  db.session.add(nine)
 
   db.session.add(sixteen)
   db.session.add(seventeen)
