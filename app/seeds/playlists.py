@@ -27,6 +27,13 @@ def seed_playlists():
   eight = Playlist(user_id=1, name="Grunge & Angst", mood_id=7, created_at=datetime.now(), updated_at=datetime.now())
   nine = Playlist(user_id=1, name="Fight Back", mood_id=7, created_at=datetime.now(), updated_at=datetime.now())
 
+  ten = Playlist(user_id=1, name="Dance With Me", mood_id=2, created_at=datetime.now, updated_at=datetime.now)
+  eleven = Playlist(user_id=1, name="Let's Party!", mood_id=2, created_at=datetime.now, updated_at=datetime.now)
+  twelve = Playlist(user_id=1, name="Summer Festival Vibes", mood_id=2, created_at=datetime.now, updated_at=datetime.now)
+  thirteen = Playlist(user_id=1, name="Classical Music for a Productive Day", mood_id=9, created_at=datetime.now, updated_at=datetime.now)
+  fourteen = Playlist(user_id=1, name="Productive Morning", mood_id=9, created_at=datetime.now, updated_at=datetime.now)
+  fifteen = Playlist(user_id=1, name="Zone-Out", mood_id=9, created_at=datetime.now, updated_at=datetime.now)
+
   sixteen = Playlist(user_id=1, name="Live In Harmony", mood_id=4, created_at=datetime.now(), updated_at=datetime.now())
   seventeen = Playlist(user_id=1, name="Cool Off Time", mood_id=4, created_at=datetime.now(), updated_at=datetime.now())
   eighteen = Playlist(user_id=1, name="Know Your Serene", mood_id=4, created_at=datetime.now(), updated_at=datetime.now())
@@ -55,6 +62,13 @@ def seed_playlists():
   db.session.add(seven)
   db.session.add(eight)
   db.session.add(nine)
+
+  db.session.add(ten)
+  db.session.add(eleven)
+  db.session.add(twelve)
+  db.session.add(thirteen)
+  db.session.add(fourteen)
+  db.session.add(fifteen)
 
   db.session.add(sixteen)
   db.session.add(seventeen)

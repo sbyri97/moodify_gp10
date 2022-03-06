@@ -31,6 +31,35 @@ def seed_library():
   twentysix = Library (artist_name="Eminem", album_name="8 Mile Soundtrack", album_coverart_url="https://upload.wikimedia.org/wikipedia/en/3/39/8milecover.jpg", song_title="Lose Yourself", song_url="https://moodify.s3.amazonaws.com/Angry/Eminem+-+Lose+Yourself+(Clean).mp3", created_at=datetime.now(), updated_at=datetime.now())
   twentyseven = Library (artist_name="Kanye West", album_name="Graduation", album_coverart_url="https://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg", song_title="Stronger", song_url="https://moodify.s3.amazonaws.com/Angry/DMX+-+X+Gon'+Give+It+To+Ya+(CLEAN)+%5BHQ%5D.mp3", created_at=datetime.now(), updated_at=datetime.now())
 
+  twentyeight = Library(artist_name="Sia feat.David Guetta", album_name="Music", album_coverart_url="https://upload.wikimedia.org/wikipedia/en/e/e8/Music%2C_Songs_from_and_Inspired_by_the_Motion_Picture_by_Sia.jpeg", song_title="Floating Through Space", song_url="https://moodify.s3.amazonaws.com/Energetic/Dance+With+Me/Sia+and+David+Guetta+-+Floating+Through+Space+(Official).mp3", created_at=datetime.now, updated_at=datetime.now)
+  twentynine = Library(artist_name="Skrillex feat.Justin Bieber", album_name=" Skrillex and Diplo Present Jack U", album_coverart_url="https://i1.sndcdn.com/artworks-000113782825-od04gn-t500x500.jpg", song_title="Where Are U Now", song_url="https://moodify.s3.amazonaws.com/Energetic/Dance+With+Me/Skrillex%2C+Diplo%2C+Justin+Bieber+-+Where+Are+U+Now+(Lyrics).mp3", created_at=datetime.now, updated_at=datetime.now)
+  thirty = Library(artist_name="Avicii", album_name="Levels", album_coverart_url="https://m.media-amazon.com/images/I/61Mlz6e728L._SL1182_.jpg", song_title="Levels", song_url="https://moodify.s3.amazonaws.com/Energetic/Summer+Festival+Vibes/Levels+(Radio+Edit).mp3", created_at=datetime.now, updated_at=datetime.now)
+  thirtyone = Library(artist_name="Lana Del Rey feat.Cedric Gervais", album_name="Born to Die: The Paradise Edition", album_coverart_url="https://i.scdn.co/image/ab67616d0000b273f894be72a77b1488292672c7", song_title="Summertime Sadness", song_url="https://moodify.s3.amazonaws.com/Energetic/Let's+Party/Lana+Del+Rey+vs+Cedric+Gervais+'Summertime+Sadness'+Remix.mp3", created_at=datetime.now, updated_at=datetime.now)
+  thirtytwo = Library(artist_name="Swedish House Mafia feat.Pharrell", album_name="Until One", album_coverart_url="https://img.yumpu.com/51837277/1/500x640/book-edition-swedish-house-mafia.jpg", song_title="One", song_url="https://moodify.s3.amazonaws.com/Energetic/Summer+Festival+Vibes/Swedish+House+Mafia+-+One+(Your+Name)+ft.+Pharrell.mp3", created_at=datetime.now, updated_at=datetime.now)
+  thirtythree = Library(artist_name="Calvin Harris feat.Disciples", album_name="How Deep Is Your Love", album_coverart_url="https://upload.wikimedia.org/wikipedia/commons/7/74/Calvin_Harris_and_Disciples_-_How_Deep_Is_Your_Love.png", song_title="How Deep Is Your Love", song_url="https://moodify.s3.amazonaws.com/Energetic/Let's+Party/Calvin+Harris+%26+Disciples+-+How+Deep+Is+Your+Love+(Audio).mp3", created_at=datetime.now, updated_at=datetime.now)
+  thirtyfive = Library(artist_name="Robin Schulz feat Francesco Yates", album_name="Sugar", album_coverart_url="https://m.media-amazon.com/images/I/91ucuT55yZL._SX355_.jpg", song_title="Sugar", song_url="https://moodify.s3.amazonaws.com/Energetic/Summer+Festival+Vibes/Robin+Schulz+-+Sugar+(Lyrics)+feat.+Francesco+Yates.mp3", created_at=datetime.now, updated_at=datetime.now)
+  thirtyseven = Library(artist_name="Polo & Pan", album_name="Caravelle", album_coverart_url="https://img.discogs.com/alWBUjsAs09tce3cDwhF1l9E6KQ=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10375811-1510140605-2933.jpeg.jpg", song_title="Nanã", song_url="https://moodify.s3.amazonaws.com/Energetic/Let's+Party/Polo+%26+Pan+-+Nana+(official+audio).mp3", created_at=datetime.now, updated_at=datetime.now)
+  thirtyeight = Library(artist_name="Polo & Pan", album_name="Caravelle", album_coverart_url="https://img.discogs.com/alWBUjsAs09tce3cDwhF1l9E6KQ=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10375811-1510140605-2933.jpeg.jpg", song_title="Arc-en-ciel", song_url="https://moodify.s3.amazonaws.com/Energetic/Let's+Party/POLO+%26+PAN+-+Arc-en-Ciel+(official+audio).mp3", created_at=datetime.now, updated_at=datetime.now)
+  thirtynine = Library(artist_name="Polo & Pan", album_name="Caravelle", album_coverart_url="https://img.discogs.com/alWBUjsAs09tce3cDwhF1l9E6KQ=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10375811-1510140605-2933.jpeg.jpg", song_title="Canopée", song_url="https://moodify.s3.amazonaws.com/Energetic/Dance+With+Me/POLO+%26+PAN+-+Canop%C3%A9e+(audio).mp3", created_at=datetime.now, updated_at=datetime.now)
+  forty = Library(artist_name="Sia", album_name="This Is Acting", album_coverart_url="https://upload.wikimedia.org/wikipedia/en/f/fd/Thisisacting_albumcover.png", song_title="Cheap Thrills", song_url="https://moodify.s3.amazonaws.com/Energetic/Dance+With+Me/Sia+-+Cheap+Thrills+(Lyrics)+ft.+Sean+Paul+(1).mp3", created_at=datetime.now, updated_at=datetime.now)
+  fortyone = Library(artist_name="Naughty Boy feat.Sam Smith", album_name="Hotel Cabana", album_coverart_url="https://img.apmcdn.org/623dfa9d74dbe6e743721ff36c3b92abfba847a4/square/018c7f-20131104-naughty-boy.jpg", song_title="La la la", song_url="https://moodify.s3.amazonaws.com/Energetic/Dance+With+Me/Naughty+Boy+-+La+la+la+ft.+Sam+Smith+(Official+Video).mp3", created_at=datetime.now, updated_at=datetime.now)
+  fortytwo = Library(artist_name="Naughty Boy feat.Beyoncé, Arrow Benjamin", album_name="Runnin' (Lose It All)", album_coverart_url="https://m.media-amazon.com/images/I/81d1Eu4nYFL._SS500_.jpg", song_title="Runnin'(Lose It All)", song_url="https://moodify.s3.amazonaws.com/Energetic/Summer+Festival+Vibes/Naughty+Boy++_+Runnin'+(Lose+It+All)++ft.+Beyonc%C3%A9%2C+Arrow+Benjamin+Lyrics.mp3", created_at=datetime.now, updated_at=datetime.now)
+  fortythree = Library(artist_name="Ava Max", album_name="Heaven & Hell", album_coverart_url="https://images-na.ssl-images-amazon.com/images/I/71ZJJs0MtAL._AC_UL600_SR600,600_.jpg", song_title="My Head & My Heart", song_url="https://moodify.s3.amazonaws.com/Energetic/Let's+Party/Ava+Max+-+My+Head+%26+My+Heart+%5BOfficial+Music+Video%5D.mp3", created_at=datetime.now, updated_at=datetime.now)
+  fortyfour = Library(artist_name="David Guetta feat.Bebe Rexha & J Balvin", album_name="7", album_coverart_url="https://cdns-images.dzcdn.net/images/cover/4df59dea8621bdb8b9fc1046d795adfb/500x500.jpg", song_title="Say My Name", song_url="https://moodify.s3.amazonaws.com/Energetic/Let's+Party/David+Guetta%2C+Bebe+Rexha+%26+J+Balvin+-+Say+My+Name+(Official+Video).mp3", created_at=datetime.now, updated_at=datetime.now)
+  fortyfive = Library(artist_name="Odesza", album_name="A Moment Apart", album_coverart_url="https://upload.wikimedia.org/wikipedia/en/1/1a/A_Moment_Alone_Cover.jpg", song_title="A Moment Apart", song_url="https://moodify.s3.amazonaws.com/Energetic/Summer+Festival+Vibes/ODESZA+-+A+Moment+Apart+(1).mp3", created_at=datetime.now, updated_at=datetime.now)
+  fortysix = Library(artist_name="Odesza feat.Zyra", album_name="In Return", album_coverart_url="https://indiecurrent.com/wp-content/uploads/2014/07/ODESZA-Memories-That-You-Call-feat.-Monsoonsiren.jpg", song_title="Say My Name", song_url="https://moodify.s3.amazonaws.com/Energetic/Summer+Festival+Vibes/ODESZA+-+Say+My+Name+(feat.+Zyra)+-+Lyric+Video.mp3", created_at=datetime.now, updated_at=datetime.now)
+
+  k47 = Library(artist_name="Claude Debussy", album_name="Arabesque No.1 in E Major", album_coverart_url="https://m.media-amazon.com/images/I/512tZRxLCzL.jpg", song_title="Arabesque", song_url="https://moodify.s3.amazonaws.com/Productive/Debussy+-+Arabesque+No.+1+(Ciccolini).mp3", created_at=datetime.now, updated_at=datetime.now)
+  k48 = Library(artist_name="Ludovico Einaudi", album_name="Seven Days Walking", album_coverart_url="https://cdns-images.dzcdn.net/images/cover/48d7e8d18fb9cba3e9a84db26de52e54/264x264.jpg", song_title="Ascent", song_url="https://moodify.s3.amazonaws.com/Productive/Einaudi_+Ascent+(Day+1).mp3", created_at=datetime.now, updated_at=datetime.now)
+  k49 = Library(artist_name="Fabrizio Paterlini", album_name="Viaggi in Aeromobile", album_coverart_url="https://i1.sndcdn.com/artworks-000001186025-1aawf9-t500x500.jpg", song_title="Sofia la Notte", song_url="https://moodify.s3.amazonaws.com/Productive/Fabrizio+Paterlini+-+Soffia+la+Notte+_+Piano.mp3", created_at=datetime.now, updated_at=datetime.now)
+  k50 = Library(artist_name="Yiruma", album_name="First Love", album_coverart_url="https://upload.wikimedia.org/wikipedia/en/9/91/Yiruma_-_firstlove.png", song_title="River Flows In You", song_url="https://moodify.s3.amazonaws.com/Productive/Productive+Morning/River+Flows+In+You.mp3", created_at=datetime.now, updated_at=datetime.now)
+  k51 = Library(artist_name="Phil France", album_name="The Swimmer", album_coverart_url="https://f4.bcbits.com/img/a2399852266_10.jpg", song_title="The Swimmer", song_url="https://moodify.s3.amazonaws.com/Productive/Zone-Out/Phil+France+-+The+Swimmer.mp3", created_at=datetime.now, updated_at=datetime.now)
+  k52 = Library(artist_name="Cœur de Pirate", album_name="Child Of Light", album_coverart_url="https://images-na.ssl-images-amazon.com/images/I/51KvDHBybNL._SY445_SX342_QL70_ML2_.jpg", song_title="Pilgrims on a Long Journey", song_url="https://moodify.s3.amazonaws.com/Productive/Productive+Morning/Child+of+Light++OST+01.Pilgrims+on+a+Long+Journey.mp3", created_at=datetime.now, updated_at=datetime.now)
+  k53 = Library(artist_name="Justin Hurwitz", album_name="La La Land Soundtrack", album_coverart_url="https://m.media-amazon.com/images/I/51HcXFz4C5L.jpg", song_title="City of Stars", song_url="https://moodify.s3.amazonaws.com/Productive/Productive+Morning/La+La+Land+-+City+of+Stars+(Piano+Cover).mp3", created_at=datetime.now, updated_at=datetime.now)
+  k54 = Library(artist_name="Alexis Ffrench", album_name="Bluebird", album_coverart_url="https://m.media-amazon.com/images/I/716GnE4vaNL._SS500_.jpg", song_title="Bluebird", song_url="https://moodify.s3.amazonaws.com/Productive/Zone-Out/Alexis+Ffrench+-+Bluebird.mp3", created_at=datetime.now, updated_at=datetime.now)
+  k55 = Library(artist_name="Claude Debussy", album_name="Rêverie", album_coverart_url="https://m.media-amazon.com/images/I/71CQ6YqwppL._SS500_.jpg", song_title="Rêverie", song_url="https://moodify.s3.amazonaws.com/Productive/Zone-Out/Debussy+-+R%C3%AAverie.mp3", created_at=datetime.now, updated_at=datetime.now)
+  k56 = Library(artist_name="Claude Debussy", album_name="Clair de Lune", album_coverart_url="https://m.media-amazon.com/images/I/51rds5ch2QL._SS500_.jpg", song_title="Clair de Lune", song_url="https://moodify.s3.amazonaws.com/Productive/Claire+De+Lune.mp3", created_at=datetime.now, updated_at=datetime.now)
+
   fortyseven = Library(artist_name="Satyr", album_name="Barefoot", album_coverart_url="https://f4.bcbits.com/img/a2702560174_10.jpg", song_title="Barefoot", song_url="https://moodify.s3.amazonaws.com/Chill/Chilled+Soul/Barefoot+%5BySdAkc_xcK8%5D.mp3", created_at=datetime.now(), updated_at=datetime.now())
   fortyeight = Library(artist_name="Lemeria", album_name="Lemeria's Chill Beats", album_coverart_url="https://f4.bcbits.com/img/a1771540026_10.jpg", song_title="Arrival", song_url="https://moodify.s3.amazonaws.com/Chill/Chilled+Soul/Lemeria+-+Arrival+%5BF2ZmLZetSfY%5D.mp3", created_at=datetime.now(), updated_at=datetime.now())
   fortynine = Library(artist_name="Lemeria", album_name="Lemeria's Chill Beats", album_coverart_url="https://f4.bcbits.com/img/a3256841928_10.jpg", song_title="Rainy Town", song_url="https://moodify.s3.amazonaws.com/Chill/Chilled+Soul/Lemeria+-+Rainy+Town+%5B_shBlXH75K8%5D.mp3", created_at=datetime.now(), updated_at=datetime.now())
@@ -81,9 +110,6 @@ def seed_library():
 
 
 
-
-
-
   # after last song instance
   db.session.add(one)
   db.session.add(two)
@@ -112,6 +138,35 @@ def seed_library():
   db.session.add(twentyfive)
   db.session.add(twentysix)
   db.session.add(twentyseven)
+
+  db.session.add(twentyeight)
+  db.session.add(twentynine)
+  db.session.add(thirty)
+  db.session.add(thirtyone)
+  db.session.add(thirtytwo)
+  db.session.add(thirtythree)
+  db.session.add(thirtyfive)
+  db.session.add(thirtyseven)
+  db.session.add(thirtyeight)
+  db.session.add(thirtynine)
+  db.session.add(forty)
+  db.session.add(fortyone)
+  db.session.add(fortytwo)
+  db.session.add(fortythree)
+  db.session.add(fortyfour)
+  db.session.add(fortyfive)
+  db.session.add(fortysix)
+
+  db.session.add(k47)
+  db.session.add(k48)
+  db.session.add(k49)
+  db.session.add(k50)
+  db.session.add(k51)
+  db.session.add(k52)
+  db.session.add(k53)
+  db.session.add(k54)
+  db.session.add(k55)
+  db.session.add(k56)
 
   db.session.add(fortyseven)
   db.session.add(fortyeight)
