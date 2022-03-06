@@ -1,15 +1,16 @@
 import React from 'react';
 import './home.css';
+import SideBar from './Sidebar';
 
 
 function Home(){
     return (
         <div>
-        <div className='sidebar'>
-            
+        <div>
+            <SideBar />
         </div>
         <div className='moods'>
-            
+
         </div>
         </div>
     )
