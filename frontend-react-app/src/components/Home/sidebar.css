@@ -73,14 +73,11 @@
     color: white;
 }
 
-/* .sidebar-navlink-text:hover {
-    color: white;
-}
 
-.fa-solid.fa-house:hover {
-    color: white;
-}
-
-.fa-solid.fa-magnifying-glass:hover{
+/* .fa-solid.fa-house .sidebar-navlink-text:hover {
     color: white;
 } */
+
+/* .fa-solid.fa-magnifying-glass:hover{
+    color: white;
+}  */

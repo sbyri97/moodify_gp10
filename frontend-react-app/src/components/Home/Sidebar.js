@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom';
 import './sidebar.css';
 
 const SideBar = () => {
+
+    // TO DO: add state for playlists to dynamically render an li for each playlist
+    // TO DO: add on click event for create new playlist button
+    // TO DO: add routing for each playlist link
     return (
         <div className='sidebar'>
             <div className='sidebar-logo'>
