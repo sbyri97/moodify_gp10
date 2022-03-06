@@ -1,15 +1,15 @@
 import React from 'react';
 import './home.css';
 import SideBar from './Sidebar';
-import happy from '../../../public/moodsPics/happy.jpeg'
-import energetic from '../../../public/moodsPics/energetic.jpeg'
-import romantic from '../../../public/moodsPics/romantic.jpeg'
-import serene from '../../../public/moodsPics/serene.jpeg'
-import chill from '../../../public/moodsPics/chill.jpeg'
-import gloomy from '../../../public/moodsPics/gloomy.jpeg'
-import angry from '../../../public/moodsPics/angry.jpeg'
-import heartbreak from '../../../public/moodsPics/heartbreak.jpeg'
-import productive from '../../../public/moodsPics/productive.jpeg'
+// import happy from '../../../public/moodsPics/happy.jpeg'
+// import energetic from '../../../public/moodsPics/energetic.jpeg'
+// import romantic from '../../../public/moodsPics/romantic.jpeg'
+// import serene from '../../../public/moodsPics/serene.jpeg'
+// import chill from '../../../public/moodsPics/chill.jpeg'
+// import gloomy from '../../../public/moodsPics/gloomy.jpeg'
+// // import angry from '../../../public/moodsPics/angry.jpeg'
+// import heartbreak from '../../../public/moodsPics/heartbreak.jpeg'
+// import productive from '../../../public/moodsPics/productive.jpeg'
 
 
 function Home(){
@@ -18,7 +18,7 @@ function Home(){
           <div>
               <SideBar />
           </div>
-          <div className='homePageMoodCardsMainContainer'>
+          {/* <div className='homePageMoodCardsMainContainer'>
               <div className='homePageMoodCardsTopRow'>
               <a className='homeCards'>
                   <img className='homePageIndividCard' src={happy}/>
@@ -77,9 +77,10 @@ function Home(){
                   <div className='homeCardImageTextContainerOne'>
                       <h2 className='homeCardImageText'>Happy</h2>
                   </div>
-              </a>
-              </div>
-            </div>
+              </a> */}
+              {/* </div>
+            </div> */}
+        </div>
     )
 }
 
