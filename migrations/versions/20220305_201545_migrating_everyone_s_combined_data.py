@@ -1,8 +1,8 @@
-"""fixed users and followers model, initial migration
+"""migrating everyone's combined data
 
-Revision ID: afec806d3742
+Revision ID: c78083e92ad3
 Revises: 
-Create Date: 2022-03-05 02:42:10.162392
+Create Date: 2022-03-05 20:15:45.944043
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'afec806d3742'
+revision = 'c78083e92ad3'
 down_revision = None
 branch_labels = None
 depends_on = None
