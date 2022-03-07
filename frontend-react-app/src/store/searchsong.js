@@ -10,7 +10,7 @@ const searchSongs = (songs) => {
 
 export const searchAllSongs = (nameOfSong) => async(dispatch) => {
     const response = await fetch(`/api/search/${nameOfSong}`)
-    
+    console.log(response);
 }
 
 
@@ -19,4 +19,4 @@ export default function searchSongReducer(state, action) {
     switch(action.type) {
 
     }
-}  
+}
