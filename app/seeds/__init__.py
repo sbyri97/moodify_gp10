@@ -3,7 +3,7 @@ from .users import seed_users, undo_users
 from .library import seed_library, undo_library
 from .moods import seed_moods, undo_moods
 from .playlists import seed_playlists, undo_playlists
-from .playlistsongs import seed_playlist_songs, undo_playlist_songs
+from .playlistsongs import seed_playlistsongs, undo_playlistsongs
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -17,7 +17,7 @@ def seed():
     seed_moods()
     seed_library()
     seed_playlists()
-    # seed_playlist_songs()
+    seed_playlistsongs()
 
 
     # Add other seed functions here
@@ -30,5 +30,5 @@ def undo():
     undo_moods()
     undo_library()
     undo_playlists()
-    # undo_playlist_songs()
+    undo_playlistsongs()
     # Add other undo functions here

@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginFormModal/LoginForm';
-import SignUpForm from './components/auth/SignUpFormModal/SignUpForm';
-import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
-import AudioPlayer from './components/AudioPlayer/AudioPlayer';
-import Home from './components/Home/home';
-import { authenticate } from './store/session';
-
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import LoginForm from "./components/auth/LoginFormModal/LoginForm";
+import SignUpForm from "./components/auth/SignUpFormModal/SignUpForm";
+import NavBar from "./components/NavBar";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import UsersList from "./components/UsersList";
+import User from "./components/User";
+import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
+import Home from "./components/Home/home";
+import { authenticate } from "./store/session";
+import Songs from "./components/Songs/songs";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -37,15 +37,18 @@ function App() {
         {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route> */}
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+        <ProtectedRoute path="/users" exact={true}>
+          <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <ProtectedRoute path="/" exact={true}>
           <Home />
         </ProtectedRoute>
+        <Route path="/songs">
+          <Songs />
+        </Route>
       </Switch>
       <AudioPlayer />
     </BrowserRouter>
