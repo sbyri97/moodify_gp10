@@ -1,5 +1,4 @@
-from __future__ import print_function
-from flask import Blueprint, render_template
+from flask import Blueprint
 from app.models import Library
 
 
@@ -10,10 +9,7 @@ searchSong_routes = Blueprint('search', __name__)
 def searchSong(nameOfSong):
     # kwargs = {"song_title": nameOfSong}
     # songs = str(nameOfSong)
-    song = Library.query.filter_by(song_title=f'{nameOfSong}').all()
-    
-    print("This is name of Song:::", song)
-    return render_template("searchSong.html", song=song)
-
-
-
+    songs = Library.query.filter(Library.song_title.like(f'{nameOfSong}')).all()
+    dict_songs = [song.to_dict() for song in songs]
+    print("This is name of Song:::", dict_songs)
+    return {"songs": dict_songs}
