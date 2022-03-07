@@ -1,50 +1,5 @@
 * {
-    font-family: 'Raleway', sans-serif;    
+    font-family: 'Nexa', Helvetica, Arial, sans-serif;
 }
 
 
-.homePageMoodCardsTopRow {
-
-}
-
-.homePageMoodCardsMiddleRow {
-
-}
-
-.homePageMoodCardsBottomRow {
-
-}
-
-.homeCardImageTextContainerOne,
-.homeCardImageTextContainerFour,
-.homeCardImageTextContainerSeven {
-    float: left;
-}
-
-.homeCardImageTextContainerTwo,
-.homeCardImageTextContainerFive,
-.homeCardImageTextContainerEight {
-    
-}
-
-.homeCardImageTextContainerThree,
-.homeCardImageTextContainerSix,
-.homeCardImageTextContainerNine {
-    float: right;
-}
-
-.homeCards {
-    display: flex;
-    flex-direction: row;
-    width: 300px;
-    height: 300px;
-    border-radius: 10px
-}
-
-.homePageIndividCard {
-
-}
-
-.homeCardImageText {
-
-}
