@@ -1,5 +1,6 @@
 import React from "react";
 import "./songs.css";
+import { FaPlay } from "react-icons/fa";
 
 function Songs() {
   return (
@@ -10,13 +11,15 @@ function Songs() {
         </div>
         <div className="song-card-info">
           <div className="song-card-song-name">Song Name</div>
-          <div className="song-card-Artist-name">Artist Name</div>
+          <div className="song-card-artist-name">Artist Name</div>
         </div>
       </div>
 
       <div className="song-button-container">
-        <button>Add Song</button>
-        <button>Play Song</button>
+        <button className="song-card-add-song">+ Add Song</button>
+        <button className="song-card-play-song">
+          <FaPlay className="play" />
+        </button>
       </div>
     </div>
   );
