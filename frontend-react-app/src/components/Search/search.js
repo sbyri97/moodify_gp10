@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from "react";
+import * as libraryReducer from '../../store/library'
 
 
-export function MainSearch() {
+export default function MainSearch() {
 
-    const song = useSelector((state) => state.song)
+    const songs = useSelector((state) => state.libraryReducer.library.songs)
+
 
     const [songsSearch, setSongSearch] = useState("")
     const dispatch = useDispatch();
@@ -17,10 +19,10 @@ export function MainSearch() {
 
     const onSearchSubmit = (e) => {
         e.preventDefault();
-        return dispatch()
+        return dispatch(libraryReducer.searchAllSongs(songsSearch))
         // This return needs to go to a thunk which needs to send the data to the backend to query
     }
-    
+
     return (
         <div>
             <div>
@@ -31,11 +33,15 @@ export function MainSearch() {
                     value={songsSearch}
                     onChange={search}
                     />
-                    <button>Search</button>
+                    <button onClick={onSearchSubmit}>Search</button>
                 </form>
             </div>
-            <div>The results of search over here
-                song
+            <div>The results of search over here:
+                <ul>
+                    {songs?.map((song) =>
+                        <li key={song.song_url}>{song.song_title}</li>
+                    )}
+                </ul>
             </div>
         </div>
     )

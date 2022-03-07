@@ -22,7 +22,21 @@ export const getLibrary = (libraryId) => async (dispatch) => {
 
 // ----------------------------------------
 
+export const searchAllSongs = (nameOfSong) => async(dispatch) => {
+  const response = await fetch(`/api/search/songs/${nameOfSong}`)
+  console.log(response);
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadLibrary(data));
+    return data;
+  }
+}
+
+// ----------------------------------------
+
 const initialState = { library: {} };
+
 const libraryReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_LIBRARY: {
@@ -32,7 +46,6 @@ const libraryReducer = (state = initialState, action) => {
       };
       return newState;
     }
-
     default:
       return state;
   }
