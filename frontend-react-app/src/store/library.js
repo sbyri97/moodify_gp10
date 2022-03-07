@@ -15,7 +15,7 @@ export const getLibrary = (libraryId) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(loadLibrary(data.library));
+    dispatch(loadLibrary(data));
     return data;
   }
 };
@@ -26,8 +26,13 @@ const initialState = { library: {} };
 const libraryReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_LIBRARY: {
-      return { ...state, library: action.library };
+      const newState = {
+        ...state,
+        library: action.library,
+      };
+      return newState;
     }
+
     default:
       return state;
   }
