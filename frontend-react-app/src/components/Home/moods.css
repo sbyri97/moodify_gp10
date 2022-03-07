@@ -1,0 +1,148 @@
+* {
+    font-family: 'Nexa', Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --darkest: #212121;
+    --dark: #121212;
+    --grey: #535353;
+    --light-grey: #b3b3b3;
+    --happy: #EDFF00FF;
+    --energetic: #f037a5;
+    --romantic: #F62681;
+    --serene: #4b917d;
+    --chill: #cdf564;
+    --gloomy: #00A4CCFF;
+    --angry: #ff073a;
+    --heartbreak: #F37778;
+    --productive: #963CBDFF;
+}
+
+.h3Div {
+    background-color: #121212;
+    justify-content: center;
+    color: var(--light-grey);
+    padding-top: 50px;
+    left: 200%;
+    padding-left: 100px;
+    font-weight: 100;
+    font-size: 30px;
+}
+ 
+.homePageMoodCardsMainContainer {
+    background-color: #121212;
+    padding: 5rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.homePageMoodCard{
+    width: 300px;
+    margin-bottom: 50px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 30px;
+    background-color: var(--darkest);
+    border-radius: 12px;
+}
+
+.homePageMoodCard:hover {
+    cursor: pointer;
+    opacity: 1;
+    background: rgba(0,0,0,0.5);
+    transform: scale(1.1);
+}
+
+.homePageCardHappy{
+    width: 100%;
+    height: 212px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: var(--happy);
+}
+
+.homePageCardEnergetic{
+    width: 100%;
+    height: 212px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: var(--energetic);
+}
+
+.homePageCardRomantic{
+    width: 100%;
+    height: 212px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: var(--romantic);
+}
+
+.homePageCardSerene{
+    width: 100%;
+    height: 212px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: var(--serene);
+}
+
+.homePageCardChill{
+    width: 100%;
+    height: 212px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: var(--chill);
+}
+
+.homePageCardGloomy{
+    width: 100%;
+    height: 212px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: var(--gloomy);
+}
+
+.homePageCardAngry{
+    width: 100%;
+    height: 212px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: var(--angry);
+}
+
+.homePageCardHeartbreak{
+    width: 100%;
+    height: 212px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: var(--heartbreak);
+}
+
+.homePageCardProductive{
+    width: 100%;
+    height: 212px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: var(--productive);
+}
+
+.homeCardImageText {
+    margin-bottom: 0;
+    font-size: 16px;
+    padding-bottom: 5px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--light-grey)    
+}
+
+

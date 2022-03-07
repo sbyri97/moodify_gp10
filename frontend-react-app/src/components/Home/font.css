@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Nexa;
+    src: url('../../font/Nexa/OTF/Nexa-Trial-ExtraLight.otf');
+    src: url('../../font/Nexa/WEB/Nexa-Trial-ExtraLight.woff2') format('embedded-opentype'),
+    url('../../font/Nexa/WEB/Nexa-Trial-ExtraLight.woff2') format('woff2'), url('../../font/Nexa/WEB/Nexa-Trial-ExtraLight.woff') format('woff'), url('../../font/Nexa/TTF/Nexa-Trial-ExtraLight.ttf') format('truetype');
+    }
+
+     
