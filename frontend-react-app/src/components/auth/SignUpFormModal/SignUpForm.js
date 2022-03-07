@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../../store/session';
+import { signUp,login } from '../../../store/session';
 import LoginFormModal from '../LoginFormModal';
 
 const SignUpForm = () => {
@@ -58,10 +58,10 @@ const SignUpForm = () => {
     setConfirmPassword(e.target.value);
   };
 
-//   const demoClick = (e) => {
-//     e.preventDefault();
-//     dispatch(login({credential: 'Demo-lition', password: 'password'}))
-// }
+  // const demoLogin = async(e) => {
+  //   e.preventDefault();
+  //   dispatch(login({email: "demoe@aa.io", password: "password"}))
+  // }
 
   if (sessionUser) {
     return <Redirect to='/' />;
@@ -148,7 +148,9 @@ const SignUpForm = () => {
           </div>
         </div>
         <div className='demoUserBox'>
-          <button className='demoUserLogBtn'> DEMO </button>
+          <button className='demoUserLogBtn'
+          // onClick={demoLogin}
+          > DEMO </button>
         </div>
       </div>
     </div>
