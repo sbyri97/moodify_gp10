@@ -8,14 +8,6 @@ function Songs() {
   const dispatch = useDispatch();
 
   const id = 1;
-  const artist_name = "Bobby McFerrin";
-  const song_title = "Don't Worry Be Happy";
-  const song_url =
-    "https://moodify.s3.amazonaws.com/Happy/Bobby+McFerrin+-+Don't+Worry+Be+Happy+(Official+Music+Video).mp3";
-  const album_coverart_url =
-    "https://upload.wikimedia.org/wikipedia/en/c/c7/Simple_Pleasures_cover.jpg";
-
-  const songObj = { id, artist_name, song_title, album_coverart_url };
 
   const playSong = () => {
     dispatch(getLibrary(id));
