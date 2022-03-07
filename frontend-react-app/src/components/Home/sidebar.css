@@ -69,9 +69,21 @@
     color: white;
 }
 
-.sidebar-li:hover {
-    color: white;
+.sidebar-navlink:hover .fa-solid.fa-magnifying-glass {
+    color:white;
 }
+
+.sidebar-navlink:hover .fa-solid.fa-house {
+    color:white;
+}
+
+.sidebar-navlink:hover .sidebar-navlink-text {
+    color:white;
+}
+
+/* .sidebar-li:hover .sidebar-navlink {
+    color: white;
+} */
 
 
 /* .fa-solid.fa-house .sidebar-navlink-text:hover {
