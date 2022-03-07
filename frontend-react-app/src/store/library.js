@@ -26,8 +26,7 @@ const initialState = { library: {} };
 const libraryReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_LIBRARY: {
-      const library = {};
-      // # TO DO: FINISH REDUCER
+      return { ...state, library: action.library };
     }
     default:
       return state;

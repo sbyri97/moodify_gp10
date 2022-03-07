@@ -1,6 +1,7 @@
 from sqlalchemy import Date
 from datetime import datetime
-from app.models import db, PlaylistSong
+from app.models import db, playlist_songs
+
 
 def seed_playlistsongs():
     one = PlaylistSong (library_id=1, playlist_id=1, created_at=datetime.now(), updated_at=datetime.now())
@@ -93,7 +94,7 @@ def seed_playlistsongs():
     eightyeight = PlaylistSong (library_id=88, playlist_id=26, created_at=datetime.now(), updated_at=datetime.now())
     eightynine = PlaylistSong (library_id=89, playlist_id=27, created_at=datetime.now(), updated_at=datetime.now())
     ninety = PlaylistSong (library_id=90, playlist_id=27, created_at=datetime.now(), updated_at=datetime.now())
-   
+
 
 
  # after last playlistong instance
@@ -194,7 +195,7 @@ def undo_playlistsongs():
     # this restarts everything that has been added
     db.session.execute('TRUNCATE playlistsongs RESTART IDENTITY CASCADE;')
     db.session.commit()
-Collapse
+
 
 
 
@@ -214,4 +215,3 @@ Collapse
 
 # Shift + Return to add a new line
 # Files
-

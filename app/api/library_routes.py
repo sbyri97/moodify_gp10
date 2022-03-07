@@ -9,4 +9,5 @@ library_routes = Blueprint('library', __name__)
 # DO WE NEED LOGIN REQUIRED? route should only be accessible by logged in user
 def song(id):
   song = Library.query.get(id)
+  print(song.to_dict())
   return song.to_dict()

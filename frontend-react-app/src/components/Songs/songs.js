@@ -1,8 +1,26 @@
 import React from "react";
 import "./songs.css";
 import { FaPlay } from "react-icons/fa";
+import { getLibrary } from "../../store/library.js";
+import { useDispatch } from "react-redux";
 
 function Songs() {
+  const dispatch = useDispatch();
+
+  const id = 1;
+  const artist_name = "Bobby McFerrin";
+  const song_title = "Don't Worry Be Happy";
+  const song_url =
+    "https://moodify.s3.amazonaws.com/Happy/Bobby+McFerrin+-+Don't+Worry+Be+Happy+(Official+Music+Video).mp3";
+  const album_coverart_url =
+    "https://upload.wikimedia.org/wikipedia/en/c/c7/Simple_Pleasures_cover.jpg";
+
+  const songObj = { id, artist_name, song_title, album_coverart_url };
+
+  const playSong = () => {
+    dispatch(getLibrary(id));
+  };
+
   return (
     <div className="song-card">
       <div className="song-img-text-container">
@@ -17,7 +35,7 @@ function Songs() {
 
       <div className="song-button-container">
         <button className="song-card-add-song">+ Add Song</button>
-        <button className="song-card-play-song">
+        <button className="song-card-play-song" onClick={playSong}>
           <FaPlay className="play" />
         </button>
       </div>
