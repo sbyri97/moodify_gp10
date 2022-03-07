@@ -1,3 +1,71 @@
 * {
-    font-family: 'Raleway', sans-serif;    
+  font-family: "Raleway", sans-serif;
+}
+.song-card {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  background-color: #242424;
+  color: white;
+  padding: 10px 5px;
+}
+
+.song-img-text-container {
+  display: flex;
+}
+
+.song-img-container {
+  object-fit: cover;
+  height: 40px;
+  width: 40px;
+}
+
+.song-img-container img {
+  height: 100%;
+  width: 100%;
+}
+
+.song-card-info {
+  margin-left: 0.5em;
+}
+
+.song-card-song-name {
+  font-size: 0.9em;
+}
+
+.song-card-artist-name {
+  font-size: 0.7em;
+  color: #a7a7a7;
+}
+
+.song-button-container {
+  display: flex;
+  margin-right: 10px;
+}
+
+.song-card-play-song {
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1em;
+  color: #000;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.song-card-play-song:hover {
+  transform: scale(1.1);
+}
+
+.song-card-add-song {
+  margin-right: 0.5em;
+  border-radius: 21px;
+}
+
+.song-card-add-song:hover {
+  transform: scale(1.1);
 }

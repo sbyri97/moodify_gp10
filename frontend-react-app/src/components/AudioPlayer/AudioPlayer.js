@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { FiVolume2, FiVolumeX } from "react-icons/fi";
+import { useSelector, useDispatch } from "react-redux";
 
 import "./AudioPlayer.css";
 
@@ -9,6 +10,12 @@ const AudioPlayer = () => {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [muteState, setMuteState] = useState(false);
+
+  const currentSong = useSelector((state) => state?.libraryReducer?.library);
+  const songTitle = currentSong?.song_title;
+  const songURL = currentSong?.song_url;
+  const songArt = currentSong?.album_coverart_url;
+  const songArtistName = currentSong?.artist_name;
 
   // references
   const audioPlayer = useRef(); // reference audio component
@@ -103,23 +110,16 @@ const AudioPlayer = () => {
     <div className="audioPlayer">
       <div className="playingSongInfo">
         <div className="playerSongImgContainer">
-          <img
-            src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg"
-            alt="pic of adele"
-          />
+          <img src={songArt} alt="pic of adele" />
         </div>
         <div className="playingSongText">
-          <div className="playingSongTitle">Someone Like You</div>
-          <div className="playingSongArtist">Adele</div>
+          <div className="playingSongTitle">{songTitle}</div>
+          <div className="playingSongArtist">{songArtistName}</div>
         </div>
       </div>
 
       <div className="songPlayerControls">
-        <audio
-          ref={audioPlayer}
-          src="https://moodify.s3.amazonaws.com/Heartbreak/Adele+-+Someone+Like+You+(Lyrics).mp3"
-          preload="metadata"
-        ></audio>
+        <audio ref={audioPlayer} src={songURL} preload="metadata"></audio>
         <button onClick={togglePlayPause} className="playPause">
           {isPlaying ? <FaPause /> : <FaPlay className="play" />}
         </button>
