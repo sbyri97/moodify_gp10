@@ -15,3 +15,12 @@ class Library(db.Model):
   updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
   playlists = db.relationship("Playlist", back_populates="library", secondary=playlist_songs)
+
+  def to_dict(self):
+        return {
+            "artist_name": self.artist_name,
+            "album_coverart_url": self.album_coverart_url,
+            "album_name": self.album_name,
+            "song_title": self.song_title,
+            "song_url": self.song_url,
+        }
