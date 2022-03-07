@@ -11,6 +11,7 @@ import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import Home from "./components/Home/home";
 import { authenticate } from "./store/session";
 import Songs from "./components/Songs/songs";
+import MainSearch from "./components/Search/search";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/songs">
           <Songs />
+        </Route>
+        <Route path="/search">
+          <MainSearch />
         </Route>
       </Switch>
       <AudioPlayer />
