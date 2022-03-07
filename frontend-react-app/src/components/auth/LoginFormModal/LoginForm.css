@@ -1,0 +1,116 @@
+.loginBlackBox {
+    margin: auto;
+    width: 500px;
+    /* border: 1px solid white; */
+    background-color: rgb(18, 18, 18);
+    border-radius: 10px;
+}
+
+#modal-content {
+    border-radius: 20px;
+}
+
+.loginElements {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(18, 18, 18);
+    align-items: center;
+    padding: 30px 20px;
+    /* max-width: 90%; */
+    /* border-radius: 10px; */
+}
+
+.formWelcomeBoxTxt {
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    inline-size: 250px;
+    overflow-wrap: break-word;
+
+}
+
+.formMainDiv{
+    width: 300px;
+    align-content: center;
+
+}
+
+.errors {
+    color: white;
+}
+
+
+.forminputs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.formInputIndiv {
+    width: 100%;
+    background-color: rgb(51, 51, 51);
+}
+
+.formInputIndiv::placeholder {
+    color: rgb(182, 182, 182);
+    font-size: 12px;
+}
+
+.forminputs input{
+    padding: 15px 10px;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+    margin-bottom: 15px;
+}
+
+.loginSubmitBtn {
+    padding: 15px 10px 15px 10px;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    font-size: 15px;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.orBox {
+    margin-top: 25px;
+    color: white;
+}
+
+.signUpFromLogin {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.signUpFromLoginBtn{
+    margin-left: 10px;
+}
+
+.signUpFromLoginTxt {
+    font-size: 15px;
+}
+
+.loginButton {
+    border: none;
+    background-color: transparent;
+}
+
+.signUpButton {
+    border: none;
+    background-color: transparent;
+    color: #1ed760;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-decoration: underline;
+}
+
+
+.Modal{
+    overflow: hidden;
+    border-radius: 12px;
+}
