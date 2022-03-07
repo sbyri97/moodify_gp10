@@ -99,6 +99,7 @@
 .volumeControls {
   display: flex;
   align-items: center;
+  margin-right: 20px;
 }
 
 .volumeButton {
@@ -117,8 +118,8 @@
   --bar-bg: #535353;
   --seek-before-width: 0;
   --seek-before-color: #b3b3b3;
-  --knobby: #fff;
-  --selectedKnobby: hsl(56, 98%, 51%);
+  --knob: #fff;
+  --selectedKnob: hsl(56, 98%, 51%);
 
   appearance: none;
   background: var(--bar-bg);
@@ -176,14 +177,14 @@
   height: 5px;
 }
 
-/* knobby - chrome and safari */
+/* knob - chrome and safari */
 .progressBar::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 15px;
   width: 15px;
   border-radius: 50%;
   border: none;
-  background-color: var(--knobby);
+  background-color: var(--knob);
   cursor: pointer;
   position: relative;
   margin: -5px 0 0 0;
@@ -191,27 +192,27 @@
   box-sizing: border-box;
 }
 
-/* knobby while dragging - chrome and safari */
+/* knob while dragging - chrome and safari */
 .progressBar:active::-webkit-slider-thumb {
   transform: scale(1.2);
-  background: var(--selectedKnobby);
+  background: var(--selectedKnob);
 }
 
-/* knobby - firefox */
+/* knob - firefox */
 .progressBar::-moz-range-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
   border: transparent;
-  background-color: var(--knobby);
+  background-color: var(--knob);
   cursor: pointer;
   position: relative;
   z-index: 3;
   box-sizing: border-box;
 }
 
-/* knobby while dragging - firefox */
+/* knob while dragging - firefox */
 .progressBar:active::-moz-range-thumb {
   transform: scale(1.2);
-  background: var(--selectedKnobby);
+  background: var(--selectedKnob);
 }
