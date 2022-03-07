@@ -1,3 +1,30 @@
 * {
-    font-family: 'Raleway', sans-serif;    
+  font-family: "Raleway", sans-serif;
+}
+.song-card {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.song-img-text-container {
+  display: flex;
+}
+
+.song-img-container {
+  object-fit: cover;
+  height: 40px;
+  width: 40px;
+}
+
+.song-img-container img {
+  height: 100%;
+  width: 100%;
+}
+
+.song-card-info {
+  margin-left: 0.5em;
+}
+
+.song-button-container {
 }
