@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 import { getArtistSongs } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
+import "../Playlist/Playlist.css";
 
 function Artists() {
   const songs = useSelector(
