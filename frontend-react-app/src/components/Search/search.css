@@ -1,3 +1,41 @@
 * {
-    font-family: 'Raleway', sans-serif;    
+    font-family: 'Raleway', sans-serif;
+}
+
+.searchFullPage {
+    background: rgb(18, 18, 18);
+    width: 100vw;
+}
+
+.resultsMainContainer {
+    width: 100vw;
+    color: white;
+}
+
+.songResultsMainContainer {
+    width: 100vw;
+}
+
+.songResultsDetailContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px;
+    color: white;
+    padding: 0px 32px;
+    margin-right: 50px;
+}
+
+.songResultsImageContainer {
+    height: 40px;
+    width: 40px;
+  }
+
+.songResultsImage {
+    object-fit: cover;
+    height: 40px;
+    width: 40px;
+}
+
+.songResultsNameContainer {
+    align-items: center;
 }

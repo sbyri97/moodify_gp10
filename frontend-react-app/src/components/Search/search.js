@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from "react";
 import * as libraryReducer from '../../store/library'
+import './search.css'
 
 
 export default function MainSearch() {
@@ -45,7 +46,7 @@ export default function MainSearch() {
                         <div className="songResultsMainContainer">
                             <div className="songResultsDetailContainer">
                                 <div className="songResultsImageContainer">
-                                    <img src={song.album_coverart_url} alt="album_cover"/>
+                                    <img src={song.album_coverart_url} alt="album_cover" className="songResultsImage"/>
                                 </div>
                                 <div className="songResultsNameContainer">
                                     <h3>{song.song_title}</h3>
@@ -53,6 +54,7 @@ export default function MainSearch() {
                                 <div className="songResultsArtistContainer">
                                     <h3>{song.artist_name}</h3>
                                 </div>
+                                <div className="songResultsAddToPlaylist">Add Song</div>
                             </div>
                         </div>
                     </div>
