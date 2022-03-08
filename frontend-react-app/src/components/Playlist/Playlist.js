@@ -1,8 +1,21 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import "./Playlist.css";
 import { FaPlay } from "react-icons/fa";
+import { getPlaylist } from "../../store/playlist";
 
 function Playlist() {
+
+  const playlist = useSelector(state => state.playlist.playlists)
+  const dispatch = useDispatch()
+  const playlistIdParams = useParams()
+  const playlistId = playlistIdParams.id
+
+  useEffect(() => {
+      dispatch(getPlaylist(playlistId))
+  }, [dispatch, playlistId])
+
   return (
     <div className="playlist-detail-container">
       <div className="playlist-top-detail-container">
