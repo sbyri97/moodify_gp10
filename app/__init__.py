@@ -39,7 +39,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(library_routes, url_prefix='/api/library')
 app.register_blueprint(searchSong_routes, url_prefix='/api/search')
 app.register_blueprint(playlist_routes, url_prefix='/api/playlists')
-app.register_blueprint(playlist_routes, url_prefix='/api/artists')
+app.register_blueprint(artist_routes, url_prefix='/api/artists')
 
 db.init_app(app)
 Migrate(app, db)
