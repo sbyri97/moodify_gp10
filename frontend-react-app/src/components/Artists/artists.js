@@ -10,16 +10,20 @@ function Artists() {
     (state) => state?.playlist?.playlists?.playlist_info
   );
 
+  console.log(songs);
+
   // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
 
   const dispatch = useDispatch();
   const artistParam = useParams();
-  const artistName = artistParam?.artistName;
+  const artistName = artistParam.artistName;
+  console.log(artistName);
 
   useEffect(() => {
+    console.log("=======TESTSTSETSETSET");
     dispatch(getArtistSongs(artistName));
-  }, [dispatch, artistName]);
+  }, [artistName, dispatch]);
 
   const playSong = (id, e) => {
     e.stopPropagation();
@@ -31,12 +35,15 @@ function Artists() {
     <div className="playlist-detail-container">
       <div className="playlist-top-detail-container">
         <div className="playlist-detail-img-container">
-          <img src="" />
+          <img
+            src={songs?.songs[0]?.album_coverart_url}
+            alt={songs?.songs[0]?.artist_name}
+          />
         </div>
         <div className="playlist-detail-text-container">
           <div className="playlist-text">PLAYLIST</div>
           <div className="playlist-detail-playlist-name">
-            {songs[0]?.artist_name}
+            {songs?.songs[0]?.artist_name}
           </div>
           <div className="playlist-detail-username">
             {sessionUser?.username}
@@ -57,7 +64,7 @@ function Artists() {
           </thead>
           <tbody>
             <tr className="playlist-detail-top-border"></tr>
-            {songs.map((song, i) => (
+            {songs?.songs.map((song, i) => (
               <tr key={i} className="playlist-detail-table-row">
                 <td>
                   <button
@@ -68,7 +75,7 @@ function Artists() {
                   </button>
                 </td>
                 <td className="playlist-song-img-container">
-                  <img src={song.album_coverart_url} />
+                  <img src={song.album_coverart_url} alt={song.artist_name} />
                 </td>
                 <td>{song.song_title}</td>
                 <td className="playlist-detail-grey-text">{song.album_name}</td>

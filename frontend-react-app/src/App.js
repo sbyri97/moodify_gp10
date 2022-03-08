@@ -51,9 +51,6 @@ function App() {
         <Route path="/artists/:artistName">
           <Artists />
         </Route>
-        <Route path="/songs">
-          <Songs />
-        </Route>
         <Route path="/playlists/:id">
           <Playlist />
         </Route>
