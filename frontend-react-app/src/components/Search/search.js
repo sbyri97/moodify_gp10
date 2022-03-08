@@ -24,8 +24,8 @@ export default function MainSearch() {
     }
 
     return (
-        <div>
-            <div>
+        <div className='searchFullPage'>
+            <div className="searchFormContainer">
                 <form>
                     <input
                     text='text'
@@ -36,12 +36,27 @@ export default function MainSearch() {
                     <button onClick={onSearchSubmit}>Search</button>
                 </form>
             </div>
-            <div>The results of search over here:
-                <ul>
-                    {songs?.map((song) =>
-                        <li key={song.song_url}>{song.song_title}</li>
-                    )}
-                </ul>
+            <div className="resultsMainContainer">
+                <div className="songResultsTitleContainer">
+                    <h2 className="songResultTitleText">Songs</h2>
+                </div>
+                {songs?.map((song) =>
+                    <div key={song.song_url}>
+                        <div className="songResultsMainContainer">
+                            <div className="songResultsDetailContainer">
+                                <div className="songResultsImageContainer">
+                                    <img src={song.album_coverart_url} alt="album_cover"/>
+                                </div>
+                                <div className="songResultsNameContainer">
+                                    <h3>{song.song_title}</h3>
+                                </div>
+                                <div className="songResultsArtistContainer">
+                                    <h3>{song.artist_name}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     )
