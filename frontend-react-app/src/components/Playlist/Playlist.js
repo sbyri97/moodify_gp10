@@ -19,12 +19,13 @@ function Playlist() {
         <table>
           <tr>
             <th className="playlist-detail-table-header-play"></th>
-            <th className="playlist-detail-table-header-image">Image</th>
-            <th className="playlist-detail-table-header">Title</th>
-            <th className="playlist-detail-table-header">Album</th>
-            <th className="playlist-detail-table-header">Artist Name</th>
-            <th className="playlist-detail-table-header"></th>
+            <th className="playlist-detail-table-header-image"></th>
+            <th className="playlist-detail-table-header">SONG</th>
+            <th className="playlist-detail-table-header">ALBUM</th>
+            <th className="playlist-detail-table-header">ARTIST</th>
+            <th className="playlist-detail-table-header-delete"></th>
           </tr>
+          <tr className="playlist-detail-top-border"></tr>
           <tr className="playlist-detail-table-row">
             <td>
               <button className="playlist-playPause">
@@ -35,26 +36,10 @@ function Playlist() {
               <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
             </td>
             <td>Rumour Has It</td>
-            <td>21</td>
-            <td>Adele</td>
+            <td className="playlist-detail-grey-text">21</td>
+            <td className="playlist-detail-grey-text">Adele</td>
             <td>
-              <button>Delete</button>
-            </td>
-          </tr>
-          <tr className="playlist-detail-table-row">
-            <td>
-              <button className="playlist-playPause">
-                <FaPlay className="play" />
-              </button>
-            </td>
-            <td className="playlist-song-img-container">
-              <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
-            </td>
-            <td>Rumour Has It</td>
-            <td>21</td>
-            <td>Adele</td>
-            <td>
-              <button>Delete</button>
+              <button className="playlist-detail-delete-song">Delete</button>
             </td>
           </tr>
           <tr className="playlist-detail-table-row">
@@ -67,10 +52,26 @@ function Playlist() {
               <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
             </td>
             <td>Rumour Has It</td>
-            <td>21</td>
-            <td>Adele</td>
+            <td className="playlist-detail-grey-text">21</td>
+            <td className="playlist-detail-grey-text">Adele</td>
             <td>
-              <button>Delete</button>
+              <button className="playlist-detail-delete-song">Delete</button>
+            </td>
+          </tr>
+          <tr className="playlist-detail-table-row">
+            <td>
+              <button className="playlist-playPause">
+                <FaPlay className="play" />
+              </button>
+            </td>
+            <td className="playlist-song-img-container">
+              <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
+            </td>
+            <td>Rumour Has It</td>
+            <td className="playlist-detail-grey-text">21</td>
+            <td className="playlist-detail-grey-text">Adele</td>
+            <td>
+              <button className="playlist-detail-delete-song">Delete</button>
             </td>
           </tr>
         </table>
