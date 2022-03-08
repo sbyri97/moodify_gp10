@@ -48,4 +48,59 @@
 
 .playlist-detail-table-container {
   margin-top: 3em;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.playlist-detail-table-container table {
+  border-spacing: 20px 20px;
+}
+.playlist-detail-table-container th {
+  text-align: left;
+}
+
+.playlist-detail-table-header {
+  width: 200px;
+}
+
+.playlist-detail-table-container td {
+  text-align: left;
+}
+
+.playlist-detail-table-header-play {
+  width: 50px;
+}
+
+.playlist-detail-table-header-image {
+  width: 50px;
+  text-align: center;
+}
+
+/* .playlist-detail-table-row td {
+  padding: 5px;
+} */
+
+.playlist-song-img-container img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.playlist-playPause {
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1em;
+  color: #fff;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.playlist-playPause:hover {
+  transform: scale(1.1);
 }

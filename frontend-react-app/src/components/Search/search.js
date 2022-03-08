@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from "react";
+import * as libraryReducer from '../../store/library'
 
 
-export function MainSearch() {
+export default function MainSearch() {
 
-    const song = useSelector((state) => state.song)
+    const songs = useSelector((state) => state.libraryReducer.library.songs)
+
 
     const [songsSearch, setSongSearch] = useState("")
     const dispatch = useDispatch();
@@ -17,13 +19,13 @@ export function MainSearch() {
 
     const onSearchSubmit = (e) => {
         e.preventDefault();
-        return dispatch()
+        return dispatch(libraryReducer.searchAllSongs(songsSearch))
         // This return needs to go to a thunk which needs to send the data to the backend to query
     }
-    
+
     return (
-        <div>
-            <div>
+        <div className='searchFullPage'>
+            <div className="searchFormContainer">
                 <form>
                     <input
                     text='text'
@@ -31,11 +33,30 @@ export function MainSearch() {
                     value={songsSearch}
                     onChange={search}
                     />
-                    <button>Search</button>
+                    <button onClick={onSearchSubmit}>Search</button>
                 </form>
             </div>
-            <div>The results of search over here
-                song
+            <div className="resultsMainContainer">
+                <div className="songResultsTitleContainer">
+                    <h2 className="songResultTitleText">Songs</h2>
+                </div>
+                {songs?.map((song) =>
+                    <div key={song.song_url}>
+                        <div className="songResultsMainContainer">
+                            <div className="songResultsDetailContainer">
+                                <div className="songResultsImageContainer">
+                                    <img src={song.album_coverart_url} alt="album_cover"/>
+                                </div>
+                                <div className="songResultsNameContainer">
+                                    <h3>{song.song_title}</h3>
+                                </div>
+                                <div className="songResultsArtistContainer">
+                                    <h3>{song.artist_name}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     )

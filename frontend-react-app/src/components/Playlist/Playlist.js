@@ -1,5 +1,6 @@
 import React from "react";
 import "./Playlist.css";
+import { FaPlay } from "react-icons/fa";
 
 function Playlist() {
   return (
@@ -17,19 +18,21 @@ function Playlist() {
       <div className="playlist-detail-table-container">
         <table>
           <tr>
-            <th></th>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Album</th>
-            <th>Artist Name</th>
-            <th></th>
+            <th className="playlist-detail-table-header-play"></th>
+            <th className="playlist-detail-table-header-image">Image</th>
+            <th className="playlist-detail-table-header">Title</th>
+            <th className="playlist-detail-table-header">Album</th>
+            <th className="playlist-detail-table-header">Artist Name</th>
+            <th className="playlist-detail-table-header"></th>
           </tr>
-          <tr>
+          <tr className="playlist-detail-table-row">
             <td>
-              <button>Play</button>
+              <button className="playlist-playPause">
+                <FaPlay className="play" />
+              </button>
             </td>
             <td className="playlist-song-img-container">
-              <img src="" />
+              <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
             </td>
             <td>Rumour Has It</td>
             <td>21</td>
@@ -38,12 +41,14 @@ function Playlist() {
               <button>Delete</button>
             </td>
           </tr>
-          <tr>
+          <tr className="playlist-detail-table-row">
             <td>
-              <button>Play</button>
+              <button className="playlist-playPause">
+                <FaPlay className="play" />
+              </button>
             </td>
             <td className="playlist-song-img-container">
-              <img src="" />
+              <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
             </td>
             <td>Rumour Has It</td>
             <td>21</td>
@@ -52,12 +57,14 @@ function Playlist() {
               <button>Delete</button>
             </td>
           </tr>
-          <tr>
+          <tr className="playlist-detail-table-row">
             <td>
-              <button>Play</button>
+              <button className="playlist-playPause">
+                <FaPlay className="play" />
+              </button>
             </td>
             <td className="playlist-song-img-container">
-              <img src="" />
+              <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
             </td>
             <td>Rumour Has It</td>
             <td>21</td>
