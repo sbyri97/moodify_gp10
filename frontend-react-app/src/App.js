@@ -13,6 +13,7 @@ import { authenticate } from "./store/session";
 import Songs from "./components/Songs/songs";
 import Playlist from "./components/Playlist/Playlist";
 import Artists from "./components/Artists/artists";
+import Albums from "./components/Albums/albums";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,6 +51,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/artists/:artistName">
           <Artists />
+        </Route>
+        <Route path="/albums/:albumName">
+          <Albums />
         </Route>
         <Route path="/playlists/:id">
           <Playlist />

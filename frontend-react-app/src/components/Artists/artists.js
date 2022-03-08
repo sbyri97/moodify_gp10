@@ -21,7 +21,6 @@ function Artists() {
   console.log(artistName);
 
   useEffect(() => {
-    console.log("=======TESTSTSETSETSET");
     dispatch(getArtistSongs(artistName));
   }, [artistName, dispatch]);
 
