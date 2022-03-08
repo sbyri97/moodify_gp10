@@ -54,7 +54,7 @@ function App() {
         <Route path="/search">
           <MainSearch />
         </Route>
-        <Route path="/playlist">
+        <Route path="/playlists/:id">
           <Playlist />
         </Route>
       </Switch>
