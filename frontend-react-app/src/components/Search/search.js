@@ -7,23 +7,24 @@ import './search.css'
 
 export default function MainSearch() {
 
-    const songs = useSelector((state) => state.libraryReducer.library.songs)
-    const artists = useSelector((state) => state.libraryReducer.artistLibrary?.artists)
+    const songs = useSelector((state) => state.library.library.songs)
+    const artists = useSelector((state) => state.library.artistLibrary.artists)
+    // console.log('THIS IS ARTISTS:::::', songs);
 
 
-    const [songsSearch, setSongSearch] = useState("")
+    const [itemSearch, setItemSearch] = useState("")
+    const [results, setResults] = useState(true)
     const dispatch = useDispatch();
 
-    const search = (e) => {
-        e.preventDefault();
-        setSongSearch(e.target.value)
-    }
 
-    const onSearchSubmit = (e) => {
-        e.preventDefault();
-        return dispatch(libraryReducer.searchAllSongs(songsSearch))
-        // This return needs to go to a thunk which needs to send the data to the backend to query
-    }
+    useEffect(() => {
+        const delaySearch = setTimeout(() => {
+            dispatch(libraryReducer.searchAllSongs(itemSearch))
+            // Send Axios request here
+          }, 500)
+
+          return () => clearTimeout(delaySearch)
+    }, [itemSearch])
 
     return (
         <div className='searchFullPage'>
@@ -32,16 +33,20 @@ export default function MainSearch() {
                     <input
                     text='text'
                     placeholder="search for songs or artist"
-                    value={songsSearch}
-                    onChange={search}
+                    value={itemSearch}
+                    onChange={(e) => {
+                        setItemSearch(e.target.value)
+                        setResults(false)
+                    }}
                     />
-                    <button onClick={onSearchSubmit}>Search</button>
                 </form>
             </div>
             <div className="resultsMainContainer">
+                {(songs?.length >= 1) ?
                 <div className="songResultsTitleContainer">
                     <h2 className="songResultTitleText">Songs</h2>
                 </div>
+                : null}
                 {songs?.map((song) =>
                     <div key={song.song_url}>
                         <div className="songResultsMainContainer">
@@ -60,9 +65,11 @@ export default function MainSearch() {
                         </div>
                     </div>
                 )}
+                {(artists?.length >= 1) ?
                 <div className="songResultsTitleContainer">
                     <h2 className="songResultTitleText">Artists</h2>
                 </div>
+                : null}
                 {artists?.map((artist) =>
                     <div key={artist.song_url}>
                         <div className="songResultsMainContainer">
@@ -80,6 +87,13 @@ export default function MainSearch() {
                         </div>
                     </div>
                 )}
+                {(results) ? null :
+                    ((!songs?.length) && (!artists?.length)) ?
+                    <div>
+                        <h2>No Results Found</h2>
+                    </div>
+                    : null
+                }
             </div>
         </div>
     )

@@ -53,7 +53,7 @@ const AudioPlayer = () => {
     const prevValue = isPlaying;
     setIsPlaying(!prevValue);
     if (!prevValue) {
-      audioPlayer.current.play();
+      // audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
     } else {
       audioPlayer.current.pause();
