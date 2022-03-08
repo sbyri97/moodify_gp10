@@ -1,0 +1,14 @@
+.playlist-detail-container {
+  width: 100vw;
+}
+
+.playlist-song-img-container {
+  object-fit: cover;
+  width: 25px;
+  height: 25px;
+}
+
+.playlist-song-img-container img {
+  width: 100%;
+  height: 100%;
+}
