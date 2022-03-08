@@ -15,4 +15,4 @@ class Playlist(db.Model):
   user = db.relationship("User", back_populates="playlists")
   mood = db.relationship("Mood", back_populates="playlists")
 
-  library = db.relationship("Library", back_populates="playlists", secondary=playlist_songs)
+  # library = db.relationship("Library", back_populates="playlists", secondary=playlist_songs)
