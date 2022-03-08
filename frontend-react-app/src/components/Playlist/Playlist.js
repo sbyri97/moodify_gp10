@@ -1,10 +1,15 @@
 import React from "react";
+import "./Playlist.css";
 
 function Playlist() {
   return (
     <div className="playlist-detail-container">
-      <div>Playlist</div>
-      <div>
+      <div className="playlist-top-detail-container">
+        <div className="playlist-detail-img-container">
+          <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
+        </div>
+      </div>
+      <div className="playlist-detail-table-container">
         <table>
           <tr>
             <th></th>
