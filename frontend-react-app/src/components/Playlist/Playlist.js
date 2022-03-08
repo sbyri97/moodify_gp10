@@ -4,11 +4,14 @@ import { useParams } from "react-router-dom";
 import "./Playlist.css";
 import { FaPlay } from "react-icons/fa";
 import { getPlaylist } from "../../store/playlist";
+import { getLibrary } from "../../store/library";
 
 function Playlist() {
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.playlist_info
   );
+
+  // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
 
   const dispatch = useDispatch();
@@ -19,18 +22,25 @@ function Playlist() {
     dispatch(getPlaylist(playlistId));
   }, [dispatch, playlistId]);
 
+  const playSong = (id) => {
+    const numId = Number(id);
+    dispatch(getLibrary(numId));
+  };
+
   return (
     <div className="playlist-detail-container">
       <div className="playlist-top-detail-container">
         <div className="playlist-detail-img-container">
-          <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
+          <img src={playlist?.playlist_songs[0]?.album_coverart_url} />
         </div>
         <div className="playlist-detail-text-container">
           <div className="playlist-text">PLAYLIST</div>
           <div className="playlist-detail-playlist-name">
             {playlist?.playlist_name}
           </div>
-          <div className="playlist-detail-username">{sessionUser?.username}</div>
+          <div className="playlist-detail-username">
+            {sessionUser?.username}
+          </div>
         </div>
       </div>
       <div className="playlist-detail-table-container">
@@ -44,54 +54,27 @@ function Playlist() {
             <th className="playlist-detail-table-header-delete"></th>
           </tr>
           <tr className="playlist-detail-top-border"></tr>
-          <tr className="playlist-detail-table-row">
-            <td>
-              <button className="playlist-playPause">
-                <FaPlay className="play" />
-              </button>
-            </td>
-            <td className="playlist-song-img-container">
-              <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
-            </td>
-            <td>Rumour Has It</td>
-            <td className="playlist-detail-grey-text">21</td>
-            <td className="playlist-detail-grey-text">Adele</td>
-            <td>
-              <button className="playlist-detail-delete-song">Delete</button>
-            </td>
-          </tr>
-          <tr className="playlist-detail-table-row">
-            <td>
-              <button className="playlist-playPause">
-                <FaPlay className="play" />
-              </button>
-            </td>
-            <td className="playlist-song-img-container">
-              <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
-            </td>
-            <td>Rumour Has It</td>
-            <td className="playlist-detail-grey-text">21</td>
-            <td className="playlist-detail-grey-text">Adele</td>
-            <td>
-              <button className="playlist-detail-delete-song">Delete</button>
-            </td>
-          </tr>
-          <tr className="playlist-detail-table-row">
-            <td>
-              <button className="playlist-playPause">
-                <FaPlay className="play" />
-              </button>
-            </td>
-            <td className="playlist-song-img-container">
-              <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
-            </td>
-            <td>Rumour Has It</td>
-            <td className="playlist-detail-grey-text">21</td>
-            <td className="playlist-detail-grey-text">Adele</td>
-            <td>
-              <button className="playlist-detail-delete-song">Delete</button>
-            </td>
-          </tr>
+          {playlist?.playlist_songs.map((song, i) => (
+            <tr key={i} className="playlist-detail-table-row">
+              <td>
+                <button
+                  onClick={playSong(song.id)}
+                  className="playlist-playPause"
+                >
+                  <FaPlay className="play" />
+                </button>
+              </td>
+              <td className="playlist-song-img-container">
+                <img src={song.album_coverart_url} />
+              </td>
+              <td>{song.song_title}</td>
+              <td className="playlist-detail-grey-text">{song.album_name}</td>
+              <td className="playlist-detail-grey-text">{song.artist_name}</td>
+              <td>
+                <button className="playlist-detail-delete-song">Delete</button>
+              </td>
+            </tr>
+          ))}
         </table>
       </div>
     </div>
