@@ -35,7 +35,11 @@ const AudioPlayer = () => {
     const seconds = Math.floor(audioPlayer.current.duration);
     setDuration(seconds);
     progressBar.current.max = seconds;
-  }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
+  }, [
+    audioPlayer?.current?.loadedmetadata,
+    audioPlayer?.current?.readyState,
+    currentSong,
+  ]);
 
   const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60);
@@ -118,7 +122,10 @@ const AudioPlayer = () => {
     <div className="audioPlayer">
       <div className="playingSongInfo">
         <div className="playerSongImgContainer">
-          <img src={songArt} alt="pic of adele" />
+          <img
+            src={songArt}
+            alt="picture of currently playing song album cover"
+          />
         </div>
         <div className="playingSongText">
           <div className="playingSongTitle">{songTitle}</div>
