@@ -35,10 +35,11 @@ export const getPlaylist = (playlistId) => async(dispatch) => {
 }
 
 export const getPlaylists = () => async(dispatch) => {
-    const response = await fetch('/playlists')
-
+    const response = await fetch('/api/playlists')
+    console.log(response)
     if (response.ok) {
         const data = await response.json();
+        console.log(data)
         dispatch(loadPlaylists(data.playlists))
     }
     return response;
@@ -56,7 +57,7 @@ const playlistReducer = (state = initialState, action) => {
         }
         case LOAD_PLAYLISTS: {
             const playlists = {}
-            action.playlists.forEach(playlist => {playlists[playlist.id] = playlist})
+            action.playlists.forEach(playlist => {playlists[playlist.name] = playlist})
             return {...state, playlists}
         }
         default:

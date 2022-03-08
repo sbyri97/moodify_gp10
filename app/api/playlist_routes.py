@@ -5,6 +5,7 @@ import sqlalchemy as sa
 
 playlist_routes = Blueprint('playlists', __name__)
 
+# get single playlist
 @playlist_routes.route('/<int:id>')
 def playlist(id):
     # lib_tests = Library.query.filter(Library.id == playlist_songs.c.library_id, playlist_songs.c.playlist_id == id).all()
@@ -20,3 +21,12 @@ def playlist(id):
     # dict_playlist = [playlist.to_dict() for playlist in playlists]
     # return {"playlist": playlist.to_dict()}
     return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
+
+
+# get all playlists for a user
+@playlist_routes.route('/')
+def playlists():
+    playlists = Playlist.query.all()
+    playlists_dict = [playlist.to_dict() for playlist in playlists]
+
+    return { "playlists": playlists_dict }

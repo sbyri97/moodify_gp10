@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
-import { getPlaylist } from '../../store/playlist';
+import { getPlaylists } from '../../store/playlist';
 import './sidebar.css';
 
 const SideBar = () => {
     // TO DO: add state for playlists to dynamically render an li for each playlist
     const dispatch = useDispatch()
     const playlistId = useParams()
-    // const userId = useSelector(state => state.session.user.id)
+    const userId = useSelector(state => state.session.user.id)
     const playlist = useSelector(state => state.playlist.playlists)
 
     useEffect(() => {
-        dispatch(getPlaylist(playlistId))
+        dispatch(getPlaylists())
     }, [dispatch, playlistId])
 
     // TO DO: add on click event for create new playlist button
