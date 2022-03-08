@@ -8,11 +8,11 @@ import Moods from './moods'
 
 function Home(){
     return (
-        <div>
-            <div>
+        <div className="homeMainDiv">
+            <div className="sideBarContainer">
                 <SideBar />
             </div>
-            <div>
+            <div className="moodsContainer">
                 <Moods />
             </div>
         </div>

@@ -8,7 +8,7 @@ const Moods = () => {
         <div className="h3Div">
             <p className="whatsYourMood">What's Your Mood Today?</p>
         <div className='homePageMoodCardsMainContainer'>
-            <div className='homePageMoodCard'>
+            <div className='homePageMoodCardH'>
                 <div className='homePageMoodCardItem'>
                 <div className='homePageADiv'>
                 <a className='homeCards' href='/moods'>
@@ -18,7 +18,7 @@ const Moods = () => {
                 </div>
                     <p className='homeCardImageText'>Happy</p>
             </div>
-            <div className='homePageMoodCard'> 
+            <div className='homePageMoodCardE'> 
                 <div className='homePageMoodCardItem'>
                 <div className='homePageADiv'>
                 <a className='homeCards' href='/moods'>
@@ -28,7 +28,7 @@ const Moods = () => {
                 </div>
                     <p className='homeCardImageText'>Energetic</p>
             </div>
-            <div className='homePageMoodCard'>
+            <div className='homePageMoodCardR'>
                 <div className='homePageMoodCardItem'>
                 <div className='homePageADiv'>
                 <a className='homeCards' href='/moods'>
@@ -38,7 +38,7 @@ const Moods = () => {
                 </div>
                     <p className='homeCardImageText'>Romantic</p>
             </div>
-            <div className='homePageMoodCard'>
+            <div className='homePageMoodCardS'>
                 <div className='homePageMoodCardItem'>
                 <div className='homePageADiv'>
                 <a className='homeCards' href='/moods'>
@@ -48,7 +48,7 @@ const Moods = () => {
                 </div>
                     <p className='homeCardImageText'>Serene</p>
             </div>
-            <div className='homePageMoodCard'>
+            <div className='homePageMoodCardCh'>
                 <div className='homePageMoodCardItem'>
                 <div className='homePageADiv'>
                 <a className='homeCards' href='/moods'>
@@ -58,7 +58,7 @@ const Moods = () => {
                 </div>
                     <p className='homeCardImageText'>Chill</p>
             </div>
-            <div className='homePageMoodCard'>
+            <div className='homePageMoodCardG'>
                 <div className='homePageMoodCardItem'>
                 <div className='homePageADiv'>
                 <a className='homeCards' href='/moods'>
@@ -68,7 +68,7 @@ const Moods = () => {
                 </div>
                     <p className='homeCardImageText'>Gloomy</p>
             </div>
-            <div className='homePageMoodCard'>
+            <div className='homePageMoodCardA'>
                 <div className='homePageMoodCardItem'>
                 <div className='homePageADiv'>
                 <a className='homeCards' href='/moods'>
@@ -78,7 +78,7 @@ const Moods = () => {
                 </div>
                     <p className='homeCardImageText'>Angry</p>
             </div>
-            <div className='homePageMoodCard'>
+            <div className='homePageMoodCardHeart'>
                 <div className='homePageMoodCardItem'>
                 <div className='homePageADiv'>
                 <a className='homeCards' href='/moods'>
@@ -88,7 +88,7 @@ const Moods = () => {
                 </div>
                     <p className='homeCardImageText'>Heartbreak</p>
             </div>
-            <div className='homePageMoodCard'>
+            <div className='homePageMoodCardP'>
                 <div className='homePageMoodCardItem'>
                 <div className='homePageADiv'>
                 <a className='homeCards' href='/moods'>
