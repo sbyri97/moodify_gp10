@@ -26,13 +26,13 @@ const SideBar = () => {
             </div>
             <ul className='sidebar-ul'>
                 <li className='sidebar-li'>
-                    <NavLink to='/' exact={true} className='sidebar-navlink'>
+                    <NavLink to='/' exact={true} className='sidebar-navlink-home'>
                         <i className='fa-solid fa-house'></i>
                         <p className='sidebar-navlink-text'>Home</p>
                     </NavLink>
                 </li>
                 <li className='sidebar-li'>
-                    <NavLink to='/search' exact={true} className='sidebar-navlink'>
+                    <NavLink to='/search' exact={true} className='sidebar-navlink-search'>
                         <i className='fa-solid fa-magnifying-glass'></i>
                         <p className='sidebar-navlink-text'>Search</p>
                     </NavLink>
@@ -49,7 +49,7 @@ const SideBar = () => {
                     <ul className='sidebar-playlists-ul'>
                         {playlists.map((playlist, i) => (
                             <li className='sidebar-playlist-li' key={`${i}`}>
-                                <NavLink className='sidebar-playlist-link' to={`/playlists/${playlist.id}`}>
+                                <NavLink className='sidebar-navlink-playlist'exact={true} to={`/playlists/${playlist.id}`}>
                                 {playlist.name}
                                 </NavLink>
                             </li>
