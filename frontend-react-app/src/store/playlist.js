@@ -39,6 +39,16 @@ export const getPlaylists = () => async (dispatch) => {
   return response;
 };
 
+export const getArtistSongs = (artistName) => async (dispatch) => {
+  const response = await fetch(`/api/artists/${artistName}`);
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadPlaylist(data));
+  }
+  return response;
+};
+
 // ---------------------------------------
 const initialState = { playlists: {} };
 const playlistReducer = (state = initialState, action) => {

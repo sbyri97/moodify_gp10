@@ -12,6 +12,7 @@ import Home from "./components/Home/home";
 import { authenticate } from "./store/session";
 import Songs from "./components/Songs/songs";
 import Playlist from "./components/Playlist/Playlist";
+import Albums from "./components/Albums/albums";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -52,6 +53,9 @@ function App() {
         </Route>
         <Route path="/playlists/:id">
           <Playlist />
+        </Route>
+        <Route path="/artists/:artistName">
+          <Albums />
         </Route>
       </Switch>
       <AudioPlayer />
