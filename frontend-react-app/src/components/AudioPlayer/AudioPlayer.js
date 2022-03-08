@@ -24,6 +24,14 @@ const AudioPlayer = () => {
   const volumeSlider = useRef(); // reference the volume slider
 
   useEffect(() => {
+    togglePlayPause();
+  }, [currentSong]);
+
+  useEffect(() => {
+    setIsPlaying(false);
+  }, []);
+
+  useEffect(() => {
     const seconds = Math.floor(audioPlayer.current.duration);
     setDuration(seconds);
     progressBar.current.max = seconds;
