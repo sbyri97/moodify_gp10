@@ -22,7 +22,8 @@ function Playlist() {
     dispatch(getPlaylist(playlistId));
   }, [dispatch, playlistId]);
 
-  const playSong = (id) => {
+  const playSong = (id, e) => {
+    e.stopPropagation();
     const numId = Number(id);
     dispatch(getLibrary(numId));
   };
@@ -58,7 +59,7 @@ function Playlist() {
             <tr key={i} className="playlist-detail-table-row">
               <td>
                 <button
-                  onClick={playSong(song.id)}
+                  onClick={(e) => playSong(song.id, e)}
                   className="playlist-playPause"
                 >
                   <FaPlay className="play" />
