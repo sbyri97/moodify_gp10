@@ -16,8 +16,8 @@ def seed():
     seed_users()
     seed_moods()
     seed_library()
-    seed_playlists()
-    seed_playlistsongs()
+    # seed_playlists()
+    # seed_playlistsongs()
 
 
     # Add other seed functions here
@@ -30,5 +30,4 @@ def undo():
     undo_moods()
     undo_library()
     undo_playlists()
-    undo_playlistsongs()
     # Add other undo functions here
