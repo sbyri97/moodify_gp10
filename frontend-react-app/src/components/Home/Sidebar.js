@@ -6,17 +6,17 @@ import './sidebar.css';
 
 const SideBar = () => {
     // TO DO: add state for playlists to dynamically render an li for each playlist
+    // TO DO: add on click event for create new playlist button
+    // TO DO: add routing for each playlist link
     const dispatch = useDispatch()
-    const playlistId = useParams()
     const userId = useSelector(state => state.session.user.id)
-    const playlist = useSelector(state => state.playlist.playlists)
+    const playlistsObj = useSelector(state => state.playlist.playlists)
 
     useEffect(() => {
         dispatch(getPlaylists())
-    }, [dispatch, playlistId])
+    }, [dispatch])
 
-    // TO DO: add on click event for create new playlist button
-    // TO DO: add routing for each playlist link
+    const playlists = Object.values(playlistsObj).filter(playlist => playlist.user_id === userId)
 
 
     return (
@@ -47,17 +47,13 @@ const SideBar = () => {
                 </div>
                 <div className='sidebar-playlists'>
                     <ul className='sidebar-playlists-ul'>
-                        {/* this should dynamically render an li with a tag for each playlist */}
-                        <li className='sidebar-playlists-li'>
-                            <a>
-                                Playlist 1
-                            </a>
-                        </li>
-                        <li className='sidebar-playlists-li'>
-                            <a>
-                                Playlist 2
-                            </a>
-                        </li>
+                        {playlists.map((playlist, i) => (
+                            <li className='sidebar-playlist-li' key={`${i}`}>
+                                <NavLink className='sidebar-playlist-link' to={`/playlists/${playlist.id}`}>
+                                {playlist.name}
+                                </NavLink>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>

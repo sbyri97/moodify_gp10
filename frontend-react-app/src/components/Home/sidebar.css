@@ -62,7 +62,7 @@
 
 
 /* add on hover font turns white */
-.sidebar-playlists-li:hover {
+.sidebar-playlist-li:hover {
     color: white;
 }
 

@@ -46,7 +46,6 @@ export const getPlaylists = () => async(dispatch) => {
 }
 
 
-
 // ---------------------------------------
 const initialState = { playlists: {} };
 const playlistReducer = (state = initialState, action) => {
