@@ -8,6 +8,11 @@ function Playlist() {
         <div className="playlist-detail-img-container">
           <img src="https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg" />
         </div>
+        <div className="playlist-detail-text-container">
+          <div className="playlist-text">PLAYLIST</div>
+          <div className="playlist-detail-playlist-name">Playlist Name</div>
+          <div className="playlist-detail-username">Username</div>
+        </div>
       </div>
       <div className="playlist-detail-table-container">
         <table>

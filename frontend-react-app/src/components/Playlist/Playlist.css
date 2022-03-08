@@ -23,6 +23,29 @@
   border-radius: 10px;
 }
 
+.playlist-detail-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2em;
+}
+
+.playlist-text {
+  margin-top: 8em;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.playlist-detail-username {
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.playlist-detail-playlist-name {
+  font-weight: bold;
+  font-size: 4em;
+}
+
 .playlist-detail-table-container {
   margin-top: 3em;
 }
