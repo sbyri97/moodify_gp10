@@ -19,4 +19,4 @@ def playlist(id):
     # playlists = Playlist.query.join(Library).filter(Playlist.id == int(id))
     # dict_playlist = [playlist.to_dict() for playlist in playlists]
     # return {"playlist": playlist.to_dict()}
-    return { "playlist_songs": (playlist_songs_dicts)}
+    return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
