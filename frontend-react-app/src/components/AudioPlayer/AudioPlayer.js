@@ -24,18 +24,23 @@ const AudioPlayer = () => {
   const volumeSlider = useRef(); // reference the volume slider
 
   useEffect(() => {
+    const seconds = Math.floor(audioPlayer.current.duration);
+    setDuration(seconds);
+    progressBar.current.max = seconds;
+  }, [
+    audioPlayer?.current?.loadedmetadata,
+    audioPlayer?.current?.readyState,
+    currentSong,
+  ]);
+
+  useEffect(() => {
+    setIsPlaying(false);
     togglePlayPause();
   }, [currentSong]);
 
   useEffect(() => {
     setIsPlaying(false);
   }, []);
-
-  useEffect(() => {
-    const seconds = Math.floor(audioPlayer.current.duration);
-    setDuration(seconds);
-    progressBar.current.max = seconds;
-  }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
 
   const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60);
