@@ -1,196 +1,135 @@
-from sqlalchemy import Date
+# from sqlalchemy import Date
 from datetime import datetime
 from app.models import db, playlist_songs
-
-def seed_playlistsongs():
-    one = PlaylistSong (library_id=1, playlist_id=1, created_at=datetime.now(), updated_at=datetime.now())
-    two = PlaylistSong (library_id=2, playlist_id=1, created_at=datetime.now(), updated_at=datetime.now())
-    three = PlaylistSong (library_id=3, playlist_id=1, created_at=datetime.now(), updated_at=datetime.now())
-    four = PlaylistSong (library_id=4, playlist_id=2, created_at=datetime.now(), updated_at=datetime.now())
-    five = PlaylistSong (library_id=5, playlist_id=2, created_at=datetime.now(), updated_at=datetime.now())
-    six = PlaylistSong (library_id=6, playlist_id=2, created_at=datetime.now(), updated_at=datetime.now())
-    seven = PlaylistSong (library_id=7, playlist_id=3, created_at=datetime.now(), updated_at=datetime.now())
-    eight = PlaylistSong (library_id=8, playlist_id=3, created_at=datetime.now(), updated_at=datetime.now())
-    nine = PlaylistSong (library_id=9, playlist_id=3, created_at=datetime.now(), updated_at=datetime.now())
-    ten = PlaylistSong (library_id=10, playlist_id=4, created_at=datetime.now(), updated_at=datetime.now())
-    eleven = PlaylistSong (library_id=11, playlist_id=4, created_at=datetime.now(), updated_at=datetime.now())
-    twelve = PlaylistSong (library_id=12, playlist_id=4, created_at=datetime.now(), updated_at=datetime.now())
-    thirteen = PlaylistSong (library_id=13, playlist_id=5, created_at=datetime.now(), updated_at=datetime.now())
-    fourteen = PlaylistSong (library_id=14, playlist_id=5, created_at=datetime.now(), updated_at=datetime.now())
-    fifteen = PlaylistSong (library_id=15, playlist_id=5, created_at=datetime.now(), updated_at=datetime.now())
-    sixteen = PlaylistSong (library_id=16, playlist_id=6, created_at=datetime.now(), updated_at=datetime.now())
-    seventeen = PlaylistSong (library_id=17, playlist_id=6, created_at=datetime.now(), updated_at=datetime.now())
-    eighteen = PlaylistSong (library_id=18, playlist_id=6, created_at=datetime.now(), updated_at=datetime.now())
-    nineteen = PlaylistSong (library_id=19, playlist_id=7, created_at=datetime.now(), updated_at=datetime.now())
-    twenty = PlaylistSong (library_id=20, playlist_id=7, created_at=datetime.now(), updated_at=datetime.now())
-    twentyone = PlaylistSong (library_id=21, playlist_id=7, created_at=datetime.now(), updated_at=datetime.now())
-    twentytwo = PlaylistSong (library_id=22, playlist_id=8, created_at=datetime.now(), updated_at=datetime.now())
-    twentythree = PlaylistSong (library_id=23, playlist_id=8, created_at=datetime.now(), updated_at=datetime.now())
-    twentyfour = PlaylistSong (library_id=24, playlist_id=8, created_at=datetime.now(), updated_at=datetime.now())
-    twentyfive = PlaylistSong (library_id=25, playlist_id=9, created_at=datetime.now(), updated_at=datetime.now())
-    twentysix = PlaylistSong (library_id=26, playlist_id=9, created_at=datetime.now(), updated_at=datetime.now())
-    twentyseven = PlaylistSong (library_id=27, playlist_id=9, created_at=datetime.now(), updated_at=datetime.now())
-    twentyeight = PlaylistSong (library_id=39, playlist_id=10, created_at=datetime.now(), updated_at=datetime.now())
-    twentynine = PlaylistSong (library_id=38, playlist_id=10, created_at=datetime.now(), updated_at=datetime.now())
-    thirty = PlaylistSong (library_id=37, playlist_id=10, created_at=datetime.now(), updated_at=datetime.now())
-    thirtyone = PlaylistSong (library_id=28, playlist_id=10, created_at=datetime.now(), updated_at=datetime.now())
-    thirtytwo = PlaylistSong (library_id=33, playlist_id=10, created_at=datetime.now(), updated_at=datetime.now())
-    thirtythree = PlaylistSong (library_id=31, playlist_id=11, created_at=datetime.now(), updated_at=datetime.now())
-    thirtyfour = PlaylistSong (library_id=41, playlist_id=11, created_at=datetime.now(), updated_at=datetime.now())
-    thirtyfive = PlaylistSong (library_id=42, playlist_id=11, created_at=datetime.now(), updated_at=datetime.now())
-    thirtysix = PlaylistSong (library_id=29, playlist_id=11, created_at=datetime.now(), updated_at=datetime.now())
-    thirtyseven = PlaylistSong (library_id=35, playlist_id=11, created_at=datetime.now(), updated_at=datetime.now())
-    thirtyeight = PlaylistSong (library_id=36, playlist_id=11, created_at=datetime.now(), updated_at=datetime.now())
-    thirtynine = PlaylistSong (library_id=32, playlist_id=12, created_at=datetime.now(), updated_at=datetime.now())
-    forty = PlaylistSong (library_id=30, playlist_id=12, created_at=datetime.now(), updated_at=datetime.now())
-    fortyone = PlaylistSong (library_id=34, playlist_id=12, created_at=datetime.now(), updated_at=datetime.now())
-    fortytwo = PlaylistSong (library_id=44, playlist_id=12, created_at=datetime.now(), updated_at=datetime.now())
-    fortythree = PlaylistSong (library_id=43, playlist_id=12, created_at=datetime.now(), updated_at=datetime.now())
-    fortyfour = PlaylistSong (library_id=40, playlist_id=12, created_at=datetime.now(), updated_at=datetime.now())
-    fortyfive = PlaylistSong (library_id=45, playlist_id=13, created_at=datetime.now(), updated_at=datetime.now())
-    fortysix = PlaylistSong (library_id=46, playlist_id=13, created_at=datetime.now(), updated_at=datetime.now())
-    fortyseven = PlaylistSong (library_id=47, playlist_id=13, created_at=datetime.now(), updated_at=datetime.now())
-    fortyeight = PlaylistSong (library_id=48, playlist_id=14, created_at=datetime.now(), updated_at=datetime.now())
-    fortynine = PlaylistSong (library_id=49, playlist_id=15, created_at=datetime.now(), updated_at=datetime.now())
-    fifty = PlaylistSong (library_id=50, playlist_id=14, created_at=datetime.now(), updated_at=datetime.now())
-    fiftyone = PlaylistSong (library_id=51, playlist_id=14, created_at=datetime.now(), updated_at=datetime.now())
-    fiftytwo = PlaylistSong (library_id=52, playlist_id=15, created_at=datetime.now(), updated_at=datetime.now())
-    fiftythree = PlaylistSong (library_id=53, playlist_id=15, created_at=datetime.now(), updated_at=datetime.now())
-    fiftyfour = PlaylistSong (library_id=54, playlist_id=13, created_at=datetime.now(), updated_at=datetime.now())
-    fiftyfive = PlaylistSong (library_id=55, playlist_id=20, created_at=datetime.now(), updated_at=datetime.now())
-    fiftysix = PlaylistSong (library_id=56, playlist_id=20, created_at=datetime.now(), updated_at=datetime.now())
-    fiftyseven = PlaylistSong (library_id=57, playlist_id=20, created_at=datetime.now(), updated_at=datetime.now())
-    fiftyeight = PlaylistSong (library_id=58, playlist_id=21, created_at=datetime.now(), updated_at=datetime.now())
-    fiftynine = PlaylistSong (library_id=59, playlist_id=21, created_at=datetime.now(), updated_at=datetime.now())
-    sixty = PlaylistSong (library_id=60, playlist_id=21, created_at=datetime.now(), updated_at=datetime.now())
-    sixtyone = PlaylistSong (library_id=61, playlist_id=19, created_at=datetime.now(), updated_at=datetime.now())
-    sixtytwo = PlaylistSong (library_id=62, playlist_id=19, created_at=datetime.now(), updated_at=datetime.now())
-    sixtythree = PlaylistSong (library_id=63, playlist_id=19, created_at=datetime.now(), updated_at=datetime.now())
-    sixtyfour = PlaylistSong (library_id=64, playlist_id=16, created_at=datetime.now(), updated_at=datetime.now())
-    sixtyfive = PlaylistSong (library_id=65, playlist_id=16, created_at=datetime.now(), updated_at=datetime.now())
-    sixtysix = PlaylistSong (library_id=66, playlist_id=16, created_at=datetime.now(), updated_at=datetime.now())
-    sixtyseven = PlaylistSong (library_id=67, playlist_id=17, created_at=datetime.now(), updated_at=datetime.now())
-    sixtyeight = PlaylistSong (library_id=68, playlist_id=17, created_at=datetime.now(), updated_at=datetime.now())
-    sixtynine = PlaylistSong (library_id=69, playlist_id=17, created_at=datetime.now(), updated_at=datetime.now())
-    seventy = PlaylistSong (library_id=70, playlist_id=18, created_at=datetime.now(), updated_at=datetime.now())
-    seventyone = PlaylistSong (library_id=71, playlist_id=18, created_at=datetime.now(), updated_at=datetime.now())
-    seventytwo = PlaylistSong (library_id=72, playlist_id=18, created_at=datetime.now(), updated_at=datetime.now())
-    seventythree = PlaylistSong (library_id=73, playlist_id=24, created_at=datetime.now(), updated_at=datetime.now())
-    seventyfour = PlaylistSong (library_id=74, playlist_id=24, created_at=datetime.now(), updated_at=datetime.now())
-    seventyfive = PlaylistSong (library_id=75, playlist_id=24, created_at=datetime.now(), updated_at=datetime.now())
-    seventysix = PlaylistSong (library_id=76, playlist_id=23, created_at=datetime.now(), updated_at=datetime.now())
-    seventyseven = PlaylistSong (library_id=77, playlist_id=22, created_at=datetime.now(), updated_at=datetime.now())
-    seventyeight = PlaylistSong (library_id=78, playlist_id=23, created_at=datetime.now(), updated_at=datetime.now())
-    seventynine = PlaylistSong (library_id=79, playlist_id=23, created_at=datetime.now(), updated_at=datetime.now())
-    eighty = PlaylistSong (library_id=80, playlist_id=22, created_at=datetime.now(), updated_at=datetime.now())
-    eightyone = PlaylistSong (library_id=81, playlist_id=22, created_at=datetime.now(), updated_at=datetime.now())
-    eightytwo = PlaylistSong (library_id=82, playlist_id=25, created_at=datetime.now(), updated_at=datetime.now())
-    eightythree = PlaylistSong (library_id=83, playlist_id=25, created_at=datetime.now(), updated_at=datetime.now())
-    eightyfour = PlaylistSong (library_id=84, playlist_id=26, created_at=datetime.now(), updated_at=datetime.now())
-    eightyfive = PlaylistSong (library_id=85, playlist_id=27, created_at=datetime.now(), updated_at=datetime.now())
-    eightysix = PlaylistSong (library_id=86, playlist_id=26, created_at=datetime.now(), updated_at=datetime.now())
-    eightyseven = PlaylistSong (library_id=87, playlist_id=25, created_at=datetime.now(), updated_at=datetime.now())
-    eightyeight = PlaylistSong (library_id=88, playlist_id=26, created_at=datetime.now(), updated_at=datetime.now())
-    eightynine = PlaylistSong (library_id=89, playlist_id=27, created_at=datetime.now(), updated_at=datetime.now())
-    ninety = PlaylistSong (library_id=90, playlist_id=27, created_at=datetime.now(), updated_at=datetime.now())
+from alembic import op
 
 
+# def seed_playlistsongs():
+op.bulk_insert(playlist_songs,
+[
+{"library_id":1, "playlist_id":1, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":2, "playlist_id":1, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":3, "playlist_id":1, "created_at":datetime.now(), "updated_at":datetime.now()},
 
- # after last playlistong instance
-    # db.session.add(one)
-    # db.session.add(two)
-    # db.session.add(three)
-    # db.session.add(four)
-    # db.session.add(five)
-    # db.session.add(six)
-    # db.session.add(seven)
-    # db.session.add(eight)
-    # db.session.add(nine)
-    # db.session.add(ten)
-    # db.session.add(eleven)
-    # db.session.add(twelve)
-    # db.session.add(thirteen)
-    # db.session.add(fourteen)
-    # db.session.add(fifteen)
-    # db.session.add(sixteen)
-    # db.session.add(seventeen)
-    # db.session.add(eighteen)
-    # db.session.add(nineteen)
-    # db.session.add(twenty)
-    # db.session.add(twentyone)
-    # db.session.add(twentytwo)
-    # db.session.add(twentythree)
-    # db.session.add(twentyfour)
-    # db.session.add(twentyfive)
-    # db.session.add(twentysix)
-    # db.session.add(twentyseven)
-    # db.session.add(twentyeight)
-    # db.session.add(twentynine)
-    # db.session.add(thirty)
-    # db.session.add(thirtyone)
-    # db.session.add(thirtytwo)
-    # db.session.add(thirtythree)
-    # db.session.add(thirtyfour)
-    # db.session.add(thirtyfive)
-    # db.session.add(thirtysix)
-    # db.session.add(thirtyseven)
-    # db.session.add(thirtyeight)
-    # db.session.add(thirtynine)
-    # db.session.add(forty)
-    # db.session.add(fortyone)
-    # db.session.add(fortytwo)
-    # db.session.add(fortythree)
-    # db.session.add(fortyfour)
-    # db.session.add(fortyfive)
-    # db.session.add(fortysix)
-    # db.session.add(fortyseven)
-    # db.session.add(fortyeight)
-    # db.session.add(fortynine)
-    # db.session.add(fifty)
-    # db.session.add(fiftyone)
-    # db.session.add(fiftytwo)
-    # db.session.add(fiftythree)
-    # db.session.add(fiftyfour)
-    # db.session.add(fiftyfive)
-    # db.session.add(fiftysix)
-    # db.session.add(fiftyseven)
-    # db.session.add(fiftyeight)
-    # db.session.add(fiftynine)
-    # db.session.add(sixty)
-    # db.session.add(sixtyone)
-    # db.session.add(sixtytwo)
-    # db.session.add(sixtythree)
-    # db.session.add(sixtyfour)
-    # db.session.add(sixtyfive)
-    # db.session.add(sixtysix)
-    # db.session.add(sixtyseven)
-    # db.session.add(sixtyeight)
-    # db.session.add(sixtynine)
-    # db.session.add(seventy)
-    # db.session.add(seventyone)
-    # db.session.add(seventytwo)
-    # db.session.add(seventythree)
-    # db.session.add(seventyfour)
-    # db.session.add(seventyfive)
-    # db.session.add(seventysix)
-    # db.session.add(seventyseven)
-    # db.session.add(seventyeight)
-    # db.session.add(seventynine)
-    # db.session.add(eighty)
-    # db.session.add(eightyone)
-    # db.session.add(eightytwo)
-    # db.session.add(eightythree)
-    # db.session.add(eightyfour)
-    # db.session.add(eightyfive)
-    # db.session.add(eightysix)
-    # db.session.add(eightyseven)
-    # db.session.add(eightyeight)
-    # db.session.add(eightynine)
-    # db.session.add(ninety)
+{"library_id":4, "playlist_id":2, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":5, "playlist_id":2, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":6, "playlist_id":2, "created_at":datetime.now(), "updated_at":datetime.now()},
 
-    db.session.commit()
+{"library_id":7, "playlist_id":3, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":8, "playlist_id":3, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":9, "playlist_id":3, "created_at":datetime.now(), "updated_at":datetime.now()},
 
-def undo_playlist_songs():
+{"library_id":10, "playlist_id":4, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":11, "playlist_id":4, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":12, "playlist_id":4, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":13, "playlist_id":5, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":14, "playlist_id":5, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":15, "playlist_id":5, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":16, "playlist_id":6, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":17, "playlist_id":6, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":18, "playlist_id":6, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":19, "playlist_id":7, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":20, "playlist_id":7, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":21, "playlist_id":7, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":22, "playlist_id":8, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":23, "playlist_id":8, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":24, "playlist_id":8, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":25, "playlist_id":9, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":26, "playlist_id":9, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":27, "playlist_id":9, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":39, "playlist_id":10, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":38, "playlist_id":10, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":37, "playlist_id":10, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":28, "playlist_id":10, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":33, "playlist_id":10, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":31, "playlist_id":11, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":41, "playlist_id":11, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":42, "playlist_id":11, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":29, "playlist_id":11, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":35, "playlist_id":11, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":36, "playlist_id":11, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":32, "playlist_id":12, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":30, "playlist_id":12, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":34, "playlist_id":12, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":44, "playlist_id":12, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":43, "playlist_id":12, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":40, "playlist_id":12, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":45, "playlist_id":13, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":46, "playlist_id":13, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":47, "playlist_id":13, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":54, "playlist_id":13, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":48, "playlist_id":14, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":50, "playlist_id":14, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":51, "playlist_id":14, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":52, "playlist_id":15, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":53, "playlist_id":15, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":49, "playlist_id":15, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+
+{"library_id":64, "playlist_id":16, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":65, "playlist_id":16, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":66, "playlist_id":16, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":67, "playlist_id":17, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":68, "playlist_id":17, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":69, "playlist_id":17, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":70, "playlist_id":18, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":71, "playlist_id":18, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":72, "playlist_id":18, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":61, "playlist_id":19, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":62, "playlist_id":19, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":63, "playlist_id":19, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":55, "playlist_id":20, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":56, "playlist_id":20, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":57, "playlist_id":20, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":58, "playlist_id":21, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":59, "playlist_id":21, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":60, "playlist_id":21, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":77, "playlist_id":22, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":80, "playlist_id":22, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":81, "playlist_id":22, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+
+{"library_id":76, "playlist_id":23, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":78, "playlist_id":23, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":79, "playlist_id":23, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":73, "playlist_id":24, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":74, "playlist_id":24, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":75, "playlist_id":24, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":82, "playlist_id":25, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":83, "playlist_id":25, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":87, "playlist_id":25, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":86, "playlist_id":26, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":88, "playlist_id":26, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":84, "playlist_id":26, "created_at":datetime.now(), "updated_at":datetime.now()},
+
+{"library_id":85, "playlist_id":27, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":89, "playlist_id":27, "created_at":datetime.now(), "updated_at":datetime.now()},
+{"library_id":90, "playlist_id":27, "created_at":datetime.now(), "updated_at":datetime.now()},
+])
+
+db.session.commit()
+
+def undo_playlistsongs():
     # this restarts everything that has been added
     db.session.execute('TRUNCATE playlist_songs.insert().values RESTART IDENTITY CASCADE;')
     db.session.commit()

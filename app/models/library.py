@@ -14,7 +14,7 @@ class Library(db.Model):
   created_at = db.Column(db.DateTime, default=datetime.now())
   updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
-  playlists = db.relationship("Playlist", back_populates="library", secondary=playlist_songs)
+  playlists = db.relationship("Playlist", secondary=playlist_songs)
 
   def to_dict(self):
         return {

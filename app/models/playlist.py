@@ -1,3 +1,4 @@
+from app.models.library import Library
 from .db import db
 from .playlist_songs import playlist_songs
 from datetime import datetime
@@ -15,4 +16,19 @@ class Playlist(db.Model):
   user = db.relationship("User", back_populates="playlists")
   mood = db.relationship("Mood", back_populates="playlists")
 
-  library = db.relationship("Library", back_populates="playlists", secondary=playlist_songs)
+  library = db.relationship("Library",
+   back_populates="playlists",
+  #  join table
+   secondary=playlist_songs,
+  #  primary join = applies from this table to join table
+   primaryjoin=(playlist_songs.c.playlist_id == id),
+  #  secondary join = applies from join table to other table
+   secondaryjoin=(playlist_songs.c.library_id == Library.id)
+   )
+
+  def to_dict(self):
+      return {
+        "user_id": self.user_id,
+        "mood_id": self.mood_id,
+        "name": self.name,
+      }
