@@ -46,36 +46,44 @@ function Playlist() {
       </div>
       <div className="playlist-detail-table-container">
         <table>
-          <tr>
-            <th className="playlist-detail-table-header-play"></th>
-            <th className="playlist-detail-table-header-image"></th>
-            <th className="playlist-detail-table-header">SONG</th>
-            <th className="playlist-detail-table-header">ALBUM</th>
-            <th className="playlist-detail-table-header">ARTIST</th>
-            <th className="playlist-detail-table-header-delete"></th>
-          </tr>
-          <tr className="playlist-detail-top-border"></tr>
-          {playlist?.playlist_songs.map((song, i) => (
-            <tr key={i} className="playlist-detail-table-row">
-              <td>
-                <button
-                  onClick={(e) => playSong(song.id, e)}
-                  className="playlist-playPause"
-                >
-                  <FaPlay className="play" />
-                </button>
-              </td>
-              <td className="playlist-song-img-container">
-                <img src={song.album_coverart_url} />
-              </td>
-              <td>{song.song_title}</td>
-              <td className="playlist-detail-grey-text">{song.album_name}</td>
-              <td className="playlist-detail-grey-text">{song.artist_name}</td>
-              <td>
-                <button className="playlist-detail-delete-song">Delete</button>
-              </td>
+          <thead>
+            <tr>
+              <th className="playlist-detail-table-header-play"></th>
+              <th className="playlist-detail-table-header-image"></th>
+              <th className="playlist-detail-table-header">SONG</th>
+              <th className="playlist-detail-table-header">ALBUM</th>
+              <th className="playlist-detail-table-header">ARTIST</th>
+              <th className="playlist-detail-table-header-delete"></th>
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            <tr className="playlist-detail-top-border"></tr>
+            {playlist?.playlist_songs.map((song, i) => (
+              <tr key={i} className="playlist-detail-table-row">
+                <td>
+                  <button
+                    onClick={(e) => playSong(song.id, e)}
+                    className="playlist-playPause"
+                  >
+                    <FaPlay className="play" />
+                  </button>
+                </td>
+                <td className="playlist-song-img-container">
+                  <img src={song.album_coverart_url} />
+                </td>
+                <td>{song.song_title}</td>
+                <td className="playlist-detail-grey-text">{song.album_name}</td>
+                <td className="playlist-detail-grey-text">
+                  {song.artist_name}
+                </td>
+                <td>
+                  <button className="playlist-detail-delete-song">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
