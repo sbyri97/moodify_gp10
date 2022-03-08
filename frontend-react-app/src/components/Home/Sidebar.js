@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getPlaylists } from '../../store/playlist';
+import NewPlaylistForm from '../Playlist/NewPlaylist';
 import './sidebar.css';
 
+
 const SideBar = () => {
-    // TO DO: add state for playlists to dynamically render an li for each playlist
-    // TO DO: add on click event for create new playlist button
-    // TO DO: add routing for each playlist link
-    const dispatch = useDispatch()
-    const userId = useSelector(state => state.session.user.id)
-    const playlistsObj = useSelector(state => state.playlist.playlists)
+
+    const dispatch = useDispatch();
+    const userId = useSelector(state => state.session.user.id);
+    const playlistsObj = useSelector(state => state.playlist.playlists);
+    // TO DO: change to modal
+    const [renderForm, setRenderForm] = useState(false);
 
     useEffect(() => {
         dispatch(getPlaylists())
@@ -18,6 +20,10 @@ const SideBar = () => {
 
     const playlists = Object.values(playlistsObj).filter(playlist => playlist.user_id === userId)
 
+    // TO DO: change to modal
+    const showNewPlaylistForm = (e) => {
+        setRenderForm(true);
+    }
 
     return (
         <div className='sidebar'>
@@ -40,10 +46,13 @@ const SideBar = () => {
             </ul>
             <div className='sidebar-playlists-div'>
                 <div className='sidebar-playlist-button-div'>
-                    <button className='sidebar-new-playlist'>
+                    <button onClick={showNewPlaylistForm} className='sidebar-new-playlist'>
                     <i className='fa-solid fa-plus'></i>
                         Create New Playlist
                     </button>
+                    {renderForm && (
+                        <NewPlaylistForm hideForm={() => setRenderForm(false)} />
+                    )}
                 </div>
                 <div className='sidebar-playlists'>
                     <ul className='sidebar-playlists-ul'>

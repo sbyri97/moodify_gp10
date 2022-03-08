@@ -1,7 +1,7 @@
 from flask import Blueprint, abort
 from flask_login import login_required
-from app.models import Playlist, playlist_songs, Library
-import sqlalchemy as sa
+from app.models import Playlist, db
+from app.forms.new_playlist_form import NewPlaylistForm
 
 playlist_routes = Blueprint('playlists', __name__)
 
@@ -30,3 +30,19 @@ def playlists():
     playlists_dict = [playlist.to_dict() for playlist in playlists]
 
     return { "playlists": playlists_dict }
+
+# create new playlist
+@playlist_routes.route('/', methods=["POST"])
+def post_playlist():
+    form = NewPlaylistForm()
+    print(form.data)
+    # if form.validate_on_submit():
+        # need to pass mood id into this
+    new_playlist = Playlist(name=form.data['name'], mood_id=form.data['mood_id'], user_id=form.data['user_id'])
+
+    db.session.add(new_playlist)
+    db.session.commit()
+
+    return new_playlist.to_dict()
+
+    # TO DO: add in form error handling
