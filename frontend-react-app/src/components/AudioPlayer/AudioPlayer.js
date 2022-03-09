@@ -34,8 +34,9 @@ const AudioPlayer = () => {
   ]);
 
   useEffect(() => {
-    setIsPlaying(false);
-    togglePlayPause();
+    // console.log("isPlaying STATE=====", isPlaying);
+    // togglePlayPause();
+    playSong();
   }, [currentSong]);
 
   useEffect(() => {
@@ -48,6 +49,12 @@ const AudioPlayer = () => {
     const seconds = Math.floor(secs % 60);
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
     return `${returnedMinutes}:${returnedSeconds}`;
+  };
+
+  const playSong = () => {
+    setIsPlaying(true);
+    audioPlayer?.current?.play();
+    animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
   const togglePlayPause = () => {
