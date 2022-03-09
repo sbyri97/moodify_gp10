@@ -89,9 +89,7 @@ function Playlist() {
                   </NavLink>
                 </td>
                 <td>
-                  <button className="playlist-detail-delete-song">
-                    Delete
-                  </button>
+                  <button className="playlist-detail-delete-song">X</button>
                 </td>
               </tr>
             ))}
