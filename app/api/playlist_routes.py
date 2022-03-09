@@ -60,6 +60,26 @@ def post_playlist():
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
+# edit playlist
+@playlist_routes.route('/<int:id>', methods=["PUT"])
+def edit_playlist(id):
+    form = NewPlaylistForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    
+    playlist = Playlist.query.get(id)
+   
+    if form.validate_on_submit():
+        playlist.name = form.data['name']
+        playlist.mood_id = form.data['mood_id']
+        playlist.user_id = form.data['user_id']
+        db.session.add(playlist)
+        db.session.commit()
+
+        return playlist.to_dict()
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)} 
+
+
 # delete playlist
 @playlist_routes.route('/<int:id>', methods=["DELETE"])
 def delete_playlist(id):
