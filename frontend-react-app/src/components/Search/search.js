@@ -42,6 +42,62 @@ export default function MainSearch() {
                 </form>
             </div>
             <div className="resultsMainContainer">
+                <div className="results-playlists-cards">
+                    <div className="results-playlists-outer-indiv-card">
+                        <div className="results-playlists-inner-indiv-card">
+                            <img src={'https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg'} className='playlist-card-img'></img>
+                            <div className="results-playlist-cards-content">
+                                <h2>Playlist Name</h2>
+                                <h3>Artist Name</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="results-playlists-outer-indiv-card">
+                        <div className="results-playlists-inner-indiv-card">
+                            <img src={'https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg'} className='playlist-card-img'></img>
+                            <div className="results-playlist-cards-content">
+                                <h2>Playlist Name</h2>
+                                <h3>Artist Name</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="results-playlists-outer-indiv-card">
+                        <div className="results-playlists-inner-indiv-card">
+                            <img src={'https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg'} className='playlist-card-img'></img>
+                            <div className="results-playlist-cards-content">
+                                <h2>Playlist Name</h2>
+                                <h3>Artist Name</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="results-playlists-outer-indiv-card">
+                        <div className="results-playlists-inner-indiv-card">
+                            <img src={'https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg'} className='playlist-card-img'></img>
+                            <div className="results-playlist-cards-content">
+                                <h2>Playlist Name</h2>
+                                <h3>Artist Name</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="results-playlists-outer-indiv-card">
+                        <div className="results-playlists-inner-indiv-card">
+                            <img src={'https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg'} className='playlist-card-img'></img>
+                            <div className="results-playlist-cards-content">
+                                <h2>Playlist Name</h2>
+                                <h3>Artist Name</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="results-playlists-outer-indiv-card">
+                        <div className="results-playlists-inner-indiv-card">
+                            <img src={'https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg'} className='playlist-card-img'></img>
+                            <div className="results-playlist-cards-content">
+                                <h2>Playlist Name</h2>
+                                <h3>Artist Name</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <SongSearch />
                 <AlbumSearch />
                 <ArtistSearch />
