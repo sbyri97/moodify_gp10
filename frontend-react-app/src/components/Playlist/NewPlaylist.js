@@ -6,6 +6,7 @@ const NewPlaylistForm = ({hideForm}) => {
     const dispatch = useDispatch()
     const [name, setName] = useState('');
     const [mood, setMood] = useState(1)
+    const [errors, setErrors] = useState([])
     const userId = useSelector(state => state.session.user.id);
     const user_id = userId;
     let mood_id = mood;
@@ -19,25 +20,27 @@ const NewPlaylistForm = ({hideForm}) => {
          if (result) {
             hideForm()
         }
+        
     }
 
 
     return (
         <div className='playlist-form'>
             <form className='new-playlist-form' onSubmit={submitPlaylistForm}>
-                {/* TO DO: add ul of form validation errors */}
+            <div className='errors'>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
                 <label htmlFor='name'>
                     <input type='text' name='name' value={name} onChange={(e) => setName(e.target.value)}>
                     </input>
                 </label>
                 <label htmlFor='mood'>
-                    <select name='mood_id'
-                     onChange={(e) => setMood(e.target.value)}
-                    >
+                    <select name='mood_id' onChange={(e) => setMood(e.target.value)}>
                         <option value=''>
                             Select a mood
                         </option>
-                        {/* TO DO: render mood type for each mood */}
                         <option value='1'>
                             Happy
                         </option>
@@ -65,7 +68,6 @@ const NewPlaylistForm = ({hideForm}) => {
                         <option value='9'>
                             Productive
                         </option>
-
                     </select>
                 </label>
                 <button type='submit'>

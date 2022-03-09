@@ -5,6 +5,19 @@ from app.forms.new_playlist_form import NewPlaylistForm
 
 playlist_routes = Blueprint('playlists', __name__)
 
+
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
+
+
 # get single playlist
 @playlist_routes.route('/<int:id>')
 def playlist(id):
@@ -12,8 +25,8 @@ def playlist(id):
     playlist = Playlist.query.get(id)
 
     # error handling
-    # if playlist is None:
-    #     abort(404)
+    if playlist is None:
+        abort(404)
 
     playlist_songs = playlist.library
     playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
@@ -45,6 +58,4 @@ def post_playlist():
 
         return new_playlist.to_dict()
     else:
-        return form.errors
-
-
+        return {'errors': validation_errors_to_error_messages(form.errors)}
