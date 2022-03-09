@@ -1,4 +1,4 @@
-from flask import Blueprint, abort, request
+from flask import Blueprint, abort, request, redirect
 from flask_login import login_required
 from app.models import Playlist, db
 from app.forms.new_playlist_form import NewPlaylistForm
@@ -59,3 +59,13 @@ def post_playlist():
         return new_playlist.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
+
+# delete playlist
+@playlist_routes.route('/<int:id>', methods=["DELETE"])
+def delete_playlist(id):
+    playlist = Playlist.query.get(id)
+
+    db.session.delete(playlist)
+    db.session.commit()
+
+    return {id: playlist.id}
