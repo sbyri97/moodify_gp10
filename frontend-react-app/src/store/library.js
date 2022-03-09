@@ -1,7 +1,6 @@
 const LOAD_LIBRARY = "library/loadLibrary";
 const LOAD_ITEM_LIBRARY = "library/loadItemLibrary"
 
-
 // ----------------------------------------
 export const loadLibrary = (library) => {
   return {
@@ -29,6 +28,7 @@ export const getLibrary = (libraryId) => async (dispatch) => {
     const data = await response.json();
     dispatch(loadLibrary(data));
     return data;
+
   }
 };
 
@@ -46,6 +46,7 @@ export const searchAllItems = (nameOfItem) => async(dispatch) => {
 
 }
 
+
 // ----------------------------------------
 
 export const getRandomPlaylists = () => async(dispatch) => {
@@ -59,7 +60,6 @@ export const getRandomPlaylists = () => async(dispatch) => {
   }
 
 }
-
 
 // ----------------------------------------
 

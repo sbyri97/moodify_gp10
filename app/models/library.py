@@ -19,6 +19,7 @@ class Library(db.Model):
   def to_dict(self):
         return {
             "artist_name": self.artist_name,
+            "id": self.id,
             "album_coverart_url": self.album_coverart_url,
             "album_name": self.album_name,
             "song_title": self.song_title,

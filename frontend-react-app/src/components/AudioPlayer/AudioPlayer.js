@@ -11,7 +11,7 @@ const AudioPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [muteState, setMuteState] = useState(false);
 
-  const currentSong = useSelector((state) => state?.libraryReducer?.library);
+  const currentSong = useSelector((state) => state?.library?.library);
   const songTitle = currentSong?.song_title;
   const songURL = currentSong?.song_url;
   const songArt = currentSong?.album_coverart_url;
@@ -24,15 +24,7 @@ const AudioPlayer = () => {
   const volumeSlider = useRef(); // reference the volume slider
 
   useEffect(() => {
-    togglePlayPause();
-  }, [currentSong]);
-
-  useEffect(() => {
-    setIsPlaying(false);
-  }, []);
-
-  useEffect(() => {
-    const seconds = Math.floor(audioPlayer.current.duration);
+    const seconds = Math.floor(audioPlayer?.current?.duration);
     setDuration(seconds);
     progressBar.current.max = seconds;
   }, [
@@ -40,6 +32,15 @@ const AudioPlayer = () => {
     audioPlayer?.current?.readyState,
     currentSong,
   ]);
+
+  useEffect(() => {
+    setIsPlaying(false);
+    togglePlayPause();
+  }, [currentSong]);
+
+  useEffect(() => {
+    setIsPlaying(false);
+  }, []);
 
   const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60);
@@ -53,7 +54,7 @@ const AudioPlayer = () => {
     const prevValue = isPlaying;
     setIsPlaying(!prevValue);
     if (!prevValue) {
-      // audioPlayer.current.play();
+      audioPlayer?.current?.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
     } else {
       audioPlayer.current.pause();
@@ -62,7 +63,7 @@ const AudioPlayer = () => {
   };
 
   const whilePlaying = () => {
-    progressBar.current.value = audioPlayer.current.currentTime;
+    progressBar.current.value = audioPlayer?.current?.currentTime;
     changePlayerCurrentTime();
     animationRef.current = requestAnimationFrame(whilePlaying);
   };
@@ -157,7 +158,7 @@ const AudioPlayer = () => {
 
           {/* duration */}
           <div className="duration">
-            {duration && !isNaN(duration) && calculateTime(duration)}
+            {duration ? calculateTime(duration) : "0:00"}
           </div>
         </div>
       </div>

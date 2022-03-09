@@ -12,7 +12,10 @@ import Home from "./components/Home/home";
 import { authenticate } from "./store/session";
 import Songs from "./components/Songs/songs";
 import Playlist from "./components/Playlist/Playlist";
+import Artists from "./components/Artists/artists";
+import Albums from "./components/Albums/albums";
 import MainSearch from "./components/Search/search";
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,8 +51,11 @@ function App() {
         <ProtectedRoute path="/" exact={true}>
           <Home />
         </ProtectedRoute>
-        <Route path="/songs">
-          <Songs />
+        <Route path="/artists/:artistName">
+          <Artists />
+        </Route>
+        <Route path="/albums/:albumName">
+          <Albums />
         </Route>
         <Route path="/search">
           <MainSearch />
