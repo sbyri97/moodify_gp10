@@ -13,6 +13,7 @@ from .api.searchSong_routes import searchSong_routes
 from .api.playlist_routes import playlist_routes
 from .api.artist_routes import artist_routes
 from .api.album_routes import album_routes
+from .api.mood_routes import mood_routes
 
 
 from .seeds import seed_commands
@@ -42,6 +43,7 @@ app.register_blueprint(searchSong_routes, url_prefix='/api/search')
 app.register_blueprint(playlist_routes, url_prefix='/api/playlists')
 app.register_blueprint(artist_routes, url_prefix='/api/artists')
 app.register_blueprint(album_routes, url_prefix='/api/albums')
+app.register_blueprint(mood_routes, url_prefix='/api/moods')
 
 db.init_app(app)
 Migrate(app, db)
