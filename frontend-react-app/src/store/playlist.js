@@ -77,11 +77,10 @@ export const createPlaylist = ({name, mood_id, user_id}) => async(dispatch) => {
             user_id
         })
     })
-    console.log(response)
     if(response.ok) {
         const data = await response.json();
-        dispatch(loadPlaylist(data.playlists))
-        return data.playlists
+        dispatch(loadPlaylist(data))
+        return data
     }
 }
 
@@ -95,11 +94,12 @@ export const editPlaylist = (playlist) => async(dispatch) => {
           user_id: playlist.user_id
       })
     })
-    console.log("response:::::", response)
+
     if(response.ok) {
       const data = await response.json()
-      dispatch(loadPlaylist(data.playlists))
-      return data.playlists
+      console.log(data)
+      dispatch(loadPlaylist(data))
+      return data
     }
 }
 
