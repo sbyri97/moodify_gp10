@@ -32,7 +32,7 @@ function Playlist() {
     <div className="playlist-detail-container">
       <div className="playlist-top-detail-container">
         <div className="playlist-detail-img-container">
-          <img src={playlist?.playlist_songs[0]?.album_coverart_url} />
+          <img src={playlist?.playlist_songs?.[0]?.album_coverart_url} />
         </div>
         <div className="playlist-detail-text-container">
           <div className="playlist-text">PLAYLIST</div>
@@ -58,7 +58,7 @@ function Playlist() {
           </thead>
           <tbody>
             <tr className="playlist-detail-top-border"></tr>
-            {playlist?.playlist_songs.map((song, i) => (
+            {playlist?.playlist_songs?.map((song, i) => (
               <tr key={i} className="playlist-detail-table-row">
                 <td>
                   <button

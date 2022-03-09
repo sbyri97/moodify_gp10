@@ -36,14 +36,14 @@ function Albums() {
       <div className="playlist-top-detail-container">
         <div className="playlist-detail-img-container">
           <img
-            src={songs?.songs[0]?.album_coverart_url}
-            alt={songs?.songs[0]?.artist_name}
+            src={songs?.songs?.[0]?.album_coverart_url}
+            alt={songs?.songs?.[0]?.artist_name}
           />
         </div>
         <div className="playlist-detail-text-container">
           <div className="playlist-text">PLAYLIST</div>
           <div className="playlist-detail-playlist-name">
-            {songs?.songs[0]?.album_name}
+            {songs?.songs?.[0]?.album_name}
           </div>
           <div className="playlist-detail-username">
             {sessionUser?.username}
@@ -63,7 +63,7 @@ function Albums() {
           </thead>
           <tbody>
             <tr className="playlist-detail-top-border"></tr>
-            {songs?.songs.map((song, i) => (
+            {songs?.songs?.map((song, i) => (
               <tr key={i} className="playlist-detail-table-row">
                 <td>
                   <button
