@@ -123,10 +123,11 @@ const AudioPlayer = () => {
     <div className="audioPlayer">
       <div className="playingSongInfo">
         <div className="playerSongImgContainer">
-          <img
-            src={songArt}
-            alt="picture of currently playing song album cover"
-          />
+          {songArt ? (
+            <img src={songArt} alt="currently playing song album cover" />
+          ) : (
+            <></>
+          )}
         </div>
         <div className="playingSongText">
           <div className="playingSongTitle">{songTitle}</div>
