@@ -45,6 +45,7 @@
 .mood-playlist-name {
   color: white;
   text-shadow: var(--happy) 0px 0px 5px;
+  text-decoration: none;
 }
 
 .mood-playlists-mood {

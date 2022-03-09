@@ -72,7 +72,7 @@ export const getMoodPlaylists = (id) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(loadMoodPlaylists(data.playlists));
+    dispatch(loadMoodPlaylists(data));
   }
   return response;
 };
