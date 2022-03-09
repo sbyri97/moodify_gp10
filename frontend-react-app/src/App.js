@@ -15,6 +15,7 @@ import Playlist from "./components/Playlist/Playlist";
 import Artists from "./components/Artists/artists";
 import Albums from "./components/Albums/albums";
 import MainSearch from "./components/Search/search";
+import SideBar from "./components/Home/Sidebar"
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
         </Route>
       </Switch>
       <AudioPlayer />
+      <SideBar />
     </BrowserRouter>
   );
 }
