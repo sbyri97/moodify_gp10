@@ -22,7 +22,21 @@
     color: #b3b3b3;
 }
 
-.sidebar-navlink {
+.sidebar-navlink-home {
+    color: #b3b3b3;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-navlink-search {
+    color: #b3b3b3;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-navlink-playlist {
     color: #b3b3b3;
     text-decoration: none;
     display: flex;
@@ -62,7 +76,7 @@
 
 
 /* add on hover font turns white */
-.sidebar-playlists-li:hover {
+.sidebar-navlink-playlist:hover {
     color: white;
 }
 
@@ -70,18 +84,22 @@
     color: white;
 }
 
-.sidebar-navlink:hover .fa-solid.fa-magnifying-glass {
+.sidebar-navlink-search:hover .fa-solid.fa-magnifying-glass {
     color:white;
 }
 
-.sidebar-navlink:hover .fa-solid.fa-house {
+
+.sidebar-navlink-home:hover .fa-solid.fa-house {
     color:white;
 }
 
-.sidebar-navlink:hover .sidebar-navlink-text {
+.sidebar-navlink-search:hover .sidebar-navlink-text {
     color:white;
 }
 
+.sidebar-navlink-home:hover .sidebar-navlink-text {
+    color:white;
+}
 /* .sidebar-li:hover .sidebar-navlink {
     color: white;
 } */
