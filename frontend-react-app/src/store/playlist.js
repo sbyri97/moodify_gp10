@@ -1,6 +1,6 @@
 const LOAD_PLAYLIST = "playlists/loadPlaylist";
 const LOAD_PLAYLISTS = "playlists/loadPlaylists";
-
+const DELETE_PLAYLIST = "playlists/deletePlaylist";
 // ---------------------------------------
 
 export const loadPlaylist = (playlist) => {
@@ -16,6 +16,13 @@ export const loadPlaylists = (playlists) => {
     playlists,
   };
 };
+
+export const deletePlaylist = (playlistId) => {
+  return {
+    type: DELETE_PLAYLIST,
+    playlistId
+  }
+}
 
 // ---------------------------------------
 
@@ -78,6 +85,16 @@ export const createPlaylist = ({name, mood_id, user_id}) => async(dispatch) => {
     }
 }
 
+export const deletePlaylistThunk = (playlistId) => async (dispatch) => {
+  const response = await fetch (`/api/playlists/${playlistId}`, {
+    method: 'DELETE'
+  })
+
+  if (response.ok) {
+    dispatch(deletePlaylist(playlistId))
+  }
+}
+
 // ---------------------------------------
 const initialState = { playlists: {} };
 const playlistReducer = (state = initialState, action) => {
@@ -95,6 +112,11 @@ const playlistReducer = (state = initialState, action) => {
        action.playlists.forEach(playlist => {playlists[playlist.name] = playlist})
        return {...state, playlists}
         }
+      case DELETE_PLAYLIST: {
+        const playlists = {}
+        delete playlists[action.playlistId]
+        return {...state, playlists}
+      }
       default:
         return state
   }

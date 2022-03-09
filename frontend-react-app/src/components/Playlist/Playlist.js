@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink, useHistory } from "react-router-dom";
 import "./Playlist.css";
 import { FaPlay } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
-import { getPlaylist } from "../../store/playlist";
+import { getPlaylist, deletePlaylistThunk } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
 
 function Playlist() {
@@ -14,7 +14,7 @@ function Playlist() {
 
   // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const playlistIdParams = useParams();
   const playlistId = playlistIdParams.id;
@@ -28,6 +28,15 @@ function Playlist() {
     const numId = Number(id);
     dispatch(getLibrary(numId));
   };
+
+  const deletePlaylist = () => {
+    const result =  dispatch(deletePlaylistThunk(playlistId));
+
+    if (result) {
+      history.push('/')
+    }
+
+  }
 
   return (
     <div className="playlist-detail-container">
@@ -48,6 +57,14 @@ function Playlist() {
       <div className="playlist-detail-dots-container">
         <button className="playlist-detail-dot-button">
           <BsThreeDots className="playlist-detail-dots" />
+        </button>
+      </div>
+      <div className="playlist-detail-dropdown">
+        <button className="playlist-detail-edit-btn" >
+          Edit Playlist Name
+        </button>
+        <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
+          Delete Playlist
         </button>
       </div>
       <div className="playlist-detail-table-container">
