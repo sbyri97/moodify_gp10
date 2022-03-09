@@ -29,6 +29,27 @@
   margin-left: 2em;
 }
 
+.playlist-detail-dots-container {
+  display: flex;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.playlist-detail-dot-button {
+  border: none;
+  background-color: transparent;
+}
+
+.playlist-detail-dots {
+  font-size: 2em;
+  color: #b3b3b3;
+}
+
+.playlist-detail-dots:hover {
+  color: white;
+  cursor: pointer;
+}
+
 .playlist-text {
   margin-top: 8em;
   font-weight: bold;
@@ -46,7 +67,7 @@
 }
 
 .playlist-detail-table-container {
-  margin-top: 3em;
+  margin-top: 2em;
   width: 100%;
   display: flex;
   justify-content: flex-start;

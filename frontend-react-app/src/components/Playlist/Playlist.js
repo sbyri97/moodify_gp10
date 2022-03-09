@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import "./Playlist.css";
 import { FaPlay } from "react-icons/fa";
+import { BsThreeDots } from "react-icons/bs";
 import { getPlaylist } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
 
@@ -43,6 +44,11 @@ function Playlist() {
             {sessionUser?.username}
           </div>
         </div>
+      </div>
+      <div className="playlist-detail-dots-container">
+        <button className="playlist-detail-dot-button">
+          <BsThreeDots className="playlist-detail-dots" />
+        </button>
       </div>
       <div className="playlist-detail-table-container">
         <table>
