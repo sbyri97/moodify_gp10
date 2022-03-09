@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import "./Playlist.css";
 import { FaPlay } from "react-icons/fa";
 import { getPlaylist } from "../../store/playlist";

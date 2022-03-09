@@ -59,7 +59,6 @@ function Albums() {
               <th className="playlist-detail-table-header">SONG</th>
               <th className="playlist-detail-table-header">ALBUM</th>
               <th className="playlist-detail-table-header">ARTIST</th>
-              <th className="playlist-detail-table-header-delete"></th>
             </tr>
           </thead>
           <tbody>
@@ -81,11 +80,6 @@ function Albums() {
                 <td className="playlist-detail-grey-text">{song.album_name}</td>
                 <td className="playlist-detail-grey-text">
                   {song.artist_name}
-                </td>
-                <td>
-                  <button className="playlist-detail-delete-song">
-                    Delete
-                  </button>
                 </td>
               </tr>
             ))}
