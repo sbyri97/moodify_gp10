@@ -41,7 +41,7 @@ def playlist(id):
 def playlists():
     playlists = Playlist.query.all()
     playlists_dict = [playlist.to_dict() for playlist in playlists]
-    
+
     return { "playlists": playlists_dict }
 
 # create new playlist
@@ -75,7 +75,10 @@ def edit_playlist(id):
         db.session.add(playlist)
         db.session.commit()
 
-        return playlist.to_dict()
+        # return playlist.to_dict()
+        playlist_songs = playlist.library
+        playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+        return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
