@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, NavLink, useHistory } from "react-router-dom";
 import "./Playlist.css";
@@ -6,6 +6,8 @@ import { FaPlay } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import { getPlaylist, deletePlaylistThunk } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
+import EditPlaylistForm from "./EditPlaylist"
+
 
 function Playlist() {
   const playlist = useSelector(
@@ -18,6 +20,7 @@ function Playlist() {
   const dispatch = useDispatch();
   const playlistIdParams = useParams();
   const playlistId = playlistIdParams.id;
+  const [renderForm, setRenderForm] = useState(false);
 
   useEffect(() => {
     dispatch(getPlaylist(playlistId));
@@ -28,6 +31,12 @@ function Playlist() {
     const numId = Number(id);
     dispatch(getLibrary(numId));
   };
+
+    // TO DO: change to modal
+  const showEditPlaylistForm = (e) => {
+      setRenderForm(true);
+  }
+  
 
   const deletePlaylist = () => {
     const result =  dispatch(deletePlaylistThunk(playlistId));
@@ -60,9 +69,12 @@ function Playlist() {
         </button>
       </div>
       <div className="playlist-detail-dropdown">
-        <button className="playlist-detail-edit-btn" >
-          Edit Playlist Name
+        <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
+          Edit Playlist
         </button>
+        {renderForm && (
+          <EditPlaylistForm hideForm={() => setRenderForm(false)} playlist={playlist} playlistId={playlistId}/>
+        )}
         <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
           Delete Playlist
         </button>

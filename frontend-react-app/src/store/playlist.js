@@ -85,6 +85,24 @@ export const createPlaylist = ({name, mood_id, user_id}) => async(dispatch) => {
     }
 }
 
+export const editPlaylist = (playlist) => async(dispatch) => {
+  const response = await fetch(`/api/playlists/${playlist.playlistId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+          name:  playlist.name,
+          mood_id: playlist.mood_id,
+          user_id: playlist.user_id
+      })
+    })
+    console.log("response:::::", response)
+    if(response.ok) {
+      const data = await response.json()
+      dispatch(loadPlaylist(data.playlists))
+      return data.playlists
+    }
+}
+
 export const deletePlaylistThunk = (playlistId) => async (dispatch) => {
   const response = await fetch (`/api/playlists/${playlistId}`, {
     method: 'DELETE'
