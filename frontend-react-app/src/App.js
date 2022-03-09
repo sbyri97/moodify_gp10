@@ -14,6 +14,8 @@ import Songs from "./components/Songs/songs";
 import Playlist from "./components/Playlist/Playlist";
 import Artists from "./components/Artists/artists";
 import Albums from "./components/Albums/albums";
+import MainSearch from "./components/Search/search";
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -54,6 +56,9 @@ function App() {
         </Route>
         <Route path="/albums/:albumName">
           <Albums />
+        </Route>
+        <Route path="/search">
+          <MainSearch />
         </Route>
         <Route path="/playlists/:id">
           <Playlist />

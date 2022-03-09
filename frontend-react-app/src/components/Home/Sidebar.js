@@ -1,23 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
-import { getPlaylist } from '../../store/playlist';
+import { NavLink } from 'react-router-dom';
+import { getPlaylists } from '../../store/playlist';
+import NewPlaylistForm from '../Playlist/NewPlaylist';
 import './sidebar.css';
 
+
 const SideBar = () => {
-    // TO DO: add state for playlists to dynamically render an li for each playlist
-    const dispatch = useDispatch()
-    const playlistId = useParams()
-    // const userId = useSelector(state => state.session.user.id)
-    const playlist = useSelector(state => state.playlist.playlists)
+
+    const dispatch = useDispatch();
+    const userId = useSelector(state => state.session.user.id);
+    const playlistsObj = useSelector(state => state.playlist.playlists);
+    // TO DO: change to modal
+    const [renderForm, setRenderForm] = useState(false);
 
     useEffect(() => {
-        dispatch(getPlaylist(playlistId))
-    }, [dispatch, playlistId])
+        dispatch(getPlaylists())
+    }, [dispatch])
 
-    // TO DO: add on click event for create new playlist button
-    // TO DO: add routing for each playlist link
+    const playlists = Object.values(playlistsObj).filter(playlist => playlist.user_id === userId)
 
+    // TO DO: change to modal
+    const showNewPlaylistForm = (e) => {
+        setRenderForm(true);
+    }
 
     return (
         <div className='sidebar'>
@@ -26,13 +32,13 @@ const SideBar = () => {
             </div>
             <ul className='sidebar-ul'>
                 <li className='sidebar-li'>
-                    <NavLink to='/' exact={true} className='sidebar-navlink'>
+                    <NavLink to='/' exact={true} className='sidebar-navlink-home'>
                         <i className='fa-solid fa-house'></i>
                         <p className='sidebar-navlink-text'>Home</p>
                     </NavLink>
                 </li>
                 <li className='sidebar-li'>
-                    <NavLink to='/search' exact={true} className='sidebar-navlink'>
+                    <NavLink to='/search' exact={true} className='sidebar-navlink-search'>
                         <i className='fa-solid fa-magnifying-glass'></i>
                         <p className='sidebar-navlink-text'>Search</p>
                     </NavLink>
@@ -40,24 +46,23 @@ const SideBar = () => {
             </ul>
             <div className='sidebar-playlists-div'>
                 <div className='sidebar-playlist-button-div'>
-                    <button className='sidebar-new-playlist'>
+                    <button onClick={showNewPlaylistForm} className='sidebar-new-playlist'>
                     <i className='fa-solid fa-plus'></i>
                         Create New Playlist
                     </button>
+                    {renderForm && (
+                        <NewPlaylistForm hideForm={() => setRenderForm(false)} />
+                    )}
                 </div>
                 <div className='sidebar-playlists'>
                     <ul className='sidebar-playlists-ul'>
-                        {/* this should dynamically render an li with a tag for each playlist */}
-                        <li className='sidebar-playlists-li'>
-                            <a>
-                                Playlist 1
-                            </a>
-                        </li>
-                        <li className='sidebar-playlists-li'>
-                            <a>
-                                Playlist 2
-                            </a>
-                        </li>
+                        {playlists.map((playlist, i) => (
+                            <li className='sidebar-playlist-li' key={`${i}`}>
+                                <NavLink className='sidebar-navlink-playlist'exact={true} to={`/playlists/${playlist.id}`}>
+                                {playlist.name}
+                                </NavLink>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>

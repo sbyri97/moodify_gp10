@@ -1,21 +1,23 @@
-const LOAD_SONG_LIBRARY = "library/loadSongLibrary";
-const LOAD_ARTIST_LIBRARY = "library/loadArtistLibrary";
+const LOAD_LIBRARY = "library/loadLibrary";
+const LOAD_ITEM_LIBRARY = "library/loadItemLibrary"
 
 // ----------------------------------------
-export const loadSongLibrary = (library) => {
+export const loadLibrary = (library) => {
   return {
-    type: LOAD_SONG_LIBRARY,
+    type: LOAD_LIBRARY,
     library,
   };
 };
 
+
 // ----------------------------------------
-export const loadArtistLibrary = (library) => {
+export const loadItemLibrary = (library) => {
   return {
-    type: LOAD_ARTIST_LIBRARY,
+    type: LOAD_ITEM_LIBRARY,
     library,
   };
 };
+
 
 // ----------------------------------------
 
@@ -24,57 +26,41 @@ export const getLibrary = (libraryId) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(loadSongLibrary(data));
+    dispatch(loadLibrary(data));
+    return data;
+
+  }
+};
+
+// ----------------------------------------
+
+export const searchAllItems = (nameOfItem) => async(dispatch) => {
+  
+  const response = await fetch(`/api/search/${nameOfItem}`)
+  
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadItemLibrary(data));
     return data;
   }
-};
+
+}
 
 // ----------------------------------------
 
-export const searchAllSongs = (nameOfSong) => async (dispatch) => {
-  const songResponse = await fetch(`/api/search/songs/${nameOfSong}`);
-  const artistResponse = await fetch(`/api/search/artists/${nameOfSong}`);
-
-  if (songResponse.ok || artistResponse.ok) {
-    const songData = await songResponse.json();
-    const artistData = await artistResponse.json();
-    dispatch(loadSongLibrary(songData));
-    dispatch(loadArtistLibrary(artistData));
-    // return data;
-  }
-};
-
-// ----------------------------------------
-
-// export const searchAllArtists = (nameOfArtist) => async(dispatch) => {
-//   const response = await fetch(`/api/search/artist/${nameOfArtist}`)
-//   console.log(response);
-
-//   if (response.ok) {
-//     const data = await response.json();
-//     dispatch(loadLibrary(data));
-//     return data;
-//   }
-// }
-
-// ----------------------------------------
-
-const initialState = { library: {} };
+const initialState = { library: {}};
 
 const libraryReducer = (state = initialState, action) => {
+  let newState;
   switch (action.type) {
-    case LOAD_SONG_LIBRARY: {
-      const newState = {
-        ...state,
-        library: action.library,
-      };
+    case LOAD_LIBRARY: {
+      newState = {...state};
+      newState.library = action.library
       return newState;
     }
-    case LOAD_ARTIST_LIBRARY: {
-      const newState = {
-        ...state,
-        artistLibrary: action.library,
-      };
+      case LOAD_ITEM_LIBRARY: {
+      newState = {...state};
+      newState.library = action.library
       return newState;
     }
     default:
