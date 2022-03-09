@@ -1,8 +1,7 @@
 .playlist-detail-container {
-  width: 90vw;
-  border: 1px solid black;
+  width: 100vw;
+  height: 100vh;
   padding: 10px 10px;
-  margin-left: 10px;
   background-image: linear-gradient(180deg, rgb(212, 55, 55), black);
   color: white;
 }
@@ -30,6 +29,27 @@
   margin-left: 2em;
 }
 
+.playlist-detail-dots-container {
+  display: flex;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.playlist-detail-dot-button {
+  border: none;
+  background-color: transparent;
+}
+
+.playlist-detail-dots {
+  font-size: 2em;
+  color: #b3b3b3;
+}
+
+.playlist-detail-dots:hover {
+  color: white;
+  cursor: pointer;
+}
+
 .playlist-text {
   margin-top: 8em;
   font-weight: bold;
@@ -47,7 +67,7 @@
 }
 
 .playlist-detail-table-container {
-  margin-top: 3em;
+  margin-top: 2em;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -93,6 +113,15 @@
   color: #b3b3b3;
 }
 
+.no-text-dec {
+  text-decoration: none;
+  color: #b3b3b3;
+}
+
+.no-text-dec:hover {
+  color: white;
+}
+
 .playlist-song-img-container img {
   display: block;
   height: 100%;
@@ -119,12 +148,16 @@
 
 .playlist-detail-delete-song {
   border: none;
-  background-color: transparent;
-  color: rgb(119, 15, 15);
+  padding: 10px;
+  border-radius: 21px;
+  background-color: #242424;
+  color: red;
   font-weight: lighter;
 }
 
 .playlist-detail-delete-song:hover {
-  color: red;
+  background-color: rgb(105, 26, 26);
+  border: 1px solid black;
+  transform: scale(1.1);
   cursor: pointer;
 }
