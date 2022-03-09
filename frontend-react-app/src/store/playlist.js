@@ -1,5 +1,6 @@
 const LOAD_PLAYLIST = "playlists/loadPlaylist";
 const LOAD_PLAYLISTS = "playlists/loadPlaylists";
+const LOAD_MOOD_PLAYLISTS = "playlists/loadMoodPlaylists"
 
 // ---------------------------------------
 
@@ -16,6 +17,13 @@ export const loadPlaylists = (playlists) => {
     playlists,
   };
 };
+
+export const loadMoodPlaylists = (playlists) => {
+  return {
+    type: LOAD_MOOD_PLAYLISTS,
+    playlists,
+  }
+}
 
 // ---------------------------------------
 
