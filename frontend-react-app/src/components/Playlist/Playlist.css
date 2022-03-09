@@ -92,6 +92,15 @@
   color: #b3b3b3;
 }
 
+.no-text-dec {
+  text-decoration: none;
+  color: #b3b3b3;
+}
+
+.no-text-dec:hover {
+  color: white;
+}
+
 .playlist-song-img-container img {
   display: block;
   height: 100%;

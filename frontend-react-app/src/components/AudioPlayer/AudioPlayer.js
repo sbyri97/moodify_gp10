@@ -24,7 +24,7 @@ const AudioPlayer = () => {
   const volumeSlider = useRef(); // reference the volume slider
 
   useEffect(() => {
-    const seconds = Math.floor(audioPlayer.current.duration);
+    const seconds = Math.floor(audioPlayer?.current?.duration);
     setDuration(seconds);
     progressBar.current.max = seconds;
   }, [
@@ -158,7 +158,7 @@ const AudioPlayer = () => {
 
           {/* duration */}
           <div className="duration">
-            {duration && !isNaN(duration) && calculateTime(duration)}
+            {duration ? calculateTime(duration) : "0:00"}
           </div>
         </div>
       </div>

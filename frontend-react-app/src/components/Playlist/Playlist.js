@@ -62,23 +62,31 @@ function Playlist() {
               <tr key={i} className="playlist-detail-table-row">
                 <td>
                   <button
-                    onClick={(e) => playSong(song.id, e)}
+                    onClick={(e) => playSong(song?.id, e)}
                     className="playlist-playPause"
                   >
                     <FaPlay className="play" />
                   </button>
                 </td>
                 <td className="playlist-song-img-container">
-                  <img src={song.album_coverart_url} />
+                  <img src={song?.album_coverart_url} />
                 </td>
-                <td>{song.song_title}</td>
+                <td>{song?.song_title}</td>
                 <td className="playlist-detail-grey-text">
-                  <NavLink to={`/albums/${song.album_name}`}>
-                    {song.album_name}
+                  <NavLink
+                    to={`/albums/${song?.album_name}`}
+                    className="no-text-dec"
+                  >
+                    {song?.album_name}
                   </NavLink>
                 </td>
                 <td className="playlist-detail-grey-text">
-                  {song.artist_name}
+                  <NavLink
+                    to={`/artists/${song?.artist_name}`}
+                    className="no-text-dec"
+                  >
+                    {song?.artist_name}
+                  </NavLink>
                 </td>
                 <td>
                   <button className="playlist-detail-delete-song">
