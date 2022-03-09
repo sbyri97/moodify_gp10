@@ -159,7 +159,7 @@ const AudioPlayer = () => {
 
           {/* duration */}
           <div className="duration">
-            {duration ? calculateTime(duration) : "0:00"}
+            {duration && !isNaN(duration) ? calculateTime(duration) : "0:00"}
           </div>
         </div>
       </div>
