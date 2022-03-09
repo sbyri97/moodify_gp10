@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 import { getAlbumSongs } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
@@ -41,7 +41,7 @@ function Albums() {
           />
         </div>
         <div className="playlist-detail-text-container">
-          <div className="playlist-text">PLAYLIST</div>
+          <div className="playlist-text">ALBUM</div>
           <div className="playlist-detail-playlist-name">
             {songs?.songs?.[0]?.album_name}
           </div>
@@ -77,9 +77,21 @@ function Albums() {
                   <img src={song.album_coverart_url} alt={song.artist_name} />
                 </td>
                 <td>{song.song_title}</td>
-                <td className="playlist-detail-grey-text">{song.album_name}</td>
                 <td className="playlist-detail-grey-text">
-                  {song.artist_name}
+                  <NavLink
+                    to={`/albums/${song?.album_name}`}
+                    className="no-text-dec"
+                  >
+                    {song?.album_name}
+                  </NavLink>
+                </td>
+                <td className="playlist-detail-grey-text">
+                  <NavLink
+                    to={`/artists/${song?.artist_name}`}
+                    className="no-text-dec"
+                  >
+                    {song?.artist_name}
+                  </NavLink>
                 </td>
               </tr>
             ))}

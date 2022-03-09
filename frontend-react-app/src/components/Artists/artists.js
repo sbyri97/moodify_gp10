@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 import { getArtistSongs } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
@@ -36,14 +36,14 @@ function Artists() {
       <div className="playlist-top-detail-container">
         <div className="playlist-detail-img-container">
           <img
-            src={songs?.songs[0]?.album_coverart_url}
-            alt={songs?.songs[0]?.artist_name}
+            src={songs?.songs?.[0]?.album_coverart_url}
+            alt={songs?.songs?.[0]?.artist_name}
           />
         </div>
         <div className="playlist-detail-text-container">
-          <div className="playlist-text">PLAYLIST</div>
+          <div className="playlist-text">ARTIST</div>
           <div className="playlist-detail-playlist-name">
-            {songs?.songs[0]?.artist_name}
+            {songs?.songs?.[0]?.artist_name}
           </div>
           <div className="playlist-detail-username">
             {sessionUser?.username}
@@ -63,7 +63,7 @@ function Artists() {
           </thead>
           <tbody>
             <tr className="playlist-detail-top-border"></tr>
-            {songs?.songs.map((song, i) => (
+            {songs?.songs?.map((song, i) => (
               <tr key={i} className="playlist-detail-table-row">
                 <td>
                   <button
@@ -74,12 +74,24 @@ function Artists() {
                   </button>
                 </td>
                 <td className="playlist-song-img-container">
-                  <img src={song.album_coverart_url} alt={song.artist_name} />
+                  <img src={song?.album_coverart_url} alt={song?.artist_name} />
                 </td>
-                <td>{song.song_title}</td>
-                <td className="playlist-detail-grey-text">{song.album_name}</td>
+                <td>{song?.song_title}</td>
                 <td className="playlist-detail-grey-text">
-                  {song.artist_name}
+                  <NavLink
+                    to={`/albums/${song?.album_name}`}
+                    className="no-text-dec"
+                  >
+                    {song?.album_name}
+                  </NavLink>
+                </td>
+                <td className="playlist-detail-grey-text">
+                  <NavLink
+                    to={`/artists/${song?.artist_name}`}
+                    className="no-text-dec"
+                  >
+                    {song?.artist_name}
+                  </NavLink>
                 </td>
               </tr>
             ))}
