@@ -72,7 +72,11 @@ function Playlist() {
                   <img src={song.album_coverart_url} />
                 </td>
                 <td>{song.song_title}</td>
-                <td className="playlist-detail-grey-text">{song.album_name}</td>
+                <td className="playlist-detail-grey-text">
+                  <NavLink to={`/albums/${song.album_name}`}>
+                    {song.album_name}
+                  </NavLink>
+                </td>
                 <td className="playlist-detail-grey-text">
                   {song.artist_name}
                 </td>
