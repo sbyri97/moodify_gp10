@@ -1,4 +1,4 @@
-from flask import Blueprint, abort
+from flask import Blueprint, abort, request
 from flask_login import login_required
 from app.models import Playlist, db
 from app.forms.new_playlist_form import NewPlaylistForm
@@ -35,14 +35,31 @@ def playlists():
 @playlist_routes.route('/', methods=["POST"])
 def post_playlist():
     form = NewPlaylistForm()
-    print(form.data)
-    # if form.validate_on_submit():
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print('========', form.data)
+    if form.validate_on_submit():
         # need to pass mood id into this
-    new_playlist = Playlist(name=form.data['name'], mood_id=form.data['mood_id'], user_id=form.data['user_id'])
+        new_playlist = Playlist(name=form.data['name'], mood_id=form.data['mood_id'], user_id=form.data['user_id'])
+        print(new_playlist)
+        db.session.add(new_playlist)
+        db.session.commit()
 
-    db.session.add(new_playlist)
-    db.session.commit()
-
-    return new_playlist.to_dict()
+        return new_playlist.to_dict()
+    else:
+        return "<p>Bad Data</p>"
 
     # TO DO: add in form error handling
+
+# @app.route("/new_instrument", methods=["POST"])
+# def create_new_instrument():
+#   form = NewInstrument()
+
+#   if form.validate_on_submit():
+#     instrument = NewInstrument()
+#     form.populate_obj(instrument)
+#     db.session.add(instrument)
+#     db.session.commit()
+
+#     return redirect("/instrument_data")
+
+#   return "Bad Data"

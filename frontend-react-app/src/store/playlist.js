@@ -43,7 +43,7 @@ export const getPlaylists = () => async(dispatch) => {
     return response;
 }
 
-export const createPlaylist = (name, mood_id, user_id) => async(dispatch) => {
+export const createPlaylist = ({name, mood_id, user_id}) => async(dispatch) => {
     const response = await fetch('/api/playlists/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -53,7 +53,7 @@ export const createPlaylist = (name, mood_id, user_id) => async(dispatch) => {
             user_id
         })
     })
-
+    console.log(response)
     if(response.ok) {
         const data = await response.json();
         dispatch(loadPlaylist(data.playlists))
