@@ -35,12 +35,27 @@ export const getLibrary = (libraryId) => async (dispatch) => {
 // ----------------------------------------
 
 export const searchAllItems = (nameOfItem) => async(dispatch) => {
-  
+
   const response = await fetch(`/api/search/${nameOfItem}`)
-  
+
   if (response.ok) {
     const data = await response.json();
     dispatch(loadItemLibrary(data));
+    return data;
+  }
+
+}
+
+
+// ----------------------------------------
+
+export const getRandomPlaylists = () => async(dispatch) => {
+
+  const response = await fetch(`/api/search/random_playlists`)
+  console.log(response);
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadLibrary(data));
     return data;
   }
 

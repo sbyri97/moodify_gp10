@@ -1,6 +1,7 @@
 from collections import UserString
 from flask import Blueprint
-from app.models import Library, User
+from app.models import Library, User, Playlist
+from sqlalchemy.sql import func
 
 
 searchSong_routes = Blueprint('search', __name__)
@@ -19,10 +20,16 @@ def searchItem(nameOfItem):
     albums = Library.query.filter(Library.album_name.ilike(f'%{nameOfItem}%')).distinct(Library.album_name)
     dict_albums = [album.to_dict() for album in albums]
 
-    return {"users": dict_users, 
+    return {"users": dict_users,
             "songs": dict_songs,
             "artists": dict_artists,
             "albums": dict_albums
     }
 
 
+@searchSong_routes.route('/random_playlists')
+def get_random_playlists():
+
+    playlists = Playlist.query.order_by(func.random()).limit(6).all()
+    dict_random_playlists = [playlist.to_dict() for playlist in playlists]
+    return {"random_playlists": dict_random_playlists}

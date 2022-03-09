@@ -39,3 +39,23 @@
 .songResultsNameContainer {
     align-items: center;
 }
+
+.results-playlists-cards{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 225px);
+    grid-template-rows: auto;
+    place-content: center;
+    gap: 1em;
+}
+
+.playlist-card-img {
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+}
+
+
+.results-playlists-outer-indiv-card{
+    border: 12px solid white
+}
