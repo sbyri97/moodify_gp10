@@ -2,30 +2,25 @@ import React, { useEffect } from "react";
 import { useDispatch } from 'react-redux'
 import { useState } from "react";
 import * as libraryActions from '../../store/library'
+import PlaylistSongSearch from "./playlistSongSearch";
+import NoResultsSearch from "../Search/noResults"
 import '../Playlist/Playlist.css'
-import './search.css'
-import SongSearch from "./songSearch";
-import AlbumSearch from "./albumSearch";
-import ArtistSearch from "./artistSearch";
-import UserSearch from "./userSearch";
-import NoResultsSearch from "./noResults";
-import PreSearch from "./preSearch";
+import '../Search/search.css'
 
-export default function MainSearch() {
+export default function PSearch() {
 
-    const [itemSearch, setItemSearch] = useState("")
+    const [playlistSongSearch, setPlaylistSongSearch] = useState("")
     const [results, setResults] = useState(true)
     const dispatch = useDispatch();
 
 
     useEffect(() => {
         const delaySearch = setTimeout(() => {
-            dispatch(libraryActions.searchAllItems(itemSearch))
-            // Send Axios request here
+            dispatch(libraryActions.searchAllItems(playlistSongSearch))
           }, 500)
 
           return () => clearTimeout(delaySearch)
-    }, [itemSearch])
+    }, [playlistSongSearch])
 
     return (
         <div className='searchFullPage'>
@@ -34,21 +29,18 @@ export default function MainSearch() {
                     <input
                     text='text'
                     placeholder="search for songs or artist"
-                    value={itemSearch}
+                    value={playlistSongSearch}
                     onChange={(e) => {
-                        setItemSearch(e.target.value)
+                        setPlaylistSongSearch(e.target.value)
                         setResults(false)
                     }}
                     />
                 </form>
             </div>
             <div className="resultsMainContainer">
-                {(!itemSearch) ? <PreSearch itemSearch={itemSearch}/> :
+                {(!playlistSongSearch) ? "Search For a Song" :
                 <div>
-                    <SongSearch />
-                    <AlbumSearch />
-                    <ArtistSearch />
-                    <UserSearch />
+                    <PlaylistSongSearch />
                     <NoResultsSearch results={results} />
                 </div>
                 }

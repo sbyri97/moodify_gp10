@@ -15,6 +15,7 @@ import Playlist from "./components/Playlist/Playlist";
 import Artists from "./components/Artists/artists";
 import Albums from "./components/Albums/albums";
 import MainSearch from "./components/Search/search";
+import PSearch from "./components/PlaylistSearch/playlistSearch";
 
 
 function App() {
@@ -57,8 +58,11 @@ function App() {
         <Route path="/albums/:albumName">
           <Albums />
         </Route>
-        <Route path="/search">
+        <Route path="/search" exact={true}>
           <MainSearch />
+        </Route>
+        <Route path="/playlist/search" exact={true}>
+          <PSearch />
         </Route>
         <Route path="/playlists/:id">
           <Playlist />

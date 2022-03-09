@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector} from 'react-redux'
 import '../Playlist/Playlist.css'
-import './search.css'
+import '../Search/search.css'
 import { getLibrary } from "../../store/library";
 import { FaPlay } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 
-export default function SongSearch() {
+export default function PlaylistSongSearch() {
     const dispatch = useDispatch()
 
     const playSong = (id, e) => {
@@ -34,6 +34,7 @@ export default function SongSearch() {
                                 <th className="playlist-detail-table-header">SONG</th>
                                 <th className="playlist-detail-table-header">ALBUM</th>
                                 <th className="playlist-detail-table-header">ARTIST</th>
+                                <th className="playlist-detail-table-header"></th>
                             </tr>
                             <tr className="playlist-detail-top-border"></tr>
                         </thead>
@@ -64,6 +65,7 @@ export default function SongSearch() {
                                         > {song?.artist_name}
                                         </NavLink>
                                     </td>
+                                    <td className="playlist-detail-grey-text">ADD SONG</td>
                                 </tr>
                             )}
                         </tbody>
