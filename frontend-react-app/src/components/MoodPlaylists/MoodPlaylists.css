@@ -1,0 +1,13 @@
+.mood-playlists-card {
+}
+
+.mood-playlists-image-container {
+  max-width: 100px;
+  height: 100px;
+}
+
+.mood-playlists-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

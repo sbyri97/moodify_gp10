@@ -15,7 +15,7 @@ import Playlist from "./components/Playlist/Playlist";
 import Artists from "./components/Artists/artists";
 import Albums from "./components/Albums/albums";
 import MainSearch from "./components/Search/search";
-
+import MoodPlaylists from "./components/MoodPlaylists/MoodPlaylists";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -62,6 +62,9 @@ function App() {
         </Route>
         <Route path="/playlists/:id">
           <Playlist />
+        </Route>
+        <Route path="/moods/:moodId">
+          <MoodPlaylists />
         </Route>
       </Switch>
       <AudioPlayer />
