@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp,login } from '../../../store/session';
 import LoginFormModal from '../LoginFormModal';
+import DemoUser from '../../NavBar/demouser'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -57,11 +58,6 @@ const SignUpForm = () => {
   const updateConfirmPassword = (e) => {
     setConfirmPassword(e.target.value);
   };
-
-  // const demoLogin = async(e) => {
-  //   e.preventDefault();
-  //   dispatch(login({email: "demoe@aa.io", password: "password"}))
-  // }
 
   if (sessionUser) {
     return <Redirect to='/' />;
@@ -148,9 +144,7 @@ const SignUpForm = () => {
           </div>
         </div>
         <div className='demoUserBox'>
-          <button className='demoUserLogBtn'
-          // onClick={demoLogin}
-          > DEMO </button>
+          <DemoUser />
         </div>
       </div>
     </div>

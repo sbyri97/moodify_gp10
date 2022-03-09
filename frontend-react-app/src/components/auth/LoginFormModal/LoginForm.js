@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../../store/session';
 import SignUpFormModal from '../SignUpFormModal';
+import DemoUser from '../../NavBar/demouser'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -27,13 +28,6 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  // const demoLogin = async(e) => {
-  //   e.preventDefault();
-  //   const data = await dispatch(login({email: "demoe@aa.io", password: "password"}))
-  //   if (data) {
-  //     setErrors(data);
-  //   }
-  // }
 
   if (user) {
     return <Redirect to='/' />;
@@ -77,11 +71,6 @@ const LoginForm = () => {
             <div className='loginSubmitButtons'>
               <button type='submit' className='loginSubmitBtn'>LOG IN</button>
             </div>
-            <div className='demoUserBox'>
-              <button className='demoUserLogBtn'
-              //  onClick={demoLogin}
-               >DEMO</button>
-            </div>
           </form>
           <div className='orBox'>
             <div className='orElement'>------------------ OR ------------------</div>
@@ -92,6 +81,9 @@ const LoginForm = () => {
               <SignUpFormModal />
             </div>
           </div>
+          <div className='demoUserBox'>
+          <DemoUser />
+        </div>
         </div>
       </div>
     </div>

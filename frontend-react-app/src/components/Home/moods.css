@@ -1,6 +1,13 @@
-* {
+/* @font-face {
+    font-family: 'nexa-thin';
+    src: url('../../font/Nexa/NexaThin.otf');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+body {
     font-family: 'Nexa', Helvetica, Arial, sans-serif;
-}
+} */
 
 :root {
     --darkest: #212121;
@@ -43,6 +50,7 @@
 .homePageMoodCardR,
 .homePageMoodCardS,
 .homePageMoodCardCh,
+.homePageMoodCardG,
 .homePageMoodCardA,
 .homePageMoodCardHeart,
 .homePageMoodCardP {
@@ -55,7 +63,11 @@
     margin-left: 25px;
     margin-right: 110px;
     background-color: #171717;
+    border-radius: 12px;    
+    border-width: 5px;
+    border-style: solid;
     border-radius: 12px;
+    border-color: #171717;
 }
 
 .homePageMoodCardH:hover {
@@ -68,7 +80,7 @@
     border-radius: 12px;
     border-color: var(--happy);
     transition-property: transform box-shadow !important;
-	/* transition-duration: 1s !important; */
+	transition-duration: 1s !important;
 	transition-timing-function: cubic-bezier(.3,0,0,1) !important;
 	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     /* transform: scale(1.1); */
