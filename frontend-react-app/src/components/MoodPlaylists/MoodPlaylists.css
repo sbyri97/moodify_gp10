@@ -4,11 +4,7 @@
   padding-top: 10px;
   padding-left: 5em;
   padding-right: 5em;
-  background-image: radial-gradient(
-    circle farthest-side,
-    var(--happy),
-    rgb(178, 189, 28)
-  );
+  background-color: var(--grey);
 }
 
 .mood-playlists-playlist-container {
