@@ -58,7 +58,9 @@ def post_playlist():
         db.session.commit()
 
         response = playlist.to_dict()
-        response["songs"] = playlist.library
+        playlist_songs = playlist.library
+        playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+        response["songs"] = playlist_songs_dicts
         return response
 
     else:
@@ -80,7 +82,9 @@ def edit_playlist(id):
         db.session.commit()
 
         response = playlist.to_dict()
-        response["songs"] = playlist.library
+        playlist_songs = playlist.library
+        playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+        response["songs"] = playlist_songs_dicts
         return response
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
@@ -103,7 +107,7 @@ def add_song_to_playlist():
     playlist_songs = playlist.library
     playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
 
-    return {"songs": (playlist_songs_dicts), "name": playlist.name}
+    return {"songs": (playlist_songs_dicts), "name": playlist.name, "id": playlist.id}
 
 
 # delete playlist
