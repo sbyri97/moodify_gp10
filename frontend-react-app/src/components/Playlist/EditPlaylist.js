@@ -6,7 +6,8 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
     const dispatch = useDispatch()
     const [name, setName] = useState(playlist?.name);
     const [mood, setMood] = useState(playlist?.mood_id);
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([]);
+    const [showMenu, setShowMenu] = useState(false);
     const userId = useSelector(state => state.session.user.id);
     const user_id = userId;
     let mood_id = mood;

@@ -19,7 +19,7 @@ function Playlist() {
   const playlistId = playlistIdParams.id;
   const [renderForm, setRenderForm] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [userOwns, setUserOwns] = useState(false)
+  const [userOwns, setUserOwns] = useState(false);
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.[playlistId]
   );
