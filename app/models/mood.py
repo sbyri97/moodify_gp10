@@ -12,3 +12,15 @@ class Mood(db.Model):
   updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
   playlists = db.relationship("Playlist", back_populates="mood")
+
+  def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "image_url": self.image_url,
+        }
+
+  def to_userMood_dict(self):
+        return {
+            self.id: self.image_url,
+        }

@@ -31,7 +31,7 @@ export default function MainSearch() {
         <div className='searchFullPage'>
             <div className="searchFormContainer">
                 <form>
-                    <input
+                    <input className="search-bar-main-search"
                     text='text'
                     placeholder="search for songs or artist"
                     value={itemSearch}

@@ -7,11 +7,7 @@ import { getLibrary } from "../../store/library";
 import "../Playlist/Playlist.css";
 
 function Artists() {
-  const songs = useSelector(
-    (state) => state?.playlist?.playlists?.playlist_info
-  );
 
-  console.log(songs);
 
   // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
@@ -19,7 +15,10 @@ function Artists() {
   const dispatch = useDispatch();
   const artistParam = useParams();
   const artistName = artistParam.artistName;
-  console.log(artistName);
+  const songs = useSelector(
+    // (state) => state?.playlist?.playlists?.playlist_info
+    (state) => state.playlist.playlists?.[artistName]
+    );
 
   useEffect(() => {
     dispatch(getArtistSongs(artistName));

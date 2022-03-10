@@ -1,12 +1,13 @@
 import React from 'react';
 import './moods.css';
+// import '../../font.css'
 
 
 const Moods = () => {
 
     return (
         <div className="h3Div">
-            <p className="whatsYourMood">What's Your Mood Today?</p>
+            <p className="whatsYourMood">Whats your mood today?</p>
         <div className='homePageMoodCardsMainContainer'>
             <div className='homePageMoodCardH'>
                 <div className='homePageMoodCardItem'>

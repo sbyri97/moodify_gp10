@@ -10,8 +10,7 @@ const SideBar = () => {
 
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session?.user?.id);
-    const playlistsObj = useSelector(state => state.playlist.userPlaylists);
-    // const playlistsObj = useSelector(state => state.playlist.userPlaylists);
+    const playlistsObj = useSelector(state => state.playlist?.userPlaylists);
 
     // TO DO: change to modal
     const [renderForm, setRenderForm] = useState(false);
