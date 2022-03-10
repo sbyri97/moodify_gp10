@@ -80,7 +80,6 @@ function Playlist() {
         </div>
       </div>
       <div className="playlist-detail-dots-container">
-
         <button className="playlist-detail-dot-button" onClick={openMenu}>
           <BsThreeDots className="playlist-detail-dots" />
         </button>
@@ -89,15 +88,17 @@ function Playlist() {
         <PlayListSearchModal />
         {showMenu && (
           <div className="playlist-detail-dropdown">
-          <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
-            Edit Playlist
-          </button>
-          {renderForm && (
-            <EditPlaylistForm hideForm={() => setRenderForm(false)} playlist={playlist} playlistId={playlistId} />
-          )}
-          <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
-            Delete Playlist
-          </button>
+            <div className="playlist-detail-dropdown-content">
+              <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
+                Edit Playlist
+              </button>
+              {renderForm && (
+                <EditPlaylistForm hideForm={() => setRenderForm(false)} playlist={playlist} playlistId={playlistId} />
+              )}
+              <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
+                Delete Playlist
+              </button>
+            </div>
         </div>
         )}
         <div className="playlist-detail-table-container">
