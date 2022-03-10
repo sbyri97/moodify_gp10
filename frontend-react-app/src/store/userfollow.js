@@ -33,7 +33,7 @@ export const getUserInfo = (id) => async (dispatch) => {
 };
 
 export const createFollow = (followId, sessionId) => async (dispatch) => {
-  const response = await fetch(`/api/users/${followId}`, {
+  const response = await fetch(`/api/users/${Number(followId)}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

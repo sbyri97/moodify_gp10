@@ -25,6 +25,7 @@ function UserProfile() {
   function followUser() {
     dispatch(createFollow(userId, 2));
   }
+
   console.log("User=====", currentUser);
   console.log("playlists=====", userPlaylists);
 
@@ -36,7 +37,9 @@ function UserProfile() {
         </div>
         <div className="user-profile-info">
           <h1 className="user-profile-username">{currentUser?.username}</h1>
-          <button className="user-profile-follow-button">Follow</button>
+          <button className="user-profile-follow-button" onClick={followUser}>
+            Follow
+          </button>
         </div>
       </div>
       <div className="mood-playlists-playlist-container">
