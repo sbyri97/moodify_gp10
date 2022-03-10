@@ -1,12 +1,13 @@
-const LOAD_PLAYLIST = "playlists/loadPlaylist";
+const LOAD_PLAYLIST_INFO = "playlists/loadPlaylist";
 const LOAD_PLAYLISTS = "playlists/loadPlaylists";
 const LOAD_USER_PLAYLISTS = "playlists/loadUserPlaylists";
-const DELETE_PLAYLIST = "playlists/deletePlaylist";
+// const DELETE_PLAYLIST = "playlists/deletePlaylist";
+// const LOAD_CENTER_PLAYLISTS = 'playlists/loadCenterPlaylists';
 // ---------------------------------------
 
-export const loadPlaylist = (playlist) => {
+export const loadPlaylistInfo = (playlist) => {
   return {
-    type: LOAD_PLAYLIST,
+    type: LOAD_PLAYLIST_INFO,
     playlist,
   };
 };
@@ -25,12 +26,19 @@ export const loadUserPlaylists = (playlists) => {
   }
 }
 
-export const deletePlaylist = (playlistId) => {
-  return {
-    type: DELETE_PLAYLIST,
-    playlistId
-  }
-}
+// export const loadCenterPlaylists = (playlists) => {
+//   return {
+//     type: LOAD_CENTER_PLAYLISTS,
+//     playlists
+//   }
+// }
+
+// export const deletePlaylist = (playlistId) => {
+//   return {
+//     type: DELETE_PLAYLIST,
+//     playlistId
+//   }
+// }
 
 // ---------------------------------------
 
@@ -40,7 +48,7 @@ export const getArtistSongs = (artistName) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(loadPlaylist(data));
+    dispatch(loadPlaylistInfo(data));
   }
   return response;
 };
@@ -50,28 +58,28 @@ export const getAlbumSongs = (albumName) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(loadPlaylist(data));
+    dispatch(loadPlaylistInfo(data));
   }
   return response;
 };
 
-export const getPlaylist = (playlistId) => async(dispatch) => {
+export const getPlaylistInfo = (playlistId) => async(dispatch) => {
     const response = await fetch(`/api/playlists/${playlistId}`)
 
     if (response.ok) {
         const data = await response.json();
         console.log('here------', data)
-        dispatch(loadPlaylist(data))
+        dispatch(loadPlaylistInfo(data))
     }
     return response;
 }
 
-export const getPlaylists = () => async(dispatch) => {
-    const response = await fetch('/api/playlists')
+export const getPlaylists = (userId) => async(dispatch) => {
+    const response = await fetch(`/api/playlists/users/${userId}`)
 
     if (response.ok) {
         const data = await response.json();
-        dispatch(loadUserPlaylists(data.playlists))
+        dispatch(loadUserPlaylists(data))
     }
     return response;
 }
@@ -90,7 +98,7 @@ export const createPlaylist = ({name, mood_id, user_id}) => async(dispatch) => {
         const data = await response.json();
         console.log('here2------', data)
         // dispatch(loadPlaylist(data))
-        dispatch(loadUserPlaylists(data.playlists))
+        dispatch(loadUserPlaylists(data))
         return data
     // }
 }
@@ -106,12 +114,17 @@ export const editPlaylist = (playlist) => async(dispatch) => {
       })
     })
 
+    const updatedResponse = await fetch(`/api/playlists/users/${playlist.user_id}`)
+
     if(response.ok) {
       const data = await response.json()
+      const updatedData = await updatedResponse.json()
       console.log('edit data', data)
-      dispatch(loadPlaylist(data))
-      dispatch(loadUserPlaylists(data.playlists))
-      return data
+      console.log('updated data', updatedData)
+      // dispatch(loadPlaylist(data))
+      dispatch(loadPlaylistInfo(data))
+      dispatch(loadUserPlaylists(updatedData))
+      // return data
     }
 }
 
@@ -128,10 +141,11 @@ export const addSongToPlaylistFromSearch = (playlistId, songId) => async(dispatc
 
   if (response.ok) {
       const data = await response.json();
-      dispatch(loadPlaylist(data))
+      dispatch(loadPlaylistInfo(data))
   }
 
   return response;
+}
 
 export const deletePlaylistThunk = (playlistId) => async (dispatch) => {
   const response = await fetch (`/api/playlists/${playlistId}`, {
@@ -139,7 +153,7 @@ export const deletePlaylistThunk = (playlistId) => async (dispatch) => {
   })
 
   if (response.ok) {
-    dispatch(deletePlaylist(playlistId))
+    // dispatch(deletePlaylist(playlistId))
   }
 }
 
@@ -149,13 +163,17 @@ const initialState = { playlists: {}, userPlaylists: {} };
 const playlistReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case LOAD_PLAYLIST: {
-      const playlists = {
-        ...state.playlists,
-        ["playlist_info"]: action.playlist,
-      };
-      return { ...state, playlists };
+    case LOAD_PLAYLIST_INFO: {
+      newState = {...state}
+      newState.playlists = action.playlist
+      return newState
     }
+    //   const playlists = {
+    //     ...state.playlists,
+    //     ["playlist_info"]: action.playlist,
+    //   };
+    //   return { ...state, playlists };
+    // }
      case LOAD_PLAYLISTS: {
        const playlists = {}
        action.playlists.forEach(playlist => {playlists[playlist.name] = playlist})
@@ -166,11 +184,16 @@ const playlistReducer = (state = initialState, action) => {
         newState.userPlaylists = action.playlists
         return newState;
       }
-      case DELETE_PLAYLIST: {
-        const playlists = {}
-        delete playlists[action.playlistId]
-        return {...state, playlists}
-      }
+      // case LOAD_CENTER_PLAYLISTS: {
+      //   newState = {...state}
+      //   newState.playlists = action.playlists
+      //   return newState;
+      // }
+      // case DELETE_PLAYLIST: {
+      //   const playlists = {}
+      //   delete playlists[action.playlistId]
+      //   return {...state, playlists}
+      // }
       default:
         return state
   }

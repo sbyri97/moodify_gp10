@@ -22,26 +22,24 @@ def validation_errors_to_error_messages(validation_errors):
 # get single playlist
 @playlist_routes.route('/<int:id>')
 def playlist(id):
-    # lib_tests = Library.query.filter(Library.id == playlist_songs.c.library_id, playlist_songs.c.playlist_id == id).all()
+
     playlist = Playlist.query.get(id)
 
-    # error handling
     if playlist is None:
         abort(404)
 
     playlist_songs = playlist.library
     playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
-    # playlists = Playlist.query.join(Library).filter(Playlist.id == int(id))
-    # dict_playlist = [playlist.to_dict() for playlist in playlists]
-    # return {"playlist": playlist.to_dict()}
+
     return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
 
 
 # get all playlists for a user
-@playlist_routes.route('/')
-def playlists():
-    playlists = Playlist.query.all()
+@playlist_routes.route('/users/<int:id>')
+def playlists(id):
+    playlists = Playlist.query.filter_by(user_id=id).all()
     playlists_dict = [playlist.to_dict() for playlist in playlists]
+    # print(playlists_dict)
 
     return { "playlists": playlists_dict }
 
@@ -70,24 +68,29 @@ def edit_playlist(id):
     form = NewPlaylistForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    playlist = Playlist.query.get(id)
+    new_playlist = Playlist.query.get(id)
 
     if form.validate_on_submit():
-        playlist.name = form.data['name']
-        playlist.mood_id = form.data['mood_id']
-        playlist.user_id = form.data['user_id']
-        db.session.add(playlist)
+        new_playlist.name = form.data['name']
+        new_playlist.mood_id = form.data['mood_id']
+        new_playlist.user_id = form.data['user_id']
+        db.session.add(new_playlist)
         db.session.commit()
 
         # return playlist.to_dict()
         # playlist_songs = playlist.library
         # playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
         # return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
-        playlists = Playlist.query.all()
-        playlist_songs = playlists.library
-        playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
 
-        return { "playlists": playlist_songs_dicts, "playlist_name": playlists.name }
+
+        # playlist = Playlist.query.get(id)
+
+        playlist = Playlist.query.get(id)
+        playlist_songs = playlist.library
+        playlist_songs_get_dict = [songs.to_dict() for songs in playlist_songs]
+
+        # return({"hi": "hello"})
+        return { "playlist_songs": playlist_songs_get_dict, "playlist_name": playlist.name }
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 

@@ -20,7 +20,7 @@ const NewPlaylistForm = ({hideForm}) => {
          if (result) {
             hideForm()
         }
-        
+
     }
 
 

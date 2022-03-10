@@ -10,15 +10,18 @@ const SideBar = () => {
 
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session?.user?.id);
-    const playlistsObj = useSelector(state => state.playlist.userPlaylists?.playlist_name);
+    const playlists = useSelector(state => state.playlist?.userPlaylists?.playlists);
+    // console.log('THIS BE PS', playlistObj);
     // TO DO: change to modal
     const [renderForm, setRenderForm] = useState(false);
 
     useEffect(() => {
-        dispatch(getPlaylists())
+        dispatch(getPlaylists(userId))
     }, [dispatch])
 
-    const playlists = Object.values(playlistsObj).filter(playlist => playlist?.user_id === userId)
+    // const playlists = Object?.values(playlistObj)
+    // const playlists = Object?.values(playlistsObj).filter(playlist => playlist?.user_id === userId)
+    console.log('next be this', playlists);
 
     // TO DO: change to modal
     const showNewPlaylistForm = (e) => {
@@ -50,13 +53,14 @@ const SideBar = () => {
                     <i className='fa-solid fa-plus'></i>
                         Create New Playlist
                     </button>
-                    {renderForm && (
+                    {/* {renderForm && (
                         <NewPlaylistForm hideForm={() => setRenderForm(false)} />
-                    )}
+                    )} */}
                 </div>
                 <div className='sidebar-playlists'>
                     <ul className='sidebar-playlists-ul'>
-                        {playlists.map((playlist, i) => (
+                        {playlists?.map((playlist, i) => (
+                                console.log('next next next', playlist),
                             <li className='sidebar-playlist-li' key={`${i}`}>
                                 <NavLink className='sidebar-navlink-playlist'exact={true} to={`/playlists/${playlist.id}`}>
                                 {playlist.name}

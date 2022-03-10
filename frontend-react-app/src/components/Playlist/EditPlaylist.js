@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editPlaylist, getPlaylist } from '../../store/playlist';
+import { editPlaylist, getPlaylistInfo } from '../../store/playlist';
 
 const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
     const dispatch = useDispatch()
@@ -11,10 +11,9 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
     const user_id = userId;
     let mood_id = mood;
 
-    const submitEditPlaylistForm = async(e) => {
+    const submitEditPlaylistForm = (e) => {
         e.preventDefault();
 
-        // TO DO: add error handling
         const editedPlaylist = {user_id, mood_id, name, playlistId}
         const result = dispatch(editPlaylist(editedPlaylist))
 
@@ -25,8 +24,8 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
     }
 
     useEffect(() => {
-            dispatch(getPlaylist(playlistId));
-          }, [dispatch, playlistId]);
+        dispatch(getPlaylistInfo(playlistId));
+    }, [dispatch, playlistId]);
 
 
     return (
@@ -38,8 +37,12 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
               ))}
             </div>
                 <label htmlFor='name'>
-                    <input type='text' name='name' value={name} onChange={(e) => setName(e.target.value)}>
-                    </input>
+                    <input
+                    type='text'
+                    name='name'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    />
                 </label>
                 <label htmlFor='mood'>
                     <select name='mood_id' onChange={(e) => setMood(e.target.value)}>
