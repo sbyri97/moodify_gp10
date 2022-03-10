@@ -37,6 +37,13 @@ function MoodPlaylists() {
   }, [dispatch, moodId]);
 
   useEffect(() => {
+    const playButton = document.querySelector(".playPause");
+    playButton.style.backgroundColor = `${moodColors[moodIndex]}`;
+    playButton.style.boxShadow = `0px 0px 20px ${moodColors[moodIndex]}`;
+
+    const volumeButton = document.querySelector(".volumeButton");
+    volumeButton.style.color = `${moodColors[moodIndex]}`;
+
     moodCardsArray.current.forEach(
       (card) => (card.style.boxShadow = `0px 0px 8px ${moodColors[moodIndex]}`)
     );
