@@ -6,6 +6,7 @@ import { getMoodPlaylists } from "../../store/playlist";
 
 function MoodPlaylists() {
   const moodCardsArray = useRef([]);
+  const moodPlaylistArray = useRef([]);
 
   const mood = useParams();
   const dispatch = useDispatch();
@@ -39,6 +40,10 @@ function MoodPlaylists() {
     moodCardsArray.current.forEach(
       (card) => (card.style.boxShadow = `0px 0px 8px ${moodColors[moodIndex]}`)
     );
+    moodPlaylistArray.current.forEach(
+      (playlistName) =>
+        (playlistName.style.textShadow = `0px 0px 5px ${moodColors[moodIndex]}`)
+    );
   });
 
   return (
@@ -60,7 +65,12 @@ function MoodPlaylists() {
                 <img src={moodImage} />
               </div>
               <div className="mood-playlist-name-container">
-                <h2 className="mood-playlist-name">{playlist?.name}</h2>
+                <h2
+                  className="mood-playlist-name"
+                  ref={(ele) => (moodPlaylistArray.current[i] = ele)}
+                >
+                  {playlist?.name}
+                </h2>
               </div>
             </div>
           </NavLink>
