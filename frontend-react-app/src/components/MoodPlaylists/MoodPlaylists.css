@@ -10,6 +10,7 @@
 .mood-playlists-playlist-container {
   display: flex;
   justify-content: space-between;
+  max-width: 1000px;
 }
 
 .mood-playlists-card {
