@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./MoodPlaylists.css";
 import { NavLink, useParams } from "react-router-dom";
 import { getMoodPlaylists } from "../../store/playlist";
 
 function MoodPlaylists() {
+  const moodCardsArray = useRef([]);
+
   const mood = useParams();
   const dispatch = useDispatch();
   const moodId = Number(mood.moodId);
@@ -29,25 +31,35 @@ function MoodPlaylists() {
     dispatch(getMoodPlaylists(moodId));
 
     const moodTitle = document.querySelector(".mood-playlists-mood");
+
     moodTitle.style.color = moodColors[moodIndex];
   }, [dispatch, moodId]);
+
+  useEffect(() => {
+    moodCardsArray.current.forEach(
+      (card) => (card.style.boxShadow = `0px 0px 8px ${moodColors[moodIndex]}`)
+    );
+  });
 
   return (
     <div className="mood-playlists-container">
       <div>
         <h1 className="mood-playlists-mood">
-          Moodify's {moodInfo?.mood?.name.toUpperCase()} Picks
+          Moodify's {moodInfo?.mood?.name.toUpperCase()} Playlist Picks
         </h1>
       </div>
 
       <div className="mood-playlists-playlist-container">
         {moodInfo?.moodPlaylists?.map((playlist, i) => (
           <NavLink to={`/playlists/${playlist?.id}`} key={i}>
-            <div className="mood-playlists-card">
+            <div
+              className="mood-playlists-card"
+              ref={(ele) => (moodCardsArray.current[i] = ele)}
+            >
               <div className="mood-playlists-image-container">
                 <img src={moodImage} />
               </div>
-              <div>
+              <div className="mood-playlist-name-container">
                 <h2 className="mood-playlist-name">{playlist?.name}</h2>
               </div>
             </div>

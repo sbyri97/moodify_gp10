@@ -4,7 +4,7 @@
   padding-top: 10px;
   padding-left: 5em;
   padding-right: 5em;
-  background-color: var(--grey);
+  background-color: #1c1c1c;
 }
 
 .mood-playlists-playlist-container {
@@ -22,7 +22,7 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 21px;
-  background-color: var(--dark);
+  background-color: #302c2c;
 }
 
 .mood-playlists-card:hover {
@@ -44,14 +44,19 @@
 
 .mood-playlist-name {
   color: white;
-  text-shadow: var(--happy) 0px 0px 5px;
+  text-shadow: black 0px 0px 5px;
   text-decoration: none;
   text-align: center;
 }
 
+.mood-playlist-name-container {
+  display: flex;
+  align-items: flex-end;
+}
+
 .mood-playlists-mood {
   color: var(--happy);
-  text-shadow: var(--dark) 0px 0px 5px;
+  text-shadow: white 0px 0px 2px;
 }
 
 a:link {
