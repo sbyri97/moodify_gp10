@@ -78,6 +78,24 @@ export const createPlaylist = ({name, mood_id, user_id}) => async(dispatch) => {
     }
 }
 
+export const addSongToPlaylistFromSearch = (playlistId, songId) => async(dispatch) => {
+  const response = await fetch('/api/playlists/addSongsToPlaylist', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        playlistId,
+        songId
+    })
+  })
+
+  if (response.ok) {
+      const data = await response.json();
+      dispatch(loadPlaylist(data))
+  }
+
+  return response;
+}
+
 // ---------------------------------------
 const initialState = { playlists: {} };
 const playlistReducer = (state = initialState, action) => {

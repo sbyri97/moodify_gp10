@@ -6,6 +6,8 @@ import { FaPlay } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import { getPlaylist } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
+import PSearch from "../PlaylistSearchModal/playlistSearch";
+import PlayListSearchModal from "../PlaylistSearchModal";
 
 function Playlist() {
   const playlist = useSelector(
@@ -49,6 +51,9 @@ function Playlist() {
         <button className="playlist-detail-dot-button">
           <BsThreeDots className="playlist-detail-dots" />
         </button>
+      </div>
+      <div className="playlist-song-search">
+        <PlayListSearchModal />
       </div>
       <div className="playlist-detail-table-container">
         <table>

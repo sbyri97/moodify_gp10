@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useState } from "react";
 import * as libraryActions from '../../store/library'
 import PlaylistSongSearch from "./playlistSongSearch";
-import NoResultsSearch from "../Search/noResults"
+import NoResultsPlaylistSearch from "./noResults";
 import '../Playlist/Playlist.css'
 import '../Search/search.css'
 
@@ -23,8 +23,8 @@ export default function PSearch() {
     }, [playlistSongSearch])
 
     return (
-        <div className='searchFullPage'>
-            <div className="searchFormContainer">
+        <div className='playlistSearchFullPage'>
+            <div className="playlistSearchFormContainer">
                 <form>
                     <input
                     text='text'
@@ -37,11 +37,11 @@ export default function PSearch() {
                     />
                 </form>
             </div>
-            <div className="resultsMainContainer">
+            <div className="playlistResultsMainContainer">
                 {(!playlistSongSearch) ? "Search For a Song" :
                 <div>
                     <PlaylistSongSearch />
-                    <NoResultsSearch results={results} />
+                    <NoResultsPlaylistSearch results={results} />
                 </div>
                 }
             </div>

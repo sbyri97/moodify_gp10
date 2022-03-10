@@ -5,6 +5,7 @@ import '../Search/search.css'
 import { getLibrary } from "../../store/library";
 import { FaPlay } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { addSongToPlaylistFromSearch } from "../../store/playlist";
 
 
 export default function PlaylistSongSearch() {
@@ -16,7 +17,14 @@ export default function PlaylistSongSearch() {
         dispatch(getLibrary(numId));
       };
 
+    const playlistId = 1
+
     const songs = useSelector((state) => state?.library?.itemLibrary?.songs)
+
+    const addSong = (songId, e) => {
+        e.stopPropagation();
+        dispatch(addSongToPlaylistFromSearch(playlistId, songId))
+    }
 
     return (
         <div>
@@ -65,7 +73,9 @@ export default function PlaylistSongSearch() {
                                         > {song?.artist_name}
                                         </NavLink>
                                     </td>
-                                    <td className="playlist-detail-grey-text">ADD SONG</td>
+                                    <td className="playlist-detail-grey-text">
+                                        <button onClick={(e) => addSong(song?.id, e)}>+</button>
+                                    </td>
                                 </tr>
                             )}
                         </tbody>

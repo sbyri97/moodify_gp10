@@ -37,7 +37,7 @@ body {
     font-weight: 100;
     font-size: 30px;
 }
- 
+
 .homePageMoodCardsMainContainer {
     background-color: #1c1c1c;
     padding: 5rem 0;
@@ -63,7 +63,7 @@ body {
     margin-left: 25px;
     margin-right: 110px;
     background-color: #171717;
-    border-radius: 12px;    
+    border-radius: 12px;
     border-width: 5px;
     border-style: solid;
     border-radius: 12px;
@@ -208,7 +208,7 @@ body {
 .homePageCardProductive {
     width: 170px;
     height: 170px;
-    
+
     border-radius: 12px;
     /* border-width: 5px;
     border-style: solid;
@@ -225,5 +225,3 @@ body {
     font-weight: 600;
     color: white;
 }
-
-
