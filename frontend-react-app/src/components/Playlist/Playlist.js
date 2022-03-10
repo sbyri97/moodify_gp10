@@ -49,7 +49,7 @@ function Playlist() {
   }
 
   return (
-    <div className="playlist-detail-container">
+<div className="playlist-detail-container">
       <div className="playlist-top-detail-container">
         <div className="playlist-detail-img-container">
           <img src={playlist?.songs?.[0]?.album_coverart_url} />
