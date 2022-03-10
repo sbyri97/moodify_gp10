@@ -26,7 +26,9 @@ const AudioPlayer = () => {
   useEffect(() => {
     const seconds = Math.floor(audioPlayer?.current?.duration);
     setDuration(seconds);
-    progressBar.current.max = seconds;
+    if (progressBar.current){
+      progressBar.current.max = seconds;
+    }
   }, [
     audioPlayer?.current?.loadedmetadata,
     audioPlayer?.current?.readyState,
@@ -63,16 +65,17 @@ const AudioPlayer = () => {
   };
 
   const whilePlaying = () => {
-    if (audioPlayer.current.currentTime) {
-
-      progressBar.current.value = audioPlayer?.current?.currentTime;
+    if (progressBar.current && audioPlayer.current && audioPlayer.current.currentTime) {
+      progressBar.current.value = audioPlayer.current.currentTime;
     }
     changePlayerCurrentTime();
     animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
   const changeRange = () => {
-    audioPlayer.current.currentTime = progressBar.current.value;
+    if (audioPlayer.current){
+      audioPlayer.current.currentTime = progressBar.current?.value;
+    }
     changePlayerCurrentTime();
   };
 
