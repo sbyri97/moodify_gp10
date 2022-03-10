@@ -1,6 +1,7 @@
 from flask import Blueprint, abort, request, redirect
 from flask_login import login_required
-from app.models import Playlist, db
+from sqlalchemy import null
+from app.models import Playlist, Library, db
 from app.forms.new_playlist_form import NewPlaylistForm
 
 playlist_routes = Blueprint('playlists', __name__)
@@ -33,16 +34,16 @@ def playlist(id):
     # playlists = Playlist.query.join(Library).filter(Playlist.id == int(id))
     # dict_playlist = [playlist.to_dict() for playlist in playlists]
     # return {"playlist": playlist.to_dict()}
-    return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
+    return { "songs": (playlist_songs_dicts), "name": playlist.name, "id": id}
 
 
 # get all playlists for a user
 @playlist_routes.route('/')
 def playlists():
     playlists = Playlist.query.all()
-    playlists_dict = [playlist.to_dict() for playlist in playlists]
+    playlists_dicts = [playlist.to_dict() for playlist in playlists]
 
-    return { "playlists": playlists_dict }
+    return { "playlists": playlists_dicts }
 
 # create new playlist
 @playlist_routes.route('/', methods=["POST"])
@@ -51,12 +52,17 @@ def post_playlist():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        new_playlist = Playlist(name=form.data['name'], mood_id=form.data['mood_id'], user_id=form.data['user_id'])
+        playlist = Playlist(name=form.data['name'], mood_id=form.data['mood_id'], user_id=form.data['user_id'])
 
-        db.session.add(new_playlist)
+        db.session.add(playlist)
         db.session.commit()
 
-        return new_playlist.to_dict()
+        response = playlist.to_dict()
+        playlist_songs = playlist.library
+        playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+        response["songs"] = playlist_songs_dicts
+        return response
+
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
@@ -65,9 +71,9 @@ def post_playlist():
 def edit_playlist(id):
     form = NewPlaylistForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    
+
     playlist = Playlist.query.get(id)
-   
+
     if form.validate_on_submit():
         playlist.name = form.data['name']
         playlist.mood_id = form.data['mood_id']
@@ -75,9 +81,33 @@ def edit_playlist(id):
         db.session.add(playlist)
         db.session.commit()
 
-        return playlist.to_dict()
+        response = playlist.to_dict()
+        playlist_songs = playlist.library
+        playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+        response["songs"] = playlist_songs_dicts
+        return response
     else:
-        return {'errors': validation_errors_to_error_messages(form.errors)} 
+        return {'errors': validation_errors_to_error_messages(form.errors)}
+
+@playlist_routes.route('/addSongsToPlaylist', methods=['GET', 'POST'])
+def add_song_to_playlist():
+
+    songId = request.json['songId']
+    playlistId = request.json['playlistId']
+
+
+    song_new = Library.query.get(songId)
+    playlist_new = Playlist.query.get(playlistId)
+
+
+    song_new.playlists.append(playlist_new)
+    db.session.commit()
+
+    playlist = Playlist.query.get(playlistId)
+    playlist_songs = playlist.library
+    playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+
+    return {"songs": (playlist_songs_dicts), "name": playlist.name, "id": playlist.id}
 
 
 # delete playlist

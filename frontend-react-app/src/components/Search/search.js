@@ -25,7 +25,7 @@ export default function MainSearch() {
           }, 500)
 
           return () => clearTimeout(delaySearch)
-    }, [itemSearch, dispatch])
+    }, [itemSearch])
 
     return (
         <div className='searchFullPage'>
@@ -44,13 +44,14 @@ export default function MainSearch() {
             </div>
             <div className="resultsMainContainer">
                 {(!itemSearch) ? <PreSearch itemSearch={itemSearch}/> :
-                [
-                <SongSearch />,
-                <AlbumSearch />,
-                <ArtistSearch />,
-                <UserSearch />,
-                <NoResultsSearch results={results}/>
-                ]}
+                <div>
+                    <SongSearch />
+                    <AlbumSearch />
+                    <ArtistSearch />
+                    <UserSearch />
+                    <NoResultsSearch results={results} />
+                </div>
+                }
             </div>
         </div>
     )

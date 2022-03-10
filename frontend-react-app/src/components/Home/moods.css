@@ -36,7 +36,7 @@
     font-weight: 100;
     font-size: 30px;
 }
- 
+
 .homePageMoodCardsMainContainer {
     background-color: #1c1c1c;
     padding: 5rem 0;
@@ -62,7 +62,7 @@
     /* margin-left: 25px; */
     margin-right: 110px;
     background-color: #171717;
-    border-radius: 12px;    
+    border-radius: 12px;
     border-width: 5px;
     border-style: solid;
     border-radius: 12px;
@@ -226,5 +226,3 @@
     padding-bottom: 5px;
     color: white;
 }
-
-

@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editPlaylist } from '../../store/playlist';
+import { editPlaylist, getPlaylist } from '../../store/playlist';
 
 const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
     const dispatch = useDispatch()
@@ -17,11 +17,16 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
         // TO DO: add error handling
         const editedPlaylist = {user_id, mood_id, name, playlistId}
         const result = dispatch(editPlaylist(editedPlaylist))
+
          if (result) {
             hideForm()
         }
-        
+
     }
+
+    useEffect(() => {
+            dispatch(getPlaylist(playlistId));
+          }, [dispatch, playlistId]);
 
 
     return (
