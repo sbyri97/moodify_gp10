@@ -88,9 +88,7 @@ export const createPlaylist = ({ name, mood_id, user_id }) => async (dispatch) =
   })
   // if(response.ok) {
   const data = await response.json();
-  console.log('here2------', data)
-  // dispatch(loadPlaylist(data))
-  dispatch(loadUserPlaylists(data.playlists))
+  dispatch(loadUserPlaylists([data]))
   return data
   // }
 }
@@ -110,7 +108,7 @@ export const editPlaylist = (playlist) => async (dispatch) => {
     const data = await response.json()
     console.log('edit data', data)
     dispatch(loadPlaylist(data))
-    dispatch(loadUserPlaylists(data.playlists))
+    dispatch(loadUserPlaylists([data]))
     return data
   }
 }
@@ -148,7 +146,6 @@ export const deletePlaylistThunk = (playlistId) => async (dispatch) => {
 const initialState = { playlists: {}, userPlaylists: {} };
 // const initialState = { playlists: {} }
 const playlistReducer = (state = initialState, action) => {
-  let newState;
   switch (action.type) {
     case LOAD_PLAYLIST: {
       const playlists = {
@@ -158,19 +155,21 @@ const playlistReducer = (state = initialState, action) => {
       return { ...state, playlists };
     }
     case LOAD_PLAYLISTS: {
-      const playlists = {}
+      const playlists = { ...state.playlists }
       action.playlists.forEach(playlist => { playlists[playlist.id] = playlist })
       return { ...state, playlists }
     }
     case LOAD_USER_PLAYLISTS: {
-      newState = { ...state }
-      newState.userPlaylists = action.playlists
-      return newState;
+      const userPlaylists = { ...state.userPlaylists }
+      action.playlists.forEach(playlist => { userPlaylists[playlist.id] = playlist })
+      return { ...state, userPlaylists };
     }
     case DELETE_PLAYLIST: {
       const playlists = { ...state.playlists }
       delete playlists[action.playlistId]
-      return { ...state, playlists }
+      const userPlaylists = { ...state.userPlaylists }
+      delete userPlaylists[action.playlistId]
+      return { ...state, playlists, userPlaylists }
     }
     default:
       return state

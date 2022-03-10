@@ -57,7 +57,7 @@ function Playlist() {
         <div className="playlist-detail-text-container">
           <div className="playlist-text">PLAYLIST</div>
           <div className="playlist-detail-playlist-name">
-            {playlist?.playlist_name}
+            {playlist?.name}
           </div>
           <div className="playlist-detail-username">
             {sessionUser?.username}
