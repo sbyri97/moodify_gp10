@@ -1,10 +1,8 @@
-* {
-    font-family: 'Raleway', sans-serif;
-}
-
 .searchFullPage {
     background: rgb(18, 18, 18);
     width: 100vw;
+    position: absolute;
+    margin-left: 180px;
 }
 
 .resultsMainContainer {
@@ -48,6 +46,11 @@
     place-content: center;
     gap: 1em;
 }
+.results-playlist-cards-text {
+    font-family:NexaExtraLight;
+    font-size: 16px;
+    margin-left: 10px;
+}
 
 .playlist-card-img {
     width: 200px;
@@ -55,7 +58,24 @@
     justify-content: center;
 }
 
-
 .results-playlists-outer-indiv-card{
     border: 12px solid white
 }
+
+.noResultsSearchText {
+    font-family: NexaHeavy;
+}
+
+.preSearchBrowsePlaylistsText{
+    padding-left: 100px;
+    font-family: NexaHeavy;
+}
+
+.search-bar-main-search {
+    margin-left: 100px;
+}
+
+/* .preSearchMainContainer {
+    position: absolute;
+    margin-left: 180px;
+} */

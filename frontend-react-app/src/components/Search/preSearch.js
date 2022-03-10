@@ -19,9 +19,9 @@ export default function PreSearch() {
 
 
     return (
-        <div>
+        <div className="preSearchMainContainer">
             <div>
-                <h2>Browse Playlists</h2>
+                <h2 className="preSearchBrowsePlaylistsText">Browse Playlists</h2>
             </div>
             <div className="results-playlists-cards">
                 {randomPlaylists?.map((playlist, i) =>
@@ -29,7 +29,7 @@ export default function PreSearch() {
                     <div className="results-playlists-inner-indiv-card">
                         <img src={'https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg'} className='playlist-card-img'></img>
                         <div className="results-playlist-cards-content">
-                            <h2>{playlist.name}</h2>
+                            <h2 className="results-playlist-cards-text">{playlist.name}</h2>
                         </div>
                     </div>
                 </div>

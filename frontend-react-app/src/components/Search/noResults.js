@@ -17,7 +17,7 @@ export default function NoResultsSearch({results}) {
             {(results) ? null :
                 ((!songs?.length) && (!artists?.length) && (!albums?.length) && (!users?.length)) ?
                 <div>
-                    <h2>No Results Found</h2>
+                    <h2 className="noResultsSearchText">No Results Found</h2>
                 </div>
                 : null
             }
