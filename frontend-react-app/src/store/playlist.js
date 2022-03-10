@@ -1,5 +1,6 @@
 const LOAD_PLAYLIST = "playlists/loadPlaylist";
 const LOAD_PLAYLISTS = "playlists/loadPlaylists";
+const LOAD_MOOD_PLAYLISTS = "playlists/loadMoodPlaylists";
 const LOAD_USER_PLAYLISTS = "playlists/loadUserPlaylists";
 const DELETE_PLAYLIST = "playlists/deletePlaylist";
 // ---------------------------------------
@@ -14,6 +15,13 @@ export const loadPlaylist = (playlist) => {
 export const loadPlaylists = (playlists) => {
   return {
     type: LOAD_PLAYLISTS,
+    playlists,
+  };
+};
+
+export const loadMoodPlaylists = (playlists) => {
+  return {
+    type: LOAD_MOOD_PLAYLISTS,
     playlists,
   };
 };
@@ -34,6 +42,8 @@ export const deletePlaylist = (playlistId) => {
 
 // ---------------------------------------
 
+
+// ---------------------------------------
 
 export const getArtistSongs = (artistName) => async (dispatch) => {
   const response = await fetch(`/api/artists/${artistName}`);
@@ -142,9 +152,19 @@ export const deletePlaylistThunk = (playlistId) => async (dispatch) => {
   }
 }
 
+export const getMoodPlaylists = (id) => async (dispatch) => {
+  const response = await fetch(`/api/moods/${id}`);
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadMoodPlaylists(data));
+  }
+  return response;
+};
+
 // ---------------------------------------
-const initialState = { playlists: {}, userPlaylists: {} };
-// const initialState = { playlists: {} }
+
+const initialState = { playlists: {}, userPlaylists: {}, mood: {} };
 const playlistReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_PLAYLIST: {
@@ -158,6 +178,11 @@ const playlistReducer = (state = initialState, action) => {
       const playlists = { ...state.playlists }
       action.playlists.forEach(playlist => { playlists[playlist.id] = playlist })
       return { ...state, playlists }
+    }
+    case LOAD_MOOD_PLAYLISTS: {
+      const newState = { ...state };
+      newState.mood = action.playlists;
+      return newState;
     }
     case LOAD_USER_PLAYLISTS: {
       const userPlaylists = { ...state.userPlaylists }

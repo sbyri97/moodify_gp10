@@ -36,8 +36,9 @@ const AudioPlayer = () => {
   ]);
 
   useEffect(() => {
-    setIsPlaying(false);
-    togglePlayPause();
+    // console.log("isPlaying STATE=====", isPlaying);
+    // togglePlayPause();
+    playSong();
   }, [currentSong]);
 
   useEffect(() => {
@@ -50,6 +51,12 @@ const AudioPlayer = () => {
     const seconds = Math.floor(secs % 60);
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
     return `${returnedMinutes}:${returnedSeconds}`;
+  };
+
+  const playSong = () => {
+    setIsPlaying(true);
+    audioPlayer?.current?.play();
+    animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
   const togglePlayPause = () => {
@@ -129,10 +136,11 @@ const AudioPlayer = () => {
     <div className="audioPlayer">
       <div className="playingSongInfo">
         <div className="playerSongImgContainer">
-          <img
-            src={songArt}
-            alt="picture of currently playing song album cover"
-          />
+          {songArt ? (
+            <img src={songArt} alt="currently playing song album cover" />
+          ) : (
+            <></>
+          )}
         </div>
         <div className="playingSongText">
           <div className="playingSongTitle">{songTitle}</div>
@@ -164,7 +172,7 @@ const AudioPlayer = () => {
 
           {/* duration */}
           <div className="duration">
-            {duration ? calculateTime(duration) : "0:00"}
+            {duration && !isNaN(duration) ? calculateTime(duration) : "0:00"}
           </div>
         </div>
       </div>

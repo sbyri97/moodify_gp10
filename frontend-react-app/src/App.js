@@ -10,14 +10,14 @@ import User from "./components/User";
 import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import Home from "./components/Home/home";
 import { authenticate } from "./store/session";
-import Songs from "./components/Songs/songs";
 import Playlist from "./components/Playlist/Playlist";
 import Artists from "./components/Artists/artists";
 import Albums from "./components/Albums/albums";
 import MainSearch from "./components/Search/search";
+import MoodPlaylists from "./components/MoodPlaylists/MoodPlaylists";
+import UserProfile from "./components/UserProfile/UserProfile";
 import PSearch from "./components/PlaylistSearchModal/playlistSearch";
 import SideBar from "./components/Home/Sidebar"
-
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,15 +44,18 @@ function App() {
         {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route> */}
-        <ProtectedRoute path="/users" exact={true}>
+        {/* <ProtectedRoute path="/users" exact={true}>
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path="/" exact={true}>
           <Home />
         </ProtectedRoute>
+        <Route path="/users/:userId">
+          <UserProfile />
+        </Route>
         <Route path="/artists/:artistName">
           <Artists />
         </Route>
@@ -67,6 +70,9 @@ function App() {
         </Route> */}
         <Route path="/playlists/:id">
           <Playlist />
+        </Route>
+        <Route path="/moods/:moodId">
+          <MoodPlaylists />
         </Route>
       </Switch>
       <AudioPlayer />
