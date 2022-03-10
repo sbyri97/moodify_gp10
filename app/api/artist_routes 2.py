@@ -11,4 +11,4 @@ def artist(artistName):
 
   artistSongs_dict = [song.to_dict() for song in artistSongs]
 
-  return {"songs": artistSongs_dict, "artist_name": artistName, "id": artistName}
+  return {"songs": artistSongs_dict}

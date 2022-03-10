@@ -7,11 +7,6 @@ import { getLibrary } from "../../store/library";
 import "../Playlist/Playlist.css";
 
 function Albums() {
-  const songs = useSelector(
-    (state) => state?.playlist?.playlists?.playlist_info
-  );
-
-  console.log(songs);
 
   // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
@@ -20,6 +15,10 @@ function Albums() {
   const albumParam = useParams();
   const albumName = albumParam.albumName;
   console.log(albumName);
+  const songs = useSelector(
+    // (state) => state?.playlist?.playlists?.playlist_info
+    (state) => state.playlist.playlists?.[albumName]
+  );
 
   useEffect(() => {
     dispatch(getAlbumSongs(albumName));

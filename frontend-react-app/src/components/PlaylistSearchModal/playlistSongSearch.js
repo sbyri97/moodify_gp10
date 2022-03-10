@@ -1,13 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector} from 'react-redux'
 import '../Playlist/Playlist.css'
-import './search.css'
+import '../Search/search.css'
 import { getLibrary } from "../../store/library";
 import { FaPlay } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { addSongToPlaylistFromSearch } from "../../store/playlist";
 
 
-export default function SongSearch() {
+export default function PlaylistSongSearch() {
     const dispatch = useDispatch()
 
     const playSong = (id, e) => {
@@ -16,7 +17,14 @@ export default function SongSearch() {
         dispatch(getLibrary(numId));
       };
 
+    const playlistId = 1
+
     const songs = useSelector((state) => state?.library?.itemLibrary?.songs)
+
+    const addSong = (songId, e) => {
+        e.stopPropagation();
+        dispatch(addSongToPlaylistFromSearch(playlistId, songId))
+    }
 
     return (
         <div>
@@ -34,6 +42,7 @@ export default function SongSearch() {
                                 <th className="playlist-detail-table-header">SONG</th>
                                 <th className="playlist-detail-table-header">ALBUM</th>
                                 <th className="playlist-detail-table-header">ARTIST</th>
+                                <th className="playlist-detail-table-header"></th>
                             </tr>
                             <tr className="playlist-detail-top-border"></tr>
                         </thead>
@@ -63,6 +72,9 @@ export default function SongSearch() {
                                             className="no-text-dec"
                                         > {song?.artist_name}
                                         </NavLink>
+                                    </td>
+                                    <td className="playlist-detail-grey-text">
+                                        <button onClick={(e) => addSong(song?.id, e)}>+</button>
                                     </td>
                                 </tr>
                             )}
