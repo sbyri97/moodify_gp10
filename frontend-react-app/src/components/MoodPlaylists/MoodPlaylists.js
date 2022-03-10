@@ -27,6 +27,9 @@ function MoodPlaylists() {
 
   useEffect(() => {
     dispatch(getMoodPlaylists(moodId));
+
+    const moodTitle = document.querySelector(".mood-playlists-mood");
+    moodTitle.style.color = moodColors[moodIndex];
   }, [dispatch, moodId]);
 
   return (
@@ -38,8 +41,8 @@ function MoodPlaylists() {
       </div>
 
       <div className="mood-playlists-playlist-container">
-        {moodInfo?.moodPlaylists?.map((playlist) => (
-          <NavLink to={`/playlists/${playlist?.id}`}>
+        {moodInfo?.moodPlaylists?.map((playlist, i) => (
+          <NavLink to={`/playlists/${playlist?.id}`} key={i}>
             <div className="mood-playlists-card">
               <div className="mood-playlists-image-container">
                 <img src={moodImage} />
