@@ -1,0 +1,63 @@
+.user-profile-page-container {
+  height: 100vh;
+  margin-left: 10em;
+  padding-top: 3em;
+  padding-left: 3em;
+  padding-right: 5em;
+  background-color: #1c1c1c;
+}
+
+.user-profile-top-section {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #b3b3b3;
+  padding-bottom: 1em;
+}
+
+.user-profile-info {
+  margin-left: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.user-profile-username {
+  color: white;
+}
+
+.user-circle {
+  color: white;
+  font-size: 7em;
+}
+
+.user-profile-follow-button {
+  color: var(--dark);
+  background-color: #1ed760;
+  border: none;
+  min-width: 80px;
+  min-height: 25px;
+  border-radius: 21px;
+  font-weight: bold;
+}
+
+.user-profile-follow-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.user-profile-following-button {
+  background-color: #b3b3b3;
+  border: none;
+  min-width: 80px;
+  min-height: 25px;
+  border-radius: 21px;
+  font-weight: bold;
+}
+
+.user-profile-following-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transform: scale(1.1);
+}
