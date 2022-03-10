@@ -41,9 +41,9 @@ def playlist(id):
 @playlist_routes.route('/')
 def playlists():
     playlists = Playlist.query.all()
-    playlists_dict = [playlist.to_dict() for playlist in playlists]
+    playlists_dicts = [playlist.to_dict() for playlist in playlists]
 
-    return { "playlists": playlists_dict }
+    return { "playlists": playlists_dicts }
 
 # create new playlist
 @playlist_routes.route('/', methods=["POST"])
