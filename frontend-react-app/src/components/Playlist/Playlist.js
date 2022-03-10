@@ -18,10 +18,19 @@ function Playlist() {
   const playlistIdParams = useParams();
   const playlistId = playlistIdParams.id;
   const [renderForm, setRenderForm] = useState(false);
-
+  const [showMenu, setShowMenu] = useState(false);
+  // const [userOwns, setUserOwns] = useState(false)
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.[playlistId]
   );
+
+  console.log('playlist', playlist)
+  // TO DO: only show dropdown button if current user is the playlist owner
+  // useEffect(() => {
+  //   if (sessionUser?.id === playlist?.user_id) {
+  //     setUserOwns(true)
+  //   }
+  // }, [sessionUser])
 
   useEffect(() => {
     dispatch(getPlaylist(playlistId));
@@ -48,6 +57,21 @@ function Playlist() {
 
   }
 
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true)
+  }
+
+  // useEffect(() => {
+  //   if (!showMenu) return;
+
+  //   const closeMenu = () => {
+  //     setShowMenu(false)
+  //   }
+  //   document.addEventListener('click', closeMenu)
+  //   return () => document.removeEventListener('click', closeMenu);
+  // }, [showMenu])
+
   return (
 <div className="playlist-detail-container">
       <div className="playlist-top-detail-container">
@@ -64,24 +88,33 @@ function Playlist() {
           </div>
         </div>
       </div>
-      <div className="playlist-detail-dots-container">
-        <button className="playlist-detail-dot-button">
-          <BsThreeDots className="playlist-detail-dots" />
-        </button>
-      </div>
-      <div className="playlist-song-search">
-        <PlayListSearchModal />
-        <div className="playlist-detail-dropdown">
-          <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
-            Edit Playlist
-          </button>
-          {renderForm && (
-            <EditPlaylistForm hideForm={() => setRenderForm(false)} playlist={playlist} playlistId={playlistId} />
-          )}
-          <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
-            Delete Playlist
+      {/* {userOwns && ( */}
+        <div className="playlist-detail-dots-container">
+          <button className="playlist-detail-dot-button" onClick={openMenu}>
+            <BsThreeDots className="playlist-detail-dots" />
           </button>
         </div>
+      {/* )} */}
+      <div className="playlist-song-search">
+        <PlayListSearchModal />
+        {showMenu && (
+          <div className="playlist-detail-dropdown">
+            <div className="playlist-detail-dropdown-content">
+              <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
+                Edit Playlist
+              </button>
+              {renderForm && (
+                <EditPlaylistForm hideForm={() => {
+                  setShowMenu(false)
+                  setRenderForm(false)
+                }} playlist={playlist} playlistId={playlistId} />
+              )}
+              <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
+                Delete Playlist
+              </button>
+            </div>
+        </div>
+        )}
         <div className="playlist-detail-table-container">
           <table>
             <thead>

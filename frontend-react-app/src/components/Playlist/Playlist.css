@@ -167,3 +167,40 @@
   transform: scale(1.1);
   cursor: pointer;
 }
+
+.playlist-detail-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+}
+
+.playlist-detail-dropdown-content {
+  background-color: #242424;
+  position: absolute;
+}
+
+.playlist-detail-edit-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px;
+}
+
+.playlist-detail-delete-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px;
+}
+
+.playlist-detail-edit-btn:hover {
+  background-color: #b3b3b3;
+}
+
+.playlist-detail-delete-btn:hover {
+  background-color: #b3b3b3;
+}
