@@ -5,6 +5,8 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import { ModalProvider } from './context/Modal';
+// import './fonts/Nexa/WEB/NexaText-Trial-ExtraLight.woff'
+import './font.css'
 
 const store = configureStore();
 
