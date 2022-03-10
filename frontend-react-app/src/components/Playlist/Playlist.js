@@ -1,25 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink, useHistory } from "react-router-dom";
 import "./Playlist.css";
 import { FaPlay } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
-import { getPlaylist } from "../../store/playlist";
+import { getPlaylist, deletePlaylistThunk } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
 import PSearch from "../PlaylistSearchModal/playlistSearch";
 import PlayListSearchModal from "../PlaylistSearchModal";
+import EditPlaylistForm from "./EditPlaylist"
 
 function Playlist() {
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.playlist_info
   );
 
+
   // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const playlistIdParams = useParams();
   const playlistId = playlistIdParams.id;
+  const [renderForm, setRenderForm] = useState(false);
 
   useEffect(() => {
     dispatch(getPlaylist(playlistId));
@@ -30,6 +33,21 @@ function Playlist() {
     const numId = Number(id);
     dispatch(getLibrary(numId));
   };
+
+    // TO DO: change to modal
+  const showEditPlaylistForm = (e) => {
+      setRenderForm(true);
+  }
+
+
+  const deletePlaylist = () => {
+    const result =  dispatch(deletePlaylistThunk(playlistId));
+
+    if (result) {
+      history.push('/')
+    }
+
+  }
 
   return (
     <div className="playlist-detail-container">
@@ -54,6 +72,16 @@ function Playlist() {
       </div>
       <div className="playlist-song-search">
         <PlayListSearchModal />
+      <div className="playlist-detail-dropdown">
+        <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
+          Edit Playlist
+        </button>
+        {renderForm && (
+          <EditPlaylistForm hideForm={() => setRenderForm(false)} playlist={playlist} playlistId={playlistId}/>
+        )}
+        <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
+          Delete Playlist
+        </button>
       </div>
       <div className="playlist-detail-table-container">
         <table>

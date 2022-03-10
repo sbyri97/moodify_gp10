@@ -25,17 +25,23 @@ body {
     --productive: #963CBDFF;
 }
 
-
+.moodsContainer {
+    position: absolute;
+    margin-left: 180px;
+    background-color: #1c1c1c;
+    width: 100%;
+}
 
 .h3Div {
     background-color: #1c1c1c;
-    justify-content: center;
+    /* justify-content: center; */
     color: white;
     padding-top: 50px;
     left: 200%;
     padding-left: 100px;
     font-weight: 100;
     font-size: 30px;
+    /* margin-left: 260px; */
 }
 
 .homePageMoodCardsMainContainer {
@@ -43,6 +49,8 @@ body {
     padding: 5rem 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    /* float: right; */
+    /* position: absolute; */
 }
 
 .homePageMoodCardH,
@@ -60,7 +68,7 @@ body {
     padding-left: 20px;
     padding-top: 20px;
     padding-right: 30px;
-    margin-left: 25px;
+    /* margin-left: 25px; */
     margin-right: 110px;
     background-color: #171717;
     border-radius: 12px;

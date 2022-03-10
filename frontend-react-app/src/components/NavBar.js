@@ -5,6 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 import SignUpFormModal from './auth/SignUpFormModal';
 import LoginFormModal from './auth/LoginFormModal';
 import DemoUser from './NavBar/demouser'
+import './NavBar/navbar.css'
 
 const NavBar = () => {
   return (

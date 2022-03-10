@@ -2,8 +2,16 @@
     background-color: #000;
     width: 240px !important;
     /* width: 25%; */
-    height: 100vh;
+    height: 150% !important;
+    overflow: hidden;
     z-index: 3;
+    float: left;
+    /* position: relative; */
+    /* overflow: hidden; */
+    position: absolute;
+    /* display: block; */
+    margin-bottom: 200px;
+    overflow-y: scroll;
 }
 
 .sidebar-logo {

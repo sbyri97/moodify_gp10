@@ -1,5 +1,4 @@
-from crypt import methods
-from flask import Blueprint, abort, request
+from flask import Blueprint, abort, request, redirect
 from flask_login import login_required
 from sqlalchemy import null
 from app.models import Playlist, Library, db
@@ -58,7 +57,37 @@ def post_playlist():
         db.session.add(new_playlist)
         db.session.commit()
 
-        return new_playlist.to_dict()
+        playlists = Playlist.query.all()
+        playlists_dict = [playlist.to_dict() for playlist in playlists]
+
+        return { "playlists": playlists_dict, "playlist_name": playlists.name  }
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}
+
+# edit playlist
+@playlist_routes.route('/<int:id>', methods=["PUT"])
+def edit_playlist(id):
+    form = NewPlaylistForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    playlist = Playlist.query.get(id)
+
+    if form.validate_on_submit():
+        playlist.name = form.data['name']
+        playlist.mood_id = form.data['mood_id']
+        playlist.user_id = form.data['user_id']
+        db.session.add(playlist)
+        db.session.commit()
+
+        # return playlist.to_dict()
+        # playlist_songs = playlist.library
+        # playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+        # return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
+        playlists = Playlist.query.all()
+        playlist_songs = playlists.library
+        playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+
+        return { "playlists": playlist_songs_dicts, "playlist_name": playlists.name }
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
@@ -82,8 +111,13 @@ def add_song_to_playlist():
 
     return {"playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
 
-# post
 
-# query the playlist_songs(join table)
+# delete playlist
+@playlist_routes.route('/<int:id>', methods=["DELETE"])
+def delete_playlist(id):
+    playlist = Playlist.query.get(id)
 
-# return (the new playlist)
+    db.session.delete(playlist)
+    db.session.commit()
+
+    return {id: playlist.id}

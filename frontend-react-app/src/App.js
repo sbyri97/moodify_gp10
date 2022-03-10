@@ -16,8 +16,7 @@ import Artists from "./components/Artists/artists";
 import Albums from "./components/Albums/albums";
 import MainSearch from "./components/Search/search";
 import PSearch from "./components/PlaylistSearchModal/playlistSearch";
-// import './font.css';
-
+import SideBar from "./components/Home/Sidebar"
 
 
 function App() {
@@ -71,6 +70,7 @@ function App() {
         </Route>
       </Switch>
       <AudioPlayer />
+      <SideBar />
     </BrowserRouter>
   );
 }
