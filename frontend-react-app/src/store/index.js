@@ -4,12 +4,13 @@ import session from "./session";
 import libraryReducer from "./library";
 
 import playlistReducer from "./playlist";
+import userReducer from "./userfollow";
 
 const rootReducer = combineReducers({
   session,
   library: libraryReducer,
-  playlist: playlistReducer
-
+  playlist: playlistReducer,
+  userInfo: userReducer,
 });
 
 let enhancer;
