@@ -1,5 +1,6 @@
 const LOAD_PLAYLIST = "playlists/loadPlaylist";
 const LOAD_PLAYLISTS = "playlists/loadPlaylists";
+const LOAD_USER_PLAYLISTS = "playlists/loadUserPlaylists";
 const DELETE_PLAYLIST = "playlists/deletePlaylist";
 // ---------------------------------------
 
@@ -16,6 +17,13 @@ export const loadPlaylists = (playlists) => {
     playlists,
   };
 };
+
+export const loadUserPlaylists = (playlists) => {
+  return {
+    type: LOAD_USER_PLAYLISTS,
+    playlists
+  }
+}
 
 export const deletePlaylist = (playlistId) => {
   return {
@@ -52,6 +60,7 @@ export const getPlaylist = (playlistId) => async(dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
+        console.log('here------', data)
         dispatch(loadPlaylist(data))
     }
     return response;
@@ -62,7 +71,7 @@ export const getPlaylists = () => async(dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        dispatch(loadPlaylists(data.playlists))
+        dispatch(loadUserPlaylists(data.playlists))
     }
     return response;
 }
@@ -77,12 +86,13 @@ export const createPlaylist = ({name, mood_id, user_id}) => async(dispatch) => {
             user_id
         })
     })
-    console.log(response)
-    if(response.ok) {
+    // if(response.ok) {
         const data = await response.json();
-        dispatch(loadPlaylist(data.playlists))
-        return data.playlists
-    }
+        console.log('here2------', data)
+        // dispatch(loadPlaylist(data))
+        dispatch(loadUserPlaylists(data.playlists))
+        return data
+    // }
 }
 
 export const editPlaylist = (playlist) => async(dispatch) => {
@@ -95,11 +105,13 @@ export const editPlaylist = (playlist) => async(dispatch) => {
           user_id: playlist.user_id
       })
     })
-    console.log("response:::::", response)
+
     if(response.ok) {
       const data = await response.json()
-      dispatch(loadPlaylist(data.playlists))
-      return data.playlists
+      console.log('edit data', data)
+      dispatch(loadPlaylist(data))
+      dispatch(loadUserPlaylists(data.playlists))
+      return data
     }
 }
 
@@ -114,9 +126,10 @@ export const deletePlaylistThunk = (playlistId) => async (dispatch) => {
 }
 
 // ---------------------------------------
-const initialState = { playlists: {} };
+const initialState = { playlists: {}, userPlaylists: {} };
+// const initialState = { playlists: {} }
 const playlistReducer = (state = initialState, action) => {
-
+  let newState;
   switch (action.type) {
     case LOAD_PLAYLIST: {
       const playlists = {
@@ -129,7 +142,12 @@ const playlistReducer = (state = initialState, action) => {
        const playlists = {}
        action.playlists.forEach(playlist => {playlists[playlist.name] = playlist})
        return {...state, playlists}
-        }
+      }
+      case LOAD_USER_PLAYLISTS: {
+        newState = {...state}
+        newState.userPlaylists = action.playlists
+        return newState;
+      }
       case DELETE_PLAYLIST: {
         const playlists = {}
         delete playlists[action.playlistId]

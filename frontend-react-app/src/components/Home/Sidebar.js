@@ -9,8 +9,8 @@ import './sidebar.css';
 const SideBar = () => {
 
     const dispatch = useDispatch();
-    const userId = useSelector(state => state.session.user.id);
-    const playlistsObj = useSelector(state => state.playlist.playlists);
+    const userId = useSelector(state => state.session?.user?.id);
+    const playlistsObj = useSelector(state => state.playlist.userPlaylists?.playlist_name);
     // TO DO: change to modal
     const [renderForm, setRenderForm] = useState(false);
 
@@ -18,7 +18,7 @@ const SideBar = () => {
         dispatch(getPlaylists())
     }, [dispatch])
 
-    const playlists = Object.values(playlistsObj).filter(playlist => playlist.user_id === userId)
+    const playlists = Object.values(playlistsObj).filter(playlist => playlist?.user_id === userId)
 
     // TO DO: change to modal
     const showNewPlaylistForm = (e) => {
