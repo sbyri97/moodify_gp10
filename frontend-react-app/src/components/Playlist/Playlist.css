@@ -185,6 +185,7 @@
   border: none;
   cursor: pointer;
   width: 100%;
+  padding: 5px;
 }
 
 .playlist-detail-delete-btn {
@@ -193,6 +194,7 @@
   border: none;
   cursor: pointer;
   width: 100%;
+  padding: 5px;
 }
 
 .playlist-detail-edit-btn:hover {
