@@ -43,7 +43,7 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
                     </input>
                 </label>
                 <label htmlFor='mood'>
-                    <select name='mood_id' onChange={(e) => setMood(e.target.value)}>
+                    <select name='mood_id' onChange={(e) => setMood(e.target.value)} value={mood}>
                         <option value=''>
                             Select a mood
                         </option>

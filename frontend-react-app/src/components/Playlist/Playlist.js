@@ -11,7 +11,6 @@ import PlayListSearchModal from "../PlaylistSearchModal";
 import EditPlaylistForm from "./EditPlaylist"
 
 function Playlist() {
-  // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -24,8 +23,6 @@ function Playlist() {
     (state) => state?.playlist?.playlists?.[playlistId]
   );
 
-  console.log('playlist', playlist)
-  // TO DO: only show dropdown button if current user is the playlist owner
   useEffect(() => {
     if (sessionUser?.id === playlist?.user_id) {
       setUserOwns(true)
@@ -62,15 +59,6 @@ function Playlist() {
     setShowMenu(true)
   }
 
-  // useEffect(() => {
-  //   if (!showMenu) return;
-
-  //   const closeMenu = () => {
-  //     setShowMenu(false)
-  //   }
-  //   document.addEventListener('click', closeMenu)
-  //   return () => document.removeEventListener('click', closeMenu);
-  // }, [showMenu])
 
   return (
 <div className="playlist-detail-container">
@@ -160,7 +148,9 @@ function Playlist() {
                     </NavLink>
                   </td>
                   <td>
-                    <button className="playlist-detail-delete-song">X</button>
+                    {userOwns && (
+                      <button className="playlist-detail-delete-song">X</button>
+                    )}
                   </td>
                 </tr>
               ))}
