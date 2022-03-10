@@ -25,15 +25,5 @@ def user(id):
 
     playlists = Playlist.query.filter(Playlist.user_id == id)
     playlists_dict = [playlist.to_dict() for playlist in playlists]
-    moods = Mood.query.all()
-    moods_dict = [mood.to_userMood_dict() for mood in moods]
-
-    moodPics = {}
-    for i in range(len(moods_dict)):
-        moodPics[i + 1] = moods_dict[i]
-
-    for playlist in playlists_dict:
-        moodId = playlist["mood_id"]
-        playlist["image_url"] =  moodPics[moodId][moodId]
 
     return {"userInfo": user_dict, "userPlaylists": playlists_dict}
