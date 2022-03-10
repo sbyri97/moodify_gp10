@@ -19,3 +19,8 @@ class Mood(db.Model):
             "name": self.name,
             "image_url": self.image_url,
         }
+
+  def to_userMood_dict(self):
+        return {
+            self.id: self.image_url,
+        }
