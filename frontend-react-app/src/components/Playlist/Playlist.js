@@ -14,6 +14,7 @@ function Playlist() {
     (state) => state?.playlist?.playlists?.playlist_info
   );
 
+
   // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
   const history = useHistory();
@@ -36,7 +37,7 @@ function Playlist() {
   const showEditPlaylistForm = (e) => {
       setRenderForm(true);
   }
-  
+
 
   const deletePlaylist = () => {
     const result =  dispatch(deletePlaylistThunk(playlistId));

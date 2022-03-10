@@ -59,7 +59,7 @@ def post_playlist():
         playlists = Playlist.query.all()
         playlists_dict = [playlist.to_dict() for playlist in playlists]
 
-        return { "playlists": playlists_dict }
+        return { "playlists": playlists_dict, "playlist_name": playlists.name  }
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
@@ -79,9 +79,14 @@ def edit_playlist(id):
         db.session.commit()
 
         # return playlist.to_dict()
-        playlist_songs = playlist.library
+        # playlist_songs = playlist.library
+        # playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+        # return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
+        playlists = Playlist.query.all()
+        playlist_songs = playlists.library
         playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
-        return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
+
+        return { "playlists": playlist_songs_dicts, "playlist_name": playlists.name }
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
