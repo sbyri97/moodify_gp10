@@ -34,7 +34,7 @@ def playlist(id):
     # playlists = Playlist.query.join(Library).filter(Playlist.id == int(id))
     # dict_playlist = [playlist.to_dict() for playlist in playlists]
     # return {"playlist": playlist.to_dict()}
-    return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
+    return { "songs": (playlist_songs_dicts), "playlist_name": playlist.name, "id": id}
 
 
 # get all playlists for a user
@@ -57,10 +57,7 @@ def post_playlist():
         db.session.add(new_playlist)
         db.session.commit()
 
-        playlists = Playlist.query.all()
-        playlists_dict = [playlist.to_dict() for playlist in playlists]
-
-        return { "playlists": playlists_dict, "playlist_name": playlists.name  }
+        return new_playlist.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
@@ -79,15 +76,7 @@ def edit_playlist(id):
         db.session.add(playlist)
         db.session.commit()
 
-        # return playlist.to_dict()
-        # playlist_songs = playlist.library
-        # playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
-        # return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
-        playlists = Playlist.query.all()
-        playlist_songs = playlists.library
-        playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
-
-        return { "playlists": playlist_songs_dicts, "playlist_name": playlists.name }
+        return playlist.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
@@ -109,7 +98,7 @@ def add_song_to_playlist():
     playlist_songs = playlist.library
     playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
 
-    return {"playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
+    return {"songs": (playlist_songs_dicts), "playlist_name": playlist.name}
 
 
 # delete playlist
