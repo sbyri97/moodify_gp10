@@ -132,6 +132,7 @@ export const addSongToPlaylistFromSearch = (playlistId, songId) => async(dispatc
   }
 
   return response;
+}
 
 export const deletePlaylistThunk = (playlistId) => async (dispatch) => {
   const response = await fetch (`/api/playlists/${playlistId}`, {
