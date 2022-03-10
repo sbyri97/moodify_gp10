@@ -1,5 +1,7 @@
 const LOAD_LIBRARY = "library/loadLibrary";
 const LOAD_ITEM_LIBRARY = "library/loadItemLibrary"
+const LOAD_PLAYLIST_LIBRARY = "library/loadPlaylistLibrary"
+
 
 // ----------------------------------------
 export const loadLibrary = (library) => {
@@ -14,6 +16,13 @@ export const loadLibrary = (library) => {
 export const loadItemLibrary = (library) => {
   return {
     type: LOAD_ITEM_LIBRARY,
+    library,
+  };
+};
+
+export const loadPlaylistLibrary = (library) => {
+  return {
+    type: LOAD_PLAYLIST_LIBRARY,
     library,
   };
 };
@@ -36,13 +45,16 @@ export const getLibrary = (libraryId) => async (dispatch) => {
 
 export const searchAllItems = (nameOfItem) => async(dispatch) => {
 
-  const response = await fetch(`/api/search/${nameOfItem}`)
+  if(nameOfItem) {
+    const response = await fetch(`/api/search/${nameOfItem}`)
 
-  if (response.ok) {
-    const data = await response.json();
-    dispatch(loadItemLibrary(data));
-    return data;
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(loadItemLibrary(data));
+      return data;
+    }
   }
+  // console.log(response);
 
 }
 
@@ -55,7 +67,7 @@ export const getRandomPlaylists = () => async(dispatch) => {
   console.log(response);
   if (response.ok) {
     const data = await response.json();
-    dispatch(loadLibrary(data));
+    dispatch(loadPlaylistLibrary(data));
     return data;
   }
 
@@ -63,7 +75,7 @@ export const getRandomPlaylists = () => async(dispatch) => {
 
 // ----------------------------------------
 
-const initialState = { library: {}};
+const initialState = { library: {}, itemLibrary: {}};
 
 const libraryReducer = (state = initialState, action) => {
   let newState;
@@ -75,7 +87,12 @@ const libraryReducer = (state = initialState, action) => {
     }
       case LOAD_ITEM_LIBRARY: {
       newState = {...state};
-      newState.library = action.library
+      newState.itemLibrary = action.library
+      return newState;
+    }
+    case LOAD_PLAYLIST_LIBRARY: {
+      newState = {...state};
+      newState.itemLibrary = action.library
       return newState;
     }
     default:

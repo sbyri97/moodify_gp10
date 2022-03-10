@@ -6,8 +6,9 @@ import { FaPlay } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import { getPlaylist, deletePlaylistThunk } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
+import PSearch from "../PlaylistSearchModal/playlistSearch";
+import PlayListSearchModal from "../PlaylistSearchModal";
 import EditPlaylistForm from "./EditPlaylist"
-
 
 function Playlist() {
   const playlist = useSelector(
@@ -69,6 +70,8 @@ function Playlist() {
           <BsThreeDots className="playlist-detail-dots" />
         </button>
       </div>
+      <div className="playlist-song-search">
+        <PlayListSearchModal />
       <div className="playlist-detail-dropdown">
         <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
           Edit Playlist

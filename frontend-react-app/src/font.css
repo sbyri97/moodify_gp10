@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "CustomNexa";
+    src: local('CustomNexa'),
+         url("./fonts/WEB/Nexa-Trial-ExtraLight.woff") format('woff'),
+         url("./fonts/WEB/Nexa-Trial-ExtraLight.woff2") format('woff2')
+}
+
+

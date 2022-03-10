@@ -6,10 +6,10 @@ import './search.css'
 
 export default function NoResultsSearch({results}) {
 
-    const users = useSelector((state) => state.library.library.users)
-    const albums = useSelector((state) => state.library.library.albums)
-    const songs = useSelector((state) => state.library.library.songs)
-    const artists = useSelector((state) => state.library.library.artists)
+    const users = useSelector((state) => state.library.itemLibrary?.users)
+    const albums = useSelector((state) => state.library.itemLibrary?.albums)
+    const songs = useSelector((state) => state.library.itemLibrary?.songs)
+    const artists = useSelector((state) => state.library.itemLibrary?.artists)
 
 
     return (

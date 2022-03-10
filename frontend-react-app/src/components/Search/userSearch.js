@@ -6,7 +6,7 @@ import './search.css'
 
 export default function UserSearch() {
 
-    const users = useSelector((state) => state.library.library.users)
+    const users = useSelector((state) => state.library.itemLibrary.users)
 
     return (
         <div>
@@ -17,26 +17,30 @@ export default function UserSearch() {
                     </div>
                     <div className="playlist-detail-table-container">
                         <table>
-                            <tr>
-                                <th className="playlist-detail-table-header-play"></th>
-                                <th className="playlist-detail-table-header-image"></th>
-                                <th className="playlist-detail-table-header">USER</th>
-                                <th className="playlist-detail-table-header"></th>
-                                <th className="playlist-detail-table-header"></th>
-                            </tr>
-                            <tr className="playlist-detail-top-border"></tr>
-                            {users?.map((user) =>
-                                <tr className="playlist-detail-table-row">
-                                    <td>
-                                    </td>
-                                    <td className="playlist-song-img-container">
-                                        <i className="fa-solid fa-user"></i>
-                                    </td>
-                                    <td>{user.username}</td>
-                                    <td className="playlist-detail-grey-text"></td>
-                                    <td className="playlist-detail-grey-text"></td>
+                            <thead>
+                                <tr>
+                                    <th className="playlist-detail-table-header-play"></th>
+                                    <th className="playlist-detail-table-header-image"></th>
+                                    <th className="playlist-detail-table-header">USER</th>
+                                    <th className="playlist-detail-table-header"></th>
+                                    <th className="playlist-detail-table-header"></th>
                                 </tr>
-                            )}
+                                <tr className="playlist-detail-top-border"></tr>
+                            </thead>
+                            <tbody>
+                                {users?.map((user, i) =>
+                                    <tr className="playlist-detail-table-row" key={i}>
+                                        <td>
+                                        </td>
+                                        <td className="playlist-song-img-container">
+                                            <i className="fa-solid fa-user"></i>
+                                        </td>
+                                        <td>{user.username}</td>
+                                        <td className="playlist-detail-grey-text"></td>
+                                        <td className="playlist-detail-grey-text"></td>
+                                    </tr>
+                                )}
+                            </tbody>
                         </table>
                     </div>
                 </div>

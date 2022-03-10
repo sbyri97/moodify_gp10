@@ -1,6 +1,7 @@
 from flask import Blueprint, abort, request, redirect
 from flask_login import login_required
-from app.models import Playlist, db
+from sqlalchemy import null
+from app.models import Playlist, Library, db
 from app.forms.new_playlist_form import NewPlaylistForm
 
 playlist_routes = Blueprint('playlists', __name__)
@@ -89,6 +90,26 @@ def edit_playlist(id):
         return { "playlists": playlist_songs_dicts, "playlist_name": playlists.name }
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
+
+@playlist_routes.route('/addSongsToPlaylist', methods=['GET', 'POST'])
+def add_song_to_playlist():
+
+    songId = request.json['songId']
+    playlistId = request.json['playlistId']
+
+
+    song_new = Library.query.get(songId)
+    playlist_new = Playlist.query.get(playlistId)
+
+
+    song_new.playlists.append(playlist_new)
+    db.session.commit()
+
+    playlist = Playlist.query.get(playlistId)
+    playlist_songs = playlist.library
+    playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+
+    return {"playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
 
 
 # delete playlist
