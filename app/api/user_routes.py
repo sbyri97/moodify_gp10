@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import User, Playlist, Mood
 
@@ -27,3 +27,9 @@ def user(id):
     playlists_dict = [playlist.to_dict() for playlist in playlists]
 
     return {"userInfo": user_dict, "userPlaylists": playlists_dict}
+
+
+@user_routes.route('/<int:currentId>', methods=["POST"])
+def userFollow():
+    followedId = request.json["followed_id"]
+    followerId = request.json["follower_id"]

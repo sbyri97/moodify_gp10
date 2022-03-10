@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import "./UserProfile.css";
-import { getUserInfo } from "../../store/userfollow";
+import { getUserInfo, createFollow } from "../../store/userfollow";
 
 function UserProfile() {
   const userParam = useParams();
@@ -14,6 +14,7 @@ function UserProfile() {
     dispatch(getUserInfo(userId));
   }, [dispatch, userId]);
 
+  const sessionUser = useSelector((state) => state?.session?.user);
   const currentUser = useSelector(
     (state) => state?.userInfo?.userInfo?.userInfo
   );
@@ -21,6 +22,9 @@ function UserProfile() {
     (state) => state?.userInfo?.userInfo?.userPlaylists
   );
 
+  function followUser() {
+    dispatch(createFollow(userId, 2));
+  }
   console.log("User=====", currentUser);
   console.log("playlists=====", userPlaylists);
 
