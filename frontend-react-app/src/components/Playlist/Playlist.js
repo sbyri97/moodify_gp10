@@ -19,18 +19,18 @@ function Playlist() {
   const playlistId = playlistIdParams.id;
   const [renderForm, setRenderForm] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  // const [userOwns, setUserOwns] = useState(false)
+  const [userOwns, setUserOwns] = useState(false)
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.[playlistId]
   );
 
   console.log('playlist', playlist)
   // TO DO: only show dropdown button if current user is the playlist owner
-  // useEffect(() => {
-  //   if (sessionUser?.id === playlist?.user_id) {
-  //     setUserOwns(true)
-  //   }
-  // }, [sessionUser])
+  useEffect(() => {
+    if (sessionUser?.id === playlist?.user_id) {
+      setUserOwns(true)
+    }
+  }, [sessionUser])
 
   useEffect(() => {
     dispatch(getPlaylist(playlistId));
@@ -88,13 +88,13 @@ function Playlist() {
           </div>
         </div>
       </div>
-      {/* {userOwns && ( */}
+      {userOwns && (
         <div className="playlist-detail-dots-container">
           <button className="playlist-detail-dot-button" onClick={openMenu}>
             <BsThreeDots className="playlist-detail-dots" />
           </button>
         </div>
-      {/* )} */}
+      )}
       <div className="playlist-song-search">
         <PlayListSearchModal />
         {showMenu && (
