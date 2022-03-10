@@ -22,8 +22,10 @@ function UserProfile() {
     (state) => state?.userInfo?.userInfo?.userPlaylists
   );
 
+  let hardCodedUser = 2
+
   function followUser() {
-    dispatch(createFollow(userId, 2));
+    dispatch(createFollow(userId, hardCodedUser));
   }
 
   console.log("User=====", currentUser);

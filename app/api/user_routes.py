@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import User, Playlist, Mood, db
 
 user_routes = Blueprint('users', __name__)
@@ -26,7 +26,11 @@ def user(id):
     playlists = Playlist.query.filter(Playlist.user_id == id)
     playlists_dict = [playlist.to_dict() for playlist in playlists]
 
-    return {"userInfo": user_dict, "userPlaylists": playlists_dict}
+    currentUser = User.query.get(current_user.id)
+    currentFollows = currentUser.followers
+    follower_dict = [follow.to_dict() for follow in currentFollows]
+
+    return {"userInfo": user_dict, "userPlaylists": playlists_dict, "userFollowers": follower_dict }
 
 
 @user_routes.route('/<int:id>', methods=["POST"])
