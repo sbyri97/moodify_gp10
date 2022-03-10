@@ -55,10 +55,11 @@ def post_playlist():
         db.session.add(new_playlist)
         db.session.commit()
 
-        playlists = Playlist.query.all()
+        playlists = Playlist.query.filter_by(user_id=form.data['user_id']).all()
         playlists_dict = [playlist.to_dict() for playlist in playlists]
+        # print(playlists_dict)
 
-        return { "playlists": playlists_dict, "playlist_name": playlists.name  }
+        return { "playlists": playlists_dict }
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 

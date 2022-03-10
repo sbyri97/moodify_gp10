@@ -53,9 +53,9 @@ const SideBar = () => {
                     <i className='fa-solid fa-plus'></i>
                         Create New Playlist
                     </button>
-                    {/* {renderForm && (
+                    {renderForm && (
                         <NewPlaylistForm hideForm={() => setRenderForm(false)} />
-                    )} */}
+                    )}
                 </div>
                 <div className='sidebar-playlists'>
                     <ul className='sidebar-playlists-ul'>

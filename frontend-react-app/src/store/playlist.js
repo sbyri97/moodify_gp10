@@ -94,13 +94,15 @@ export const createPlaylist = ({name, mood_id, user_id}) => async(dispatch) => {
             user_id
         })
     })
-    // if(response.ok) {
-        const data = await response.json();
-        console.log('here2------', data)
-        // dispatch(loadPlaylist(data))
-        dispatch(loadUserPlaylists(data))
-        return data
-    // }
+
+    const updatedResponse = await fetch(`/api/playlists/users/${user_id}`)
+
+    if(response.ok) {
+      const data = await response.json()
+      const updatedData = await updatedResponse.json()
+      dispatch(loadUserPlaylists(updatedData))
+      return data
+    }
 }
 
 export const editPlaylist = (playlist) => async(dispatch) => {
