@@ -1,0 +1,72 @@
+.main-navbar-container {
+    height: 64px;
+    background-color: rgb(15, 15, 15);
+    z-index: 1;
+}
+
+.main-navbar-logout-items-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* margin-top: 10px; */
+    padding-top: 20px;
+    padding-right: 15px;
+}
+
+.navbar-login-btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-top: 20px;
+    padding-right: 15px;
+    font-family: 'NexaBold';
+}
+
+.navbar-line {
+    border: 1px solid white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.navbar-signup-login-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#demo-btn {
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 2px;
+    /* text-decoration: underline; */
+    font-family: 'NexaHeavy';
+    font-size: 12px;
+}
+
+.navbar-login-btn {
+    border-radius: 50px;
+    height: 32px;
+    white-space: nowrap;
+    padding-bottom: 29px;
+}
+
+.navbar-btn-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.navbar-user-div {
+    width: 28px;
+    height: 28px;
+}
+
+
+.navbar-user-div svg{
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}

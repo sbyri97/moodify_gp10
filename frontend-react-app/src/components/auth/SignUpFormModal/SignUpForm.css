@@ -92,10 +92,13 @@
 .loginButton {
     border: none;
     background-color: transparent;
-    color: #1ed760;
+    color: #ffffff;
     font-size: 13px;
     letter-spacing: 2px;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    font-family: 'NexaHeavy';
+    font-size: 12px;
+
 }
 
 .Modal{
