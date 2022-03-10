@@ -11,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   max-width: 1000px;
+  flex-wrap: wrap;
 }
 
 .mood-playlists-card {
@@ -24,6 +25,7 @@
   align-items: center;
   border-radius: 21px;
   background-color: #302c2c;
+  margin-top: 2em;
 }
 
 .mood-playlists-card:hover {

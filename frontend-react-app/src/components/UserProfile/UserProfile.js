@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import "./UserProfile.css";
 import { getUserInfo } from "../../store/userfollow";
@@ -35,7 +35,20 @@ function UserProfile() {
           <button className="user-profile-follow-button">Follow</button>
         </div>
       </div>
-      <div className="user-profile-bottom-section">Hello World</div>
+      <div className="mood-playlists-playlist-container">
+        {userPlaylists?.map((playlist, i) => (
+          <NavLink to={`/playlists/${playlist?.id}`} key={i}>
+            <div className="mood-playlists-card">
+              <div className="mood-playlists-image-container">
+                <img src={playlist?.mood_image} />
+              </div>
+              <div className="mood-playlist-name-container">
+                <h2 className="mood-playlist-name">{playlist?.name}</h2>
+              </div>
+            </div>
+          </NavLink>
+        ))}
+      </div>
     </div>
   );
 }
