@@ -15,6 +15,7 @@ import Artists from "./components/Artists/artists";
 import Albums from "./components/Albums/albums";
 import MainSearch from "./components/Search/search";
 import MoodPlaylists from "./components/MoodPlaylists/MoodPlaylists";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,15 +42,18 @@ function App() {
         {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route> */}
-        <ProtectedRoute path="/users" exact={true}>
+        {/* <ProtectedRoute path="/users" exact={true}>
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path="/" exact={true}>
           <Home />
         </ProtectedRoute>
+        <Route path="/users/:userId">
+          <UserProfile />
+        </Route>
         <Route path="/artists/:artistName">
           <Artists />
         </Route>
