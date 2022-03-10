@@ -34,16 +34,16 @@ def playlist(id):
     # playlists = Playlist.query.join(Library).filter(Playlist.id == int(id))
     # dict_playlist = [playlist.to_dict() for playlist in playlists]
     # return {"playlist": playlist.to_dict()}
-    return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
+    return { "songs": (playlist_songs_dicts), "name": playlist.name, "id": id}
 
 
 # get all playlists for a user
 @playlist_routes.route('/')
 def playlists():
     playlists = Playlist.query.all()
-    playlists_dict = [playlist.to_dict() for playlist in playlists]
+    playlists_dicts = [playlist.to_dict() for playlist in playlists]
 
-    return { "playlists": playlists_dict }
+    return { "playlists": playlists_dicts }
 
 # create new playlist
 @playlist_routes.route('/', methods=["POST"])
@@ -52,15 +52,17 @@ def post_playlist():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        new_playlist = Playlist(name=form.data['name'], mood_id=form.data['mood_id'], user_id=form.data['user_id'])
+        playlist = Playlist(name=form.data['name'], mood_id=form.data['mood_id'], user_id=form.data['user_id'])
 
-        db.session.add(new_playlist)
+        db.session.add(playlist)
         db.session.commit()
 
-        playlists = Playlist.query.all()
-        playlists_dict = [playlist.to_dict() for playlist in playlists]
+        response = playlist.to_dict()
+        playlist_songs = playlist.library
+        playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
+        response["songs"] = playlist_songs_dicts
+        return response
 
-        return { "playlists": playlists_dict, "playlist_name": playlists.name  }
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
@@ -79,15 +81,11 @@ def edit_playlist(id):
         db.session.add(playlist)
         db.session.commit()
 
-        # return playlist.to_dict()
-        # playlist_songs = playlist.library
-        # playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
-        # return { "playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
-        playlists = Playlist.query.all()
-        playlist_songs = playlists.library
+        response = playlist.to_dict()
+        playlist_songs = playlist.library
         playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
-
-        return { "playlists": playlist_songs_dicts, "playlist_name": playlists.name }
+        response["songs"] = playlist_songs_dicts
+        return response
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
@@ -109,7 +107,7 @@ def add_song_to_playlist():
     playlist_songs = playlist.library
     playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
 
-    return {"playlist_songs": (playlist_songs_dicts), "playlist_name": playlist.name}
+    return {"songs": (playlist_songs_dicts), "name": playlist.name, "id": playlist.id}
 
 
 # delete playlist

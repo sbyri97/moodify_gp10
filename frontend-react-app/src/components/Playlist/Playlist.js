@@ -11,11 +11,6 @@ import PlayListSearchModal from "../PlaylistSearchModal";
 import EditPlaylistForm from "./EditPlaylist"
 
 function Playlist() {
-  const playlist = useSelector(
-    (state) => state?.playlist?.playlists?.playlist_info
-  );
-
-
   // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
   const history = useHistory();
@@ -23,6 +18,10 @@ function Playlist() {
   const playlistIdParams = useParams();
   const playlistId = playlistIdParams.id;
   const [renderForm, setRenderForm] = useState(false);
+
+  const playlist = useSelector(
+    (state) => state?.playlist?.playlists?.[playlistId]
+  );
 
   useEffect(() => {
     dispatch(getPlaylist(playlistId));
@@ -34,14 +33,14 @@ function Playlist() {
     dispatch(getLibrary(numId));
   };
 
-    // TO DO: change to modal
+  // TO DO: change to modal
   const showEditPlaylistForm = (e) => {
-      setRenderForm(true);
+    setRenderForm(true);
   }
 
 
   const deletePlaylist = () => {
-    const result =  dispatch(deletePlaylistThunk(playlistId));
+    const result = dispatch(deletePlaylistThunk(playlistId));
 
     if (result) {
       history.push('/')
@@ -53,12 +52,12 @@ function Playlist() {
     <div className="playlist-detail-container">
       <div className="playlist-top-detail-container">
         <div className="playlist-detail-img-container">
-          <img src={playlist?.playlist_songs?.[0]?.album_coverart_url} />
+          <img src={playlist?.songs?.[0]?.album_coverart_url} />
         </div>
         <div className="playlist-detail-text-container">
           <div className="playlist-text">PLAYLIST</div>
           <div className="playlist-detail-playlist-name">
-            {playlist?.playlist_name}
+            {playlist?.name}
           </div>
           <div className="playlist-detail-username">
             {sessionUser?.username}
@@ -72,71 +71,72 @@ function Playlist() {
       </div>
       <div className="playlist-song-search">
         <PlayListSearchModal />
-      <div className="playlist-detail-dropdown">
-        <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
-          Edit Playlist
-        </button>
-        {renderForm && (
-          <EditPlaylistForm hideForm={() => setRenderForm(false)} playlist={playlist} playlistId={playlistId}/>
-        )}
-        <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
-          Delete Playlist
-        </button>
-      </div>
-      <div className="playlist-detail-table-container">
-        <table>
-          <thead>
-            <tr>
-              <th className="playlist-detail-table-header-play"></th>
-              <th className="playlist-detail-table-header-image"></th>
-              <th className="playlist-detail-table-header">SONG</th>
-              <th className="playlist-detail-table-header">ALBUM</th>
-              <th className="playlist-detail-table-header">ARTIST</th>
-              <th className="playlist-detail-table-header-delete"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="playlist-detail-top-border"></tr>
-            {playlist?.playlist_songs?.map((song, i) => (
-              <tr key={i} className="playlist-detail-table-row">
-                <td>
-                  <button
-                    onClick={(e) => playSong(song?.id, e)}
-                    className="playlist-playPause"
-                  >
-                    <FaPlay className="play" />
-                  </button>
-                </td>
-                <td className="playlist-song-img-container">
-                  <img src={song?.album_coverart_url} />
-                </td>
-                <td>{song?.song_title}</td>
-                <td className="playlist-detail-grey-text">
-                  <NavLink
-                    to={`/albums/${song?.album_name}`}
-                    className="no-text-dec"
-                  >
-                    {song?.album_name}
-                  </NavLink>
-                </td>
-                <td className="playlist-detail-grey-text">
-                  <NavLink
-                    to={`/artists/${song?.artist_name}`}
-                    className="no-text-dec"
-                  >
-                    {song?.artist_name}
-                  </NavLink>
-                </td>
-                <td>
-                  <button className="playlist-detail-delete-song">X</button>
-                </td>
+        <div className="playlist-detail-dropdown">
+          <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
+            Edit Playlist
+          </button>
+          {renderForm && (
+            <EditPlaylistForm hideForm={() => setRenderForm(false)} playlist={playlist} playlistId={playlistId} />
+          )}
+          <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
+            Delete Playlist
+          </button>
+        </div>
+        <div className="playlist-detail-table-container">
+          <table>
+            <thead>
+              <tr>
+                <th className="playlist-detail-table-header-play"></th>
+                <th className="playlist-detail-table-header-image"></th>
+                <th className="playlist-detail-table-header">SONG</th>
+                <th className="playlist-detail-table-header">ALBUM</th>
+                <th className="playlist-detail-table-header">ARTIST</th>
+                <th className="playlist-detail-table-header-delete"></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <tr className="playlist-detail-top-border"></tr>
+              {playlist?.songs?.map((song, i) => (
+                <tr key={i} className="playlist-detail-table-row">
+                  <td>
+                    <button
+                      onClick={(e) => playSong(song?.id, e)}
+                      className="playlist-playPause"
+                    >
+                      <FaPlay className="play" />
+                    </button>
+                  </td>
+                  <td className="playlist-song-img-container">
+                    <img src={song?.album_coverart_url} />
+                  </td>
+                  <td>{song?.song_title}</td>
+                  <td className="playlist-detail-grey-text">
+                    <NavLink
+                      to={`/albums/${song?.album_name}`}
+                      className="no-text-dec"
+                    >
+                      {song?.album_name}
+                    </NavLink>
+                  </td>
+                  <td className="playlist-detail-grey-text">
+                    <NavLink
+                      to={`/artists/${song?.artist_name}`}
+                      className="no-text-dec"
+                    >
+                      {song?.artist_name}
+                    </NavLink>
+                  </td>
+                  <td>
+                    <button className="playlist-detail-delete-song">X</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Playlist;
