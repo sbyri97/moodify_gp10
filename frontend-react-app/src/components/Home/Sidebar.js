@@ -14,7 +14,6 @@ const SideBar = () => {
 
     const playlistsObj = useSelector(state => state.playlist?.playlists);
 
-    // TO DO: change to modal
     const [renderForm, setRenderForm] = useState(false);
 
     useEffect(() => {
@@ -23,7 +22,6 @@ const SideBar = () => {
 
     const playlists = Object.values(playlistsObj).filter(playlist => playlist?.user_id === userId)
 
-    // TO DO: change to modal
     const showNewPlaylistForm = (e) => {
         setRenderForm(true);
     }

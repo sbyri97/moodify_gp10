@@ -3,7 +3,6 @@
     font-family: NexaBold;
     font-size: 15px;
     padding-left: 20px;
-    /* margin-bottom: 10px; */
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -20,7 +19,91 @@
 
 }
 
+.playlist-form {
+    background-color: #181818;
+    height: 350px;
+    width: 500px;
+    border-radius: 10px;
+    margin: auto;
 
-/* .create-new-playlist-icon-text:hover .fa-solid .fa-square-plus {
+}
+
+.new-playlist-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.playlist-form-title {
+    font-family: NexaExtraBold;
     color: white;
-} */
+    font-size: 25px;
+    padding-bottom: 5%;
+}
+
+.errors {
+    font-family: NexaBold;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #b3b3b3;
+}
+
+.new-playlist-form-placeholder::placeholder {
+    color: white;
+    font-size: 12px;
+
+}
+
+.new-playlist-form-placeholder {
+    width: 100%;
+    margin: auto;
+    border-radius: 5px;
+    padding: 15px 10px;
+    background-color: #515151;
+}
+
+.new-playlist-form-submit-btn {
+    padding: 10px 5px 10px 5px;
+    width: 40%;
+    color: black;
+    background: white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 5%;
+}
+
+
+.new-playlist-form-select {
+    color: white;
+    font-size: 12px;
+    width:100%;
+    margin:auto;
+    border-radius: 5px;
+    padding: 10px 8px;
+    background-color: #515151;
+}
+
+.new-playlist-form-label {
+    padding-bottom: 5%;
+    width:100%
+}
+
+.new-playlist-form-label input{
+    color: white;
+    font-size: 12px;
+}
+
+.playlist-form-input-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    width: 40%;
+}
