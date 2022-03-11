@@ -1,16 +1,16 @@
 .playlist-detail-container {
   /* width: 100vw;
   height: 100vh; */
-  padding: 10px 10px;
-  background-image: linear-gradient(180deg, rgb(212, 55, 55), black);
+  padding-top: 90px;
+  padding-left: 100px;
+  background-image: linear-gradient(180deg, #b3b3b3, black);
   color: white;
   max-width: 100%;
-  height: 100%;
+  height: 100vh;
   /* position: absolute; */
   margin-left: 200px;
   padding-left: 100px;
 }
-
 
 .playlist-top-detail-container {
   display: flex;
@@ -157,14 +157,16 @@
   border: none;
   padding: 10px;
   border-radius: 21px;
-  background-color: #242424;
-  color: red;
+  background-color: transparent;
+  color: white;
   font-weight: lighter;
 }
 
 .playlist-detail-delete-song:hover {
-  background-color: rgb(105, 26, 26);
-  border: 1px solid black;
+  border: 1px solid red;
+  color: red;
+  font-weight: bold;
+  background-color: transparent;
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -173,8 +175,6 @@
   position: relative;
   display: inline-block;
   width: 100px;
-
-
 }
 
 .playlist-detail-dropdown-content {

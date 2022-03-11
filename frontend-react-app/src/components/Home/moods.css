@@ -1,50 +1,50 @@
 :root {
-    --darkest: #212121;
-    --dark: #121212;
-    --grey: #535353;
-    --light-grey: #b3b3b3;
-    --happy: #EDFF00FF;
-    --energetic: #f037a5;
-    --romantic: #F62681;
-    --serene: #4b917d;
-    --chill: #cdf564;
-    --gloomy: #00A4CCFF;
-    --angry: #ff073a;
-    --heartbreak: #F37778;
-    --productive: #963CBDFF;
+  --darkest: #212121;
+  --dark: #121212;
+  --grey: #535353;
+  --light-grey: #b3b3b3;
+  --happy: #edff00ff;
+  --energetic: #f037a5;
+  --romantic: #f62681;
+  --serene: #4b917d;
+  --chill: #cdf564;
+  --gloomy: #00a4ccff;
+  --angry: #ff073a;
+  --heartbreak: #f37778;
+  --productive: #963cbdff;
 }
 
 .whatsYourMood {
-    font-family: NexaHeavy;
+  font-family: NexaHeavy;
 }
 
 .moodsContainer {
-    margin-left: 230px;
-    background-color: #1c1c1c;
-    width: 100%;
+  margin-left: 230px;
+  background-color: #1c1c1c;
+  width: 100%;
 }
 
 .homePageADiv {
-    padding-left: 12px;
+  padding-left: 12px;
 }
 
 .h3Div {
-    background-color: #1c1c1c;
-    color: white;
-    padding-top: 50px;
-    padding-left: 100px;
-    font-size: 30px;
+  background-color: #1c1c1c;
+  color: white;
+  padding-top: 50px;
+  padding-left: 100px;
+  font-size: 30px;
 }
 
 .homePageMoodCardsMainContainer {
-    background-color: #1c1c1c;
-    display: grid;
-    margin-bottom: 150px;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 80px;
-    column-gap: 1em;
-    box-shadow: white;
-    padding-top: 20px;
+  background-color: #1c1c1c;
+  display: grid;
+  margin-bottom: 150px;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 80px;
+  column-gap: 1em;
+  box-shadow: white;
+  padding-top: 20px;
 }
 
 .homePageMoodCardH,
@@ -56,144 +56,143 @@
 .homePageMoodCardA,
 .homePageMoodCardHeart,
 .homePageMoodCardP {
-    width: 200px;
-    height: 275px;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-right: 20px;
-    background-color: #171717;
-    border-radius: 12px;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 12px;
-    border-color: #171717;
-    box-shadow: 5px 5px 10px rgba(43,43,43,0.8);
-    
+  width: 200px;
+  height: 275px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  background-color: #171717;
+  border-radius: 12px;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: #171717;
+  box-shadow: 5px 5px 10px rgba(43, 43, 43, 0.8);
 }
 
 .homePageMoodCardH:hover {
-    cursor: pointer;
-    opacity: 1;
-    background: #434343;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 12px;
-    border-color: var(--happy);
-    transition-property: transform box-shadow !important;
-	transition-duration: 1s !important;
-    transition-timing-function: ease-in-out;
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  opacity: 1;
+  background: #434343;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: var(--happy);
+  transition-property: transform box-shadow !important;
+  transition-duration: 1s !important;
+  transition-timing-function: ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .homePageMoodCardE:hover {
-    cursor: pointer;
-    opacity: 1;
-    background: #2a2a2a;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 12px;
-    border-color: var(--energetic);
-    transition-property: transform box-shadow !important;
-	transition-duration: 1s !important;
-    transition-timing-function: ease-in-out;
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  opacity: 1;
+  background: #2a2a2a;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: var(--energetic);
+  transition-property: transform box-shadow !important;
+  transition-duration: 1s !important;
+  transition-timing-function: ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .homePageMoodCardR:hover {
-    cursor: pointer;
-    opacity: 1;
-    background: #2a2a2a;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 12px;
-    border-color: var(--romantic);
-    transition-property: transform box-shadow !important;
-	transition-duration: 1s !important;
-    transition-timing-function: ease-in-out;
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  opacity: 1;
+  background: #2a2a2a;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: var(--romantic);
+  transition-property: transform box-shadow !important;
+  transition-duration: 1s !important;
+  transition-timing-function: ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .homePageMoodCardS:hover {
-    cursor: pointer;
-    opacity: 1;
-    background: #2a2a2a;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 12px;
-    border-color: var(--serene);
-    transition-property: transform box-shadow !important;
-	transition-duration: 1s !important;
-    transition-timing-function: ease-in-out;
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  opacity: 1;
+  background: #2a2a2a;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: var(--serene);
+  transition-property: transform box-shadow !important;
+  transition-duration: 1s !important;
+  transition-timing-function: ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .homePageMoodCardCh:hover {
-    cursor: pointer;
-    opacity: 1;
-    background: #2a2a2a;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 12px;
-    border-color: var(--chill);
-    transition-property: transform box-shadow !important;
-	transition-duration: 1s !important;
-    transition-timing-function: ease-in-out;
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  opacity: 1;
+  background: #2a2a2a;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: var(--chill);
+  transition-property: transform box-shadow !important;
+  transition-duration: 1s !important;
+  transition-timing-function: ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .homePageMoodCardG:hover {
-    cursor: pointer;
-    opacity: 1;
-    background: #2a2a2a;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 12px;
-    border-color: var(--gloomy);
-    transition-property: transform box-shadow !important;
-	transition-duration: 1s !important;
-    transition-timing-function: ease-in-out;
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  opacity: 1;
+  background: #2a2a2a;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: var(--gloomy);
+  transition-property: transform box-shadow !important;
+  transition-duration: 1s !important;
+  transition-timing-function: ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .homePageMoodCardA:hover {
-    cursor: pointer;
-    opacity: 1;
-    background: #2a2a2a;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 12px;
-    border-color: var(--angry);
-    transition-property: transform box-shadow !important;
-	transition-duration: 1s !important;
-    transition-timing-function: ease-in-out;
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  opacity: 1;
+  background: #2a2a2a;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: var(--angry);
+  transition-property: transform box-shadow !important;
+  transition-duration: 1s !important;
+  transition-timing-function: ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .homePageMoodCardHeart:hover {
-    cursor: pointer;
-    opacity: 1;
-    background: #2a2a2a;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 12px;
-    border-color: var(--heartbreak);
-    transition-property: transform box-shadow !important;
-	transition-duration: 1s !important;
-    transition-timing-function: ease-in-out;
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  opacity: 1;
+  background: #2a2a2a;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: var(--heartbreak);
+  transition-property: transform box-shadow !important;
+  transition-duration: 1s !important;
+  transition-timing-function: ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .homePageMoodCardP:hover {
-    cursor: pointer;
-    opacity: 1;
-    background: #2a2a2a;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 12px;
-    border-color: var(--productive);
-    transition-property: transform box-shadow !important;
-	transition-duration: 1s !important;
-    transition-timing-function: ease-in-out;
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  opacity: 1;
+  background: #2a2a2a;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: var(--productive);
+  transition-property: transform box-shadow !important;
+  transition-duration: 1s !important;
+  transition-timing-function: ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .homePageCardHappy,
@@ -205,13 +204,13 @@
 .homePageCardAngry,
 .homePageCardHeartbreak,
 .homePageCardProductive {
-    width: 170px;
-    height: 170px;
-    border-radius: 12px;
+  width: 170px;
+  height: 170px;
+  border-radius: 12px;
 }
 
 .homeCardImageText {
-    font-family: 'NexaLight';
-    font-size: 16px;
-    color: white;
+  font-family: "NexaLight";
+  font-size: 16px;
+  color: white;
 }
