@@ -18,16 +18,13 @@ function Playlist() {
   const playlistId = playlistIdParams.id;
   const [renderForm, setRenderForm] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [userOwns, setUserOwns] = useState(false);
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.[playlistId]
   );
 
-  useEffect(() => {
-    if (sessionUser?.id === playlist?.user_id) {
-      setUserOwns(true)
-    }
-  }, [sessionUser])
+
+  const userOwns = sessionUser?.id === playlist?.user_id
+
 
   useEffect(() => {
     dispatch(getPlaylist(playlistId));
@@ -85,7 +82,7 @@ function Playlist() {
         </div>
       )}
       <div className="playlist-song-search">
-        <PlayListSearchModal />
+        {/* <PlayListSearchModal /> */}
         {showMenu && (
           <div className="playlist-detail-dropdown">
             <div className="playlist-detail-dropdown-content">
