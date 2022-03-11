@@ -142,6 +142,24 @@ export const addSongToPlaylistFromSearch = (playlistId, songId) => async (dispat
   return response;
 }
 
+export const deleteSongFromPlaylist = (playlistId, songId) => async (dispatch) => {
+  const response = await fetch('/api/playlists/deleteSongFromPlaylist', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      playlistId,
+      songId
+    })
+  })
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadPlaylist(data))
+  }
+
+  return response;
+}
+
 export const deletePlaylistThunk = (playlistId) => async (dispatch) => {
   const response = await fetch(`/api/playlists/${playlistId}`, {
     method: 'DELETE'

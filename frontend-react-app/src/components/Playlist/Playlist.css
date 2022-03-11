@@ -37,7 +37,7 @@
 .playlist-detail-dots-container {
   display: flex;
   align-items: center;
-  margin-top: 2em;
+  /* margin-top: 2em; */
 }
 
 .playlist-detail-dot-button {
@@ -203,4 +203,15 @@
 
 .playlist-detail-delete-btn:hover {
   background-color: #b3b3b3;
+}
+
+.playlist-user-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 2em;
+  /* justify-content: space-between; */
+}
+
+.playlist-search-main-div {
+  margin-left: 8em;
 }

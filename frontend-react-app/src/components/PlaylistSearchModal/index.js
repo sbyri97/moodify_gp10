@@ -9,8 +9,8 @@ function PlayListSearchModal() {
     const [showModal, setShowModal] = useState(false);
 
     return (
-      <div className='loginDiv'>
-        <button className='loginButton' onClick={() => setShowModal(true)}>Add a song</button>
+      <div className='playlist-search-modal'>
+        <button className='playlist-add-song-btn' onClick={() => setShowModal(true)}>Add a song</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <PSearch className='Modal'/>
