@@ -18,16 +18,26 @@ function UserProfile() {
 
   const sessionUser = useSelector((state) => state?.session?.user);
   const currentUser = useSelector(
-    (state) => state?.userInfo?.userInfo?.userInfo
+    (state) => state?.userProfiles?.profileInfo?.userInfo
   );
+
   const userPlaylists = useSelector(
-    (state) => state?.userInfo?.userInfo?.userPlaylists
+    (state) => state?.userProfiles?.profileInfo?.userPlaylists
   );
-  const followedUsers = useSelector(state => state.userInfo?.userFollows?.userFollows)
-  console.log(followedUsers)
+  const followedUsersMap = useSelector(
+    (state) => state?.userProfiles?.following
+  );
+
+  useEffect(() => {
+    const followedUsersIds = followedUsersMap?.map((user) => user.id);
+
+    if (userId.indexOf(followedUsersIds) === -1) setIsFollowing(false);
+    if (userId.indexOf(followedUsersIds) > -1) setIsFollowing(true);
+  }, [followedUsersMap, userId]);
 
   function followUser() {
     dispatch(createFollow(userId, sessionUser?.id));
+    setIsFollowing(true);
   }
 
   const toggleFollowing = () => {
@@ -43,9 +53,16 @@ function UserProfile() {
         </div>
         <div className="user-profile-info">
           <h1 className="user-profile-username">{currentUser?.username}</h1>
+          {isFollowing ?
+
+          <button className="user-profile-following-button" onClick={followUser}>
+            Following
+          </button>
+          :
           <button className="user-profile-follow-button" onClick={followUser}>
             Follow
           </button>
+          }
         </div>
       </div>
       <div className="mood-playlists-playlist-container">

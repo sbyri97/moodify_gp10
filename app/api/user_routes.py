@@ -28,9 +28,12 @@ def user(id):
 
     currentUser = User.query.get(current_user.id)
     currentFollows = currentUser.followers
-    follower_dict = [follow.to_dict() for follow in currentFollows]
+    follows_dict = [follow.to_dict() for follow in currentFollows]
 
-    return {"userInfo": user_dict, "userPlaylists": playlists_dict, "userFollowers": follower_dict }
+    profileUserFollows = user.followers
+    follower_dict = [follow.to_dict() for follow in profileUserFollows]
+
+    return {"userInfo": user_dict, "userPlaylists": playlists_dict, "userFollows": follows_dict, "userFollowers": follower_dict }
 
 
 @user_routes.route('/<int:id>', methods=["POST"])

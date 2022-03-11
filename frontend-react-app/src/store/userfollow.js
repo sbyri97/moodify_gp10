@@ -53,13 +53,18 @@ export const createFollow = (followId, sessionId) => async (dispatch) => {
 // ---------------------------------------
 // ---------------------------------------
 
-const initialState = { userInfo: {}, userFollows: {} };
+const initialState = { profileInfo: {}, followers: {}, following: {} };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_USER_INFO: {
       const newState = { ...state };
-      newState.userInfo = action.user;
+      newState.profileInfo = {
+        userInfo: action.user.userInfo,
+        userPlaylists: action.user.userPlaylists,
+      };
+      newState.followers = action.user.userFollowers;
+      newState.following = action.user.userFollows;
       return newState;
     }
     case FOLLOW_USER: {
