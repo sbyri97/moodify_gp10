@@ -61,17 +61,15 @@ const NavBar = () => {
           </button>
           {yesDrpDwn && (
             <div className='navbar-menu-div'>
-              <ul className='navbar-menu-ul'>
-                <div className='navbar-menu-profile-btn'>
-                  <button className='navbar-user-btn'>
-                    <h3 className='navbar-profile-head'>Profile</h3>
-                    <FaRegIdCard />
-                  </button>
-                </div>
-                <div className='navbar-menu-logout-btn'>
-                  <LogoutButton />
-                </div>
-              </ul>
+              <div className='navbar-menu-profile-btn'>
+                <button className='navbar-user-btn'>
+                  <h3 className='navbar-profile-head'>Profile</h3>
+                  <FaRegIdCard />
+                </button>
+              </div>
+              <div className='navbar-menu-logout-btn'>
+                <LogoutButton />
+              </div>
             </div>
           )}
       </div>
