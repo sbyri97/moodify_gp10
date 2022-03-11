@@ -52,7 +52,7 @@ function Playlist() {
 <div className="playlist-detail-container">
       <div className="playlist-top-detail-container">
         <div className="playlist-detail-img-container">
-          {sessionUser?.username}
+          {/* {sessionUser?.username} */}
           <img src={playlist?.songs?.[0]?.album_coverart_url} alt="playlist_album_cover"/>
         </div>
         <div className="playlist-detail-text-container">

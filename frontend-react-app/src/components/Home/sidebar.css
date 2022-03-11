@@ -4,7 +4,7 @@
     /* width: 25%; */
     height: 200% !important;
     overflow: hidden;
-    z-index: 3;
+    z-index: 2;
     float: left;
     /* position: relative; */
     /* overflow: hidden; */
@@ -47,7 +47,7 @@
 }
 
 .sidebar-navlink-playlist {
-    font-family: NexaExtraLight;
+    font-family: NexaLight;
     padding-left: 20px;
     margin-bottom: 10px;
     font-size: 13px;
@@ -58,14 +58,14 @@
 }
 
 .sidebar-navlink-text {
-    font-family: NexaRegular;
+    font-family: NexaBold;
     color: #b3b3b3;
     padding-left: 5px;
 }
 
 .sidebar-new-playlist {
     color: #b3b3b3;
-    font-family: NexaRegular;
+    font-family: NexaBold;
     font-size: 15px;
     padding-left: 20px;
     background-color: transparent;

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import LoginForm from "./components/auth/LoginFormModal/LoginForm";
 import SignUpForm from "./components/auth/SignUpFormModal/SignUpForm";
 import NavBar from "./components/NavBar";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
+// import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
@@ -50,9 +50,9 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute> */}
-        <ProtectedRoute path="/" exact={true}>
+        {/* <ProtectedRoute path="/" exact={true}>
           <Home />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <Route path="/users/:userId">
           <UserProfile />
         </Route>
@@ -73,6 +73,9 @@ function App() {
         </Route>
         <Route path="/moods/:moodId">
           <MoodPlaylists />
+        </Route>
+        <Route path="/" exact={true}>
+          <Home />
         </Route>
       </Switch>
       <AudioPlayer />
