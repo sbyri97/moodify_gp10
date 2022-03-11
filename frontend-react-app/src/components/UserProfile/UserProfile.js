@@ -13,7 +13,6 @@ import {
 function UserProfile() {
   const userParam = useParams();
   const userId = userParam.userId;
-  console.log("userID====", userId);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +28,8 @@ function UserProfile() {
     (state) => state?.userProfiles?.profileInfo?.userPlaylists
   );
 
+  const followCount = useSelector((state) => state?.userProfiles?.followers);
+
   const isFollowing = useSelector((state) => state?.userProfiles?.isFollowing);
 
   function followUser() {
@@ -40,7 +41,6 @@ function UserProfile() {
   }
 
   const isOwner = userId == sessionUser?.id;
-  console.log("OWNEr====", isOwner);
 
   return (
     <div className="user-profile-page-container">
@@ -48,24 +48,49 @@ function UserProfile() {
         <div>
           <FaUserCircle className="user-circle" />
         </div>
-        <div className="user-profile-info">
-          <h1 className="user-profile-username">{currentUser?.username}</h1>
-          {isFollowing ? (
-            <button
-              className="user-profile-following-button"
-              onClick={unfollowUser}
-            >
-              Following
-            </button>
-          ) : (
-            <button className="user-profile-follow-button" onClick={followUser}>
-              Follow
-            </button>
-          )}
-        </div>
+        {isOwner ? (
+          <div className="user-profile-info">
+            <h1 className="user-profile-username">MY PLAYLISTS</h1>
+            <div className="user-follower-count">
+              {followCount?.length} Followers
+            </div>
+          </div>
+        ) : (
+          <div className="user-profile-info">
+            <h1 className="user-profile-username">{currentUser?.username}</h1>
+            {isFollowing ? (
+              <button
+                className="user-profile-following-button"
+                onClick={unfollowUser}
+              >
+                Following
+              </button>
+            ) : (
+              <button
+                className="user-profile-follow-button"
+                onClick={followUser}
+              >
+                Follow
+              </button>
+            )}
+          </div>
+        )}
       </div>
       <div className="mood-playlists-playlist-container">
-        {!isFollowing && (
+        {isOwner &&
+          userPlaylists?.map((playlist, i) => (
+            <NavLink to={`/playlists/${playlist?.id}`} key={i}>
+              <div className="mood-playlists-card">
+                <div className="mood-playlists-image-container">
+                  <img src={playlist?.mood_image} />
+                </div>
+                <div className="mood-playlist-name-container">
+                  <h2 className="mood-playlist-name">{playlist?.name}</h2>
+                </div>
+              </div>
+            </NavLink>
+          ))}
+        {!isFollowing && !isOwner && (
           <div className="not-following-div">
             <GiMusicalNotes className="musical-note" />
             <h2 className="not-following-message">

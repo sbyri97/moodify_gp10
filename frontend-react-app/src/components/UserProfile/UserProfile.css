@@ -63,6 +63,13 @@
   background-color: #ff073a;
 }
 
+.user-follower-count {
+  background-color: #1ed760;
+  padding: 10px;
+  border-radius: 21px;
+  font-weight: bold;
+}
+
 .not-following-div {
   display: flex;
   width: 600px;

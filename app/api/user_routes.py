@@ -27,20 +27,20 @@ def user(id):
     playlists_dict = [playlist.to_dict() for playlist in playlists]
 
     currentUser = User.query.get(current_user.id)
-    currentFollows = currentUser.followers
+    currentFollows = currentUser.following
     follows_dict = [follow.to_dict() for follow in currentFollows]
 
-    profileUserFollows = user.followers
+    profileUserFollows = currentUser.followers
     follower_dict = [follow.to_dict() for follow in profileUserFollows]
 
     isFollowing = "none"
-    followerIds = [follower["id"] for follower in follows_dict]
+    followerIds = [follower["id"] for follower in follower_dict]
     if id in followerIds:
         isFollowing = "true"
     else:
         isFollowing = ""
 
-    return {"userInfo": user_dict, "userPlaylists": playlists_dict, "userFollows": follows_dict, "userFollowers": follower_dict, "isFollowing": isFollowing }
+    return {"userInfo": user_dict, "userPlaylists": playlists_dict, "userFollows": follower_dict, "userFollowers": follows_dict, "isFollowing": isFollowing }
 
 
 @user_routes.route('/<int:id>', methods=["POST"])
