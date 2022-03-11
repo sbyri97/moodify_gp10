@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPlaylist } from '../../store/playlist';
 
-const NewPlaylistForm = () => {
+const NewPlaylistForm = ({onClose}) => {
     const dispatch = useDispatch()
     const [name, setName] = useState('');
-    const [mood, setMood] = useState('')
-    const [validationErrors, setValidationErrors] = useState([])
+    const [mood, setMood] = useState('');
+    const [validationErrors, setValidationErrors] = useState([]);
+    const [showModal, setShowModal] = useState(false)
     const userId = useSelector(state => state.session.user.id);
     const user_id = userId;
     let mood_id = mood;
@@ -21,6 +22,10 @@ const NewPlaylistForm = () => {
                 // else {
                 //     hideForm()
                 // }
+
+                else {
+                    onClose()
+                }
     }
 
 
