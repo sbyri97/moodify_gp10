@@ -1,10 +1,15 @@
 .user-profile-page-container {
-  height: 100vh;
-  margin-left: 15em;
-  padding-top: 6em;
-  padding-left: 10em;
-  padding-right: 5em;
+  padding-top: 90px;
+  padding-left: 300px;
+  padding-bottom: 100px;
   background-color: #1c1c1c;
+  max-width: 100%;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.user-profile-page-container::-webkit-scrollbar {
+  display: none;
 }
 
 .user-profile-top-section {

@@ -101,7 +101,7 @@
 }
 
 .Modal {
-  overflow-y: scroll;
+  overflow: hidden;
   border-radius: 12px;
 }
 /*

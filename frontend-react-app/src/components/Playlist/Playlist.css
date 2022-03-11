@@ -1,11 +1,12 @@
 .playlist-detail-container {
   /* width: 100vw;
   height: 100vh; */
-  padding: 10px 10px;
-  background-image: linear-gradient(180deg, rgb(212, 55, 55), black);
+  padding-top: 90px;
+  padding-left: 100px;
+  background-image: linear-gradient(180deg, #b3b3b3, black);
   color: white;
   max-width: 100%;
-  height: 100%;
+  height: 100vh;
   /* position: absolute; */
   margin-left: 200px;
   padding-left: 100px;
