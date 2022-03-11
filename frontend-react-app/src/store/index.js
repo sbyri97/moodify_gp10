@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   session,
   library: libraryReducer,
   playlist: playlistReducer,
-  userInfo: userReducer,
+  userProfiles: userReducer,
 });
 
 let enhancer;

@@ -27,10 +27,20 @@ def user(id):
     playlists_dict = [playlist.to_dict() for playlist in playlists]
 
     currentUser = User.query.get(current_user.id)
-    currentFollows = currentUser.followers
-    follower_dict = [follow.to_dict() for follow in currentFollows]
+    currentFollows = currentUser.following
+    follows_dict = [follow.to_dict() for follow in currentFollows]
 
-    return {"userInfo": user_dict, "userPlaylists": playlists_dict, "userFollowers": follower_dict }
+    profileUserFollows = currentUser.followers
+    follower_dict = [follow.to_dict() for follow in profileUserFollows]
+
+    isFollowing = "none"
+    followerIds = [follower["id"] for follower in follower_dict]
+    if id in followerIds:
+        isFollowing = "true"
+    else:
+        isFollowing = ""
+
+    return {"userInfo": user_dict, "userPlaylists": playlists_dict, "userFollows": follower_dict, "userFollowers": follows_dict, "isFollowing": isFollowing }
 
 
 @user_routes.route('/<int:id>', methods=["POST"])
@@ -48,4 +58,18 @@ def userFollow(id):
     currentFollows = currentUser.followers
     follower_dict = [follow.to_dict() for follow in currentFollows]
 
-    return {"userFollows": follower_dict}
+    return {"userFollows": follower_dict, "isFollowing": "true"}
+
+@user_routes.route('/<int:id>', methods=["DELETE"])
+def userUnfollow(id):
+    user = User.query.get(current_user.id)
+    removeUser = User.query.get(id)
+
+    user.followers.remove(removeUser)
+    db.session.commit()
+
+    currentUser = User.query.get(current_user.id)
+    currentFollows = currentUser.followers
+    follower_dict = [follow.to_dict() for follow in currentFollows]
+
+    return {"userFollows": follower_dict, "isFollowing": ""}

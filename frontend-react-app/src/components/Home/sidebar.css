@@ -45,21 +45,21 @@
 }
 
 .sidebar-li {
-    color: #b3b3b3;
+  color: #b3b3b3;
 }
 
 .sidebar-navlink-home {
-    color: #b3b3b3;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+  color: #b3b3b3;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar-navlink-search {
-    color: #b3b3b3;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+  color: #b3b3b3;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar-navlink-playlist {
@@ -74,9 +74,9 @@
 }
 
 .sidebar-navlink-text {
-    font-family: NexaBold;
-    color: #b3b3b3;
-    padding-left: 5px;
+  font-family: NexaBold;
+  color: #b3b3b3;
+  padding-left: 5px;
 }
 
 .navbar-line {
@@ -95,54 +95,50 @@
 }
 
 .sidebar-playlists {
-    color: #b3b3b3;
+  color: #b3b3b3;
 }
 
-
 .sidebar-playlists-ul {
-    color: #b3b3b3;
-    list-style: none;
-    padding-left: 8px;
+  color: #b3b3b3;
+  list-style: none;
+  padding-left: 8px;
 }
 
 .fa-solid.fa-magnifying-glass {
-    color: #b3b3b3;
+  color: #b3b3b3;
 }
 
 .fa-solid.fa-house {
-    color: #b3b3b3;
+  color: #b3b3b3;
 }
-
 
 /* add on hover font turns white */
 .sidebar-navlink-playlist:hover {
-    color: white;
+  color: white;
 }
 
 .sidebar-new-playlist:hover {
-    color: white;
+  color: white;
 }
 
 .sidebar-navlink-search:hover .fa-solid.fa-magnifying-glass {
-    color:white;
+  color: white;
 }
 
-
 .sidebar-navlink-home:hover .fa-solid.fa-house {
-    color:white;
+  color: white;
 }
 
 .sidebar-navlink-search:hover .sidebar-navlink-text {
-    color:white;
+  color: white;
 }
 
 .sidebar-navlink-home:hover .sidebar-navlink-text {
-    color:white;
+  color: white;
 }
 /* .sidebar-li:hover .sidebar-navlink {
     color: white;
 } */
-
 
 /* .fa-solid.fa-house .sidebar-navlink-text:hover {
     color: white;

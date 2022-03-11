@@ -1,6 +1,6 @@
 .user-profile-page-container {
   height: 100vh;
-  margin-left: 10em;
+  margin-left: 15em;
   padding-top: 3em;
   padding-left: 10em;
   padding-right: 5em;
@@ -60,4 +60,29 @@
   opacity: 0.8;
   cursor: pointer;
   transform: scale(1.1);
+  background-color: #ff073a;
+}
+
+.user-follower-count {
+  background-color: #1ed760;
+  padding: 10px;
+  border-radius: 21px;
+  font-weight: bold;
+}
+
+.not-following-div {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.not-following-message {
+  color: white;
+  font-weight: lighter;
+}
+
+.musical-note {
+  color: white;
+  font-size: 30px;
 }
