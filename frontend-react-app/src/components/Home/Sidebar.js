@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPlaylists } from '../../store/playlist';
-import NewPlaylistForm from '../Playlist/NewPlaylist';
+// import NewPlaylistForm from '../Playlist/NewPlaylist';
+import PlaylistFormModal from '../Playlist';
 import './sidebar.css';
 
 
@@ -28,7 +29,8 @@ const SideBar = () => {
     }
 
     return (
-        <div className='sidebar'>
+    <div className='sidebar'>
+        <div className='sidebar-upper'>
             <div className='sidebar-logo'>
                 Moodify
             </div>
@@ -48,27 +50,27 @@ const SideBar = () => {
             </ul>
             <div className='sidebar-playlists-div'>
                 <div className='sidebar-playlist-button-div'>
-                    <button onClick={showNewPlaylistForm} className='sidebar-new-playlist'>
-                    <i className='fa-solid fa-plus'></i>
-                        Create New Playlist
-                    </button>
-                    {renderForm && (
-                        <NewPlaylistForm hideForm={() => setRenderForm(false)} />
-                    )}
-                </div>
-                <div className='sidebar-playlists'>
-                    <ul className='sidebar-playlists-ul'>
-                        {playlists.map((playlist, i) => (
-                            <li className='sidebar-playlist-li' key={`${i}`}>
-                                <NavLink className='sidebar-navlink-playlist'exact={true} to={`/playlists/${playlist.id}`}>
-                                {playlist.name}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
+                    <PlaylistFormModal />
+                    <i className='fa-solid fa-square-plus'></i>
+                    Create New Playlist
                 </div>
             </div>
+            <div className='sidebar-line'></div>
         </div>
+        <div className='sidebar-lower'>
+            <div className='sidebar-playlists'>
+                <ul className='sidebar-playlists-ul'>
+                    {playlists.map((playlist, i) => (
+                        <li className='sidebar-playlist-li' key={`${i}`}>
+                            <NavLink className='sidebar-navlink-playlist'exact={true} to={`/playlists/${playlist.id}`}>
+                            {playlist.name}
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    </div>
     )
 }
 

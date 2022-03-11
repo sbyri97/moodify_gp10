@@ -25,6 +25,7 @@ function App() {
 
   useEffect(() => {
     dispatch(authenticate()).then(() => setLoaded(true));
+    console.log('TESTING LOADED', loaded);
   }, [dispatch]);
 
   if (!loaded) {
@@ -35,6 +36,8 @@ function App() {
   return (
     <>
       <NavBar />
+      {console.log('TESTING LOADED #2', loaded)}
+
       <Switch>
         {/* <Route path='/login' exact={true}>
           <LoginForm />

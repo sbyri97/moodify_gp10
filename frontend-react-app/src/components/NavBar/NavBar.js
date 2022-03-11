@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaCaretDown, FaCaretUp, FaRegIdCard } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import SignUpFormModal from '../auth/SignUpFormModal';
@@ -39,32 +39,41 @@ const NavBar = () => {
           </div>
       :
       <div className='navbar-login-btn-container'>
-        <button className='navbar-login-btn' onClick={(e)=> setYesDrpDown(!yesDrpDwn)}>
-        {/* // need to have a state with onclick changing that state */}
-          <div className='navbar-btn-div'>
-            <div className='navbar-user-div'>
-              <FaUserCircle />
+          <button className='navbar-login-btn' onClick={(e)=> setYesDrpDown(!yesDrpDwn)}>
+          {/* // need to have a state with onclick changing that state */}
+            <div className='navbar-btn-div'>
+              <div className='navbar-user-div'>
+                <FaUserCircle />
+              </div>
+              <div className='navbar-username-container'>
+                {sessionUser.first_name} {sessionUser.last_name}
+              </div>
+              {(!yesDrpDwn ?
+              <div className='navbar-drpdwn-btn'>
+                <FaCaretDown />
+              </div>
+              :
+              <div className='navbar-drpdwn-btn'>
+              <FaCaretUp />
+              </div>
+              )}
             </div>
-            <div className='navbar-username-container'>
-               {sessionUser.first_name} {sessionUser.last_name}
-            </div>
-            <div className='navbar-drpdwn-btn'>
-              <img className='navbar-drpdwn-img'/>
-            </div>
-          </div>
+          </button>
           {yesDrpDwn && (
             <div className='navbar-menu-div'>
               <ul className='navbar-menu-ul'>
-                <li className='navbar-menu-profile-btn'>
-                  PROFILE button
-                </li>
-                <li className='navbar-menu-logout-btn'>
+                <div className='navbar-menu-profile-btn'>
+                  <button className='navbar-user-btn'>
+                    <h3 className='navbar-profile-head'>Profile</h3>
+                    <FaRegIdCard />
+                  </button>
+                </div>
+                <div className='navbar-menu-logout-btn'>
                   <LogoutButton />
-                </li>
+                </div>
               </ul>
             </div>
           )}
-        </button>
       </div>
     }
 

@@ -4,12 +4,13 @@
   padding: 10px 10px;
   background-image: linear-gradient(180deg, rgb(212, 55, 55), black);
   color: white;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
-  position: absolute;
+  /* position: absolute; */
   margin-left: 200px;
   padding-left: 100px;
 }
+
 
 .playlist-top-detail-container {
   display: flex;
@@ -37,7 +38,7 @@
 .playlist-detail-dots-container {
   display: flex;
   align-items: center;
-  margin-top: 2em;
+  /* margin-top: 2em; */
 }
 
 .playlist-detail-dot-button {
@@ -172,11 +173,14 @@
   position: relative;
   display: inline-block;
   width: 100px;
+
+
 }
 
 .playlist-detail-dropdown-content {
   background-color: #242424;
   position: absolute;
+  border-radius: 3px;
 }
 
 .playlist-detail-edit-btn {
@@ -203,4 +207,15 @@
 
 .playlist-detail-delete-btn:hover {
   background-color: #b3b3b3;
+}
+
+.playlist-user-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 2em;
+  /* justify-content: space-between; */
+}
+
+.playlist-search-main-div {
+  margin-left: 8em;
 }

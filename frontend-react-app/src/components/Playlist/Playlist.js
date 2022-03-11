@@ -4,7 +4,7 @@ import { useParams, NavLink, useHistory } from "react-router-dom";
 import "./Playlist.css";
 import { FaPlay } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
-import { getPlaylist, deletePlaylistThunk } from "../../store/playlist";
+import { getPlaylist, deletePlaylistThunk, deleteSongFromPlaylist } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
 import PSearch from "../PlaylistSearchModal/playlistSearch";
 import PlayListSearchModal from "../PlaylistSearchModal";
@@ -18,16 +18,12 @@ function Playlist() {
   const playlistId = playlistIdParams.id;
   const [renderForm, setRenderForm] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [userOwns, setUserOwns] = useState(false);
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.[playlistId]
   );
 
-  useEffect(() => {
-    if (sessionUser?.id === playlist?.user_id) {
-      setUserOwns(true)
-    }
-  }, [sessionUser])
+  const userOwns = sessionUser?.id === playlist?.user_id
+
 
   useEffect(() => {
     dispatch(getPlaylist(playlistId));
@@ -59,33 +55,47 @@ function Playlist() {
     setShowMenu(true)
   }
 
+  const deleteSong = (songId, e) => {
+    e.stopPropagation();
+    dispatch(deleteSongFromPlaylist(playlistId, songId))
+}
+
+
+
 
   return (
 <div className="playlist-detail-container">
       <div className="playlist-top-detail-container">
         <div className="playlist-detail-img-container">
-          {/* {sessionUser?.username} */}
+          {(!playlist?.songs?.[0]?.album_coverart_url) ?
+            <img src='https://cdn2.iconfinder.com/data/icons/game-center-mixed-icons/512/song.png' alt="playlist_album_song_note_cover"/>
+          : 
           <img src={playlist?.songs?.[0]?.album_coverart_url} alt="playlist_album_cover"/>
-        </div>
+          }
+          </div>
         <div className="playlist-detail-text-container">
           <div className="playlist-text">PLAYLIST</div>
           <div className="playlist-detail-playlist-name">
             {playlist?.name}
           </div>
           <div className="playlist-detail-username">
-            {sessionUser?.username}
+            {playlist?.user[0].first_name} {playlist?.user[0].last_name}
           </div>
         </div>
       </div>
       {userOwns && (
-        <div className="playlist-detail-dots-container">
-          <button className="playlist-detail-dot-button" onClick={openMenu}>
-            <BsThreeDots className="playlist-detail-dots" />
-          </button>
+        <div className="playlist-user-controls">
+          <div className="playlist-detail-dots-container">
+            <button className="playlist-detail-dot-button" onClick={openMenu}>
+              <BsThreeDots className="playlist-detail-dots" />
+
+            </button>
+          </div>
+          <div className="playlist-search-main-div">
+            <PlayListSearchModal />
+          </div>
         </div>
       )}
-      <div className="playlist-song-search">
-        <PlayListSearchModal />
         {showMenu && (
           <div className="playlist-detail-dropdown">
             <div className="playlist-detail-dropdown-content">
@@ -150,7 +160,7 @@ function Playlist() {
                   </td>
                   <td>
                     {userOwns && (
-                      <button className="playlist-detail-delete-song">X</button>
+                      <button className="playlist-detail-delete-song" onClick={(e) => deleteSong(song?.id, e)}>X</button>
                     )}
                   </td>
                 </tr>
@@ -158,7 +168,6 @@ function Playlist() {
             </tbody>
           </table>
         </div>
-      </div>
     </div>
   )
 }
