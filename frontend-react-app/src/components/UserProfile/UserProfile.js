@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
@@ -9,6 +9,8 @@ function UserProfile() {
   const userParam = useParams();
   const userId = userParam.userId;
   const dispatch = useDispatch();
+
+  const [isFollowing, setIsFollowing] = useState();
 
   useEffect(() => {
     dispatch(getUserInfo(userId));
@@ -21,12 +23,17 @@ function UserProfile() {
   const userPlaylists = useSelector(
     (state) => state?.userInfo?.userInfo?.userPlaylists
   );
-
-  let hardCodedUser = 2;
+  const followedUsers = useSelector(state => state.userInfo?.userFollows?.userFollows)
+  console.log(followedUsers)
 
   function followUser() {
-    dispatch(createFollow(userId, hardCodedUser));
+    dispatch(createFollow(userId, sessionUser?.id));
   }
+
+  const toggleFollowing = () => {
+    const prevValue = isFollowing;
+    setIsFollowing(!prevValue);
+  };
 
   return (
     <div className="user-profile-page-container">

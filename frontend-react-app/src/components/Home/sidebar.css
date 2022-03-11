@@ -1,127 +1,125 @@
 .sidebar {
-    background-color: #000;
-    width: 240px !important;
-    /* width: 25%; */
-    height: 200% !important;
-    overflow: hidden;
-    z-index: 2;
-    float: left;
-    /* position: relative; */
-    /* overflow: hidden; */
-    position: absolute;
-    /* display: block; */
-    margin-bottom: 200px;
-    overflow-y: scroll;
+  background-color: #000;
+  width: 240px !important;
+  /* width: 25%; */
+  height: 100% !important;
+  overflow: hidden;
+  z-index: 2;
+  float: left;
+  /* position: relative; */
+  /* overflow: hidden; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* display: block; */
+  margin-bottom: 200px;
+  overflow-y: scroll;
+  padding-top: 1em;
 }
 
 .sidebar-logo {
-    color: #b3b3b3;
-    padding-left: 20px;
-    /* font-family: 'Gotham Medium'; */
+  color: #b3b3b3;
+  padding-left: 20px;
+  /* font-family: 'Gotham Medium'; */
 }
 
 .sidebar-ul {
-    color: #b3b3b3;
-    list-style: none;
-    padding-left: 20px;
-    /* position: absolute; */
-
+  color: #b3b3b3;
+  list-style: none;
+  padding-left: 20px;
+  /* position: absolute; */
 }
 
 .sidebar-li {
-    color: #b3b3b3;
+  color: #b3b3b3;
 }
 
 .sidebar-navlink-home {
-    color: #b3b3b3;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+  color: #b3b3b3;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar-navlink-search {
-    color: #b3b3b3;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+  color: #b3b3b3;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar-navlink-playlist {
-    font-family: NexaLight;
-    padding-left: 20px;
-    margin-bottom: 10px;
-    font-size: 13px;
-    color: #b3b3b3;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+  font-family: NexaLight;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #b3b3b3;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar-navlink-text {
-    font-family: NexaBold;
-    color: #b3b3b3;
-    padding-left: 5px;
+  font-family: NexaBold;
+  color: #b3b3b3;
+  padding-left: 5px;
 }
 
 .sidebar-new-playlist {
-    color: #b3b3b3;
-    font-family: NexaBold;
-    font-size: 15px;
-    padding-left: 20px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+  color: #b3b3b3;
+  font-family: NexaBold;
+  font-size: 15px;
+  padding-left: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .sidebar-playlists {
-    color: #b3b3b3;
+  color: #b3b3b3;
 }
 
-
 .sidebar-playlists-ul {
-    color: #b3b3b3;
-    list-style: none;
-    padding-left: 8px;
+  color: #b3b3b3;
+  list-style: none;
+  padding-left: 8px;
 }
 
 .fa-solid.fa-magnifying-glass {
-    color: #b3b3b3;
+  color: #b3b3b3;
 }
 
 .fa-solid.fa-house {
-    color: #b3b3b3;
+  color: #b3b3b3;
 }
-
 
 /* add on hover font turns white */
 .sidebar-navlink-playlist:hover {
-    color: white;
+  color: white;
 }
 
 .sidebar-new-playlist:hover {
-    color: white;
+  color: white;
 }
 
 .sidebar-navlink-search:hover .fa-solid.fa-magnifying-glass {
-    color:white;
+  color: white;
 }
 
-
 .sidebar-navlink-home:hover .fa-solid.fa-house {
-    color:white;
+  color: white;
 }
 
 .sidebar-navlink-search:hover .sidebar-navlink-text {
-    color:white;
+  color: white;
 }
 
 .sidebar-navlink-home:hover .sidebar-navlink-text {
-    color:white;
+  color: white;
 }
 /* .sidebar-li:hover .sidebar-navlink {
     color: white;
 } */
-
 
 /* .fa-solid.fa-house .sidebar-navlink-text:hover {
     color: white;
