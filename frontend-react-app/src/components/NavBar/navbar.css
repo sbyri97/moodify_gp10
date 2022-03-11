@@ -47,6 +47,7 @@
     /* text-decoration: underline; */
     font-family: 'NexaExtraBold';
     font-size: 12px;
+    cursor: pointer;
 }
 
 .navbar-login-btn {
