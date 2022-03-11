@@ -83,7 +83,7 @@ const LoginForm = () => {
           </div>
           <div className='demoUserBox'>
           <DemoUser />
-        </div>
+          </div>
         </div>
       </div>
     </div>
