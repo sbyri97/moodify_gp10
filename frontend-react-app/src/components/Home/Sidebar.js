@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPlaylists } from '../../store/playlist';
-import NewPlaylistForm from '../Playlist/NewPlaylist';
+// import NewPlaylistForm from '../Playlist/NewPlaylist';
+import PlaylistFormModal from '../Playlist';
 import './sidebar.css';
 
 
@@ -48,6 +49,8 @@ const SideBar = () => {
                     </li>
                 </ul>
                 <div className='sidebar-playlists-div'>
+                 <div className='sidebar-playlist-button-div'>
+                    <PlaylistFormModal />
                     <div className='sidebar-playlist-button-div'>
                         <button onClick={showNewPlaylistForm} className='sidebar-new-playlist'>
                         <i className='fa-solid fa-square-plus'></i>
