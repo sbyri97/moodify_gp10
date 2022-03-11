@@ -22,14 +22,11 @@ function UserProfile() {
     (state) => state?.userInfo?.userInfo?.userPlaylists
   );
 
-  let hardCodedUser = 2
+  let hardCodedUser = 2;
 
   function followUser() {
     dispatch(createFollow(userId, hardCodedUser));
   }
-
-  console.log("User=====", currentUser);
-  console.log("playlists=====", userPlaylists);
 
   return (
     <div className="user-profile-page-container">

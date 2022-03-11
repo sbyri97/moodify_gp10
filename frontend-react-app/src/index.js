@@ -7,22 +7,20 @@ import configureStore from './store';
 import { ModalProvider } from './context/Modal';
 // import './fonts/Nexa/WEB/NexaText-Trial-ExtraLight.woff'
 import './font.css'
+import { BrowserRouter } from 'react-router-dom';
 
 const store = configureStore();
 
-function Root() {
-  return (
-    <Provider store={store}>
-      <ModalProvider>
-        <App />
-      </ModalProvider>
-    </Provider>
-  )
-}
 
 ReactDOM.render(
   <React.StrictMode>
-    <Root />
+    <Provider store={store}>
+      <ModalProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ModalProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
