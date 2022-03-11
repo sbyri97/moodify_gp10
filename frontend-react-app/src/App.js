@@ -17,6 +17,8 @@ import MainSearch from "./components/Search/search";
 import MoodPlaylists from "./components/MoodPlaylists/MoodPlaylists";
 import UserProfile from "./components/UserProfile/UserProfile";
 import SideBar from "./components/Home/Sidebar";
+import UnauthenticatedUser from "./components/auth/TestSignUp";
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -54,6 +56,9 @@ function App() {
         {/* <ProtectedRoute path="/" exact={true}>
           <Home />
         </ProtectedRoute> */}
+        <Route path="/unauthenticatedUser" exact={true}>
+          <UnauthenticatedUser />
+        </Route>
         <Route path="/users/:userId" exact={true}>
           <UserProfile />
         </Route>

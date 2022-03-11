@@ -1,0 +1,26 @@
+.main-unauthenticated-div{
+    background-color: #121212;
+    margin-top: 150px;
+    margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-unauthenticated-h2{
+    color: white;
+    font-family: 'NexaExtraBold';
+}
+
+.main-unauthenticated-auths{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-unauthenticated-p{
+    color: white;
+    font-family: 'NexaHeavy';
+    font-size: 12px;
+}

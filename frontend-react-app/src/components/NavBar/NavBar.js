@@ -62,10 +62,10 @@ const NavBar = () => {
           {yesDrpDwn && (
             <div className='navbar-menu-div'>
               <div className='navbar-menu-profile-btn'>
-                <button className='navbar-user-btn'>
+                <NavLink to={`/users/${sessionUser.id}`} exact={true} className='navbar-user-btn'>
                   <h3 className='navbar-profile-head'>Profile</h3>
                   <FaRegIdCard />
-                </button>
+                </NavLink>
               </div>
               <div className='navbar-menu-logout-btn'>
                 <LogoutButton />

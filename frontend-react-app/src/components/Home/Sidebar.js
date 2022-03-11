@@ -42,10 +42,18 @@ const SideBar = () => {
                     </NavLink>
                 </li>
                 <li className='sidebar-li'>
+                    {(!userId) ?
+                    <NavLink to='/unauthenticatedUser' exact={true} className='sidebar-navlink-search'>
+                        <i className='fa-solid fa-magnifying-glass'></i>
+                        <p className='sidebar-navlink-text'>Search</p>
+                    </NavLink>
+                    :
                     <NavLink to='/search' exact={true} className='sidebar-navlink-search'>
                         <i className='fa-solid fa-magnifying-glass'></i>
                         <p className='sidebar-navlink-text'>Search</p>
                     </NavLink>
+                    }
+
                 </li>
             </ul>
             <div className='sidebar-playlists-div'>

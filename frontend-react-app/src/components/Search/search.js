@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState } from "react";
 import * as libraryActions from '../../store/library'
 import '../Playlist/Playlist.css'
@@ -10,12 +10,14 @@ import ArtistSearch from "./artistSearch";
 import UserSearch from "./userSearch";
 import NoResultsSearch from "./noResults";
 import PreSearch from "./preSearch";
+import SignUpFormModal from "../auth/SignUpFormModal";
 
 export default function MainSearch() {
 
     const [itemSearch, setItemSearch] = useState("")
     const [results, setResults] = useState(true)
     const dispatch = useDispatch();
+    const sessionUser = useSelector((state) => state.session?.user)
 
 
     useEffect(() => {

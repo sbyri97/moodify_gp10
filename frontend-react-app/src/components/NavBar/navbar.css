@@ -116,15 +116,16 @@
     background-color: none;
 }
 
-.navbar-user-btn{
+.navbar-user-btn {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    padding: 1px 6px;
 
 }
 
