@@ -99,6 +99,19 @@ def add_song_to_playlist():
     playlist = Playlist.query.get(playlistId)
     return playlist.to_dict()
 
+@playlist_routes.route('/deleteSongFromPlaylist', methods=['DELETE'])
+def delete_song_from_playlist():
+    songId = request.json['songId']
+    playlistId = request.json['playlistId']
+
+    song = Library.query.get(songId)
+    playlist = Playlist.query.get(playlistId)
+
+    song.playlists.remove(playlist)
+    db.session.commit()
+
+    playlist = Playlist.query.get(playlistId)
+    return playlist.to_dict()
 
 # delete playlist
 @playlist_routes.route('/<int:id>', methods=["DELETE"])

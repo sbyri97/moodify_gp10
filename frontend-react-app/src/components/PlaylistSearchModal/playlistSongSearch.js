@@ -4,12 +4,14 @@ import '../Playlist/Playlist.css'
 import '../Search/search.css'
 import { getLibrary } from "../../store/library";
 import { FaPlay } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { addSongToPlaylistFromSearch } from "../../store/playlist";
 
 
 export default function PlaylistSongSearch() {
     const dispatch = useDispatch()
+    const playlistIdParams = useParams();
+    const playlistId = playlistIdParams.id;
 
     const playSong = (id, e) => {
         e.stopPropagation();
@@ -17,7 +19,7 @@ export default function PlaylistSongSearch() {
         dispatch(getLibrary(numId));
       };
 
-    const playlistId = 1
+      console.log('playlistId=======', playlistId)
 
     const songs = useSelector((state) => state?.library?.itemLibrary?.songs)
 

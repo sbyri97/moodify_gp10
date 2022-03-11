@@ -4,7 +4,7 @@ import { useParams, NavLink, useHistory } from "react-router-dom";
 import "./Playlist.css";
 import { FaPlay } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
-import { getPlaylist, deletePlaylistThunk } from "../../store/playlist";
+import { getPlaylist, deletePlaylistThunk, deleteSongFromPlaylist } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
 import PSearch from "../PlaylistSearchModal/playlistSearch";
 import PlayListSearchModal from "../PlaylistSearchModal";
@@ -22,6 +22,7 @@ function Playlist() {
     (state) => state?.playlist?.playlists?.[playlistId]
   );
 
+  console.log('========', playlist)
 
   const userOwns = sessionUser?.id === playlist?.user_id
 
@@ -56,6 +57,13 @@ function Playlist() {
     setShowMenu(true)
   }
 
+  const deleteSong = (songId, e) => {
+    e.stopPropagation();
+    dispatch(deleteSongFromPlaylist(playlistId, songId))
+}
+
+
+
 
   return (
 <div className="playlist-detail-container">
@@ -70,7 +78,7 @@ function Playlist() {
             {playlist?.name}
           </div>
           <div className="playlist-detail-username">
-            {sessionUser?.username}
+            {playlist?.user[0].first_name} {playlist?.user[0].last_name}
           </div>
         </div>
       </div>
@@ -151,7 +159,7 @@ function Playlist() {
                   </td>
                   <td>
                     {userOwns && (
-                      <button className="playlist-detail-delete-song">X</button>
+                      <button className="playlist-detail-delete-song" onClick={(e) => deleteSong(song?.id, e)}>X</button>
                     )}
                   </td>
                 </tr>
