@@ -172,11 +172,14 @@
   position: relative;
   display: inline-block;
   width: 100px;
+
+
 }
 
 .playlist-detail-dropdown-content {
   background-color: #242424;
   position: absolute;
+  border-radius: 3px;
 }
 
 .playlist-detail-edit-btn {
