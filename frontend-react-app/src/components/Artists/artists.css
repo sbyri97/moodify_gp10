@@ -1,3 +1,7 @@
 * {
-    font-family: 'Raleway', sans-serif;    
+    font-family: 'Raleway', sans-serif;
+}
+
+.main-navbar-container {
+    background-color: green;
 }
