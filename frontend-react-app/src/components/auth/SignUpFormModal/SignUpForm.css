@@ -90,44 +90,17 @@
 }
 
 .loginButton {
-  border: none;
-  background-color: transparent;
-  color: #ffffff;
-  font-size: 13px;
-  letter-spacing: 2px;
-  /* text-decoration: underline; */
-  font-family: "NexaHeavy";
-  font-size: 12px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-family: 'NexaHeavy';
+    font-size: 12px;
+    cursor: pointer;
 }
 
 .Modal {
   overflow: hidden;
   border-radius: 12px;
 }
-/*
-.signUpDiv {
-    display: flex;
-    } */
-
-/* .signUpButton {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    height: 50%;
-    margin-top: 17px;
-    margin-right: 40px;
-} */
-
-/* .signUpButton:hover {
-    text-decoration: underline;
-} */
-
-/* .formWelcomeBox {
-    font-size: 14px;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-    line-height: 26px;
-    color: rgb(255, 255, 255);
-    font-weight: 500;
-    margin-bottom: 8px;
-    border-top: 1px solid rgb(235, 235, 235);
-} */

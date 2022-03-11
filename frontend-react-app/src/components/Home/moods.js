@@ -1,11 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './moods.css';
 
 
 const Moods = () => {
-
+    const sessionUser = useSelector(state => state.session?.user);
+    
     return (
-        <div className="h3Div">
+<div className="h3Div">
             <p className="whatsYourMood">What's your mood today?</p>
         <div className='homePageMoodCardsMainContainer'>
             <div className='homePageMoodCardH'>
@@ -18,7 +20,7 @@ const Moods = () => {
                 </div>
                     <p className='homeCardImageText'>Happy</p>
             </div>
-            <div className='homePageMoodCardE'> 
+            <div className='homePageMoodCardE'>
                 <div className='homePageMoodCardItem'>
                 <div className='homePageADiv'>
                 <a className='homeCards' href='/moods/2'>
