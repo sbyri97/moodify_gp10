@@ -75,14 +75,18 @@ function Playlist() {
         </div>
       </div>
       {userOwns && (
-        <div className="playlist-detail-dots-container">
-          <button className="playlist-detail-dot-button" onClick={openMenu}>
-            <BsThreeDots className="playlist-detail-dots" />
-          </button>
+        <div className="playlist-user-controls">
+          <div className="playlist-detail-dots-container">
+            <button className="playlist-detail-dot-button" onClick={openMenu}>
+              <BsThreeDots className="playlist-detail-dots" />
+
+            </button>
+          </div>
+          <div className="playlist-search-main-div">
+            <PlayListSearchModal />
+          </div>
         </div>
       )}
-      <div className="playlist-song-search">
-        {/* <PlayListSearchModal /> */}
         {showMenu && (
           <div className="playlist-detail-dropdown">
             <div className="playlist-detail-dropdown-content">
@@ -155,7 +159,6 @@ function Playlist() {
             </tbody>
           </table>
         </div>
-      </div>
     </div>
   )
 }
