@@ -31,8 +31,8 @@ const SideBar = () => {
     return (
     <div className='sidebar'>
         <div className='sidebar-upper'>
-            <div className='sidebar-logo'>
-                Moodify
+            <div className='sidebar-logo-container'>
+                <img className='sidebar-spotify-logo'src='https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png' alt='spotify_logo'/>
             </div>
             <ul className='sidebar-ul'>
                 <li className='sidebar-li'>
