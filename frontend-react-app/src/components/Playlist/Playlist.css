@@ -156,14 +156,16 @@
   border: none;
   padding: 10px;
   border-radius: 21px;
-  background-color: #242424;
-  color: red;
+  background-color: transparent;
+  color: white;
   font-weight: lighter;
 }
 
 .playlist-detail-delete-song:hover {
-  background-color: rgb(105, 26, 26);
-  border: 1px solid black;
+  border: 1px solid red;
+  color: red;
+  font-weight: bold;
+  background-color: transparent;
   transform: scale(1.1);
   cursor: pointer;
 }
