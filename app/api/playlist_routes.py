@@ -54,12 +54,12 @@ def post_playlist():
 
     if form.validate_on_submit():
         playlist = Playlist(name=form.data['name'], mood_id=form.data['mood_id'], user_id=form.data['user_id'])
-
+        
         db.session.add(playlist)
+
         db.session.commit()
 
         return playlist.to_dict()
-
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 

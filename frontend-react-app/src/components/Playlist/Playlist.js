@@ -79,7 +79,7 @@ function Playlist() {
             {playlist?.name}
           </div>
           <div className="playlist-detail-username">
-            {playlist?.user[0].first_name} {playlist?.user[0].last_name}
+            {playlist?.user[0]?.first_name} {playlist?.user[0]?.last_name}
           </div>
         </div>
       </div>
