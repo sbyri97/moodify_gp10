@@ -87,11 +87,11 @@ const AudioPlayer = () => {
   };
 
   const changePlayerCurrentTime = () => {
-    progressBar.current.style.setProperty(
+    progressBar?.current?.style?.setProperty(
       "--seek-before-width",
       `${(progressBar.current.value / duration) * 100}%`
     );
-    setCurrentTime(progressBar.current.value);
+    setCurrentTime(progressBar?.current?.value);
   };
 
   const changeVolume = () => {
