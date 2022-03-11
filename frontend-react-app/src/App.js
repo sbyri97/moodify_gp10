@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/auth/LoginFormModal/LoginForm";
 import SignUpForm from "./components/auth/SignUpFormModal/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
@@ -16,26 +16,24 @@ import Albums from "./components/Albums/albums";
 import MainSearch from "./components/Search/search";
 import MoodPlaylists from "./components/MoodPlaylists/MoodPlaylists";
 import UserProfile from "./components/UserProfile/UserProfile";
-import PSearch from "./components/PlaylistSearchModal/playlistSearch";
-import SideBar from "./components/Home/Sidebar"
+import SideBar from "./components/Home/Sidebar";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state?.session?.user);
 
   useEffect(() => {
-    (async () => {
-      await dispatch(authenticate());
-      setLoaded(true);
-    })();
+    dispatch(authenticate()).then(() => setLoaded(true));
   }, [dispatch]);
 
   if (!loaded) {
+    console.log("TEST=====", loaded);
     return null;
   }
 
   return (
-    <BrowserRouter>
+    <>
       <NavBar />
       <Switch>
         {/* <Route path='/login' exact={true}>
@@ -50,10 +48,10 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute> */}
-        <ProtectedRoute path="/" exact={true}>
+        {/* <ProtectedRoute path="/" exact={true}>
           <Home />
-        </ProtectedRoute>
-        <Route path="/users/:userId">
+        </ProtectedRoute> */}
+        <Route path="/users/:userId" exact={true}>
           <UserProfile />
         </Route>
         <Route path="/artists/:artistName">
@@ -65,19 +63,19 @@ function App() {
         <Route path="/search" exact={true}>
           <MainSearch />
         </Route>
-        {/* <Route path="/playlist/search" exact={true}>
-          <PSearch />
-        </Route> */}
         <Route path="/playlists/:id">
           <Playlist />
         </Route>
         <Route path="/moods/:moodId">
           <MoodPlaylists />
         </Route>
+        <Route path="/" exact={true}>
+          <Home />
+        </Route>
       </Switch>
       <AudioPlayer />
       <SideBar />
-    </BrowserRouter>
+    </>
   );
 }
 

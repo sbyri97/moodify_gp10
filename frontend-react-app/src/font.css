@@ -1,41 +1,34 @@
 @font-face {
-    font-family: "NexaExtraLight";
-    src: local('NexaExtraLight'), 
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-ExtraLight.woff") format('woff'),
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-ExtraLight.woff2") format('woff2')
-}
-
-@font-face {
     font-family: "NexaLight";
     src: local('NexaLight'), 
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-Light.woff") format('woff'),
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-Light.woff2") format('woff2')
-}
-
-@font-face {
-    font-family: "NexaRegular";
-    src: local('NexaRegular'), 
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-Regular.woff") format('woff'),
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-Regular.woff2") format('woff2')
+    url("../src/fonts/Nexa/Nexa-Light.woff") format('woff'),
+    url("../src/fonts/Nexa/Nexa-Light.woff2") format('woff2')
 }
 
 @font-face {
     font-family: "NexaThin";
     src: local('NexaThin'), 
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-Thin.woff") format('woff'),
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-Thin.woff2") format('woff2')
+    url("../src/fonts/Nexa/Nexa-Thin.woff") format('woff'),
+    url("../src/fonts/Nexa/Nexa-Thin.woff2") format('woff2')
 }
 
 @font-face {
     font-family: "NexaBold";
     src: local('NexaBold'), 
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-Bold.woff") format('woff'),
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-Bold.woff2") format('woff2')
+    url("../src/fonts/Nexa/Nexa-Bold.woff") format('woff'),
+    url("../src/fonts/Nexa/Nexa-Bold.woff2") format('woff2')
+}
+
+@font-face {
+    font-family: "NexaExtraBold";
+    src: local('NexaExtraBold'), 
+         url("../src/fonts/Nexa/Nexa-XBold.woff") format('woff'),
+         url("../src/fonts/Nexa/Nexa-XBold.woff2") format('woff2')
 }
 
 @font-face {
     font-family: "NexaHeavy";
     src: local('NexaHeavy'), 
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-Heavy.woff") format('woff'),
-         url("../src/fonts/Nexa/WEB/NexaText-Trial-Heavy.woff2") format('woff2')
+         url("../src/fonts/Nexa/Nexa-Heavy.woff") format('woff'),
+         url("../src/fonts/Nexa/Nexa-Heavy.woff2") format('woff2')
 }

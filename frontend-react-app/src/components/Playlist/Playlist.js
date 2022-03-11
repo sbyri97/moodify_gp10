@@ -11,17 +11,23 @@ import PlayListSearchModal from "../PlaylistSearchModal";
 import EditPlaylistForm from "./EditPlaylist"
 
 function Playlist() {
-  // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
   const history = useHistory();
   const dispatch = useDispatch();
   const playlistIdParams = useParams();
   const playlistId = playlistIdParams.id;
   const [renderForm, setRenderForm] = useState(false);
-
+  const [showMenu, setShowMenu] = useState(false);
+  const [userOwns, setUserOwns] = useState(false);
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.[playlistId]
   );
+
+  useEffect(() => {
+    if (sessionUser?.id === playlist?.user_id) {
+      setUserOwns(true)
+    }
+  }, [sessionUser])
 
   useEffect(() => {
     dispatch(getPlaylist(playlistId));
@@ -48,11 +54,18 @@ function Playlist() {
 
   }
 
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true)
+  }
+
+
   return (
 <div className="playlist-detail-container">
       <div className="playlist-top-detail-container">
         <div className="playlist-detail-img-container">
-          <img src={playlist?.songs?.[0]?.album_coverart_url} />
+          {/* {sessionUser?.username} */}
+          <img src={playlist?.songs?.[0]?.album_coverart_url} alt="playlist_album_cover"/>
         </div>
         <div className="playlist-detail-text-container">
           <div className="playlist-text">PLAYLIST</div>
@@ -64,24 +77,33 @@ function Playlist() {
           </div>
         </div>
       </div>
-      <div className="playlist-detail-dots-container">
-        <button className="playlist-detail-dot-button">
-          <BsThreeDots className="playlist-detail-dots" />
-        </button>
-      </div>
-      <div className="playlist-song-search">
-        <PlayListSearchModal />
-        <div className="playlist-detail-dropdown">
-          <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
-            Edit Playlist
-          </button>
-          {renderForm && (
-            <EditPlaylistForm hideForm={() => setRenderForm(false)} playlist={playlist} playlistId={playlistId} />
-          )}
-          <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
-            Delete Playlist
+      {userOwns && (
+        <div className="playlist-detail-dots-container">
+          <button className="playlist-detail-dot-button" onClick={openMenu}>
+            <BsThreeDots className="playlist-detail-dots" />
           </button>
         </div>
+      )}
+      <div className="playlist-song-search">
+        <PlayListSearchModal />
+        {showMenu && (
+          <div className="playlist-detail-dropdown">
+            <div className="playlist-detail-dropdown-content">
+              <button className="playlist-detail-edit-btn" onClick={showEditPlaylistForm}>
+                Edit Playlist
+              </button>
+              {renderForm && (
+                <EditPlaylistForm hideForm={() => {
+                  setShowMenu(false)
+                  setRenderForm(false)
+                }} playlist={playlist} playlistId={playlistId} />
+              )}
+              <button className="playlist-detail-delete-btn" onClick={deletePlaylist}>
+                Delete Playlist
+              </button>
+            </div>
+        </div>
+        )}
         <div className="playlist-detail-table-container">
           <table>
             <thead>
@@ -127,7 +149,9 @@ function Playlist() {
                     </NavLink>
                   </td>
                   <td>
-                    <button className="playlist-detail-delete-song">X</button>
+                    {userOwns && (
+                      <button className="playlist-detail-delete-song">X</button>
+                    )}
                   </td>
                 </tr>
               ))}

@@ -70,7 +70,6 @@ export const getPlaylist = (playlistId) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log('here------', data)
     dispatch(loadPlaylist(data))
   }
   return response;
@@ -82,6 +81,7 @@ export const getPlaylists = () => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(loadUserPlaylists(data.playlists))
+    dispatch(loadPlaylists(data.playlists))
   }
   return response;
 }
@@ -99,6 +99,7 @@ export const createPlaylist = ({ name, mood_id, user_id }) => async (dispatch) =
   // if(response.ok) {
   const data = await response.json();
   dispatch(loadUserPlaylists([data]))
+  dispatch(loadPlaylists([data]))
   return data
   // }
 }
@@ -116,7 +117,6 @@ export const editPlaylist = (playlist) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json()
-    console.log('edit data', data)
     dispatch(loadPlaylist(data))
     dispatch(loadUserPlaylists([data]))
     return data

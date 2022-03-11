@@ -9,7 +9,7 @@ const DemoButton = () => {
   const dispatch = useDispatch()
   const handleDemo = async (e) => {
     e.preventDefault();
-    const email = 'admin@moodify.com';
+    const email = 'bobbie@aa.io';
     const password = 'password'
     await dispatch(sessionActions.login(email, password));
 
