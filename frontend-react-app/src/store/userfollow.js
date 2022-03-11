@@ -1,5 +1,5 @@
 const LOAD_USER_INFO = "user/loadUserInfo";
-const FOLLOW_USER = "user/followUser";
+const LOAD_FOLLOWERS = "user/loadFollowers";
 
 // ---------------------------------------
 // ---------------------------------------
@@ -11,9 +11,9 @@ export const loadUserInfo = (user) => {
     user,
   };
 };
-export const followUser = (user) => {
+export const loadFollowers = (user) => {
   return {
-    type: FOLLOW_USER,
+    type: LOAD_FOLLOWERS,
     user,
   };
 };
@@ -44,7 +44,19 @@ export const createFollow = (followId, sessionId) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(followUser(data));
+    dispatch(loadFollowers(data));
+  }
+  return response;
+};
+
+export const deleteFollow = (followId) => async (dispatch) => {
+  const response = await fetch(`/api/users/${Number(followId)}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadFollowers(data));
   }
   return response;
 };
@@ -67,9 +79,9 @@ const userReducer = (state = initialState, action) => {
       newState.following = action.user.userFollows;
       return newState;
     }
-    case FOLLOW_USER: {
+    case LOAD_FOLLOWERS: {
       const newState = { ...state };
-      newState.userFollows = action.user;
+      newState.following = action.user.userFollows;
       return newState;
     }
     default:

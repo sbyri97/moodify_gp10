@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import "./UserProfile.css";
-import { getUserInfo, createFollow } from "../../store/userfollow";
+import {
+  getUserInfo,
+  createFollow,
+  deleteFollow,
+} from "../../store/userfollow";
 
 function UserProfile() {
   const userParam = useParams();
@@ -24,20 +28,24 @@ function UserProfile() {
   const userPlaylists = useSelector(
     (state) => state?.userProfiles?.profileInfo?.userPlaylists
   );
-  const followedUsersMap = useSelector(
-    (state) => state?.userProfiles?.following
-  );
+  const followedUsersMap = useSelector((state) => state?.userProfiles);
 
-  useEffect(() => {
-    const followedUsersIds = followedUsersMap?.map((user) => user.id);
-
-    if (userId.indexOf(followedUsersIds) === -1) setIsFollowing(false);
-    if (userId.indexOf(followedUsersIds) > -1) setIsFollowing(true);
-  }, [followedUsersMap, userId]);
+  // useEffect(() => {
+  //   let followsArr = followedUsersMap?.following
+  //     ?.map((user) => user.id)
+  //     .filter((id) => id == userId);
+  //   if (followsArr.length) setIsFollowing(true);
+  //   else setIsFollowing(false);
+  // }, [userId]);
 
   function followUser() {
     dispatch(createFollow(userId, sessionUser?.id));
-    setIsFollowing(true);
+    toggleFollowing();
+  }
+
+  function unfollowUser() {
+    dispatch(deleteFollow(userId));
+    toggleFollowing();
   }
 
   const toggleFollowing = () => {
@@ -53,16 +61,18 @@ function UserProfile() {
         </div>
         <div className="user-profile-info">
           <h1 className="user-profile-username">{currentUser?.username}</h1>
-          {isFollowing ?
-
-          <button className="user-profile-following-button" onClick={followUser}>
-            Following
-          </button>
-          :
-          <button className="user-profile-follow-button" onClick={followUser}>
-            Follow
-          </button>
-          }
+          {isFollowing ? (
+            <button
+              className="user-profile-following-button"
+              onClick={unfollowUser}
+            >
+              Following
+            </button>
+          ) : (
+            <button className="user-profile-follow-button" onClick={followUser}>
+              Follow
+            </button>
+          )}
         </div>
       </div>
       <div className="mood-playlists-playlist-container">

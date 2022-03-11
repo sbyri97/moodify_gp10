@@ -52,3 +52,17 @@ def userFollow(id):
     follower_dict = [follow.to_dict() for follow in currentFollows]
 
     return {"userFollows": follower_dict}
+
+@user_routes.route('/<int:id>', methods=["DELETE"])
+def userUnfollow(id):
+    user = User.query.get(current_user.id)
+    removeUser = User.query.get(id)
+
+    user.followers.remove(removeUser)
+    db.session.commit()
+
+    currentUser = User.query.get(current_user.id)
+    currentFollows = currentUser.followers
+    follower_dict = [follow.to_dict() for follow in currentFollows]
+
+    return {"userFollows": follower_dict}
