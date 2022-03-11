@@ -70,7 +70,6 @@ export const getPlaylist = (playlistId) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log('here------', data)
     dispatch(loadPlaylist(data))
   }
   return response;
@@ -118,7 +117,6 @@ export const editPlaylist = (playlist) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json()
-    console.log('edit data', data)
     dispatch(loadPlaylist(data))
     dispatch(loadUserPlaylists([data]))
     return data

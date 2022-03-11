@@ -6,7 +6,8 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
     const dispatch = useDispatch()
     const [name, setName] = useState(playlist?.name);
     const [mood, setMood] = useState(playlist?.mood_id);
-    const [errors, setErrors] = useState([])
+    const [validationErrors, setValidationErrors] = useState([]);
+    const [showMenu, setShowMenu] = useState(false);
     const userId = useSelector(state => state.session.user.id);
     const user_id = userId;
     let mood_id = mood;
@@ -14,13 +15,19 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
     const submitEditPlaylistForm = async(e) => {
         e.preventDefault();
 
-        // TO DO: add error handling
         const editedPlaylist = {user_id, mood_id, name, playlistId}
-        const result = dispatch(editPlaylist(editedPlaylist))
+        // const result = dispatch(editPlaylist(editedPlaylist))
 
-         if (result) {
-            hideForm()
-        }
+        //  if (result) {
+        //     hideForm()
+        // }
+
+        const data = await dispatch(editPlaylist(editedPlaylist))
+            if (data && data.errors) {
+                setValidationErrors(data.errors)
+            } else {
+                hideForm()
+            }
 
     }
 
@@ -33,7 +40,7 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
         <div className='playlist-form'>
             <form className='edit-playlist-form' onSubmit={submitEditPlaylistForm}>
             <div className='errors'>
-              {errors.map((error, ind) => (
+              {validationErrors?.map((error, ind) => (
                 <div key={ind}>{error}</div>
               ))}
             </div>
@@ -42,7 +49,7 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
                     </input>
                 </label>
                 <label htmlFor='mood'>
-                    <select name='mood_id' onChange={(e) => setMood(e.target.value)}>
+                    <select name='mood_id' onChange={(e) => setMood(e.target.value)} value={mood}>
                         <option value=''>
                             Select a mood
                         </option>

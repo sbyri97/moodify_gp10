@@ -11,7 +11,6 @@ import PlayListSearchModal from "../PlaylistSearchModal";
 import EditPlaylistForm from "./EditPlaylist"
 
 function Playlist() {
-  // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -19,18 +18,16 @@ function Playlist() {
   const playlistId = playlistIdParams.id;
   const [renderForm, setRenderForm] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  // const [userOwns, setUserOwns] = useState(false)
+  const [userOwns, setUserOwns] = useState(false);
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.[playlistId]
   );
 
-  console.log('playlist', playlist)
-  // TO DO: only show dropdown button if current user is the playlist owner
-  // useEffect(() => {
-  //   if (sessionUser?.id === playlist?.user_id) {
-  //     setUserOwns(true)
-  //   }
-  // }, [sessionUser])
+  useEffect(() => {
+    if (sessionUser?.id === playlist?.user_id) {
+      setUserOwns(true)
+    }
+  }, [sessionUser])
 
   useEffect(() => {
     dispatch(getPlaylist(playlistId));
@@ -62,15 +59,6 @@ function Playlist() {
     setShowMenu(true)
   }
 
-  // useEffect(() => {
-  //   if (!showMenu) return;
-
-  //   const closeMenu = () => {
-  //     setShowMenu(false)
-  //   }
-  //   document.addEventListener('click', closeMenu)
-  //   return () => document.removeEventListener('click', closeMenu);
-  // }, [showMenu])
 
   return (
 <div className="playlist-detail-container">
@@ -88,13 +76,13 @@ function Playlist() {
           </div>
         </div>
       </div>
-      {/* {userOwns && ( */}
+      {userOwns && (
         <div className="playlist-detail-dots-container">
           <button className="playlist-detail-dot-button" onClick={openMenu}>
             <BsThreeDots className="playlist-detail-dots" />
           </button>
         </div>
-      {/* )} */}
+      )}
       <div className="playlist-song-search">
         <PlayListSearchModal />
         {showMenu && (
@@ -160,7 +148,9 @@ function Playlist() {
                     </NavLink>
                   </td>
                   <td>
-                    <button className="playlist-detail-delete-song">X</button>
+                    {userOwns && (
+                      <button className="playlist-detail-delete-song">X</button>
+                    )}
                   </td>
                 </tr>
               ))}
