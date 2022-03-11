@@ -13,6 +13,7 @@ import {
 function UserProfile() {
   const userParam = useParams();
   const userId = userParam.userId;
+  console.log("userID====", userId);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,6 +38,9 @@ function UserProfile() {
   function unfollowUser() {
     dispatch(deleteFollow(userId));
   }
+
+  const isOwner = userId == sessionUser?.id;
+  console.log("OWNEr====", isOwner);
 
   return (
     <div className="user-profile-page-container">

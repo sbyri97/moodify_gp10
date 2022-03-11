@@ -34,7 +34,7 @@ def user(id):
     follower_dict = [follow.to_dict() for follow in profileUserFollows]
 
     isFollowing = "none"
-    followerIds = [follower.id for follower in follows_dict]
+    followerIds = [follower["id"] for follower in follows_dict]
     if id in followerIds:
         isFollowing = "true"
     else:
