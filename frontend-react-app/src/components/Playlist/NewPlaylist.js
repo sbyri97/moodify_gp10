@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPlaylist } from '../../store/playlist';
 
-const NewPlaylistForm = ({hideForm}) => {
+const NewPlaylistForm = () => {
     const dispatch = useDispatch()
     const [name, setName] = useState('');
     const [mood, setMood] = useState('')
@@ -17,9 +17,10 @@ const NewPlaylistForm = ({hideForm}) => {
         const data = await dispatch(createPlaylist({name, mood_id, user_id}))
                 if (data && data.errors) {
                     setValidationErrors(data.errors)
-                } else {
-                    hideForm()
                 }
+                // else {
+                //     hideForm()
+                // }
     }
 
 
