@@ -4,14 +4,12 @@ import NewPlaylistForm from './NewPlaylist';
 
 function PlaylistFormModal() {
     const [showModal, setShowModal] = useState(false)
-    // const [renderForm, setRenderForm] = useState(false);
 
     return (
         <div className='playlistFormModal'>
-            <button className='editPlaylistButton' onClick={() => setShowModal(true)}>Edit Playlist Name</button>
+            <button className='createPlaylistButton' onClick={() => setShowModal(true)}>Create New Playlist</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    {/* <NewPlaylistForm hideForm={() => setRenderForm(false)}/> */}
                     <NewPlaylistForm className='Modal'/>
                 </Modal>
             )}
