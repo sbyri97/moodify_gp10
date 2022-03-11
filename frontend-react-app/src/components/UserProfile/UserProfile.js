@@ -51,9 +51,15 @@ function UserProfile() {
         {isOwner ? (
           <div className="user-profile-info">
             <h1 className="user-profile-username">MY PLAYLISTS</h1>
-            <div className="user-follower-count">
-              {followCount?.length} Followers
-            </div>
+            {followCount?.length == 1 ? (
+              <div className="user-follower-count">
+                {followCount?.length} Follower
+              </div>
+            ) : (
+              <div className="user-follower-count">
+                {followCount?.length} Followers
+              </div>
+            )}
           </div>
         ) : (
           <div className="user-profile-info">
