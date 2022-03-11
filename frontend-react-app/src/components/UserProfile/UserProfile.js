@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
+import { GiMusicalNotes } from "react-icons/gi";
 import "./UserProfile.css";
 import {
   getUserInfo,
@@ -60,7 +61,15 @@ function UserProfile() {
         </div>
       </div>
       <div className="mood-playlists-playlist-container">
-        {!isFollowing && <h2 className="not-following-message">Follow this user to see their playlists!</h2>}
+        {!isFollowing && (
+          <div className="not-following-div">
+            <GiMusicalNotes className="musical-note" />
+            <h2 className="not-following-message">
+              Follow this user to see their playlists!
+            </h2>
+            <GiMusicalNotes className="musical-note" />
+          </div>
+        )}
         {isFollowing &&
           userPlaylists?.map((playlist, i) => (
             <NavLink to={`/playlists/${playlist?.id}`} key={i}>

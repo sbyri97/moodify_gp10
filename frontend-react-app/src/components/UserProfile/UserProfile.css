@@ -63,7 +63,19 @@
   background-color: #ff073a;
 }
 
+.not-following-div {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .not-following-message {
   color: white;
   font-weight: lighter;
+}
+
+.musical-note {
+  color: white;
+  font-size: 30px;
 }
