@@ -8,7 +8,10 @@ function PlaylistFormModal() {
 
     return (
         <div className='playlistFormModal'>
-            <button className='createPlaylistButton' onClick={() => setShowModal(true)}>Create New Playlist</button>
+            <button className='createPlaylistButton' onClick={() => setShowModal(true)}>
+                <i className='fa-solid fa-square-plus'></i>
+                <div className='create-new-playlist-icon-text'>Create New Playlist</div>
+            </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)} >
                     <NewPlaylistForm className='Modal' closeModal={() => setShowModal(false)}/>
@@ -18,5 +21,4 @@ function PlaylistFormModal() {
     )
 }
 
-export default PlaylistFormModal;   
- 
+export default PlaylistFormModal;
