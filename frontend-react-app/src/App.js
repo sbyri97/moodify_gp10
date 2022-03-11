@@ -25,53 +25,34 @@ function App() {
 
   useEffect(() => {
     dispatch(authenticate()).then(() => setLoaded(true));
-    console.log('TESTING LOADED', loaded);
   }, [dispatch]);
 
   if (!loaded) {
-    console.log("TEST=====", loaded);
     return null;
   }
 
   return (
     <>
       <NavBar />
-      {console.log('TESTING LOADED #2', loaded)}
-
       <Switch>
-        {/* <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route> */}
-        {/* <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route> */}
-        {/* <ProtectedRoute path="/users" exact={true}>
-          <UsersList />
-        </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
-          <User />
-        </ProtectedRoute> */}
-        {/* <ProtectedRoute path="/" exact={true}>
-          <Home />
-        </ProtectedRoute> */}
-        <Route path="/users/:userId" exact={true}>
           <UserProfile />
-        </Route>
-        <Route path="/artists/:artistName">
+        </ProtectedRoute>
+        <ProtectedRoute path="/artists/:artistName">
           <Artists />
-        </Route>
-        <Route path="/albums/:albumName">
+        </ProtectedRoute>
+        <ProtectedRoute path="/albums/:albumName">
           <Albums />
-        </Route>
-        <Route path="/search" exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path="/search" exact={true}>
           <MainSearch />
-        </Route>
-        <Route path="/playlists/:id">
+        </ProtectedRoute>
+        <ProtectedRoute path="/playlists/:id">
           <Playlist />
-        </Route>
-        <Route path="/moods/:moodId">
+        </ProtectedRoute>
+        <ProtectedRoute path="/moods/:moodId">
           <MoodPlaylists />
-        </Route>
+        </ProtectedRoute>
         <Route path="/" exact={true}>
           <Home />
         </Route>
