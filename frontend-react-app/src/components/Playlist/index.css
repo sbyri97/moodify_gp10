@@ -1,0 +1,26 @@
+.createPlaylistButton {
+    color: #b3b3b3;
+    font-family: NexaBold;
+    font-size: 15px;
+    padding-left: 20px;
+    /* margin-bottom: 10px; */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.createPlaylistButton:hover {
+    color: white;
+}
+
+.create-new-playlist-icon-text {
+    padding-left: 9px;
+
+}
+
+
+/* .create-new-playlist-icon-text:hover .fa-solid .fa-square-plus {
+    color: white;
+} */

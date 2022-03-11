@@ -51,8 +51,6 @@ const SideBar = () => {
             <div className='sidebar-playlists-div'>
                 <div className='sidebar-playlist-button-div'>
                     <PlaylistFormModal />
-                    <i className='fa-solid fa-square-plus'></i>
-                    Create New Playlist
                 </div>
             </div>
             <div className='sidebar-line'></div>
