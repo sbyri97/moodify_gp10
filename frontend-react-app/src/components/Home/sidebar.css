@@ -1,6 +1,6 @@
 .sidebar {
     background-color: #000;
-    width: 240px !important;
+    width: 260px !important;
     height: 100%;
     z-index: 2;
     float: left;
@@ -11,6 +11,7 @@
     margin-bottom: 350px;
     overflow-y: scroll;
 }
+
 .sidebar::-webkit-scrollbar {
     width: 8px;
 }
@@ -21,9 +22,9 @@
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    background-color: #b3b3b3;
+    background-color: #4d4d4d;
     border-radius: 20px;
-    border: 3px solid #b3b3b3; 
+    border: 3px solid #4d4d4d; 
 }
 
 .sidebar-logo {
@@ -58,7 +59,7 @@
 .sidebar-navlink-playlist {
     font-family: NexaLight;
     padding-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 13px;
     color: #b3b3b3;
     text-decoration: none;
@@ -72,11 +73,16 @@
     padding-left: 5px;
 }
 
+.navbar-line {
+    border: 1px solid white;
+}
+
 .sidebar-new-playlist {
     color: #b3b3b3;
     font-family: NexaBold;
     font-size: 15px;
     padding-left: 20px;
+    margin-bottom: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
