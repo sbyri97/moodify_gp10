@@ -60,4 +60,10 @@
   opacity: 0.8;
   cursor: pointer;
   transform: scale(1.1);
+  background-color: #ff073a;
+}
+
+.not-following-message {
+  color: white;
+  font-weight: lighter;
 }

@@ -33,7 +33,14 @@ def user(id):
     profileUserFollows = user.followers
     follower_dict = [follow.to_dict() for follow in profileUserFollows]
 
-    return {"userInfo": user_dict, "userPlaylists": playlists_dict, "userFollows": follows_dict, "userFollowers": follower_dict }
+    isFollowing = "none"
+    followerIds = [follower.id for follower in follows_dict]
+    if id in followerIds:
+        isFollowing = "true"
+    else:
+        isFollowing = ""
+
+    return {"userInfo": user_dict, "userPlaylists": playlists_dict, "userFollows": follows_dict, "userFollowers": follower_dict, "isFollowing": isFollowing }
 
 
 @user_routes.route('/<int:id>', methods=["POST"])
@@ -51,7 +58,7 @@ def userFollow(id):
     currentFollows = currentUser.followers
     follower_dict = [follow.to_dict() for follow in currentFollows]
 
-    return {"userFollows": follower_dict}
+    return {"userFollows": follower_dict, "isFollowing": "true"}
 
 @user_routes.route('/<int:id>', methods=["DELETE"])
 def userUnfollow(id):
@@ -65,4 +72,4 @@ def userUnfollow(id):
     currentFollows = currentUser.followers
     follower_dict = [follow.to_dict() for follow in currentFollows]
 
-    return {"userFollows": follower_dict}
+    return {"userFollows": follower_dict, "isFollowing": ""}

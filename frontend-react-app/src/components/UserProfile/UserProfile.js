@@ -14,8 +14,6 @@ function UserProfile() {
   const userId = userParam.userId;
   const dispatch = useDispatch();
 
-  const [isFollowing, setIsFollowing] = useState();
-
   useEffect(() => {
     dispatch(getUserInfo(userId));
   }, [dispatch, userId]);
@@ -28,30 +26,16 @@ function UserProfile() {
   const userPlaylists = useSelector(
     (state) => state?.userProfiles?.profileInfo?.userPlaylists
   );
-  const followedUsersMap = useSelector((state) => state?.userProfiles);
 
-  // useEffect(() => {
-  //   let followsArr = followedUsersMap?.following
-  //     ?.map((user) => user.id)
-  //     .filter((id) => id == userId);
-  //   if (followsArr.length) setIsFollowing(true);
-  //   else setIsFollowing(false);
-  // }, [userId]);
+  const isFollowing = useSelector((state) => state?.userProfiles?.isFollowing);
 
   function followUser() {
     dispatch(createFollow(userId, sessionUser?.id));
-    toggleFollowing();
   }
 
   function unfollowUser() {
     dispatch(deleteFollow(userId));
-    toggleFollowing();
   }
-
-  const toggleFollowing = () => {
-    const prevValue = isFollowing;
-    setIsFollowing(!prevValue);
-  };
 
   return (
     <div className="user-profile-page-container">
@@ -76,18 +60,20 @@ function UserProfile() {
         </div>
       </div>
       <div className="mood-playlists-playlist-container">
-        {userPlaylists?.map((playlist, i) => (
-          <NavLink to={`/playlists/${playlist?.id}`} key={i}>
-            <div className="mood-playlists-card">
-              <div className="mood-playlists-image-container">
-                <img src={playlist?.mood_image} />
+        {!isFollowing && <h2 className="not-following-message">Follow this user to see their playlists!</h2>}
+        {isFollowing &&
+          userPlaylists?.map((playlist, i) => (
+            <NavLink to={`/playlists/${playlist?.id}`} key={i}>
+              <div className="mood-playlists-card">
+                <div className="mood-playlists-image-container">
+                  <img src={playlist?.mood_image} />
+                </div>
+                <div className="mood-playlist-name-container">
+                  <h2 className="mood-playlist-name">{playlist?.name}</h2>
+                </div>
               </div>
-              <div className="mood-playlist-name-container">
-                <h2 className="mood-playlist-name">{playlist?.name}</h2>
-              </div>
-            </div>
-          </NavLink>
-        ))}
+            </NavLink>
+          ))}
       </div>
     </div>
   );

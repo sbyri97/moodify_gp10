@@ -65,7 +65,12 @@ export const deleteFollow = (followId) => async (dispatch) => {
 // ---------------------------------------
 // ---------------------------------------
 
-const initialState = { profileInfo: {}, followers: {}, following: {} };
+const initialState = {
+  profileInfo: {},
+  followers: {},
+  following: {},
+  isFollowing: {},
+};
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -77,11 +82,13 @@ const userReducer = (state = initialState, action) => {
       };
       newState.followers = action.user.userFollowers;
       newState.following = action.user.userFollows;
+      newState.isFollowing = action.user.isFollowing;
       return newState;
     }
     case LOAD_FOLLOWERS: {
       const newState = { ...state };
       newState.following = action.user.userFollows;
+      newState.isFollowing = action.user.isFollowing;
       return newState;
     }
     default:
