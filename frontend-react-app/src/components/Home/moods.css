@@ -1,5 +1,3 @@
-
-
 :root {
     --darkest: #212121;
     --dark: #121212;
@@ -21,31 +19,32 @@
 }
 
 .moodsContainer {
-    position: absolute;
     margin-left: 230px;
-    margin-right: 200px;
     background-color: #1c1c1c;
     width: 100%;
+}
+
+.homePageADiv {
+    padding-left: 12px;
 }
 
 .h3Div {
     background-color: #1c1c1c;
     color: white;
     padding-top: 50px;
-    /* left: 200%; */
-    /* display: grid; */
     padding-left: 100px;
     font-size: 30px;
 }
 
 .homePageMoodCardsMainContainer {
     background-color: #1c1c1c;
-    /* padding: 5rem 0; */
     display: grid;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 80px;
     column-gap: 1em;
+    box-shadow: white;
+    padding-top: 20px;
 }
 
 .homePageMoodCardH,
@@ -57,41 +56,33 @@
 .homePageMoodCardA,
 .homePageMoodCardHeart,
 .homePageMoodCardP {
-    /* justify-content: center;
-    align-items: center; */
     width: 200px;
     height: 275px;
-    /* margin-bottom: 50px; */
     padding-left: 20px;
     padding-top: 20px;
     padding-right: 20px;
-    /* margin-left: 25px; */
-    /* margin-right: 110px; */
     background-color: #171717;
     border-radius: 12px;
-    /* gap: 50px; */
     border-width: 5px;
     border-style: solid;
     border-radius: 12px;
     border-color: #171717;
-    justify-self: center;
+    box-shadow: 5px 5px 10px rgba(43,43,43,0.8);
+    
 }
 
 .homePageMoodCardH:hover {
     cursor: pointer;
     opacity: 1;
-    background: #2a2a2a;
-    /* transition: background-color .3s ease; */
+    background: #434343;
     border-width: 5px;
     border-style: solid;
     border-radius: 12px;
     border-color: var(--happy);
     transition-property: transform box-shadow !important;
 	transition-duration: 1s !important;
-	/* transition-timing-function: cubic-bezier(.3,0,0,1) !important; */
     transition-timing-function: ease-in-out;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    /* transform: scale(1.1); */
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 .homePageMoodCardE:hover {
     cursor: pointer;
@@ -103,9 +94,8 @@
     border-color: var(--energetic);
     transition-property: transform box-shadow !important;
 	transition-duration: 1s !important;
-	/* transition-timing-function: cubic-bezier(.3,0,0,1) !important; */
     transition-timing-function: ease-in-out;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
 .homePageMoodCardR:hover {
@@ -118,9 +108,8 @@
     border-color: var(--romantic);
     transition-property: transform box-shadow !important;
 	transition-duration: 1s !important;
-	/* transition-timing-function: cubic-bezier(.3,0,0,1) !important; */
     transition-timing-function: ease-in-out;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
 .homePageMoodCardS:hover {
@@ -133,9 +122,8 @@
     border-color: var(--serene);
     transition-property: transform box-shadow !important;
 	transition-duration: 1s !important;
-	/* transition-timing-function: cubic-bezier(.3,0,0,1) !important; */
     transition-timing-function: ease-in-out;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
 .homePageMoodCardCh:hover {
@@ -148,9 +136,8 @@
     border-color: var(--chill);
     transition-property: transform box-shadow !important;
 	transition-duration: 1s !important;
-	/* transition-timing-function: cubic-bezier(.3,0,0,1) !important; */
     transition-timing-function: ease-in-out;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
 .homePageMoodCardG:hover {
@@ -163,9 +150,8 @@
     border-color: var(--gloomy);
     transition-property: transform box-shadow !important;
 	transition-duration: 1s !important;
-	/* transition-timing-function: cubic-bezier(.3,0,0,1) !important; */
     transition-timing-function: ease-in-out;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
 .homePageMoodCardA:hover {
@@ -178,9 +164,8 @@
     border-color: var(--angry);
     transition-property: transform box-shadow !important;
 	transition-duration: 1s !important;
-	/* transition-timing-function: cubic-bezier(.3,0,0,1) !important; */
     transition-timing-function: ease-in-out;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
 .homePageMoodCardHeart:hover {
@@ -193,9 +178,8 @@
     border-color: var(--heartbreak);
     transition-property: transform box-shadow !important;
 	transition-duration: 1s !important;
-	/* transition-timing-function: cubic-bezier(.3,0,0,1) !important; */
     transition-timing-function: ease-in-out;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
 .homePageMoodCardP:hover {
@@ -208,9 +192,8 @@
     border-color: var(--productive);
     transition-property: transform box-shadow !important;
 	transition-duration: 1s !important;
-	/* transition-timing-function: cubic-bezier(.3,0,0,1) !important; */
     transition-timing-function: ease-in-out;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
 .homePageCardHappy,

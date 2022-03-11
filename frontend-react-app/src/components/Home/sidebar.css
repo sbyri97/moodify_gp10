@@ -1,31 +1,27 @@
 .sidebar {
     background-color: #000;
     width: 240px !important;
-    /* width: 25%; */
-    height: 200% !important;
-    overflow: hidden;
+    height: 100vh;
     z-index: 2;
     float: left;
-    /* position: relative; */
-    /* overflow: hidden; */
-    position: absolute;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
     /* display: block; */
-    margin-bottom: 200px;
+    margin-bottom: 300px;
     overflow-y: scroll;
 }
 
 .sidebar-logo {
     color: #b3b3b3;
     padding-left: 20px;
-    /* font-family: 'Gotham Medium'; */
 }
 
 .sidebar-ul {
     color: #b3b3b3;
     list-style: none;
     padding-left: 20px;
-    /* position: absolute; */
-
 }
 
 .sidebar-li {
