@@ -1,16 +1,29 @@
 .sidebar {
     background-color: #000;
     width: 240px !important;
-    height: 100vh;
+    height: 100%;
     z-index: 2;
     float: left;
     overflow: hidden;
     position: fixed;
     left: 0;
     top: 0;
-    /* display: block; */
-    margin-bottom: 300px;
+    margin-bottom: 350px;
     overflow-y: scroll;
+}
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    /* display: none; */
+    scrollbar-color: black;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #b3b3b3;
+    border-radius: 20px;
+    border: 3px solid #b3b3b3; 
 }
 
 .sidebar-logo {
