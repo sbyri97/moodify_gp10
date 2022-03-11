@@ -35,9 +35,21 @@ function App() {
     <>
       <NavBar />
       <Switch>
-        <Route path="/" exact={true}>
+        {/* <Route path='/login' exact={true}>
+          <LoginForm />
+        </Route> */}
+        {/* <Route path='/sign-up' exact={true}>
+          <SignUpForm />
+        </Route> */}
+        {/* <ProtectedRoute path="/users" exact={true}>
+          <UsersList />
+        </ProtectedRoute>
+        <ProtectedRoute path="/users/:userId" exact={true}>
+          <User />
+        </ProtectedRoute> */}
+        {/* <ProtectedRoute path="/" exact={true}>
           <Home />
-        </Route>
+        </ProtectedRoute> */}
         <Route path="/users/:userId" exact={true}>
           <UserProfile />
         </Route>
@@ -55,6 +67,9 @@ function App() {
         </Route>
         <Route path="/moods/:moodId">
           <MoodPlaylists />
+        </Route>
+        <Route path="/" exact={true}>
+          <Home />
         </Route>
       </Switch>
       <AudioPlayer />

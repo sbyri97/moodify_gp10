@@ -7,6 +7,7 @@ mood_routes = Blueprint('moods', __name__)
 
 @mood_routes.route('/<int:id>')
 # DO WE NEED LOGIN REQUIRED? route should only be accessible by logged in user
+# @login_required
 def mood(id):
   mood = Mood.query.get(id)
   if mood is None:
