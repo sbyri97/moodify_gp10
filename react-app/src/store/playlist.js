@@ -73,7 +73,7 @@ export const getPlaylist = (playlistId) => async (dispatch) => {
 }
 
 export const getPlaylists = () => async (dispatch) => {
-  const response = await fetch('/api/playlists')
+  const response = await fetch('/api/playlists/')
 
   if (response.ok) {
     const data = await response.json();
