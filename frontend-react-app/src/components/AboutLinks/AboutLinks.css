@@ -74,7 +74,7 @@
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
-  box-shadow: 0 0 5px #cdf564;
+  box-shadow: 0 0 5px #edff00ff;
   margin-right: 2em;
   margin-bottom: 2em;
 }
@@ -133,5 +133,10 @@
 }
 .about-mood4 {
   margin-top: -5px;
-  color: #cdf564;
+  color: #edff00ff;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
