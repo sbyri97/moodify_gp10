@@ -42,9 +42,6 @@ export const deletePlaylist = (playlistId) => {
 
 // ---------------------------------------
 
-
-// ---------------------------------------
-
 export const getArtistSongs = (artistName) => async (dispatch) => {
   const response = await fetch(`/api/artists/${artistName}`);
 
@@ -96,12 +93,12 @@ export const createPlaylist = ({ name, mood_id, user_id }) => async (dispatch) =
       user_id
     })
   })
-  // if(response.ok) {
+
   const data = await response.json();
   dispatch(loadUserPlaylists([data]))
   dispatch(loadPlaylists([data]))
   return data
-  // }
+
 }
 
 export const editPlaylist = (playlist) => async (dispatch) => {

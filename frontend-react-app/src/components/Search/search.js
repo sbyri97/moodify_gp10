@@ -24,7 +24,6 @@ export default function MainSearch() {
     useEffect(() => {
         const delaySearch = setTimeout(() => {
             dispatch(libraryActions.searchAllItems(itemSearch))
-            // Send Axios request here
           }, 500)
 
           return () => clearTimeout(delaySearch)

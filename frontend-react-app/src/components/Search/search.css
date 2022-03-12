@@ -3,7 +3,6 @@
     max-width: 100%;
     margin-left: 200px;
     background-color: #1c1c1c;
-    /* width: 100%; */
     padding-top: 90px;
     padding-left: 100px;
     height: 100vh;
@@ -14,14 +13,9 @@
     color: white;
     height: 100vh;
     background-color: #1c1c1c;
-    /* margin-bottom: 550px; */
     overflow-y: scroll;
     padding-bottom: 60px;
 }
-
-/* .songResultsMainContainer {
-    width: 100vw;
-} */
 
 .songResultsDetailContainer {
     display: flex;
@@ -30,7 +24,6 @@
     color: white;
     padding: 0px 32px;
     margin-right: 100px;
-    /* margin-bottom: 350px; */
     overflow-y: scroll;
 }
 
@@ -62,8 +55,9 @@
 
 .results-playlist-cards-text {
     font-family:NexaExtraLight;
-    font-size: 16px;
+    font-size: 14px;
     margin-left: 10px;
+    font-family: "NexaLight";
 }
 
 .playlist-card-img {
@@ -99,7 +93,6 @@
 }
 
 .preSearchBrowsePlaylistsText{
-    /* padding-left: 0px; */
     font-family: 'NexaHeavy';
 }
 
@@ -119,6 +112,7 @@
     border: none;
     padding-left: 40px;
 }
+
 
 .songResultTitleText{
     font-family: 'NexaHeavy';
@@ -161,19 +155,14 @@
 
 
 .playlistSearchFullPage{
-    /* background: rgb(18, 18, 18); */
     max-width: 100%;
-    /* margin-left: 20px; */
     background-color: #1c1c1c;
-    /* width: 100%; */
-    /* padding-top: 90px; */
     padding-left: 250px;
     max-height: 50vh;
     overflow-y: scroll;
 }
 
 .playlistSearchFormContainer{
-    /* padding-left: 70px; */
     padding-right: 250px;
     height: 60px;
 }
@@ -184,7 +173,6 @@
     border-radius: 50px;
     border: none;
     margin-top: 10px;
-    /* padding-left: 40px; */
 
 }
 

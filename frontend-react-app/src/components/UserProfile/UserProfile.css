@@ -29,6 +29,8 @@
 
 .user-profile-username {
   color: white;
+  font-family: "NexaHeavy";
+  font-size: 35px;
 }
 
 .user-circle {
@@ -80,11 +82,13 @@
   width: 600px;
   justify-content: space-between;
   align-items: center;
+  margin-top: 25px;
 }
 
 .not-following-message {
   color: white;
-  font-weight: lighter;
+  font-size: 20px;
+  font-family: "NexaThin";
 }
 
 .musical-note {

@@ -9,6 +9,7 @@
   flex-direction: column;
   background-color: rgb(18, 18, 18);
   align-items: center;
+  margin-top: 100px;
   padding: 30px 20px;
 }
 
@@ -18,6 +19,7 @@
   line-height: 40px;
   inline-size: 250px;
   overflow-wrap: break-word;
+  font-family: "NexaHeavy";
 }
 
 .formMainDiv {
@@ -39,6 +41,7 @@
 .formInputIndiv::placeholder {
   color: rgb(182, 182, 182);
   font-size: 12px;
+  font-family: "NexaThin";
 }
 
 .forminputs input {
@@ -46,8 +49,7 @@
   border-radius: 5px;
   border: 1px solid rgb(0, 0, 0);
   margin-bottom: 15px;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    "Helvetica Neue", sans-serif;
+  font-family: "NexaLight";
 }
 
 .submitBtn {
@@ -60,12 +62,15 @@
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  font-family: "NexaExtraBold";
 }
 
 .orBox {
   margin-top: 25px;
   color: white;
+  font-family: "NexaLight";
 }
+
 
 .loginFromSignUp {
   color: white;
@@ -75,6 +80,11 @@
 
 .loginFromSignUpBtn {
   margin-left: 10px;
+}
+
+.loginFromSignUpTxt {
+  font-family: "NexaLight";
+  font-size: 15px;
 }
 
 .demoUserLogBtn {
@@ -87,6 +97,7 @@
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  font-family: 'NexaHeavy';
 }
 
 .loginButton {

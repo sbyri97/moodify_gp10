@@ -54,7 +54,6 @@ export const searchAllItems = (nameOfItem) => async(dispatch) => {
       return data;
     }
   }
-  // console.log(response);
 
 }
 

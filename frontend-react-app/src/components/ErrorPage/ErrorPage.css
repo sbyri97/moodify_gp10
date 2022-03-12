@@ -1,0 +1,34 @@
+.error-main-container {
+    height: 100vh;
+    margin-left: 6.8em;
+    padding-top: 50px;
+    padding-left: 150px;
+    padding-right: 5em;
+    background-color: black;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+.error-404 {
+    font-size: 100px;
+    color: white;
+    margin-left: 40px;
+    font-family: "NexaHeavy";
+    font-size: 50px;
+    color: #cdf564;
+}
+
+.error-not-found {
+    font-size: 100px;
+    color: white;
+    margin-top: 5px;
+    margin-left: 40px;
+    font-family: "NexaExtraBold";
+    font-size: 40px;
+    color: #cdf564;
+}
+
+.error-gif {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 45px;
+}

@@ -1,10 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./moods.css";
 
 const Moods = () => {
-  const sessionUser = useSelector((state) => state.session?.user);
 
   return (
     <div className="h3Div">

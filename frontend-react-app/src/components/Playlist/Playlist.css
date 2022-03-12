@@ -53,12 +53,14 @@
 }
 
 .playlist-text {
+  font-family: "NexaBold";
   margin-top: 8em;
   font-weight: bold;
   font-size: 0.8em;
 }
 
 .playlist-detail-username {
+  font-family: "NexaBold";
   font-weight: bold;
   font-size: 0.8em;
 }
@@ -87,6 +89,7 @@
 }
 
 .playlist-detail-table-header {
+  font-family: "NexaBold";
   width: 200px;
 }
 
@@ -96,8 +99,12 @@
 }
 
 .playlist-detail-table-container td {
+  font-family: "NexaThin";
   text-align: left;
 }
+/* .playlist-detail-table-container td:hover {
+  color: white;
+} */
 
 .playlist-detail-table-header-play {
   width: 50px;

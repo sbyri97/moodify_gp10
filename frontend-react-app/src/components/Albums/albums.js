@@ -8,7 +8,6 @@ import "../Playlist/Playlist.css";
 
 function Albums() {
 
-  // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
 
   const dispatch = useDispatch();
@@ -16,7 +15,6 @@ function Albums() {
   const albumName = albumParam.albumName;
   console.log(albumName);
   const songs = useSelector(
-    // (state) => state?.playlist?.playlists?.playlist_info
     (state) => state.playlist.playlists?.[albumName]
   );
 

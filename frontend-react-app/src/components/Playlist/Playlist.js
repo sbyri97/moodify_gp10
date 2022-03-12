@@ -158,7 +158,7 @@ function Playlist() {
                   </button>
                 </td>
                 <td className="playlist-song-img-container">
-                  <img src={song?.album_coverart_url} />
+                  <img src={song?.album_coverart_url} alt="song_cover"/>
                 </td>
                 <td>{song?.song_title}</td>
                 <td className="playlist-detail-grey-text">
