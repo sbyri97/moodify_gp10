@@ -1,0 +1,15 @@
+.about-page-container {
+  padding-top: 90px;
+  padding-left: 300px;
+  padding-bottom: 100px;
+  background-color: #1c1c1c;
+  height: 100vh;
+}
+
+.about-top-container {
+  border-bottom: 1px solid #b3b3b3;
+}
+
+.about-top-container h1 {
+  color: white;
+}
