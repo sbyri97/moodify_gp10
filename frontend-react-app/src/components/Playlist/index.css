@@ -94,28 +94,30 @@
 .new-playlist-form-select {
     color: white;
     font-size: 12px;
-    width:100%;
-    margin:auto;
+    width:110%;
     border-radius: 5px;
     padding: 10px 8px;
     background-color: #515151;
+    border: transparent;
 }
 
 .new-playlist-form-label {
     padding-bottom: 5%;
-    width:100%
+    width:100%;
+
 }
 
 .new-playlist-form-label input{
     color: white;
     font-size: 12px;
+    width:100%;
+    border: transparent;
 }
 
 .playlist-form-input-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     padding-top: 10px;
     width: 40%;
 }
