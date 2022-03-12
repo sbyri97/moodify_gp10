@@ -29,13 +29,9 @@ const AudioPlayer = () => {
     if (progressBar.current) {
       progressBar.current.max = seconds;
     }
-  }, [
-    audioPlayer?.current?.loadedmetadata,
-    audioPlayer?.current?.readyState,
-  ]);
+  }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
 
   useEffect(() => {
-
     if (songURL) {
       playSong();
     }
@@ -65,9 +61,11 @@ const AudioPlayer = () => {
     if (!prevValue) {
       audioPlayer?.current?.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
+      console.log("CurrentTime====== ", audioPlayer.current.currentTime);
     } else {
       audioPlayer.current.pause();
       cancelAnimationFrame(animationRef.current);
+      console.log("CurrentTime====== ", audioPlayer.current.currentTime);
     }
   };
 
@@ -114,7 +112,6 @@ const AudioPlayer = () => {
     audioPlayer.current.volume = 1;
     setMuteState(false);
   };
-
 
   return (
     <div className="audioPlayer">
