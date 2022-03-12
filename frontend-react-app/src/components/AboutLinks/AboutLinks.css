@@ -14,6 +14,8 @@
 .about-bottom-container {
   display: flex;
   margin-top: 1em;
+  max-width: 700px;
+  flex-wrap: wrap;
 }
 
 /* ----------------------------------- */
@@ -32,6 +34,7 @@
   padding-right: 15px;
   box-shadow: 0 0 5px #f037a5;
   margin-right: 2em;
+  margin-bottom: 2em;
 }
 .about-card-container1 {
   display: flex;
@@ -45,6 +48,7 @@
   padding-right: 15px;
   box-shadow: 0 0 5px #ff073a;
   margin-right: 2em;
+  margin-bottom: 2em;
 }
 .about-card-container2 {
   display: flex;
@@ -56,8 +60,9 @@
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
-  box-shadow: 0 0 5px #f037a5;
+  box-shadow: 0 0 5px #f62681;
   margin-right: 2em;
+  margin-bottom: 2em;
 }
 .about-card-container3 {
   display: flex;
@@ -69,8 +74,9 @@
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
-  box-shadow: 0 0 5px #f037a5;
+  box-shadow: 0 0 5px #cdf564;
   margin-right: 2em;
+  margin-bottom: 2em;
 }
 
 /* ----------------------------------- */
@@ -123,9 +129,9 @@
 }
 .about-mood3 {
   margin-top: -5px;
-  color: #f037a5;
+  color: #f62681;
 }
 .about-mood4 {
   margin-top: -5px;
-  color: #f037a5;
+  color: #cdf564;
 }

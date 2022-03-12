@@ -47,6 +47,42 @@ function AboutLinks() {
             </div>
           </div>
         </div>
+        <div className="about-card-container2">
+          <div className="about-top-card-container">
+            <div className="about-socials-container">
+              <BsGithub />
+              <BsLinkedin className="about-linkedin" />
+            </div>
+            <h2>Alex Smaldone</h2>
+          </div>
+          <div className="about-bottom-card-container">
+            <div className="about-instrument-container">
+              <GiSaxophone className="about-instrument" />
+            </div>
+            <div className="about-text-container">
+              <p>Moodify Playlist Pick:</p>
+              <p className="about-mood3">Romantic</p>
+            </div>
+          </div>
+        </div>
+        <div className="about-card-container3">
+          <div className="about-top-card-container">
+            <div className="about-socials-container">
+              <BsGithub />
+              <BsLinkedin className="about-linkedin" />
+            </div>
+            <h2>Sai Byri</h2>
+          </div>
+          <div className="about-bottom-card-container">
+            <div className="about-instrument-container">
+              <GiDrumKit className="about-instrument" />
+            </div>
+            <div className="about-text-container">
+              <p>Moodify Playlist Pick:</p>
+              <p className="about-mood4">Chill</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
