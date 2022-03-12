@@ -38,7 +38,6 @@
 .playlist-detail-dots-container {
   display: flex;
   align-items: center;
-  /* margin-top: 2em; */
 }
 
 .playlist-detail-dot-button {
@@ -181,6 +180,7 @@
   background-color: #242424;
   position: absolute;
   border-radius: 3px;
+  justify-content: center;
 }
 
 .playlist-detail-edit-btn {
@@ -189,16 +189,18 @@
   border: none;
   cursor: pointer;
   width: 100%;
-  padding: 5px;
 }
 
 .playlist-detail-delete-btn {
+  color: #b3b3b3;
+  font-family: NexaBold;
+  font-size: 15px;
+  padding: 10px;
   background-color: transparent;
-  color: white;
   border: none;
   cursor: pointer;
-  width: 100%;
-  padding: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .playlist-detail-edit-btn:hover {
@@ -207,13 +209,14 @@
 
 .playlist-detail-delete-btn:hover {
   background-color: #b3b3b3;
+    color: white;
 }
 
 .playlist-user-controls {
   display: flex;
   align-items: center;
   margin-top: 2em;
-  /* justify-content: space-between; */
+  width: 100%;
 }
 
 .playlist-search-main-div {

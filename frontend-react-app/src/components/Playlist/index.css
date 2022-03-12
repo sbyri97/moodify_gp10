@@ -10,7 +10,19 @@
     justify-content: space-between;
 }
 
-.createPlaylistButton:hover {
+.editPlaylistButton {
+    color: #b3b3b3;
+    font-family: NexaBold;
+    font-size: 15px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.editPlaylistButton:hover {
     color: white;
 }
 
