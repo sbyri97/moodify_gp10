@@ -8,7 +8,6 @@ const NewPlaylistForm = ({ closeModal }) => {
     const [name, setName] = useState('');
     const [mood, setMood] = useState('');
     const [validationErrors, setValidationErrors] = useState([]);
-    const [showModal, setShowModal] = useState(false)
     const userId = useSelector(state => state?.session?.user?.id);
     const user_id = userId;
     let mood_id = mood;

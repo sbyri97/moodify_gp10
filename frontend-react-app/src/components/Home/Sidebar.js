@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPlaylists } from '../../store/playlist';
-// import NewPlaylistForm from '../Playlist/NewPlaylist';
 import PlaylistFormModal from '../Playlist';
 import './sidebar.css';
 
@@ -14,7 +13,6 @@ const SideBar = () => {
 
     const playlistsObj = useSelector(state => state.playlist?.playlists);
 
-    const [renderForm, setRenderForm] = useState(false);
 
     useEffect(() => {
         dispatch(getPlaylists())
@@ -22,9 +20,11 @@ const SideBar = () => {
 
     const playlists = Object.values(playlistsObj).filter(playlist => playlist?.user_id === userId)
 
-    const showNewPlaylistForm = (e) => {
-        setRenderForm(true);
-    }
+    playlists.sort((a, b) => {
+        const aId = a.id
+        const bId = b.id
+        return (bId - aId)
+    })
 
     return (
     <div className='sidebar'>
