@@ -1,6 +1,4 @@
-from flask import Blueprint, abort, request, redirect
-from flask_login import login_required
-from sqlalchemy import null
+from flask import Blueprint, abort, request
 from app.models import Playlist, Library, db
 from app.forms.new_playlist_form import NewPlaylistForm
 
@@ -14,31 +12,23 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-        #   removed:  errorMessages.append(f'{field} : {error}')
             errorMessages.append(f'{error}')
     return errorMessages
 
 
 
-# get single playlist
 @playlist_routes.route('/<int:id>')
 def playlist(id):
-    # lib_tests = Library.query.filter(Library.id == playlist_songs.c.library_id, playlist_songs.c.playlist_id == id).all()
     playlist = Playlist.query.get(id)
 
-    # error handling
     if playlist is None:
         abort(404)
 
     playlist_songs = playlist.library
     playlist_songs_dicts = [song.to_dict() for song in playlist_songs]
-    # playlists = Playlist.query.join(Library).filter(Playlist.id == int(id))
-    # dict_playlist = [playlist.to_dict() for playlist in playlists]
-    # return {"playlist": playlist.to_dict()}
     return playlist.to_dict()
 
 
-# get all playlists for a user
 @playlist_routes.route('/')
 def playlists():
     playlists = Playlist.query.all()
@@ -46,7 +36,6 @@ def playlists():
 
     return { "playlists": playlists_dicts }
 
-# create new playlist
 @playlist_routes.route('/', methods=["POST"])
 def post_playlist():
     form = NewPlaylistForm()
@@ -54,7 +43,7 @@ def post_playlist():
 
     if form.validate_on_submit():
         playlist = Playlist(name=form.data['name'], mood_id=form.data['mood_id'], user_id=form.data['user_id'])
-        
+
         db.session.add(playlist)
 
         db.session.commit()
@@ -63,7 +52,6 @@ def post_playlist():
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}
 
-# edit playlist
 @playlist_routes.route('/<int:id>', methods=["PUT"])
 def edit_playlist(id):
     form = NewPlaylistForm()
@@ -113,7 +101,6 @@ def delete_song_from_playlist():
     playlist = Playlist.query.get(playlistId)
     return playlist.to_dict()
 
-# delete playlist
 @playlist_routes.route('/<int:id>', methods=["DELETE"])
 def delete_playlist(id):
     playlist = Playlist.query.get(id)

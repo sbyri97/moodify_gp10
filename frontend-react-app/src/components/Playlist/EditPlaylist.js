@@ -30,59 +30,6 @@ const EditPlaylistForm = ({playlist, playlistId, closeModal}) => {
             dispatch(getPlaylist(playlistId));
           }, [dispatch, playlistId]);
 
-
-    // return (
-    //     <div className='edit-playlist-form-main-container'>
-    //         <form className='edit-playlist-form' onSubmit={submitEditPlaylistForm}>
-    //         <div className='errors'>
-    //           {validationErrors?.map((error, ind) => (
-    //             <div key={ind}>{error}</div>
-    //           ))}
-    //         </div>
-    //             <label htmlFor='name'>
-    //                 <input type='text' name='name' value={name} onChange={(e) => setName(e.target.value)}>
-    //                 </input>
-    //             </label>
-    //             <label htmlFor='mood'>
-    //                 <select name='mood_id' onChange={(e) => setMood(e.target.value)} value={mood}>
-    //                     <option value=''>
-    //                         Select a mood
-    //                     </option>
-    //                     <option value='1'>
-    //                         Happy
-    //                     </option>
-    //                     <option value='2'>
-    //                         Energetic
-    //                     </option>
-    //                     <option value='3'>
-    //                         Romantic
-    //                     </option>
-    //                     <option value='4'>
-    //                         Serene
-    //                     </option>
-    //                     <option value='5'>
-    //                         Chill
-    //                     </option>
-    //                     <option value='6'>
-    //                         Gloomy
-    //                     </option>
-    //                     <option value='7'>
-    //                         Angry
-    //                     </option>
-    //                     <option value='8'>
-    //                         Heartbreak
-    //                     </option>
-    //                     <option value='9'>
-    //                         Productive
-    //                     </option>
-    //                 </select>
-    //             </label>
-    //             <button type='submit'>
-    //                 Edit
-    //             </button>
-    //         </form>
-    //     </div>
-    // )
     return (
         <div className='playlist-form'>
             <form className='new-playlist-form' onSubmit={submitEditPlaylistForm}>
