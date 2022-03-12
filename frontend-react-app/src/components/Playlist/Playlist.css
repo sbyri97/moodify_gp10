@@ -1,13 +1,10 @@
 .playlist-detail-container {
-  /* width: 100vw;
-  height: 100vh; */
   padding-top: 90px;
   padding-left: 100px;
   background-image: linear-gradient(180deg, #b3b3b3, black);
   color: white;
   max-width: 100%;
   height: 100vh;
-  /* position: absolute; */
   margin-left: 200px;
   padding-left: 100px;
 }
@@ -38,7 +35,6 @@
 .playlist-detail-dots-container {
   display: flex;
   align-items: center;
-  /* margin-top: 2em; */
 }
 
 .playlist-detail-dot-button {
@@ -188,6 +184,7 @@
   background-color: #242424;
   position: absolute;
   border-radius: 3px;
+  justify-content: center;
 }
 
 .playlist-detail-edit-btn {
@@ -196,16 +193,18 @@
   border: none;
   cursor: pointer;
   width: 100%;
-  padding: 5px;
 }
 
 .playlist-detail-delete-btn {
+  color: #b3b3b3;
+  font-family: NexaBold;
+  font-size: 15px;
+  padding: 10px;
   background-color: transparent;
-  color: white;
   border: none;
   cursor: pointer;
-  width: 100%;
-  padding: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .playlist-detail-edit-btn:hover {
@@ -214,13 +213,14 @@
 
 .playlist-detail-delete-btn:hover {
   background-color: #b3b3b3;
+    color: white;
 }
 
 .playlist-user-controls {
   display: flex;
   align-items: center;
   margin-top: 2em;
-  /* justify-content: space-between; */
+  width: 100%;
 }
 
 .playlist-search-main-div {

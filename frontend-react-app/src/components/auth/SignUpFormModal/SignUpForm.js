@@ -62,7 +62,7 @@ const SignUpForm = () => {
         <div className='spotifyLogo'>
         </div>
         <form className='formMainDiv' onSubmit={onSignUp}>
-          <div>
+          <div className='errors'>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
@@ -130,12 +130,12 @@ const SignUpForm = () => {
         <div className='orBox'>
           <div className='orElement'>------------------ OR ------------------</div>
         </div>
-        <div className='loginFromSignUp'>
+        {/* <div className='loginFromSignUp'>
           <h2 className='loginFromSignUpTxt'>Already on Spotify?</h2>
           <div className='loginFromSignUpBtn'>
               <LoginFormModal />
           </div>
-        </div>
+        </div> */}
         <div className='demoUserBox'>
           <DemoUser />
         </div>
