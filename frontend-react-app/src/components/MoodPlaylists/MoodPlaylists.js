@@ -44,10 +44,10 @@ function MoodPlaylists() {
     const volumeButton = document.querySelector(".volumeButton");
     volumeButton.style.color = `${moodColors[moodIndex]}`;
 
-    moodCardsArray.current.forEach(
+    moodCardsArray?.current?.forEach(
       (card) => (card.style.boxShadow = `0px 0px 8px ${moodColors[moodIndex]}`)
     );
-    moodPlaylistArray.current.forEach(
+    moodPlaylistArray?.current?.forEach(
       (playlistName) =>
         (playlistName.style.textShadow = `0px 0px 5px ${moodColors[moodIndex]}`)
     );
