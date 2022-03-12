@@ -69,7 +69,7 @@ const SignUpForm = () => {
         <div className='spotifyLogo'>
         </div>
         <form className='formMainDiv' onSubmit={onSignUp}>
-          <div>
+          <div className='errors'>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
