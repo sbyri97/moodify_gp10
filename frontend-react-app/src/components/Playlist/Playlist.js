@@ -13,6 +13,7 @@ import { getLibrary } from "../../store/library";
 import PSearch from "../PlaylistSearchModal/playlistSearch";
 import PlayListSearchModal from "../PlaylistSearchModal";
 import EditPlaylistForm from "./EditPlaylist";
+import EditPlaylistModal from './EditPlaylistModal'
 
 function Playlist() {
   const sessionUser = useSelector((state) => state?.session?.user);
@@ -25,6 +26,7 @@ function Playlist() {
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.[playlistId]
   );
+  
   const moodIndex = playlist?.mood_id - 1;
 
   const userOwns = sessionUser?.id === playlist?.user_id;
@@ -40,9 +42,9 @@ function Playlist() {
   };
 
   // TO DO: change to modal
-  const showEditPlaylistForm = (e) => {
-    setRenderForm(true);
-  };
+  // const showEditPlaylistForm = (e) => {
+  //   setRenderForm(true);
+  // };
 
   const deletePlaylist = () => {
     const result = dispatch(deletePlaylistThunk(playlistId));
@@ -127,13 +129,12 @@ function Playlist() {
       {showMenu && (
         <div className="playlist-detail-dropdown">
           <div className="playlist-detail-dropdown-content">
-            <button
-              className="playlist-detail-edit-btn"
-              onClick={showEditPlaylistForm}
-            >
-              Edit Playlist
-            </button>
-            {renderForm && (
+            <div className="playlist-detail-edit-btn"
+              // onClick={showEditPlaylistForm}
+              >
+              <EditPlaylistModal playlist={playlist} playlistId={playlistId}/>
+            </div>
+            {/* {renderForm && (
               <EditPlaylistForm
                 hideForm={() => {
                   setShowMenu(false);
@@ -142,7 +143,7 @@ function Playlist() {
                 playlist={playlist}
                 playlistId={playlistId}
               />
-            )}
+            )} */}
             <button
               className="playlist-detail-delete-btn"
               onClick={deletePlaylist}

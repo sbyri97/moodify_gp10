@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editPlaylist, getPlaylist } from '../../store/playlist';
+// import 'EditPlaylist.css'
 
-const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
+const EditPlaylistForm = ({playlist, playlistId}) => {
     const dispatch = useDispatch()
     const [name, setName] = useState(playlist?.name);
     const [mood, setMood] = useState(playlist?.mood_id);
@@ -16,17 +17,12 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
         e.preventDefault();
 
         const editedPlaylist = {user_id, mood_id, name, playlistId}
-        // const result = dispatch(editPlaylist(editedPlaylist))
-
-        //  if (result) {
-        //     hideForm()
-        // }
 
         const data = await dispatch(editPlaylist(editedPlaylist))
             if (data && data.errors) {
                 setValidationErrors(data.errors)
             } else {
-                hideForm()
+                // hideForm()
             }
 
     }
@@ -37,7 +33,7 @@ const EditPlaylistForm = ({hideForm, playlist, playlistId}) => {
 
 
     return (
-        <div className='playlist-form'>
+        <div className='edit-playlist-form-main-container'>
             <form className='edit-playlist-form' onSubmit={submitEditPlaylistForm}>
             <div className='errors'>
               {validationErrors?.map((error, ind) => (
