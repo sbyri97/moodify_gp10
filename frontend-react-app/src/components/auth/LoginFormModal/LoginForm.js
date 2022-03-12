@@ -75,12 +75,12 @@ const LoginForm = () => {
           <div className='orBox'>
             <div className='orElement'>------------------ OR ------------------</div>
           </div>
-          <div className='signUpFromLogin'>
+          {/* <div className='signUpFromLogin'>
             <h2 className='signUpFromLoginTxt'>Don't have an account?</h2>
             <div className='signUpFromLoginBtn'>
               <SignUpFormModal />
             </div>
-          </div>
+          </div> */}
           <div className='demoUserBox'>
           <DemoUser />
           </div>

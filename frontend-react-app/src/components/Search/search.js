@@ -4,6 +4,7 @@ import { useState } from "react";
 import * as libraryActions from '../../store/library'
 import '../Playlist/Playlist.css'
 import './search.css'
+import { FaSearch } from "react-icons/fa";
 import SongSearch from "./songSearch";
 import AlbumSearch from "./albumSearch";
 import ArtistSearch from "./artistSearch";
@@ -35,7 +36,7 @@ export default function MainSearch() {
                 <form>
                     <input className="search-bar-main-search"
                     text='text'
-                    placeholder="search for songs or artist"
+                    placeholder="Search for songs, albums, or artists"
                     value={itemSearch}
                     onChange={(e) => {
                         setItemSearch(e.target.value)
