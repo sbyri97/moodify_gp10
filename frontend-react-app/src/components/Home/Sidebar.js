@@ -20,6 +20,11 @@ const SideBar = () => {
 
     const playlists = Object.values(playlistsObj).filter(playlist => playlist?.user_id === userId)
 
+    playlists.sort((a, b) => {
+        const aId = a.id
+        const bId = b.id
+        return (bId - aId)
+    })
 
     return (
     <div className='sidebar'>
