@@ -58,14 +58,14 @@
 .homePageMoodCardP {
   width: 200px;
   height: 275px;
-  padding-left: 20px;
+  padding-left: 10px;
   padding-top: 20px;
   padding-right: 20px;
   background-color: #171717;
   border-radius: 12px;
   border-width: 5px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 3px;
   border-color: #171717;
   box-shadow: 5px 5px 10px rgba(43, 43, 43, 0.8);
 }
@@ -76,7 +76,7 @@
   background: #434343;
   border-width: 5px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 3px;
   border-color: var(--happy);
   transition-property: transform box-shadow !important;
   transition-duration: 1s !important;
@@ -89,7 +89,7 @@
   background: #2a2a2a;
   border-width: 5px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 3px;
   border-color: var(--energetic);
   transition-property: transform box-shadow !important;
   transition-duration: 1s !important;
@@ -103,7 +103,7 @@
   background: #2a2a2a;
   border-width: 5px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 3px;
   border-color: var(--romantic);
   transition-property: transform box-shadow !important;
   transition-duration: 1s !important;
@@ -117,7 +117,7 @@
   background: #2a2a2a;
   border-width: 5px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 3px;
   border-color: var(--serene);
   transition-property: transform box-shadow !important;
   transition-duration: 1s !important;
@@ -131,7 +131,7 @@
   background: #2a2a2a;
   border-width: 5px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 3px;
   border-color: var(--chill);
   transition-property: transform box-shadow !important;
   transition-duration: 1s !important;
@@ -145,7 +145,7 @@
   background: #2a2a2a;
   border-width: 5px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 3px;
   border-color: var(--gloomy);
   transition-property: transform box-shadow !important;
   transition-duration: 1s !important;
@@ -159,7 +159,7 @@
   background: #2a2a2a;
   border-width: 5px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 3px;
   border-color: var(--angry);
   transition-property: transform box-shadow !important;
   transition-duration: 1s !important;
@@ -173,7 +173,7 @@
   background: #2a2a2a;
   border-width: 5px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 3px;
   border-color: var(--heartbreak);
   transition-property: transform box-shadow !important;
   transition-duration: 1s !important;
@@ -187,7 +187,7 @@
   background: #2a2a2a;
   border-width: 5px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 3px;
   border-color: var(--productive);
   transition-property: transform box-shadow !important;
   transition-duration: 1s !important;
@@ -204,9 +204,9 @@
 .homePageCardAngry,
 .homePageCardHeartbreak,
 .homePageCardProductive {
-  width: 175px;
-  height: 170px;
-  border-radius: 12px;
+  width: 195px;
+  height: 185px;
+  border-radius: 3px;
 }
 
 .homeCardImageText {

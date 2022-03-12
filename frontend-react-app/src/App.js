@@ -14,6 +14,7 @@ import MoodPlaylists from "./components/MoodPlaylists/MoodPlaylists";
 import UserProfile from "./components/UserProfile/UserProfile";
 import SideBar from "./components/Home/Sidebar";
 import UnauthenticatedUser from "./components/auth/TestSignUp";
+import Error from './components/ErrorPage/ErrorPage';
 
 
 function App() {
@@ -55,6 +56,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/" exact={true}>
           <Home />
+        </Route>
+        <Route path="*">
+          <Error />
         </Route>
       </Switch>
       <AudioPlayer />
