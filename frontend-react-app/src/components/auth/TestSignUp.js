@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import LoginFormModal from './LoginFormModal';
 import "./SignUpFormModal/SignUpForm.css"
 import SignUpFormModal from './SignUpFormModal';

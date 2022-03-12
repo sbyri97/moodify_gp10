@@ -1,15 +1,15 @@
 @font-face {
-    font-family: "NexaLight";
-    src: local('NexaLight'), 
-    url("../src/fonts/Nexa/Nexa-Light.woff") format('woff'),
-    url("../src/fonts/Nexa/Nexa-Light.woff2") format('woff2')
-}
-
-@font-face {
     font-family: "NexaThin";
     src: local('NexaThin'), 
     url("../src/fonts/Nexa/Nexa-Thin.woff") format('woff'),
     url("../src/fonts/Nexa/Nexa-Thin.woff2") format('woff2')
+}
+
+@font-face {
+    font-family: "NexaLight";
+    src: local('NexaLight'), 
+    url("../src/fonts/Nexa/Nexa-Light.woff") format('woff'),
+    url("../src/fonts/Nexa/Nexa-Light.woff2") format('woff2')
 }
 
 @font-face {

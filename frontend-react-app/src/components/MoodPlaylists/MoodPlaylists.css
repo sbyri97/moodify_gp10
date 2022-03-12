@@ -51,6 +51,7 @@
   text-shadow: black 0px 0px 5px;
   text-decoration: none;
   text-align: center;
+  font-family: NexaThin;
 }
 
 .mood-playlist-name-container {
@@ -61,6 +62,7 @@
 .mood-playlists-mood {
   color: var(--happy);
   text-shadow: white 0px 0px 2px;
+  font-family: NexaHeavy;
 }
 
 a:link {

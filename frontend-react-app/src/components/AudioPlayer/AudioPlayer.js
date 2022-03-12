@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { FiVolume2, FiVolumeX } from "react-icons/fi";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import "./AudioPlayer.css";
 
@@ -36,8 +36,7 @@ const AudioPlayer = () => {
   ]);
 
   useEffect(() => {
-    // console.log("isPlaying STATE=====", isPlaying);
-    // togglePlayPause();
+
     if (songURL) {
       playSong();
     }
@@ -117,26 +116,6 @@ const AudioPlayer = () => {
     setMuteState(false);
   };
 
-  // const backThirty = () => {
-  //   progressBar.current.value = Number(progressBar.current.value - 30);
-  //   changeRange();
-  // };
-
-  // const forwardThirty = () => {
-  //   progressBar.current.value = Number(progressBar.current.value + 30);
-  //   changeRange();
-  // };
-
-  {
-    /* <button className="forwardBackward" onClick={backThirty}>
-    <BsArrowLeftShort /> 30
-  </button> */
-  }
-  {
-    /* <button className="forwardBackward" onClick={forwardThirty}>
-    30 <BsArrowRightShort />
-  </button> */
-  }
 
   return (
     <div className="audioPlayer">

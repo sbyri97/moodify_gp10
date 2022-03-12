@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FaUserCircle, FaCaretDown, FaCaretUp, FaRegIdCard } from "react-icons/fa";
@@ -18,6 +17,12 @@ const NavBar = () => {
     <nav className='main-navbar-container'>
       {(!sessionUser) ?
           <div className='main-navbar-logout-items-container'>
+            <div className='navbar-demo-container'>
+                <div className='demo-btn'>
+                  <DemoUser />
+                </div>
+            </div>
+            <div className='navbar-line'></div>
             <div className='navbar-demo-container'>
                 <div className='demo-btn'>
                   <DemoUser />

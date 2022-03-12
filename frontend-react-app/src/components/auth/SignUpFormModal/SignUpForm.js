@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp,login } from '../../../store/session';
+import { signUp } from '../../../store/session';
 import LoginFormModal from '../LoginFormModal';
 import DemoUser from '../../NavBar/demouser'
 
@@ -28,14 +28,7 @@ const SignUpForm = () => {
     }
     return setErrors(['Both Passwords Must Match'])
   }
-  //     return(dispatch(signUp(username, email, password)))
-  //       .catch(async(res) => {
-  //         const data = await res
-  //         if(data) setErrors(data)
-  //       })
-  //   }
-  //   return setErrors(['Both passwords must match'])
-  // }
+
   const updateFirstName = (e) => {
     setFirstName(e.target.value);
   };
@@ -69,7 +62,7 @@ const SignUpForm = () => {
         <div className='spotifyLogo'>
         </div>
         <form className='formMainDiv' onSubmit={onSignUp}>
-          <div>
+          <div className='errors'>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
@@ -137,12 +130,12 @@ const SignUpForm = () => {
         <div className='orBox'>
           <div className='orElement'>------------------ OR ------------------</div>
         </div>
-        <div className='loginFromSignUp'>
+        {/* <div className='loginFromSignUp'>
           <h2 className='loginFromSignUpTxt'>Already on Spotify?</h2>
           <div className='loginFromSignUpBtn'>
               <LoginFormModal />
           </div>
-        </div>
+        </div> */}
         <div className='demoUserBox'>
           <DemoUser />
         </div>

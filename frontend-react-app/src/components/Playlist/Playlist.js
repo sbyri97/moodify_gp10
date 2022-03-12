@@ -10,9 +10,8 @@ import {
   deleteSongFromPlaylist,
 } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
-import PSearch from "../PlaylistSearchModal/playlistSearch";
 import PlayListSearchModal from "../PlaylistSearchModal";
-import EditPlaylistForm from "./EditPlaylist";
+import EditPlaylistModal from './EditPlaylistModal'
 
 function Playlist() {
   const sessionUser = useSelector((state) => state?.session?.user);
@@ -20,11 +19,11 @@ function Playlist() {
   const dispatch = useDispatch();
   const playlistIdParams = useParams();
   const playlistId = playlistIdParams.id;
-  const [renderForm, setRenderForm] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const playlist = useSelector(
     (state) => state?.playlist?.playlists?.[playlistId]
   );
+
   const moodIndex = playlist?.mood_id - 1;
 
   const userOwns = sessionUser?.id === playlist?.user_id;
@@ -39,10 +38,6 @@ function Playlist() {
     dispatch(getLibrary(numId));
   };
 
-  // TO DO: change to modal
-  const showEditPlaylistForm = (e) => {
-    setRenderForm(true);
-  };
 
   const deletePlaylist = () => {
     const result = dispatch(deletePlaylistThunk(playlistId));
@@ -115,7 +110,7 @@ function Playlist() {
       {userOwns && (
         <div className="playlist-user-controls">
           <div className="playlist-detail-dots-container">
-            <button className="playlist-detail-dot-button" onClick={openMenu}>
+            <button className="playlist-detail-dot-button" onClick={() => setShowMenu(!showMenu)}>
               <BsThreeDots className="playlist-detail-dots" />
             </button>
           </div>
@@ -127,27 +122,13 @@ function Playlist() {
       {showMenu && (
         <div className="playlist-detail-dropdown">
           <div className="playlist-detail-dropdown-content">
-            <button
-              className="playlist-detail-edit-btn"
-              onClick={showEditPlaylistForm}
-            >
-              Edit Playlist
-            </button>
-            {renderForm && (
-              <EditPlaylistForm
-                hideForm={() => {
-                  setShowMenu(false);
-                  setRenderForm(false);
-                }}
-                playlist={playlist}
-                playlistId={playlistId}
-              />
-            )}
+            <div className="playlist-detail-edit-btn">
+              <EditPlaylistModal playlist={playlist} playlistId={playlistId} className='playlist-form-modal'/>
+            </div>
             <button
               className="playlist-detail-delete-btn"
-              onClick={deletePlaylist}
-            >
-              Delete Playlist
+              onClick={deletePlaylist}>
+              Delete
             </button>
           </div>
         </div>
@@ -177,7 +158,7 @@ function Playlist() {
                   </button>
                 </td>
                 <td className="playlist-song-img-container">
-                  <img src={song?.album_coverart_url} />
+                  <img src={song?.album_coverart_url} alt="song_cover"/>
                 </td>
                 <td>{song?.song_title}</td>
                 <td className="playlist-detail-grey-text">
