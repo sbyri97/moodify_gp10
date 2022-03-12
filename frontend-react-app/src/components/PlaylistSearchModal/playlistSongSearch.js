@@ -19,7 +19,6 @@ export default function PlaylistSongSearch() {
         dispatch(getLibrary(numId));
       };
 
-      console.log('playlistId=======', playlistId)
 
     const songs = useSelector((state) => state?.library?.itemLibrary?.songs)
 
@@ -60,7 +59,7 @@ export default function PlaylistSongSearch() {
                                     <td className="playlist-song-img-container">
                                         <img src={song?.album_coverart_url} alt="album_cover"/>
                                     </td>
-                                    <td>{song?.song_title}</td>
+                                    <td className="playlist-detail-grey-text">{song?.song_title}</td>
                                     <td className="playlist-detail-grey-text">
                                         <NavLink
                                             to={`/albums/${song?.album_name}`}
@@ -76,7 +75,7 @@ export default function PlaylistSongSearch() {
                                         </NavLink>
                                     </td>
                                     <td className="playlist-detail-grey-text">
-                                        <button onClick={(e) => addSong(song?.id, e)}>+</button>
+                                        <button className="playlist-song-add-btn" onClick={(e) => addSong(song?.id, e)}>+</button>
                                     </td>
                                 </tr>
                             )}

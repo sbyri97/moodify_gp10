@@ -50,13 +50,16 @@
 }
 
 .results-playlists-cards{
-    width: 100%;
+    background-color: #1c1c1c;
     display: grid;
-    grid-template-columns: repeat(3, 225px);
-    grid-template-rows: auto;
-    place-content: center;
-    gap: 1em;
+    margin-bottom: 150px;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 80px;
+    column-gap: 1em;
+    box-shadow: white;
+    padding-top: 20px;
 }
+
 .results-playlist-cards-text {
     font-family:NexaExtraLight;
     font-size: 16px;
@@ -70,21 +73,36 @@
 }
 
 .results-playlists-outer-indiv-card{
-    border: 12px solid white
+    width: 200px;
+    height: 275px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    background-color: #171717;
+    border-radius: 12px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: #171717;
+    box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%);
+    text-decoration: none;
+    color: white;
 }
 
+.results-playlists-outer-indiv-card:visited{
+    text-decoration: none;
+    color: white;
+}
 .noResultsSearchText {
-    font-family: NexaHeavy;
+    font-family: 'NexaHeavy';
+    color: white;
 }
 
 .preSearchBrowsePlaylistsText{
-    padding-left: 100px;
-    font-family: NexaHeavy;
+    /* padding-left: 0px; */
+    font-family: 'NexaHeavy';
 }
 
-.search-bar-main-search {
-    margin-left: 100px;
-}
 
 .searchFormContainer {
     margin-bottom: 10px;
@@ -102,19 +120,82 @@
     padding-left: 40px;
 }
 
-/* .searchFormContainer form{
-    display: flex;
-    flex-direction: row;
+.songResultTitleText{
+    font-family: 'NexaHeavy';
+    color: white;
+}
 
-} */
-/* .search-bar-main-search::placeholder{
-    padding-left: 40px;
-} */
+.playlist-song-add-btn {
+    color: white;
+    font-family: 'NexaThin';
+    font-size: 30px;
+    border: none;
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+}
 
-/* .search-bar-main-search::text{
+.playlist-song-add-btn:hover {
+    border: solid 1px white;
+    border-radius: 10px;
+}
+
+.playlist-add-song-btn {
+    color: white;
+    font-family: 'NexaThin';
+    font-size: 13px;
+    border: none;
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 7px;
+    border: solid 1px white;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.playlist-add-song-btn:hover {
+    border: solid 2px white;
+    border-radius: 10px;
+}
+
+
+.playlistSearchFullPage{
+    /* background: rgb(18, 18, 18); */
+    max-width: 100%;
+    /* margin-left: 20px; */
+    background-color: #1c1c1c;
+    /* width: 100%; */
+    /* padding-top: 90px; */
+    padding-left: 250px;
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+.playlistSearchFormContainer{
+    /* padding-left: 70px; */
+    padding-right: 250px;
+    height: 60px;
+}
+
+.playlistSearchFormContainer input{
+    width: 364px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    margin-top: 10px;
+    /* padding-left: 40px; */
+
+}
+
+.playlistSearchFormContainer input::placeholder{
     padding-left: 40px;
-} */
-/* .preSearchMainContainer {
-    position: absolute;
-    margin-left: 180px;
-} */
+}
+
+.playlistSearchFormContainer input::text{
+    padding-left: 40px;
+}
+
+.playlist-detail-grey-text {
+    color: white;
+}

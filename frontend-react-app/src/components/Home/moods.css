@@ -68,6 +68,8 @@
   border-radius: 12px;
   border-color: #171717;
   box-shadow: 5px 5px 10px rgba(43, 43, 43, 0.8);
+  /* box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%); */
+
 }
 
 .homePageMoodCardH:hover {

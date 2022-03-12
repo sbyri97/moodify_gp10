@@ -10,7 +10,7 @@ function PlayListSearchModal() {
 
     return (
       <div className='playlist-search-modal'>
-        <button className='playlist-add-song-btn' onClick={() => setShowModal(true)}>Add a song</button>
+        <button className='playlist-add-song-btn' onClick={() => setShowModal(true)}>FIND SONGS</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <PSearch className='Modal'/>

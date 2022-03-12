@@ -49,7 +49,7 @@ export default function SongSearch() {
                                     <td className="playlist-song-img-container">
                                         <img src={song?.album_coverart_url} alt="album_cover"/>
                                     </td>
-                                    <td>{song?.song_title}</td>
+                                    <td className="playlist-detail-grey-text">{song?.song_title}</td>
                                     <td className="playlist-detail-grey-text">
                                         <NavLink
                                             to={`/albums/${song?.album_name}`}

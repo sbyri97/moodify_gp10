@@ -23,6 +23,12 @@ const NavBar = () => {
                 </div>
             </div>
             <div className='navbar-line'></div>
+            <div className='navbar-demo-container'>
+                <div className='demo-btn'>
+                  <DemoUser />
+                </div>
+            </div>
+            <div className='navbar-line'></div>
             <div className='navbar-signup-login-container'>
               <div className='navbar-signup'>
                 <div className='signup-btn'>

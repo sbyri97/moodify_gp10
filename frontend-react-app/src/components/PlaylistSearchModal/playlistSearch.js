@@ -27,8 +27,9 @@ export default function PSearch() {
             <div className="playlistSearchFormContainer">
                 <form>
                     <input
+                    className="playlist-search-form-input"
                     text='text'
-                    placeholder="search for songs or artist"
+                    placeholder="Search for songs"
                     value={playlistSongSearch}
                     onChange={(e) => {
                         setPlaylistSongSearch(e.target.value)
@@ -38,7 +39,7 @@ export default function PSearch() {
                 </form>
             </div>
             <div className="playlistResultsMainContainer">
-                {(!playlistSongSearch) ? "Search For a Song" :
+                {(!playlistSongSearch) ? null :
                 <div>
                     <PlaylistSongSearch />
                     <NoResultsPlaylistSearch results={results} />
