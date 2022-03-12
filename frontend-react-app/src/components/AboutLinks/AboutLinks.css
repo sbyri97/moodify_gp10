@@ -4,12 +4,128 @@
   padding-bottom: 100px;
   background-color: #1c1c1c;
   height: 100vh;
+  color: white;
 }
 
 .about-top-container {
   border-bottom: 1px solid #b3b3b3;
 }
 
-.about-top-container h1 {
-  color: white;
+.about-bottom-container {
+  display: flex;
+  margin-top: 1em;
+}
+
+/* ----------------------------------- */
+/* ----------------------------------- */
+/* ----------------------------------- */
+
+.about-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 270px;
+  height: 150px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 0 0 5px #f037a5;
+  margin-right: 2em;
+}
+.about-card-container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 270px;
+  height: 150px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 0 0 5px #ff073a;
+  margin-right: 2em;
+}
+.about-card-container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 270px;
+  height: 150px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 0 0 5px #f037a5;
+  margin-right: 2em;
+}
+.about-card-container3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 270px;
+  height: 150px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 0 0 5px #f037a5;
+  margin-right: 2em;
+}
+
+/* ----------------------------------- */
+/* ----------------------------------- */
+/* ----------------------------------- */
+
+.about-top-card-container {
+  display: flex;
+  align-items: center;
+  /* border-bottom: 1px solid #b3b3b3; */
+}
+
+.about-socials-container {
+  min-width: 50px;
+  display: flex;
+}
+
+.about-linkedin {
+  margin-left: 5px;
+}
+
+.about-bottom-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-instrument {
+  font-size: 40px;
+}
+
+.about-text-container {
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* ----------------------------------- */
+/* ----------------------------------- */
+/* ----------------------------------- */
+
+.about-mood1 {
+  margin-top: -5px;
+  color: #f037a5;
+}
+.about-mood2 {
+  margin-top: -5px;
+  color: #ff073a;
+}
+.about-mood3 {
+  margin-top: -5px;
+  color: #f037a5;
+}
+.about-mood4 {
+  margin-top: -5px;
+  color: #f037a5;
 }
