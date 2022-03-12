@@ -60,6 +60,7 @@ function App() {
         </Route>
         <Route path="/about" exact={true}>
           <AboutLinks />
+        </Route>
         <Route path="*">
           <Error />
         </Route>
