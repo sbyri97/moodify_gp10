@@ -1,17 +1,27 @@
 .searchFullPage {
     background: rgb(18, 18, 18);
     max-width: 100%;
-    margin-left: 180px;
-
+    margin-left: 200px;
+    background-color: #1c1c1c;
+    /* width: 100%; */
+    padding-top: 90px;
+    padding-left: 100px;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .resultsMainContainer {
     color: white;
+    height: 100vh;
+    background-color: #1c1c1c;
+    /* margin-bottom: 550px; */
+    overflow-y: scroll;
+    padding-bottom: 60px;
 }
 
-.songResultsMainContainer {
+/* .songResultsMainContainer {
     width: 100vw;
-}
+} */
 
 .songResultsDetailContainer {
     display: flex;
@@ -19,7 +29,9 @@
     padding: 10px 5px;
     color: white;
     padding: 0px 32px;
-    margin-right: 50px;
+    margin-right: 100px;
+    /* margin-bottom: 350px; */
+    overflow-y: scroll;
 }
 
 .songResultsImageContainer {
@@ -74,6 +86,34 @@
     margin-left: 100px;
 }
 
+.searchFormContainer {
+    margin-bottom: 10px;
+}
+
+.searchFormContainer form{
+    width: 200px
+}
+
+.search-bar-main-search {
+    width: 364px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    padding-left: 40px;
+}
+
+/* .searchFormContainer form{
+    display: flex;
+    flex-direction: row;
+
+} */
+/* .search-bar-main-search::placeholder{
+    padding-left: 40px;
+} */
+
+/* .search-bar-main-search::text{
+    padding-left: 40px;
+} */
 /* .preSearchMainContainer {
     position: absolute;
     margin-left: 180px;
