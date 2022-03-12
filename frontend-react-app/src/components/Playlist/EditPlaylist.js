@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editPlaylist, getPlaylist } from '../../store/playlist';
 // import 'EditPlaylist.css'
 
-const EditPlaylistForm = ({playlist, playlistId}) => {
+const EditPlaylistForm = ({playlist, playlistId, closeModal}) => {
     const dispatch = useDispatch()
     const [name, setName] = useState(playlist?.name);
     const [mood, setMood] = useState(playlist?.mood_id);
@@ -21,10 +21,10 @@ const EditPlaylistForm = ({playlist, playlistId}) => {
         const data = await dispatch(editPlaylist(editedPlaylist))
             if (data && data.errors) {
                 setValidationErrors(data.errors)
-            } else {
-                // hideForm()
+            } 
+            if (data && !data.errors) {
+                closeModal()
             }
-
     }
 
     useEffect(() => {
