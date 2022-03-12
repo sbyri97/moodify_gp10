@@ -16,7 +16,7 @@ const SideBar = () => {
 
     useEffect(() => {
         dispatch(getPlaylists())
-    }, [dispatch])
+    })
 
     const playlists = Object.values(playlistsObj).filter(playlist => playlist?.user_id === userId)
 
