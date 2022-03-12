@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp,login } from '../../../store/session';
+import { signUp } from '../../../store/session';
 import LoginFormModal from '../LoginFormModal';
 import DemoUser from '../../NavBar/demouser'
 
@@ -28,14 +28,7 @@ const SignUpForm = () => {
     }
     return setErrors(['Both Passwords Must Match'])
   }
-  //     return(dispatch(signUp(username, email, password)))
-  //       .catch(async(res) => {
-  //         const data = await res
-  //         if(data) setErrors(data)
-  //       })
-  //   }
-  //   return setErrors(['Both passwords must match'])
-  // }
+
   const updateFirstName = (e) => {
     setFirstName(e.target.value);
   };

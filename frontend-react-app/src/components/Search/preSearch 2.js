@@ -28,7 +28,7 @@ export default function PreSearch() {
                 <>
                     <div className="results-playlists-outer-indiv-card">
                         <div className="results-playlists-inner-indiv-card">
-                            <img src={'https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg'} className='playlist-card-img'></img>
+                            <img src={'https://m.media-amazon.com/images/I/71Ln3JLWyOL._SL1500_.jpg'} className='playlist-card-img' alt="img"></img>
                             <div className="results-playlist-cards-content">
                                 <h2>{playlist.name}</h2>
                             </div>

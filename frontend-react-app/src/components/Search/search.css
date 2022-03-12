@@ -2,7 +2,10 @@
     background: rgb(18, 18, 18);
     max-width: 100%;
     margin-left: 180px;
-
+    margin-top: 100px;
+}
+.preSearchBrowsePlaylistsText {
+    font-family: "NexaHeavy";
 }
 
 .resultsMainContainer {
@@ -47,8 +50,9 @@
 }
 .results-playlist-cards-text {
     font-family:NexaExtraLight;
-    font-size: 16px;
+    font-size: 14px;
     margin-left: 10px;
+    font-family: "NexaLight";
 }
 
 .playlist-card-img {
@@ -73,8 +77,3 @@
 .search-bar-main-search {
     margin-left: 100px;
 }
-
-/* .preSearchMainContainer {
-    position: absolute;
-    margin-left: 180px;
-} */

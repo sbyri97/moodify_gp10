@@ -38,6 +38,13 @@
 .playingSongArtist {
   font-size: 0.7em;
   color: #a7a7a7;
+  font-family: "NexaThin";
+}
+
+.playingSongTitle {
+  font-family: "NexaLight";
+  padding-bottom: 6px;
+  font-size: 0.8em;
 }
 
 .playerSongImgContainer img {
@@ -88,7 +95,8 @@
 
 .currentTime,
 .duration {
-  font-size: 0.8em;
+  font-size: 0.65em;
+  font-family: "NexaThin";
 }
 
 .currentTime {

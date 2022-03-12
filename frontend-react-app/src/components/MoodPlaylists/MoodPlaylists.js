@@ -69,7 +69,7 @@ function MoodPlaylists() {
               ref={(ele) => (moodCardsArray.current[i] = ele)}
             >
               <div className="mood-playlists-image-container">
-                <img src={moodImage} />
+                <img src={moodImage} alt="mood_img"/>
               </div>
               <div className="mood-playlist-name-container">
                 <h2

@@ -8,15 +8,12 @@ import "../Playlist/Playlist.css";
 
 function Artists() {
 
-
-  // THIS SHOULD BE THE OWNER OF THE PLAYLIST, NOT USER
   const sessionUser = useSelector((state) => state?.session?.user);
 
   const dispatch = useDispatch();
   const artistParam = useParams();
   const artistName = artistParam.artistName;
   const songs = useSelector(
-    // (state) => state?.playlist?.playlists?.playlist_info
     (state) => state.playlist.playlists?.[artistName]
     );
 

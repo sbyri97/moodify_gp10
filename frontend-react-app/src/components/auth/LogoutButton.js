@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
-// import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
 const LogoutButton = () => {
