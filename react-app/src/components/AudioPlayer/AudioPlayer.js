@@ -32,7 +32,6 @@ const AudioPlayer = () => {
   }, [
     audioPlayer?.current?.loadedmetadata,
     audioPlayer?.current?.readyState,
-    currentSong,
   ]);
 
   useEffect(() => {
