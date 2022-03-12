@@ -18,7 +18,7 @@ import MoodPlaylists from "./components/MoodPlaylists/MoodPlaylists";
 import UserProfile from "./components/UserProfile/UserProfile";
 import SideBar from "./components/Home/Sidebar";
 import UnauthenticatedUser from "./components/auth/TestSignUp";
-
+import AboutLinks from "./components/AboutLinks/AboutLinks";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -60,6 +60,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/" exact={true}>
           <Home />
+        </Route>
+        <Route path="/about" exact={true}>
+          <AboutLinks />
         </Route>
       </Switch>
       <AudioPlayer />
