@@ -26,7 +26,7 @@ const AudioPlayer = () => {
   useEffect(() => {
     const seconds = Math.floor(audioPlayer?.current?.duration);
     setDuration(seconds);
-    if (progressBar.current){
+    if (progressBar.current) {
       progressBar.current.max = seconds;
     }
   }, [
@@ -55,6 +55,7 @@ const AudioPlayer = () => {
 
   const playSong = () => {
     setIsPlaying(true);
+    audioPlayer.current.muted = true;
     audioPlayer?.current?.play();
     animationRef.current = requestAnimationFrame(whilePlaying);
   };
@@ -72,7 +73,11 @@ const AudioPlayer = () => {
   };
 
   const whilePlaying = () => {
-    if (progressBar.current && audioPlayer.current && audioPlayer.current.currentTime) {
+    if (
+      progressBar.current &&
+      audioPlayer.current &&
+      audioPlayer.current.currentTime
+    ) {
       progressBar.current.value = audioPlayer.current.currentTime;
     }
     changePlayerCurrentTime();
@@ -80,7 +85,7 @@ const AudioPlayer = () => {
   };
 
   const changeRange = () => {
-    if (audioPlayer.current){
+    if (audioPlayer.current) {
       audioPlayer.current.currentTime = progressBar.current?.value;
     }
     changePlayerCurrentTime();
@@ -149,7 +154,12 @@ const AudioPlayer = () => {
       </div>
 
       <div className="songPlayerControls">
-        <audio ref={audioPlayer} src={songURL} preload="metadata"></audio>
+        <audio
+          autoPlay={false}
+          ref={audioPlayer}
+          src={songURL}
+          preload="metadata"
+        ></audio>
         <button onClick={togglePlayPause} className="playPause">
           {isPlaying ? <FaPause /> : <FaPlay className="play" />}
         </button>
