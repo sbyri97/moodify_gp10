@@ -9,6 +9,7 @@
 
 .about-top-container {
   border-bottom: 1px solid #b3b3b3;
+  font-family: "NexaHeavy";
 }
 
 .about-bottom-container {
@@ -35,6 +36,7 @@
   box-shadow: 0 0 5px #f037a5;
   margin-right: 2em;
   margin-bottom: 2em;
+  font-family: "NexaLight";
 }
 .about-card-container1 {
   display: flex;
@@ -49,6 +51,7 @@
   box-shadow: 0 0 5px #ff073a;
   margin-right: 2em;
   margin-bottom: 2em;
+  font-family: "NexaLight";
 }
 .about-card-container2 {
   display: flex;
@@ -63,6 +66,7 @@
   box-shadow: 0 0 5px #f62681;
   margin-right: 2em;
   margin-bottom: 2em;
+  font-family: "NexaLight";
 }
 .about-card-container3 {
   display: flex;
@@ -77,6 +81,7 @@
   box-shadow: 0 0 5px #edff00ff;
   margin-right: 2em;
   margin-bottom: 2em;
+  font-family: "NexaLight";
 }
 
 /* ----------------------------------- */
