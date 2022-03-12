@@ -110,7 +110,7 @@ function Playlist() {
       {userOwns && (
         <div className="playlist-user-controls">
           <div className="playlist-detail-dots-container">
-            <button className="playlist-detail-dot-button" onClick={openMenu}>
+            <button className="playlist-detail-dot-button" onClick={() => setShowMenu(!showMenu)}>
               <BsThreeDots className="playlist-detail-dots" />
             </button>
           </div>
@@ -123,7 +123,7 @@ function Playlist() {
         <div className="playlist-detail-dropdown">
           <div className="playlist-detail-dropdown-content">
             <div className="playlist-detail-edit-btn">
-              <EditPlaylistModal playlist={playlist} playlistId={playlistId} className='edit-playlist-form-modal'/>
+              <EditPlaylistModal playlist={playlist} playlistId={playlistId} className='playlist-form-modal'/>
             </div>
             <button
               className="playlist-detail-delete-btn"
