@@ -38,7 +38,9 @@ const AudioPlayer = () => {
   useEffect(() => {
     // console.log("isPlaying STATE=====", isPlaying);
     // togglePlayPause();
-    playSong();
+    if (songURL) {
+      playSong();
+    }
   }, [currentSong]);
 
   useEffect(() => {
@@ -55,7 +57,6 @@ const AudioPlayer = () => {
 
   const playSong = () => {
     setIsPlaying(true);
-    audioPlayer.current.muted = true;
     audioPlayer?.current?.play();
     animationRef.current = requestAnimationFrame(whilePlaying);
   };
