@@ -7,6 +7,11 @@
   height: 100vh;
   margin-left: 200px;
   padding-left: 100px;
+  overflow-y: scroll;
+}
+
+.playlist-detail-container::-webkit-scrollbar {
+  display: none;
 }
 
 .playlist-top-detail-container {
@@ -218,7 +223,7 @@
 
 .playlist-detail-delete-btn:hover {
   background-color: #b3b3b3;
-    color: white;
+  color: white;
 }
 
 .playlist-user-controls {
