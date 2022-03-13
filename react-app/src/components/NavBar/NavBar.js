@@ -7,7 +7,6 @@ import SignUpFormModal from '../auth/SignUpFormModal';
 import LoginFormModal from '../auth/LoginFormModal';
 import DemoUser from './demouser'
 import './navbar.css'
-import AboutLinks from '../AboutLinks/AboutLinks';
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session?.user)
@@ -82,38 +81,6 @@ const NavBar = () => {
           )}
       </div>
     }
-
-
-      {/* <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li> */}
-          {/* <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink> */}
-          {/* <LoginFormModal />
-        </li>
-        <li> */}
-          {/* <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink> */}
-          {/* <SignUpFormModal />
-        </li>
-        <li>
-          <DemoUser />
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul> */}
     </nav>
   );
 }

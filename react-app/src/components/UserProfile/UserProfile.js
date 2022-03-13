@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
@@ -88,7 +88,7 @@ function UserProfile() {
             <NavLink to={`/playlists/${playlist?.id}`} key={i}>
               <div className="mood-playlists-card">
                 <div className="mood-playlists-image-container">
-                  <img src={playlist?.mood_image} />
+                  <img src={playlist?.mood_image} alt="playlist-mood-img-foruser"/>
                 </div>
                 <div className="mood-playlist-name-container">
                   <h2 className="mood-playlist-name">{playlist?.name}</h2>
@@ -110,7 +110,7 @@ function UserProfile() {
             <NavLink to={`/playlists/${playlist?.id}`} key={i}>
               <div className="mood-playlists-card">
                 <div className="mood-playlists-image-container">
-                  <img src={playlist?.mood_image} />
+                  <img src={playlist?.mood_image} alt="playlist-mood-img-forusers"/>
                 </div>
                 <div className="mood-playlist-name-container">
                   <h2 className="mood-playlist-name">{playlist?.name}</h2>

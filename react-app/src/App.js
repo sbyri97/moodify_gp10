@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import Home from "./components/Home/home";
 import { authenticate } from "./store/session";
 import Playlist from "./components/Playlist/Playlist";

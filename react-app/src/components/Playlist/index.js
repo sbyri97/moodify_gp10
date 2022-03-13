@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import NewPlaylistForm from './NewPlaylist';
 import './index.css'

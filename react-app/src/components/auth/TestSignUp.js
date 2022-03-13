@@ -3,7 +3,6 @@ import LoginFormModal from './LoginFormModal';
 import "./SignUpFormModal/SignUpForm.css"
 import SignUpFormModal from './SignUpFormModal';
 import './Unauthenticated.css'
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
