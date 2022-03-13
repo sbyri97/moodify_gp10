@@ -24,15 +24,29 @@ const AudioPlayer = () => {
   const volumeSlider = useRef(); // reference the volume slider
 
   useEffect(() => {
+    console.log("FIRST USE EFFECT RAN =========");
     const seconds = Math.floor(audioPlayer?.current?.duration);
     setDuration(seconds);
-    if (progressBar.current) {
-      progressBar.current.max = seconds;
-    }
-  }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
+    progressBar.current.max = seconds;
+  }, [
+    audioPlayer?.current?.loadedmetadata,
+    audioPlayer?.current?.readyState,
+    currentSong,
+  ]);
+
+  const playSong = () => {
+    setIsPlaying(true);
+    cancelAnimationFrame(animationRef.current);
+    audioPlayer?.current?.play();
+    animationRef.current = requestAnimationFrame(whilePlaying);
+    whilePlaying();
+  };
 
   useEffect(() => {
     if (songURL) {
+      console.log("USE EFFECT RAN===========");
+      console.log("CURRENT VALUE====", progressBar.current.value);
+      console.log("CURRENT DURATION====", audioPlayer.current.duration);
       playSong();
     }
   }, [currentSong]);
@@ -49,23 +63,15 @@ const AudioPlayer = () => {
     return `${returnedMinutes}:${returnedSeconds}`;
   };
 
-  const playSong = () => {
-    setIsPlaying(true);
-    audioPlayer?.current?.play();
-    animationRef.current = requestAnimationFrame(whilePlaying);
-  };
-
   const togglePlayPause = () => {
     const prevValue = isPlaying;
     setIsPlaying(!prevValue);
     if (!prevValue) {
       audioPlayer?.current?.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
-      console.log("CurrentTime====== ", audioPlayer.current.currentTime);
     } else {
       audioPlayer.current.pause();
       cancelAnimationFrame(animationRef.current);
-      console.log("CurrentTime====== ", audioPlayer.current.currentTime);
     }
   };
 
@@ -76,16 +82,16 @@ const AudioPlayer = () => {
       audioPlayer.current.currentTime
     ) {
       progressBar.current.value = audioPlayer.current.currentTime;
+      changePlayerCurrentTime();
+      animationRef.current = requestAnimationFrame(whilePlaying);
     }
-    changePlayerCurrentTime();
-    animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
   const changeRange = () => {
     if (audioPlayer.current) {
       audioPlayer.current.currentTime = progressBar.current?.value;
+      changePlayerCurrentTime();
     }
-    changePlayerCurrentTime();
   };
 
   const changePlayerCurrentTime = () => {
