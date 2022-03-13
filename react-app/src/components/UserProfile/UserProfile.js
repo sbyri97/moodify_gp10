@@ -29,6 +29,8 @@ function UserProfile() {
   );
 
   const followCount = useSelector((state) => state?.userProfiles?.followers);
+  const following = useSelector((state) => state?.userProfiles?.following);
+  console.log(following);
 
   const isFollowing = useSelector((state) => state?.userProfiles?.isFollowing);
 
@@ -52,12 +54,22 @@ function UserProfile() {
           <div className="user-profile-info">
             <h1 className="user-profile-username">MY PLAYLISTS</h1>
             {followCount?.length == 1 ? (
-              <div className="user-follower-count">
-                {followCount?.length} Follower
+              <div>
+                <div className="user-follower-count">
+                  {followCount?.length} Follower
+                </div>
+                <div className="user-follower-count">
+                  {following?.length} Following
+                </div>
               </div>
             ) : (
-              <div className="user-follower-count">
-                {followCount?.length} Followers
+              <div className="following-info">
+                <div className="user-follower-count">
+                  {followCount?.length} Followers
+                </div>
+                <div className="user-following-count">
+                  {following?.length} Following
+                </div>
               </div>
             )}
           </div>
