@@ -36,7 +36,6 @@ const AudioPlayer = () => {
 
   useEffect(() => {
     setIsPlaying(false);
-    audioPlayer.current.pause();
   }, []);
 
   const calculateTime = (secs) => {
