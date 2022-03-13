@@ -15,12 +15,17 @@ function AboutLinks() {
         <div className="about-card-container">
           <div className="about-top-card-container">
             <div className="about-socials-container">
-              <a href="https://github.com/Code-rina" target="_blank">
+              <a
+                href="https://github.com/Code-rina"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <BsGithub />
               </a>
               <a
                 href="https://www.linkedin.com/in/katerina-kreibich-7a79a251/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <BsLinkedin className="about-linkedin" />
               </a>
@@ -40,10 +45,18 @@ function AboutLinks() {
         <div className="about-card-container1">
           <div className="about-top-card-container">
             <div className="about-socials-container">
-              <a href="https://github.com/Joan-Buck" target="_blank">
+              <a
+                href="https://github.com/Joan-Buck"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <BsGithub />
               </a>
-              <a href="https://www.linkedin.com/in/joan-buck/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/joan-buck/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <BsLinkedin className="about-linkedin" />
               </a>
             </div>
@@ -62,12 +75,17 @@ function AboutLinks() {
         <div className="about-card-container2">
           <div className="about-top-card-container">
             <div className="about-socials-container">
-              <a href="https://github.com/alexsmaldone" target="_blank">
+              <a
+                href="https://github.com/alexsmaldone"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <BsGithub />
               </a>
               <a
                 href="https://www.linkedin.com/in/alex-smaldone/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <BsLinkedin className="about-linkedin" />
               </a>
@@ -87,12 +105,17 @@ function AboutLinks() {
         <div className="about-card-container3">
           <div className="about-top-card-container">
             <div className="about-socials-container">
-              <a href="https://github.com/sbyri97" target="_blank">
+              <a
+                href="https://github.com/sbyri97"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <BsGithub />
               </a>
               <a
                 href="https://www.linkedin.com/in/sai-byri-2230015/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <BsLinkedin className="about-linkedin" />
               </a>
