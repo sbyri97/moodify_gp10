@@ -10,6 +10,8 @@ const AudioPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [muteState, setMuteState] = useState(false);
 
+  const sessionUser = useSelector((state) => state?.session?.user);
+
   const currentSong = useSelector((state) => state?.library?.library);
   const songTitle = currentSong?.song_title;
   const songURL = currentSong?.song_url;
@@ -34,6 +36,7 @@ const AudioPlayer = () => {
 
   useEffect(() => {
     setIsPlaying(false);
+    audioPlayer.current.pause();
   }, []);
 
   const calculateTime = (secs) => {
