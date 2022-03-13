@@ -118,7 +118,6 @@ const SignUpForm = () => {
                 name='confirm_password'
                 onChange={updateConfirmPassword}
                 value={confirmPassword}
-                required={true}
               />
             </label>
           </div>
