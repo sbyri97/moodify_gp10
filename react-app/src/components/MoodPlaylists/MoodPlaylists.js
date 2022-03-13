@@ -48,6 +48,7 @@ function MoodPlaylists() {
       "--seek-before-color",
       `${moodColors[moodIndex]}`
     );
+    progressBar.style.setProperty("--selectedKnob", `${moodColors[moodIndex]}`);
 
     moodCardsArray?.current?.forEach(
       (card) => (card.style.boxShadow = `0px 0px 8px ${moodColors[moodIndex]}`)
