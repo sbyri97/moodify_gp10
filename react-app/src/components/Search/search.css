@@ -11,7 +11,7 @@
 
 .resultsMainContainer {
     color: white;
-    height: 100vh;
+    height: 100vh;   
     background-color: #1c1c1c;
     overflow-y: scroll;
     padding-bottom: 60px;

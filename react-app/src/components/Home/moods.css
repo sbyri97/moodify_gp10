@@ -24,9 +24,6 @@
   width: 100%;
 }
 
-.homePageADiv {
-  padding-left: 12px;
-}
 
 .h3Div {
   background-color: #1c1c1c;
@@ -58,18 +55,18 @@
 .homePageMoodCardP {
   width: 200px;
   height: 275px;
-  padding-left: 10px;
+  padding-left: 20px;
   padding-top: 20px;
   padding-right: 20px;
   background-color: #171717;
   border-radius: 12px;
   border-width: 5px;
   border-style: solid;
-  border-radius: 3px;
+  border-radius: 12px;
   border-color: #171717;
-  /* box-shadow: 5px 5px 10px rgba(43, 43, 43, 0.8); */
   box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%);
-
+  text-decoration: none;
+  color: white;
 }
 
 .homePageMoodCardH:hover {
@@ -206,13 +203,16 @@
 .homePageCardAngry,
 .homePageCardHeartbreak,
 .homePageCardProductive {
-  width: 195px;
-  height: 185px;
-  border-radius: 3px;
+  width: 200px;
+  height: 200px;
+
+  box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+  border-radius: 4px;
 }
 
 .homeCardImageText {
   font-family: "NexaLight";
-  font-size: 16px;
+  font-size: 14px;
+  margin-left: 10px;
   color: white;
 }
