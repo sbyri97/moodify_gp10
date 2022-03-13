@@ -3,9 +3,17 @@ import LoginFormModal from './LoginFormModal';
 import "./SignUpFormModal/SignUpForm.css"
 import SignUpFormModal from './SignUpFormModal';
 import './Unauthenticated.css'
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 
 function UnauthenticatedUser() {
+
+  const sessionUser = useSelector((state) => state.session?.user)
+
+    if(sessionUser) {
+      return <Redirect to='/' />;
+    }
 
     return (
       <div className='main-unauthenticated-div'>

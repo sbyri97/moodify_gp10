@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import Home from "./components/Home/home";
 import { authenticate } from "./store/session";
 import Playlist from "./components/Playlist/Playlist";
@@ -15,9 +14,11 @@ import UserProfile from "./components/UserProfile/UserProfile";
 import SideBar from "./components/Home/Sidebar";
 import UnauthenticatedUser from "./components/auth/TestSignUp";
 import AboutLinks from "./components/AboutLinks/AboutLinks";
+import UnAuthAudioPlayer from "./components/AudioPlayer/unAuthAudioPlayer";
 import Error from "./components/ErrorPage/ErrorPage";
 import UserFollowing from "./components/UserProfile/UserFollowing";
 import UserFollowers from "./components/UserProfile/UserFollowers";
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -72,7 +73,7 @@ function App() {
           <Error />
         </Route>
       </Switch>
-      <AudioPlayer />
+      <UnAuthAudioPlayer />
       <SideBar />
     </>
   );

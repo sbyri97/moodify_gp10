@@ -46,11 +46,6 @@ function Playlist() {
     }
   };
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
-
   const deleteSong = (songId, e) => {
     e.stopPropagation();
     dispatch(deleteSongFromPlaylist(playlistId, songId));

@@ -18,9 +18,11 @@ const NavBar = () => {
       {(!sessionUser) ?
           <div className='main-navbar-logout-items-container'>
             <div className='navbar-demo-container'>
-                <div className='demo-btn'>
-                  <DemoUser />
+              <NavLink to='/about' id='demo-btn'>
+                <div className='abt-btn'>
+                  ABOUT US
                 </div>
+              </NavLink>
             </div>
             <div className='navbar-line'></div>
             <div className='navbar-demo-container'>
@@ -79,38 +81,6 @@ const NavBar = () => {
           )}
       </div>
     }
-
-
-      {/* <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li> */}
-          {/* <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink> */}
-          {/* <LoginFormModal />
-        </li>
-        <li> */}
-          {/* <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink> */}
-          {/* <SignUpFormModal />
-        </li>
-        <li>
-          <DemoUser />
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul> */}
     </nav>
   );
 }

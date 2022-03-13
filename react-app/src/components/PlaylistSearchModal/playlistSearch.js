@@ -20,7 +20,7 @@ export default function PSearch() {
           }, 500)
 
           return () => clearTimeout(delaySearch)
-    }, [playlistSongSearch])
+    }, [playlistSongSearch, dispatch])
 
     return (
         <div className='playlistSearchFullPage'>

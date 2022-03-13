@@ -77,6 +77,8 @@
     width: 200px;
     height: 200px;
     justify-content: center;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+    border-radius: 4px;
 }
 
 .results-playlists-outer-indiv-card{
