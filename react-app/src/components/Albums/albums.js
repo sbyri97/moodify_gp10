@@ -7,16 +7,12 @@ import { getLibrary } from "../../store/library";
 import "../Playlist/Playlist.css";
 
 function Albums() {
-
   const sessionUser = useSelector((state) => state?.session?.user);
 
   const dispatch = useDispatch();
   const albumParam = useParams();
   const albumName = albumParam.albumName;
-  console.log(albumName);
-  const songs = useSelector(
-    (state) => state.playlist.playlists?.[albumName]
-  );
+  const songs = useSelector((state) => state.playlist.playlists?.[albumName]);
 
   useEffect(() => {
     dispatch(getAlbumSongs(albumName));

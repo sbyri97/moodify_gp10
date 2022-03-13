@@ -52,7 +52,9 @@ function UserFollowers() {
               key={i}
             >
               <div className="user-follow-card">
-                <FaUserCircle className="user-follow-card-pic" />
+                <div className="user-follow-card-pic-container">
+                  <FaUserCircle className="user-follow-card-pic" />
+                </div>
                 <div className="user-follow-username-container">
                   <p className="user-follow-username">{user?.username}</p>
                 </div>

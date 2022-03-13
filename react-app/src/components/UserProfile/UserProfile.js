@@ -30,7 +30,6 @@ function UserProfile() {
 
   const followCount = useSelector((state) => state?.userProfiles?.followers);
   const following = useSelector((state) => state?.userProfiles?.following);
-  console.log(following);
 
   const isFollowing = useSelector((state) => state?.userProfiles?.isFollowing);
 
@@ -96,7 +95,10 @@ function UserProfile() {
             <NavLink to={`/playlists/${playlist?.id}`} key={i}>
               <div className="mood-playlists-card">
                 <div className="mood-playlists-image-container">
-                  <img src={playlist?.mood_image} alt="playlist-mood-img-foruser"/>
+                  <img
+                    src={playlist?.mood_image}
+                    alt="playlist-mood-img-foruser"
+                  />
                 </div>
                 <div className="mood-playlist-name-container">
                   <h2 className="mood-playlist-name">{playlist?.name}</h2>
@@ -118,7 +120,10 @@ function UserProfile() {
             <NavLink to={`/playlists/${playlist?.id}`} key={i}>
               <div className="mood-playlists-card">
                 <div className="mood-playlists-image-container">
-                  <img src={playlist?.mood_image} alt="playlist-mood-img-forusers"/>
+                  <img
+                    src={playlist?.mood_image}
+                    alt="playlist-mood-img-forusers"
+                  />
                 </div>
                 <div className="mood-playlist-name-container">
                   <h2 className="mood-playlist-name">{playlist?.name}</h2>
