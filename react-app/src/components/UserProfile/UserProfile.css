@@ -88,6 +88,28 @@
   border-radius: 21px;
   font-weight: bold;
   margin-left: 0.5em;
+  position: relative;
+}
+
+.user-following-dropdown {
+  display: none;
+  position: absolute;
+  background-color: red;
+  min-width: 160px;
+  margin-top: 50px;
+  margin-left: 120px;
+  box-shadow: 0px 8px 16px 0px white;
+  z-index: 1;
+}
+
+.user-following-username {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.user-following-count:hover ~ .user-following-dropdown {
+  display: block;
 }
 
 .not-following-div {
