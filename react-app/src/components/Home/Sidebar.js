@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPlaylists } from '../../store/playlist';
 import PlaylistFormModal from '../Playlist';
+import logo from '../../images/white-on-clear.png'
 import './sidebar.css';
 
 
@@ -31,7 +32,7 @@ const SideBar = () => {
         <div className='sidebar-upper'>
             <NavLink to='/' exact={true} className='sidebar-navlink-home'>
                 <div className='sidebar-logo-container'>
-                    <img className='sidebar-moodify-logo' src='/white-on-clear.png' alt='moodify_logo' />
+                    <img className='sidebar-moodify-logo' src={logo} alt='moodify_logo' />
                 </div>
             </NavLink>
             <ul className='sidebar-ul'>
