@@ -16,6 +16,7 @@ import SideBar from "./components/Home/Sidebar";
 import UnauthenticatedUser from "./components/auth/TestSignUp";
 import AboutLinks from "./components/AboutLinks/AboutLinks";
 import Error from './components/ErrorPage/ErrorPage';
+import UnAuthAudioPlayer from "./components/AudioPlayer/unAuthAudioPlayer";
 
 
 function App() {
@@ -65,7 +66,7 @@ function App() {
           <Error />
         </Route>
       </Switch>
-      <AudioPlayer />
+      <UnAuthAudioPlayer />
       <SideBar />
     </>
   );
