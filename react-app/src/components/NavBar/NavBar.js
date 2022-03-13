@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { FaUserCircle, FaCaretDown, FaCaretUp, FaRegIdCard } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
@@ -12,6 +12,24 @@ const NavBar = () => {
   const sessionUser = useSelector((state) => state.session?.user)
 
   const [yesDrpDwn, setYesDrpDown] = useState(false)
+
+
+  useEffect(() => {
+    setYesDrpDown(false);
+  }, []);
+
+  useEffect(() => {
+    if (!yesDrpDwn) return;
+
+    const closeMenu = () => {
+      setYesDrpDown(false);
+    };
+
+    document.addEventListener("click", closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [yesDrpDwn]);
+
 
   return (
     <nav className='main-navbar-container'>
