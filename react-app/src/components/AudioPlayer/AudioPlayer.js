@@ -7,7 +7,6 @@ import "./AudioPlayer.css";
 
 const AudioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [muteState, setMuteState] = useState(false);
 
@@ -23,19 +22,12 @@ const AudioPlayer = () => {
   const animationRef = useRef(); // reference animation
   const volumeSlider = useRef(); // reference the volume slider
 
-  useEffect(() => {
-    const seconds = Math.floor(audioPlayer?.current?.duration);
-    setDuration(seconds);
-    if (progressBar.current) {
-      progressBar.current.max = seconds;
-    }
-  }, [
-    audioPlayer?.current?.loadedmetadata,
-    audioPlayer?.current?.readyState,
-    currentSong,
-  ]);
+
 
   useEffect(() => {
+    progressBar.current.value = 0;
+    audioPlayer.current.currentTime = 0;
+    changePlayerCurrentTime()
 
     if (songURL) {
       playSong();
@@ -94,7 +86,7 @@ const AudioPlayer = () => {
   const changePlayerCurrentTime = () => {
     progressBar?.current?.style?.setProperty(
       "--seek-before-width",
-      `${(progressBar.current.value / duration) * 100}%`
+      `${(progressBar.current.value / audioPlayer.current?.duration) * 100}%`
     );
     setCurrentTime(progressBar?.current?.value);
   };
@@ -139,6 +131,9 @@ const AudioPlayer = () => {
           ref={audioPlayer}
           src={songURL}
           preload="metadata"
+          onLoadedData={() => {
+            progressBar.current.max = Math.floor(audioPlayer.current?.duration);
+          }}
         ></audio>
         <button onClick={togglePlayPause} className="playPause">
           {isPlaying ? <FaPause /> : <FaPlay className="play" />}
@@ -162,7 +157,7 @@ const AudioPlayer = () => {
 
           {/* duration */}
           <div className="duration">
-            {duration && !isNaN(duration) ? calculateTime(duration) : "0:00"}
+            {audioPlayer.current?.duration && !isNaN(audioPlayer.current.duration) ? calculateTime(audioPlayer.current.duration) : "0:00"}
           </div>
         </div>
       </div>
