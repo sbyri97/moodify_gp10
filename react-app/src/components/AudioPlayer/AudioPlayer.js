@@ -7,7 +7,6 @@ import "./AudioPlayer.css";
 
 const AudioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [muteState, setMuteState] = useState(false);
 
@@ -24,29 +23,11 @@ const AudioPlayer = () => {
   const volumeSlider = useRef(); // reference the volume slider
 
   useEffect(() => {
-    console.log("FIRST USE EFFECT RAN =========");
-    const seconds = Math.floor(audioPlayer?.current?.duration);
-    setDuration(seconds);
-    progressBar.current.max = seconds;
-  }, [
-    audioPlayer?.current?.loadedmetadata,
-    audioPlayer?.current?.readyState,
-    currentSong,
-  ]);
+    progressBar.current.value = 0;
+    audioPlayer.current.currentTime = 0;
+    changePlayerCurrentTime();
 
-  const playSong = () => {
-    setIsPlaying(true);
-    cancelAnimationFrame(animationRef.current);
-    audioPlayer?.current?.play();
-    animationRef.current = requestAnimationFrame(whilePlaying);
-    whilePlaying();
-  };
-
-  useEffect(() => {
     if (songURL) {
-      console.log("USE EFFECT RAN===========");
-      console.log("CURRENT VALUE====", progressBar.current.value);
-      console.log("CURRENT DURATION====", audioPlayer.current.duration);
       playSong();
     }
   }, [currentSong]);
@@ -61,6 +42,12 @@ const AudioPlayer = () => {
     const seconds = Math.floor(secs % 60);
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
     return `${returnedMinutes}:${returnedSeconds}`;
+  };
+
+  const playSong = () => {
+    setIsPlaying(true);
+    audioPlayer?.current?.play();
+    animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
   const togglePlayPause = () => {
@@ -82,22 +69,22 @@ const AudioPlayer = () => {
       audioPlayer.current.currentTime
     ) {
       progressBar.current.value = audioPlayer.current.currentTime;
-      changePlayerCurrentTime();
-      animationRef.current = requestAnimationFrame(whilePlaying);
     }
+    changePlayerCurrentTime();
+    animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
   const changeRange = () => {
     if (audioPlayer.current) {
       audioPlayer.current.currentTime = progressBar.current?.value;
-      changePlayerCurrentTime();
     }
+    changePlayerCurrentTime();
   };
 
   const changePlayerCurrentTime = () => {
     progressBar?.current?.style?.setProperty(
       "--seek-before-width",
-      `${(progressBar.current.value / duration) * 100}%`
+      `${(progressBar.current.value / audioPlayer.current?.duration) * 100}%`
     );
     setCurrentTime(progressBar?.current?.value);
   };
@@ -141,6 +128,9 @@ const AudioPlayer = () => {
           ref={audioPlayer}
           src={songURL}
           preload="metadata"
+          onLoadedData={() => {
+            progressBar.current.max = Math.floor(audioPlayer.current?.duration);
+          }}
         ></audio>
         <button onClick={togglePlayPause} className="playPause">
           {isPlaying ? <FaPause /> : <FaPlay className="play" />}
@@ -164,7 +154,10 @@ const AudioPlayer = () => {
 
           {/* duration */}
           <div className="duration">
-            {duration && !isNaN(duration) ? calculateTime(duration) : "0:00"}
+            {audioPlayer.current?.duration &&
+            !isNaN(audioPlayer.current.duration)
+              ? calculateTime(audioPlayer.current.duration)
+              : "0:00"}
           </div>
         </div>
       </div>
