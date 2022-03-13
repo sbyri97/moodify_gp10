@@ -71,6 +71,13 @@ function Playlist() {
     const volumeButton = document.querySelector(".volumeButton");
     volumeButton.style.color = `${moodColors[moodIndex]}`;
 
+    const progressBar = document.querySelector(".progressBar");
+    progressBar.style.setProperty(
+      "--seek-before-color",
+      `${moodColors[moodIndex]}`
+    );
+    progressBar.style.setProperty("--selectedKnob", `${moodColors[moodIndex]}`);
+
     const playlistBackground = document.querySelector(
       ".playlist-detail-container "
     );
