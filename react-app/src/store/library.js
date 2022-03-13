@@ -1,6 +1,7 @@
 const LOAD_LIBRARY = "library/loadLibrary";
 const LOAD_ITEM_LIBRARY = "library/loadItemLibrary";
 const LOAD_PLAYLIST_LIBRARY = "library/loadPlaylistLibrary";
+const RESET_LIBRARY = "library/resetLibrary";
 
 // ----------------------------------------
 export const loadLibrary = (library) => {
@@ -24,6 +25,10 @@ export const loadPlaylistLibrary = (library) => {
     library,
   };
 };
+
+export const resetLibrary = () => ({
+  type: RESET_LIBRARY,
+});
 
 // ----------------------------------------
 
@@ -62,6 +67,10 @@ export const getRandomPlaylists = () => async (dispatch) => {
   }
 };
 
+export const removeLibrary = () => async (dispatch) => {
+  dispatch(resetLibrary());
+};
+
 // ----------------------------------------
 
 const initialState = { library: {}, itemLibrary: {} };
@@ -82,6 +91,11 @@ const libraryReducer = (state = initialState, action) => {
     case LOAD_PLAYLIST_LIBRARY: {
       newState = { ...state };
       newState.itemLibrary = action.library;
+      return newState;
+    }
+    case RESET_LIBRARY: {
+      newState = { ...state };
+      newState.library = null;
       return newState;
     }
     default:
