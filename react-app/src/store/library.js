@@ -1,7 +1,6 @@
 const LOAD_LIBRARY = "library/loadLibrary";
-const LOAD_ITEM_LIBRARY = "library/loadItemLibrary"
-const LOAD_PLAYLIST_LIBRARY = "library/loadPlaylistLibrary"
-
+const LOAD_ITEM_LIBRARY = "library/loadItemLibrary";
+const LOAD_PLAYLIST_LIBRARY = "library/loadPlaylistLibrary";
 
 // ----------------------------------------
 export const loadLibrary = (library) => {
@@ -10,7 +9,6 @@ export const loadLibrary = (library) => {
     library,
   };
 };
-
 
 // ----------------------------------------
 export const loadItemLibrary = (library) => {
@@ -27,7 +25,6 @@ export const loadPlaylistLibrary = (library) => {
   };
 };
 
-
 // ----------------------------------------
 
 export const getLibrary = (libraryId) => async (dispatch) => {
@@ -37,16 +34,14 @@ export const getLibrary = (libraryId) => async (dispatch) => {
     const data = await response.json();
     dispatch(loadLibrary(data));
     return data;
-
   }
 };
 
 // ----------------------------------------
 
-export const searchAllItems = (nameOfItem) => async(dispatch) => {
-
-  if(nameOfItem) {
-    const response = await fetch(`/api/search/${nameOfItem}`)
+export const searchAllItems = (nameOfItem) => async (dispatch) => {
+  if (nameOfItem) {
+    const response = await fetch(`/api/search/${nameOfItem}`);
 
     if (response.ok) {
       const data = await response.json();
@@ -54,44 +49,39 @@ export const searchAllItems = (nameOfItem) => async(dispatch) => {
       return data;
     }
   }
-
-}
-
+};
 
 // ----------------------------------------
 
-export const getRandomPlaylists = () => async(dispatch) => {
-
-  const response = await fetch(`/api/search/random_playlists`)
-  console.log(response);
+export const getRandomPlaylists = () => async (dispatch) => {
+  const response = await fetch(`/api/search/random_playlists`);
   if (response.ok) {
     const data = await response.json();
     dispatch(loadPlaylistLibrary(data));
     return data;
   }
-
-}
+};
 
 // ----------------------------------------
 
-const initialState = { library: {}, itemLibrary: {}};
+const initialState = { library: {}, itemLibrary: {} };
 
 const libraryReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case LOAD_LIBRARY: {
-      newState = {...state};
-      newState.library = action.library
+      newState = { ...state };
+      newState.library = action.library;
       return newState;
     }
-      case LOAD_ITEM_LIBRARY: {
-      newState = {...state};
-      newState.itemLibrary = action.library
+    case LOAD_ITEM_LIBRARY: {
+      newState = { ...state };
+      newState.itemLibrary = action.library;
       return newState;
     }
     case LOAD_PLAYLIST_LIBRARY: {
-      newState = {...state};
-      newState.itemLibrary = action.library
+      newState = { ...state };
+      newState.itemLibrary = action.library;
       return newState;
     }
     default:

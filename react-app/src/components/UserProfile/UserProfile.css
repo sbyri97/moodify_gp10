@@ -128,7 +128,7 @@
 }
 
 .user-follow-card-container {
-  max-width: 150px;
+  max-width: 300px;
 }
 
 .user-follow-container {
@@ -137,15 +137,19 @@
   margin-top: 1em;
 }
 
+.user-follow-card {
+  display: flex;
+}
+
 .user-follow-card-pic {
   font-size: 32px;
+  margin-left: 3px;
 }
 
 .user-follow-card {
   display: flex;
   align-items: center;
   box-shadow: 0 0 5px white;
-  max-width: 150px;
   margin-bottom: 1em;
   padding: 5px;
   border-radius: 11px;
@@ -156,7 +160,13 @@
   border: 1px solid white;
 }
 
+.user-follow-username-container {
+  width: 200px;
+  word-wrap: break-word;
+}
+
 .user-follow-username {
   color: white;
   margin-left: 0.5em;
+  font-size: 20px;
 }
