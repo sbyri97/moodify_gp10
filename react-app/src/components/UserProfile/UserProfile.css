@@ -17,6 +17,12 @@
   align-items: center;
   border-bottom: 1px solid #b3b3b3;
   padding-bottom: 1em;
+  font-family: "NexaHeavy";
+}
+
+.user-circle-link:hover {
+  opacity: 0.8;
+  transform: scale(1.04);
 }
 
 .user-profile-info {
@@ -36,6 +42,7 @@
 .user-circle {
   color: white;
   font-size: 7em;
+  text-decoration: none;
 }
 
 .user-profile-follow-button {
@@ -70,11 +77,35 @@
   background-color: #ff073a;
 }
 
+.following-info {
+  display: flex;
+}
+
 .user-follower-count {
   background-color: #1ed760;
   padding: 10px;
   border-radius: 21px;
   font-weight: bold;
+  color: black;
+}
+
+.user-follower-count:hover {
+  transform: scale(1.04);
+  opacity: 0.8;
+}
+.user-following-count {
+  background-color: #1ed760;
+  padding: 10px;
+  border-radius: 21px;
+  font-weight: bold;
+  margin-left: 0.5em;
+  text-decoration: none;
+  color: black;
+}
+
+.user-following-count:hover {
+  transform: scale(1.04);
+  opacity: 0.8;
 }
 
 .not-following-div {
@@ -94,4 +125,38 @@
 .musical-note {
   color: white;
   font-size: 30px;
+}
+
+.user-follow-card-container {
+  max-width: 150px;
+}
+
+.user-follow-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.user-follow-card-pic {
+  font-size: 32px;
+}
+
+.user-follow-card {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 5px white;
+  max-width: 150px;
+  margin-bottom: 1em;
+  padding: 5px;
+  border-radius: 11px;
+  font-family: "NexaLight";
+}
+
+.user-follow-card:hover {
+  border: 1px solid white;
+}
+
+.user-follow-username {
+  color: white;
+  margin-left: 0.5em;
 }

@@ -11,7 +11,7 @@ import {
 } from "../../store/playlist";
 import { getLibrary } from "../../store/library";
 import PlayListSearchModal from "../PlaylistSearchModal";
-import EditPlaylistModal from './EditPlaylistModal'
+import EditPlaylistModal from "./EditPlaylistModal";
 
 function Playlist() {
   const sessionUser = useSelector((state) => state?.session?.user);
@@ -37,7 +37,6 @@ function Playlist() {
     const numId = Number(id);
     dispatch(getLibrary(numId));
   };
-
 
   const deletePlaylist = () => {
     const result = dispatch(deletePlaylistThunk(playlistId));
@@ -105,7 +104,10 @@ function Playlist() {
       {userOwns && (
         <div className="playlist-user-controls">
           <div className="playlist-detail-dots-container">
-            <button className="playlist-detail-dot-button" onClick={() => setShowMenu(!showMenu)}>
+            <button
+              className="playlist-detail-dot-button"
+              onClick={() => setShowMenu(!showMenu)}
+            >
               <BsThreeDots className="playlist-detail-dots" />
             </button>
           </div>
@@ -118,11 +120,16 @@ function Playlist() {
         <div className="playlist-detail-dropdown">
           <div className="playlist-detail-dropdown-content">
             <div className="playlist-detail-edit-btn">
-              <EditPlaylistModal playlist={playlist} playlistId={playlistId} className='playlist-form-modal'/>
+              <EditPlaylistModal
+                playlist={playlist}
+                playlistId={playlistId}
+                className="playlist-form-modal"
+              />
             </div>
             <button
               className="playlist-detail-delete-btn"
-              onClick={deletePlaylist}>
+              onClick={deletePlaylist}
+            >
               Delete
             </button>
           </div>
@@ -153,7 +160,7 @@ function Playlist() {
                   </button>
                 </td>
                 <td className="playlist-song-img-container">
-                  <img src={song?.album_coverart_url} alt="song_cover"/>
+                  <img src={song?.album_coverart_url} alt="song_cover" />
                 </td>
                 <td>{song?.song_title}</td>
                 <td className="playlist-detail-grey-text">

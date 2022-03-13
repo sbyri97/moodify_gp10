@@ -43,6 +43,13 @@ function MoodPlaylists() {
     const volumeButton = document.querySelector(".volumeButton");
     volumeButton.style.color = `${moodColors[moodIndex]}`;
 
+    const progressBar = document.querySelector(".progressBar");
+    progressBar.style.setProperty(
+      "--seek-before-color",
+      `${moodColors[moodIndex]}`
+    );
+    progressBar.style.setProperty("--selectedKnob", `${moodColors[moodIndex]}`);
+
     moodCardsArray?.current?.forEach(
       (card) => (card.style.boxShadow = `0px 0px 8px ${moodColors[moodIndex]}`)
     );
@@ -68,7 +75,7 @@ function MoodPlaylists() {
               ref={(ele) => (moodCardsArray.current[i] = ele)}
             >
               <div className="mood-playlists-image-container">
-                <img src={moodImage} alt="mood_img"/>
+                <img src={moodImage} alt="mood_img" />
               </div>
               <div className="mood-playlist-name-container">
                 <h2

@@ -7,15 +7,24 @@
     padding-left: 100px;
     height: 100vh;
     overflow-y: scroll;
+    
 }
+
+.searchFullPage::-webkit-scrollbar {
+    display: none;
+  }
 
 .resultsMainContainer {
     color: white;
-    height: 100vh;
+    height: 100vh;   
     background-color: #1c1c1c;
     overflow-y: scroll;
     padding-bottom: 60px;
 }
+
+.resultsMainContainer::-webkit-scrollbar {
+    display: none;
+  }
 
 .songResultsDetailContainer {
     display: flex;
@@ -26,6 +35,10 @@
     margin-right: 100px;
     overflow-y: scroll;
 }
+
+.songResultsDetailContainer::-webkit-scrollbar {
+    display: none;
+  }
 
 .songResultsImageContainer {
     height: 40px;
@@ -163,6 +176,10 @@
     max-height: 50vh;
     overflow-y: scroll;
 }
+
+.playlistSearchFullPage::-webkit-scrollbar {
+    display: none;
+  }
 
 .playlistSearchFormContainer{
     padding-right: 250px;
