@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector} from 'react-redux'
 import '../Playlist/Playlist.css'
 import './search.css'
+import { NavLink } from "react-router-dom";
 
 
 export default function UserSearch() {
@@ -35,7 +36,13 @@ export default function UserSearch() {
                                         <td className="playlist-song-img-container">
                                             <i className="fa-solid fa-user"></i>
                                         </td>
-                                        <td>{user.username}</td>
+                                        <td>
+                                        <NavLink
+                                            to={`/users/${user?.id}`}
+                                            className="no-text-dec"
+                                        > {user.username}
+                                        </NavLink>
+                                        </td>
                                         <td className="playlist-detail-grey-text"></td>
                                         <td className="playlist-detail-grey-text"></td>
                                     </tr>

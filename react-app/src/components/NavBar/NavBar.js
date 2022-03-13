@@ -7,6 +7,7 @@ import SignUpFormModal from '../auth/SignUpFormModal';
 import LoginFormModal from '../auth/LoginFormModal';
 import DemoUser from './demouser'
 import './navbar.css'
+import AboutLinks from '../AboutLinks/AboutLinks';
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session?.user)
@@ -18,9 +19,11 @@ const NavBar = () => {
       {(!sessionUser) ?
           <div className='main-navbar-logout-items-container'>
             <div className='navbar-demo-container'>
-                <div className='demo-btn'>
-                  <DemoUser />
+              <NavLink to='/about' id='demo-btn'>
+                <div className='abt-btn'>
+                  ABOUT US
                 </div>
+              </NavLink>
             </div>
             <div className='navbar-line'></div>
             <div className='navbar-demo-container'>
