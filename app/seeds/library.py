@@ -103,6 +103,11 @@ def seed_library():
   l89 = Library(artist_name="Taylor Swift", album_name="Red (Taylor's Version)", album_coverart_url="https://cdn.shopify.com/s/files/1/0011/4651/9637/products/GKg0cS-Y_dfc83adc-fffd-4f2f-bc1e-fbd16d6e9659_800x.png?v=1628098713", song_title="All Too Well", song_url="https://moodify.s3.amazonaws.com/Heartbreak/All+Too+Well+_+Taylor+Swift+(Lyrics).mp3", created_at=datetime.now(), updated_at=datetime.now())
   l90 = Library(artist_name="Taylor Swift", album_name="Red (Taylor's Version)", album_coverart_url="https://cdn.shopify.com/s/files/1/0011/4651/9637/products/GKg0cS-Y_dfc83adc-fffd-4f2f-bc1e-fbd16d6e9659_800x.png?v=1628098713", song_title="We Are Never Ever Getting Back Together", song_url="https://moodify.s3.amazonaws.com/Heartbreak/Taylor+Swift+-+We+Are+Never+Ever+Getting+Back+Together+(Lyrics).mp3", created_at=datetime.now(), updated_at=datetime.now())
 
+  l91 = Library(artist_name="Taylor Swift", album_name="Fearless (Taylor's Version)", album_coverart_url="https://thewessexwire.com/wp-content/uploads/2021/05/taylor-swift-900x556.jpg", song_title="Fearless", song_url="https://moodify.s3.amazonaws.com/TSwift/Taylor+Swift+-+Fearless.mp3", created_at=datetime.now(), updated_at=datetime.now())
+  l92 = Library(artist_name="Taylor Swift", album_name="Fearless (Taylor's Version)", album_coverart_url="https://thewessexwire.com/wp-content/uploads/2021/05/taylor-swift-900x556.jpg", song_title="Fifteen", song_url="https://moodify.s3.amazonaws.com/TSwift/Taylor+Swift+-+Fifteen.mp3", created_at=datetime.now(), updated_at=datetime.now())
+  l93 = Library(artist_name="Taylor Swift", album_name="Fearless (Taylor's Version)", album_coverart_url="https://thewessexwire.com/wp-content/uploads/2021/05/taylor-swift-900x556.jpg", song_title="Love Story", song_url="https://moodify.s3.amazonaws.com/TSwift/Taylor+Swift+-+Love+Story.mp3", created_at=datetime.now(), updated_at=datetime.now())
+  l94 = Library(artist_name="Taylor Swift", album_name="Fearless (Taylor's Version)", album_coverart_url="https://thewessexwire.com/wp-content/uploads/2021/05/taylor-swift-900x556.jpg", song_title="Hey Stephen", song_url="https://moodify.s3.amazonaws.com/TSwift/Taylor+Swift+-+Fifteen.mp3", created_at=datetime.now(), updated_at=datetime.now())
+
   l1.playlists.append(p1)
   l2.playlists.append(p1)
   l3.playlists.append(p1)
@@ -319,6 +324,11 @@ def seed_library():
   db.session.add(l88)
   db.session.add(l89)
   db.session.add(l90)
+
+  db.session.add(l91)
+  db.session.add(l92)
+  db.session.add(l93)
+  db.session.add(l94)
 
   db.session.commit()
 

@@ -15,8 +15,9 @@ import UserProfile from "./components/UserProfile/UserProfile";
 import SideBar from "./components/Home/Sidebar";
 import UnauthenticatedUser from "./components/auth/TestSignUp";
 import AboutLinks from "./components/AboutLinks/AboutLinks";
-import Error from './components/ErrorPage/ErrorPage';
-
+import Error from "./components/ErrorPage/ErrorPage";
+import UserFollowing from "./components/UserProfile/UserFollowing";
+import UserFollowers from "./components/UserProfile/UserFollowers";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +40,12 @@ function App() {
         </Route>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <UserProfile />
+        </ProtectedRoute>
+        <ProtectedRoute path="/users/:userId/following" exact={true}>
+          <UserFollowing />
+        </ProtectedRoute>
+        <ProtectedRoute path="/users/:userId/followers" exact={true}>
+          <UserFollowers />
         </ProtectedRoute>
         <ProtectedRoute path="/artists/:artistName">
           <Artists />

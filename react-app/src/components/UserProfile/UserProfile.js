@@ -29,6 +29,8 @@ function UserProfile() {
   );
 
   const followCount = useSelector((state) => state?.userProfiles?.followers);
+  const following = useSelector((state) => state?.userProfiles?.following);
+  console.log(following);
 
   const isFollowing = useSelector((state) => state?.userProfiles?.isFollowing);
 
@@ -51,15 +53,21 @@ function UserProfile() {
         {isOwner ? (
           <div className="user-profile-info">
             <h1 className="user-profile-username">MY PLAYLISTS</h1>
-            {followCount?.length == 1 ? (
-              <div className="user-follower-count">
-                {followCount?.length} Follower
-              </div>
-            ) : (
-              <div className="user-follower-count">
-                {followCount?.length} Followers
-              </div>
-            )}
+            <div className="following-info">
+              <NavLink
+                to={`/users/${sessionUser?.id}/followers`}
+                className="user-follower-count"
+              >
+                {followCount?.length}{" "}
+                {followCount?.length === 1 ? "Follower" : "Followers"}
+              </NavLink>
+              <NavLink
+                to={`/users/${sessionUser?.id}/following`}
+                className="user-following-count"
+              >
+                {following?.length} Following
+              </NavLink>
+            </div>
           </div>
         ) : (
           <div className="user-profile-info">
