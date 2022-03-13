@@ -54,13 +54,19 @@ function UserProfile() {
           <div className="user-profile-info">
             <h1 className="user-profile-username">MY PLAYLISTS</h1>
             <div className="following-info">
-              <div className="user-follower-count">
+              <NavLink
+                to={`/users/${sessionUser?.id}/followers`}
+                className="user-follower-count"
+              >
                 {followCount?.length}{" "}
                 {followCount?.length === 1 ? "Follower" : "Followers"}
-              </div>
-              <div className="user-following-count">
+              </NavLink>
+              <NavLink
+                to={`/users/${sessionUser?.id}/following`}
+                className="user-following-count"
+              >
                 {following?.length} Following
-              </div>
+              </NavLink>
             </div>
           </div>
         ) : (
