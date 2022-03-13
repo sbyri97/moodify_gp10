@@ -88,8 +88,8 @@
 
 .playlist-detail-table-container th {
   text-align: left;
-  font-weight: lighter;
-  color: #b3b3b3;
+  font-weight: NexaBold;
+  color: white;
   font-size: 0.8em;
 }
 
@@ -124,16 +124,17 @@
 }
 
 .playlist-detail-grey-text {
-  color: #b3b3b3;
+  color: white;
 }
 
 .no-text-dec {
   text-decoration: none;
-  color: #b3b3b3;
+  color: white;
 }
 
 .no-text-dec:hover {
   color: white;
+  font-family: NexaLight;
 }
 
 .playlist-song-img-container {

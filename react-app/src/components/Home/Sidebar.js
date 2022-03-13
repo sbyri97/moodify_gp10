@@ -29,9 +29,11 @@ const SideBar = () => {
     return (
     <div className='sidebar'>
         <div className='sidebar-upper'>
-            <div className='sidebar-logo-container'>
-                <img className='sidebar-spotify-logo'src='https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png' alt='spotify_logo'/>
-            </div>
+            <NavLink to='/' exact={true} className='sidebar-navlink-home'>
+                <div className='sidebar-logo-container'>
+                    <img className='sidebar-moodify-logo' src='/white-on-clear.png' alt='moodify_logo' />
+                </div>
+            </NavLink>
             <ul className='sidebar-ul'>
                 <li className='sidebar-li'>
                     <NavLink to='/' exact={true} className='sidebar-navlink-home'>
