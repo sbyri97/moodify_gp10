@@ -111,7 +111,7 @@
 .not-following-div {
   display: flex;
   width: 600px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-top: 25px;
 }
