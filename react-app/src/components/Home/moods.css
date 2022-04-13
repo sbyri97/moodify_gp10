@@ -22,8 +22,13 @@
   margin-left: 230px;
   background-color: #1c1c1c;
   width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
+.moodsContainer::-webkit-scrollbar {
+  display: none;
+}
 
 .h3Div {
   background-color: #1c1c1c;
