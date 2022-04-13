@@ -25,6 +25,12 @@ const AudioPlayer = () => {
   const volumeSlider = useRef(); // reference the volume slider
 
   useEffect(() => {
+    return () => {
+      cancelAnimationFrame(animationRef.current)
+    }
+  }, [])
+
+  useEffect(() => {
     progressBar.current.value = 0;
     audioPlayer.current.currentTime = 0;
     changePlayerCurrentTime();
@@ -49,7 +55,7 @@ const AudioPlayer = () => {
 
   const playSong = () => {
     setIsPlaying(true);
-    audioPlayer?.current?.play();
+    audioPlayer?.current?.play()?.catch(() => { });
     animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
@@ -57,7 +63,7 @@ const AudioPlayer = () => {
     const prevValue = isPlaying;
     setIsPlaying(!prevValue);
     if (!prevValue) {
-      audioPlayer?.current?.play();
+      audioPlayer?.current?.play()?.catch(() => { });
       animationRef.current = requestAnimationFrame(whilePlaying);
     } else {
       audioPlayer.current.pause();
@@ -158,7 +164,7 @@ const AudioPlayer = () => {
           {/* duration */}
           <div className="duration">
             {audioPlayer.current?.duration &&
-            !isNaN(audioPlayer.current.duration)
+              !isNaN(audioPlayer.current.duration)
               ? calculateTime(audioPlayer.current.duration)
               : "0:00"}
           </div>
