@@ -12,7 +12,7 @@
 
 ## Technologies used:
 
-Javascript | Python | Node.js | NPM | Flask | SQLAlchemy | Alembic | Git | HTML / JSX | CSS | React | Redux | Heroku | Docker | AWS
+Javascript | Python | Node.js | Flask | SQLAlchemy | Alembic | CSS | React | Redux | Heroku | Docker | AWS
 
 ## Installation
 
