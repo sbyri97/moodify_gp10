@@ -32,8 +32,8 @@
 
 }
 
-.errors {
-    color: white;
+.auth-errors {
+    color: red;
 }
 
 

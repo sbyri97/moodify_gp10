@@ -98,6 +98,8 @@
 .navbar-menu-div {
     background-color: #282828;
     /* height: 300px; */
+    display: flex;
+    flex-direction: column;
     padding: none;
     z-index: 9999;
     position: absolute;

@@ -39,7 +39,7 @@ const LoginForm = () => {
           <div className='spotifyLogo'>
           </div>
           <form className='formMainDiv' onSubmit={onLogin}>
-            <div className='errors'>
+            <div className='auth-errors'>
               {errors.map((error, ind) => (
                 <div key={ind}>{error}</div>
               ))}

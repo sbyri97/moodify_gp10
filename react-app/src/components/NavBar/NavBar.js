@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { FaUserCircle, FaCaretDown, FaCaretUp, FaRegIdCard } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import SignUpFormModal from '../auth/SignUpFormModal';
 import LoginFormModal from '../auth/LoginFormModal';
@@ -12,6 +12,7 @@ const NavBar = () => {
   const sessionUser = useSelector((state) => state.session?.user)
 
   const [yesDrpDwn, setYesDrpDown] = useState(false)
+  const history = useHistory()
 
 
   useEffect(() => {
@@ -30,6 +31,10 @@ const NavBar = () => {
     return () => document.removeEventListener("click", closeMenu);
   }, [yesDrpDwn]);
 
+  const aboutUsClick = (e) => {
+    e.preventDefault()
+    return history.push("/about")
+  }
 
   return (
     <nav className='main-navbar-container'>
@@ -94,6 +99,9 @@ const NavBar = () => {
               </div>
               <div className='navbar-menu-logout-btn'>
                 <LogoutButton />
+              </div>
+              <div className='navbar-menu-logout-btn'>
+                <button onClick={aboutUsClick}>About Us</button>
               </div>
             </div>
           )}

@@ -116,6 +116,6 @@
   border-radius: 12px;
 }
 
-.errors {
-  color: white;
+.auth-errors {
+  color: red;
 }
